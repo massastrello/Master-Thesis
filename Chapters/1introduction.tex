@@ -97,7 +97,7 @@ As explained in the previous part, it would be desirable to extend the theory of
 %
 Examples of these tasks in the manipulation context are:
 ball--juggling \cite{sanfelice2007hybrid, tian2013}, ball--dribbling \cite{Batz2010, haddadin2018exploiting} or even tossing/catching of a deformable object \cite{ruggero2018}. 
-Other hybrid tasks may be related to \textit{self manipulation}, e.g. dynamic walking \cite{spong2007,westervelt2018feedback} and control of powered exoskeletons \cite{harib2018feedback,lv2018design}.
+Other hybrid tasks may be related to \textit{self manipulation}, e.g. dynamic walking \cite{spong2007,westervelt2018feedback}, hopping robots \cite{Ishikawa2003} and control of powered exoskeletons \cite{harib2018feedback,lv2018design}. The one--dimensional version of the ball--juggling and ball--dribbling systems are represented in Fig. \ref{fig:1D}.
 %
 \newline
 
@@ -107,9 +107,19 @@ One of the most clear proofs of the necessity of an novel unified framework merg
 \newline
 
 Furthermore, following the reasoning of Subsection \ref{subsec:comm_fact}, the span of validity of this new general framework could indeed be extended any physical domain, Opening to potential solutions in every branches of engineering.
+%
+\begin{figure}[!t]
+	\centering
+	\input{Drawings/balldribbling.tex}
+	\input{Drawings/balljuggling.tex}
+	\caption{One-dimensional ball--dribbling (left) and ball--juggling (right) robotic systems. The position of the robot (rectangle), is represented by the variable $q_1$ while $u$ is an input force applied to it. Moreover, the position of the ball (circle), of radius $r$, is represented by $q_2$. The ball--juggling system presents a single impact, i.e. between the robot and the ball. The ball--dribbling system, instead, is characterized by two impacts: ball--robot and ball--ground.}
+	\label{fig:1D}
+	%
+\end{figure}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beyond Robot Control}
-Up to this point, the need of an novel unified framework has been justified by the highly dynamic robotic tasks which, until our days, cannot be approach in a systematic a general way robotics due to the \textit{nonsmooth} nature of the robotic tasks.
+Up to this point, the need of an novel unified framework has been justified in robotics, as until now, the control problem of highly dynamic tasks cannot be approached in a systematic general way due to the \textit{nonsmooth} nature of the robotic tasks.
 %
 \newline
 
@@ -121,20 +131,45 @@ In example, a system subjected to a \textit{sliding--mode controller} \cite{pisa
 
 %
 Very simple practical example of how a controller give an hybrid nature to dynamical systems, are the temperature regulator of a room or the water--level control in tanks.
+%
+\newline
+
+%
+In the light of this considerations, it is legitimate pose the following questions: \newline
+\textit{Can these hybrid control systems be modeled from an energetic point of view in port--Hamiltonian fashion?}\newline
+\textit{If yes, which theoretical advantages would this formulation give?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Identification problem}
+%
+As common in Automatic Controls, controller design, simulations and diagnostics of hybrid dynamical systems require an accurate knowledge of the model. However, these {processes} are always characterized by sets of parameters which are typically not available.
+%
+\newline
 
-\begin{figure}
-    \centering
-    \input{Drawings/venn.tex}
-    \caption{Caption}
-    \label{fig:my_label}
-\end{figure}
+%
+System identification techniques are the interface between real world application and mathematical world of control theory and mathematical abstraction~\cite{LJUNG20101}. These methods aim to obtain estimates of the parameters and update the model from direct measurements collected during the time evolution of the system~\cite{SIS}.
+%
+\newline
+
+%
+Dealing with robotic systems, it is well known that inertial parameters must often be thoroughly estimated with well designed identification experiments. Moreover, if the robot experiences impacts or sudden state changes, it is intuitive to understand that further parameters given by the hybrid part of the system must be estimated. 
+Thus, in order to implement any robot controllers for highly dynamic tasks, it is necessary to solve the identification problem first.
+%
+\newline
+
+%
+The majority of the literature on identification of hybrid systems is related to classes of (discrete--time) Piece Wise Affine systems (PWA), i.e. systems which are defined by subdividing the  space into polyhedral regions which have associated an affine state update equation \cite{Juloski,Paoletti,Bemporad,Ferrari, juloski2005bayesian}.
+% 
+\newline
+
+%
+Besides, the identification of hybrid dynamical system in the form of \textit{hybrid inclusions} has yet to be explored. No systematic identification procedures for this class of systems currently exist. Note that
+%
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{{Objective and Approach}}
+\section{{Aims and Objective}}
 The aim of this thesis is to present a novel control theoretical framework for physical systems with nonsmooth and multimodal behaviors, with a special insight toward robot control tasks where the current--state--of--the--art approaches fail.
 
 The main objectives are:
@@ -170,15 +205,8 @@ The main objectives are:
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\section{Problem Setting}
-% In this thesis the problem addressed is to build a glass confidence map mentioned above by a mobile robot automatically using a LRF, specifically in human indoor environments where large areas of glass panels exist, such as shopping malls, and offices. Several assumptions are made in this thesis. The first assumption is the LRF is mounted on the mobile robot and scans the environment horizontally. The LRF outputs both distance to the objects and received reflected laser intensity, which is true for most LRFs on market. Second, the robot's motion is considered to be planar, and it's odometry information is assumed to be readily available from the robot's sensors, such as encoders. Reasonable noise is allowed for the odometry information. Third, the glass as well as other main objects in the environments are assumed to be not curved. Curve surface cannot be handled in current work but is possible to be solved by some improvements. However, there is no assumption regarding the cleanness, thickness or color of the glass panels as well as other objects. 
-
-% To use the proposed method to build glass confidence maps, the classifier needs to be trained using previously acquired experimental data. Once the classifier is trained, it can work on same module of LRFs and similar environments. "Similar environments" means the material types are similar with the ones in the training environments but do not need to be exact same. More details about the extensibility and robustness of the classifier when dealing with untrained materials will be discussed in Chapter 5. Moreover, while building the map, a mobile robot needs to be tele-operated to navigate in the environment, with the mapping system running on the robot. Simultaneously, a standard SLAM algorithm should be running in order to provide a 2-D glass confidence map of the environment and the robot's location on the fly. 
-
-%\clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Thesis Contenent \& Structure}
+\section{Thesis Contenent and Structure}
+\subsection{Thesis Outline}
 This thesis is structured in seven chapters as follows: this chapter serves as an introduction that describes the main motivations, purpose and approach of this study.
 These seven chapter can be logically clustered in four main parts: Introduction and backgroud, theoretical results, applications and conclusions  
 %
@@ -212,14 +240,29 @@ In the first half of the chapter, the input--state--output model of a port-Hamil
 
 %
 \textbf{Chapter 7} presents the conclusions of this study and future work. An outline of the whole thesis structure is shown in Fig. \ref{fig:ThesisStructure}.
-
+%
 \begin{figure}[b]
     \centering
     \input{Drawings/structure.tex}
     \vspace{5mm}
-    \caption{Thesis structure outline. The coloured arrows indicate the logical flows of the contents throughout the thesis, highlighting, e.g., how the theory presented in the first chapters is employed in the various applications. Chapters in light gray blocks contain exclusively original content developed by the author,}
+    \caption{Thesis outline. The coloured arrows indicate the logical flows of the contents throughout the thesis, highlighting, e.g., how the theory presented in the first chapters is employed in the various applications. Chapters in light gray blocks contain exclusively original content developed by the author,}
     \label{fig:ThesisStructure}
 \end{figure}
+%
+%\newline
+%
+%
+\subsection{Thesis Content}
+This thesis is developed a across three main broad fundamental fields: control theory, robotics and statistics. How the contents are distributed these field is clarified by the Venn diagram of Fig. \ref{fig:venn}. In particular, the first three chapters  remain constrained to the pure control theory as port--Hamiltonian systems and hybrid dynamical systems are firstly introduced in Chapter 2 and then merged in Chapter 3. Chapter 5 is also mostly related to theoretical aspects. However, in Chapter 4, the contents move inside the intersection of control theory and robotics with the ball--dribbling robot. As Chapter 6 treats the parameters estimation problem for a class of hybrid dynamical systems, the content shifted into a subclass of system identification, belonging to the intersection of control theory and statistics.
+
+\begin{figure}
+    \centering
+    \input{Drawings/venn.tex}
+    \vspace{5mm}
+    \caption{Venn diagram of the contents presented in this thesis. In particular, Chapters 3 and 5 are related to hybrid port--Hamiltonian systems but constrained to the theory. Instead, Chapter 4 presents the application of hybrid port--Hamiltonian systems to robotics. Finally, Chapter 6 deals with the identification of hybrid systems, located in the meeting point of control theory and statistics.}
+    \label{fig:venn}
+\end{figure}
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \iffalse
