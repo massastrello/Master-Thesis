@@ -1,0 +1,238 @@
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+\lhead[Appendix]{}
+
+\thispagestyle{empty}
+
+\newpage
+
+
+\chapter{Robot localization}
+\label{chap:mcl_math}
+
+\section{Bayes filter derivation\label{sec:bayes_math}}
+As mentioned in section \ref{sec:localization}, the main idea of Bayes filtering is to estimate the pose using a probability density estimation of the state space $\p_t$ conditioned on the time series data $\ac_{0:t},\ob_{0:t}$ and previous states $\p_{0:t-1}$, with posterior $Bel(\p_t)$ denoted by:
+
+\begin{equation}
+ Bel(\p_t) = p(\p_t|\ac_{0:t},\ob_{0:t}),
+ \label{eq:ap_bel1}
+\end{equation}
+using Bayes' rule it is obtained that:
+\begin{equation}
+ Bel(\p_t) = \frac{p(\ob_t|\p_t,\ac_{0:t},\ob_{0:t-1})p(\p_t|\ac_{0:t},\ob_{0:t-1})}{p(\ob_t|\ac_{0:t},\ob_{0:t-1})},
+\end{equation}
+from the Markov assumption it is obtained that $p(\ob_t|\p_t,\ac_{0:t},\ob_{0:t-1}) = p(\ob_t|\p_t)$, so:
+
+\begin{equation}
+ Bel(\p_t) = \frac{p(\ob_t|\p_t)p(\p_t|\ac_{0:t},\ob_{0:t-1})}{p(\ob_t|\ac_{0:t},\ob_{0:t-1})},
+\end{equation}
+now, integrating over the state at $t-1$ it is obtained that:
+
+\begin{equation}
+ Bel(\p_t) = \frac{p(\ob_t|\p_t)}{p(\ob_t|\ac_{0:t},\ob_{0:t-1})}\int{p(\p_t|\p_{t-1},\ac_{0:t},\ob_{0:t-1})p(\p_{t-1}|\ac_t,\ac_{0:t-1},\ob_{0:t-1})d\p_{t-1}},
+ \label{eq:ap_bel2}
+\end{equation}
+once again, from the Markov assumption it can be seen that $p(\p_t|\p_{t-1},\ac_{0:t},\ob_{0:t-1}) = p(\p_t|\p_{t-1},\ac_t)$ and $p(\p_{t-1}|\ac_t,\ac_{0:t-1},\ob_{0:t-1}) = p(\p_{t-1}|\ac_{0:t-1},\ob_{0:t-1})$, the later which from eq. (\ref{eq:ap_bel1}) would be the definition of $Bel(\p_{t-1})$. Substituting all this into eq. (\ref{eq:ap_bel2}), it is finally obtained that:
+
+\begin{eqnarray}
+  Bel(\p_t) &=& \frac{p(\ob_t|\p_t)}{p(\ob_t|\ac_{0:t},\ob_{0:t-1})}\int{p(\p_t|\p_{t-1},\ac_t)Bel(\p_{t-1})d\p_{t-1}},\nonumber \\
+	   &\propto&  p(\ob_t|\p_t)\int{p(\p_t|\p_{t-1},\ac_t)Bel(\p_{t-1})d\p_{t-1}},
+ \label{eq:ap_bel}
+\end{eqnarray}
+which is the basic equation for all Bayesian filters, including MCL and its derivatives.
+
+\section{Importance factors in MCL\label{sec:w_mcl_math}}
+Importance factors in MCL are calculated as to make the weighted sample set $\{\p^{(i)}_{t},w^{(i)}\}$ be distributed proportionally to $Bel(\p_{t})$. 
+
+Considering that the sample set $\{\p^{(i)}_{t-1},w^{(i)}\}$ is in fact distributed according to $Bel(\p_{t-1})$, from the importance sampling step $$\p^{(i)}_{t-1} \sim \{\p^{(i)}_{t-1},w^{(i)}\},$$ it is obtained that: 
+\begin{equation}
+ \p^{(i)}_{t-1} \sim Bel(\p_{t-1}).
+\end{equation}
+
+From the prediction step $$\p^{(i)}_{t} \sim p(\p^{(i)}_{t}|\p^{(i)}_{t-1},\ac_{t-1}),$$ it is now obtained that:
+
+\begin{equation}
+ \p^{(i)}_{t}\ \sim \ p(\p_t|\p_{t-1},\ac_{t-1})Bel(\p_{t-1}).
+ \label{eq:ap_proposal_distribution}
+\end{equation}
+
+Finally, in order to offset the difference between the proposal distribution (eq. (\ref{eq:ap_proposal_distribution})) and the desired distribution $Bel(\p_t)$ the importance factors are calculated by multiplying the inverse of the proposal distribution and the desired distribution:
+
+\begin{eqnarray}
+ w^{(i)}  & = & [q_t]^{-1}p(\ob_t|\p^{(i)}_t)p(\p^{(i)}_t|\p^{(i)}_{t-1},\ac_{t-1})Bel(\p^{(i)}_{t-1}), \nonumber \\
+	  & = & \frac{p(\ob_t|\p^{(i)}_t)p(\p^{(i)}_t|\p^{(i)}_{t-1},\ac_{t-1})Bel(\p^{(i)}_{t-1})}{p(\p^{(i)}_t|\p^{(i)}_{t-1},\ac_{t-1})Bel(\p^{(i)}_{t-1})}, \nonumber \\
+	  & = & p(\ob_t|\p^{(i)}_t),
+ \label{eq:ap_mcl_w}
+\end{eqnarray}
+therefore, by recalculating $w^{(i)}$ as $p(\ob_t|\p_t^{(i)})$ the weighted sample set $\{\p^{(i)}_{t},w^{(i)}\}$ will be distributed according to:
+
+\begin{equation}
+ p(\ob_t|\p_t)p(\p_t|\p_{t-1},\ac_t)Bel(\p_{t-1}),
+ \label{eq:ap_bel_pf}
+\end{equation}
+which, when iterated from $t = \{0:t\}$ is equivalent to $Bel(\p_t)$ derived at (\ref{eq:ap_bel}).
+
+
+\section{Importance factors in the dual MCL\label{sec:w_dual_MCL_math}}
+
+Same as in the MCL, importance factors in the dual MCL are calculated as to make the weighted sample set $\{\p^{(i)}_{t},w^{(i)}\}$ be distributed proportionally to $Bel(\p_{t})$. 
+
+Considering the new proposal distribution $$ \bar{q_t} = \frac{p(\ob_t|\p_t)}{\pi(\ob_t)}\ \ \mathrm{with}\ \ \pi(\ob_t) = \int{p(\ob_t|\p_t)d\p_t},$$
+
+in the measurement step, it is obtained that 
+
+\begin{equation}
+ \p^{(i)}_t \sim \frac{p(\ob_t|\p_t)}{\pi(\ob_t)},
+\end{equation}
+
+Then, at the prediction step, for each $\p^{(i)}_{t-1}$ a sample is drawn from the distribution:
+\begin{equation}
+ \frac{p(\p_t^{(i)}|\ac_{t-1},\p_{t-1})}{\pi(\p_t^{(i)}|\ac_{t-1})} \ \ \mathrm{with} \ \  \pi(\p_t^{(i)}|\ac_{t-1}) = \int{p(\p_t^{i}|\ac_{t-1},\p_{t-1})d\p_{t-1}}.
+ \label{eq:ap_dual_prediction1}
+\end{equation}
+
+Now, the pairs ($\p^{(i)}_{t-1},\p^{(i)}_{t}$) will be distributed according to:
+
+\begin{equation}
+ \frac{p(\ob_t|\p_t)}{\pi(\ob_t)}\frac{p(\p_t^{(i)}|\ac_{t-1},\p_{t-1})}{\pi(\p_t^{(i)}|\ac_{t-1})},
+\end{equation}
+and the adequate values for the importance factors can be obtained similarly than in eq. (\ref{eq:ap_mcl_w}). That is:
+
+\begin{eqnarray}
+ w^{(i)} &=& \left[ \frac{p(\ob_t|\p^{(i)}_t)}{\pi(\ob_t)}\frac{p(\p_t^{(i)}|\ac_{t-1},\p^{(i)}_{t-1})}{\pi(\p_t^{(i)}|\ac_{t-1})}\right]^{-1}\frac{p(\ob_t|\p^{(i)}_t)p(\p^{(i)}_t|\p^{(i)}_{t-1},\ac_{t-1})Bel(\p^{(i)}_{t-1})}{p(\ob_t|\ac_{t-1},...,\ob_0)}\nonumber \\
+	&=& \frac{\pi(\ob_t)\pi(\p_t^{(i)}|\ac_{t-1})Bel(\p^{(i)}_{t-1})}{p(\ob_t|\ac_{t-1},...,\ob_0)}\nonumber \\
+	&\propto& \pi(\p^{(i)}_t|\ac_{t-1})Bel(\p^{(i)}_{t-1}),
+ \label{eq:ap_dual_weights1}
+\end{eqnarray}
+where $Bel(\p^{(i)}_{t-1})$ can be understood as the probability of sample $\p^{(i)}_t$, which was projected back to its possible predecessor $\p^{(i)}_{t-1}$, to have been sampled from the distribution $Bel(\p_{t-1})$. It is important to notice that now, the weighted sample set $\{\p^{(i)}_{t},w^{(i)}\}^{i=\{1,...,s\}}$ is distributed according to:
+
+\begin{equation}
+ p(\ob_t|\p_t)p(\p_t|\p_{t-1},\ac_t)Bel(\p_{t-1}),
+ \label{eq:ap_dual_bel_pf}
+\end{equation}
+same as in eq. (\ref{eq:ap_bel_pf}).
+
+Therefore, $\{\p^{(i)}_{t},w^{(i)}\}^{i=\{1,...,s\}}$ is distributed according to $Bel(\p_t)$. However, as it is, it would be difficult to evaluate the probability of a particular sample $p^{(i)}$ to belong to this distribution, i.e., $Bel(\p^{(i)}_{t})$. In order to do calculate this probability, a probability density function for $Bel(\p_{t})$ must be constructed. The importance sampling step is performed in order to do this. 
+
+In the importance sampling step, a new set of samples $\p^{(i)}$ is obtained from $\{\p^{(i)}_{t},w^{(i)}\}^{i=\{1,...,s\}}$. This samples, will be distributed according to $Bel(\p_{t})$ and can be used as input for a kernel density estimation algorithm. Kernel density estimation is essentially a data smoothing algorithm, where density functions are generalized based on a finite set of data samples.
+
+\mbox{}\\
+
+In order to implement this approach one complication still remains, and that is the evaluation of $\pi(\p^{(i)}_t|\ac_{t-1})$. However, this value can be considered a constant in robot localization \cite{thrun2000monte}, simplifying eq. (\ref{eq:ap_dual_prediction1}) to:
+\begin{equation}
+ p(\p_t^{(i)}|\ac_{t-1},\p_{t-1}),
+\end{equation}
+and the importance factors from eq. (\ref{eq:ap_dual_weights1}) to:
+\begin{equation}
+ w^{(i)} = Bel(\p^{(i)}_{t-1}).
+\end{equation}
+Which are the equations shown in the section \ref{sssec:dual_mcl_algo}.  
+ 
+ 
+Other methods have also been proposed to calculate the weights for adjusting the proposal distribution and can be found at \cite{thrun2000monte}.
+
+
+\chapter{Robot motion model\label{chap:robot_motion_model}}
+
+The robot's motion model goal is to calculate the state transition $\p_{t-1}\rightarrow \p_t$. This was classically addressed by robotic kinematics in a deterministic approach; however a probabilistic approach best fits MCL and the dual MCL. Therefore, the state transition will not be seen as a single deterministic output, but as a posterior probability.
+
+Continuing with the definition of pose given in the main body of this work: $\p = [\x_x\ \x_y\ \theta_r]$ with $\x$ being the $x-y$ Cartesian coordinates and $\theta_r$ the heading direction - $\x$ is  measured in a fixed (global) reference frame, and, by convention, $\theta_r$ is measured with respect to the $x$-axis.The robot's motion model not only depends on $\p$, but also on the action commands $u_t$. If the actions commands were to be the current or voltage output from the controllers to the motors, then a motor model and the first and second order derivatives of the pose $\dot{\p}_t,\ddot{\p}_t$ should be considered. This is usually the case in control engineering, where usually the main goal is not navigation or localization estimation but mobile robot control. 
+
+Action command can also be the robot's velocity commands, in this case robot dynamics are no longer necessary, and the robot motion model is solely based on its kinematics. This is far more common when the goal is robot navigation or localization. 
+
+Finally, the action command can also be the robot's odometry. Odometry is often calculated by integrating the wheel encoders. Therefore, technically speaking, it is not an action command but a sensor measurement. However, it is common practice to use it to model the state transition, and hence it is treated as an action command. Most modern commercial robots, make this odometry information available in periodic time intervals (e.g., every 100 ms) or by request (i.e., by sending a command to the mobile robot asking for the odometry). The main advantage of using odometry information is that motion models based on it do not require to account for the robot's kinematics, as the robot's manufacturer has already done that, and as they are sensor measurements they do not suffer from the mismatch between input velocity commands and the actual robot motion.
+
+For a more in depth study of control engineering and modeling techniques in dynamic systems in general \cite{astrom2010feedback,ogata1970modern} are excellent references,  \cite{siciliano2008springer} provides deterministic dynamic and kinematic models for a wide range of robotic platforms and \cite{thrun2005probabilistic} describes simple velocity and odometry probabilistic models.
+
+\section{Odometry model}
+It is now presented the odometry probabilistic model that was used for the implementation of the dual MCL used in the validations done in chapters 5 and 6, as well as the experiments detailed in chapter 7. The odometry model uses relative motion information that is measured with respect to a coordinate system fixed to the robot (body coordinate frame) - any vector $\vv$ in this reference frame will be denoted as $^b\vv$. Therefore, we can stat that odometry information at time $t$ gives us the relative motion from $^b\p_{t-1}$ to $^b\p_t$. 
+
+The model first decomposes the odometry information into three motions: a rotation $\delta_{rot1}$, followed by a straight line translation motion $\delta_{trans}$, finished by a second rotation $\delta_{rot2}$. It is important to notice that for any odometry information there is a unique set of such motions that can be computed, and that those alone are enough to reconstruct the relative motion from $t-1$ to $t$. Figure \ref{fig:odometry_model} illustrates these three motions. 
+
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=0.45\columnwidth]{Figures/odometry_model.eps}
+ \caption{Illustration of the decomposition of an arbitrary relative motion into three motions: $\delta_{rot1},\ \delta_{trans},\ \delta_{rot2}$.}
+ \label{fig:odometry_model}
+\end{figure}
+
+Formally, for $\p_{t-1} = [\x_x\ \x_y\ \theta_r]$ and $\p_t = [\x'_x\ \x'_y\ \theta'_r]$, the set of values ($\delta_{rot1},\delta_{trans},\delta_{rot2}$), is calculated as:
+\begin{eqnarray}
+ \delta_{rot1}  &=& atan2(^b\x'_y-^b\x_y,^b\x'_x-^b\x_x)-^b\theta_r,  \label{eq:delta_motion} \\
+ \delta_{trans} &=& |^b\x'-^b\x|,\\
+ \delta_{rot2}  &=& ^b\theta'_r-^b\theta_r-\delta_{rot1}.
+\end{eqnarray}
+
+For the probabilistic model we now assume that each of the motions are affected by independent normally distributed noises $\alpha_{1:4}$, as:
+\begin{eqnarray}
+ \hat{\delta}_{rot1}  &=& \delta_{rot1}  + \N(0,(\alpha_1\delta_{rot1})^2 + (\alpha_2\delta_{trans})^2),\\
+ \hat{\delta}_{trans} &=& \delta_{trans} + \N(0,(\alpha_3\delta_{trans})^2 + (\alpha_4\delta_{rot1})^2+(\alpha_4\delta_{rot2})^2),\\
+ \hat{\delta}_{rot2}  &=& \delta_{rot2}  + \N(0,(\alpha_1\delta_{rot2})^2 + (\alpha_2\delta_{trans})^2).
+ \label{eq:delta_motion_noise}
+\end{eqnarray}
+
+These parameters $\alpha_{1:4}$ must be found experimentally for each robot. $\alpha_1$ and $\alpha_3$ represent the noise due to each motion, while $\alpha_2$ and $\alpha_4$ represent the coupling between the motions, and are expected to be much lower than the previous ones. Given this consideration, the next state in fixed coordinates is calculated as:
+
+\begin{eqnarray}
+ \x'_x   &=& \x_x + \hat{\delta}_{trans}\cos(\theta_r+\hat{\delta}_{rot1}),\\
+ \x'_y   &=& \x_y + \hat{\delta}_{trans}\sin(\theta_r+\hat{\delta}_{rot1}),\\
+ \theta' &=& \theta_r + \hat{\delta}_{rot1} + \hat{\delta}_{rot2}.
+ \label{eq:new_state_motion}
+\end{eqnarray}
+
+The implementation of $p(\p_t|\p_{t-1},\ac_t)$ for particle filters requires the computation of a new sample $\p^{(i)}_t$ from a previous sample $\p^{(i)}_{t-1}$. For calculating this new sample it is only necessary to evaluate equations (\ref{eq:delta_motion}) to (\ref{eq:new_state_motion}). Figure \ref{fig:odometry_model_pf_implementation} shows the particle filter implementation of the odometry model for different noise parameters. 
+
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=0.3\columnwidth]{Figures/pf_odometry_alpha_equal.eps}
+ \hspace{10pt}
+ \includegraphics[width=0.3\columnwidth]{Figures/pf_odometry_alpha_distance.eps}
+ \hspace{10pt}
+ \includegraphics[width=0.3\columnwidth]{Figures/pf_odometry_alpha_angle.eps}
+ \caption{Particle filter implementation of the odometry model for 500 samples and different noise parameters (left) $\alpha_{1:4} = (0.1,\ 0.01,\ 0.1,\ 0.01)$, (middle) $\alpha_{1:4} = (0.02,\ 0.04,\ 0.2,\ 0.04)$, (right) $\alpha_{1:4} = (0.2,\ 0.04,\ 0.02,\ 0.04)$.}
+ \label{fig:odometry_model_pf_implementation}
+\end{figure}
+\newpage
+
+\chapter{Additional test results\label{chap:aditional_simulations}}
+This chapter provides all the raw results obtained from processing all testing datasets. 
+\section{Number of samples}
+
+\clearpage
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_nsamples_error.eps}\\
+ \caption{Mean error with respect to the number of samples.\label{fig:random_samples1}}
+\end{figure}
+
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_nsamples_time.eps}\\
+ \caption{Average computation time with respect to the number of samples.\label{fig:random_samplest1}}
+\end{figure}
+
+\section{1D map testing}
+
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_gp.eps}\\
+ \caption{Average mean error of the GP model for all testings performed.\label{fig:test_gp}}
+\end{figure}
+
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_hgp.eps}\\
+ \caption{Average mean error of the hGP model for all testings performed.\label{fig:test_hgp}}
+\end{figure}
+
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_hybrid_gp.eps}\\
+ \caption{Average mean error of the hybrid GP model for all testings performed.\label{fig:test_hybrid_gp}}
+\end{figure}
+
+\begin{figure}[htp]
+ \centering
+ \includegraphics[width=\columnwidth]{Figures/test_hybrid_hgp.eps}\\
+ \caption{Average mean error of the hybrid hGP model for all testings performed.\label{fig:test_hybrid_hgp}}
+\end{figure}

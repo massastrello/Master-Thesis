@@ -1,0 +1,27 @@
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\footnotesize
+	%
+	% 
+	\fill[gray!20, draw = black,thick] (-1.95,0) ellipse (1.5cm and 1cm);
+	\fill[gray!20, draw = black,thick] (1.95,0) ellipse (1.5cm and 1cm);
+	%	
+	\draw (-1.95,0) node[align = center](flow)  {$\begin{bmatrix}
+\dot{x}\\\dot{\tau}\end{bmatrix} = \begin{bmatrix}Ax+Bu\\0\end{bmatrix}$\\$u = \beta(x)-\kappa B^\top Px$};
+	\draw (1.95,0) node[align = center](flow)  {$\begin{bmatrix}
+\dot{x}\\\dot{\tau}\end{bmatrix} = \begin{bmatrix}Ax\\1\end{bmatrix}$};
+	%
+	\draw [thick,-latex] plot [smooth, tension=1.2] coordinates { (-1,0.76) (0,1) (1,0.76)};
+	\draw [thick,-latex] plot [smooth, tension=1.2] coordinates { (1,-0.76) (0,-1) (-1,-0.76)};
+	%
+	\draw (1.9,1.4) node {$\begin{bmatrix}x^+\\\tau^+\end{bmatrix} = \begin{bmatrix}x+B\nu\\0\end{bmatrix}$};
+	\draw (1.6,-1.2) node {$\tau = t^*\land x\in\mathcal{B}_r$};
+	%
+	%
+	%\draw (-1.9,-1.1) node {$\omega^+ = \nu_{w}(x,\omega)$};
+	\draw (-1.1,1.1) node {$r \neq 0$};
+	\draw (-1.1,-1.2) node {$r = 0$};
+	\draw (-3.7,0) node {$\mathcal{S}_1$};
+	\draw (3.7,0) node {$\mathcal{S}_2$};
+	%
+	\end{tikzpicture}}

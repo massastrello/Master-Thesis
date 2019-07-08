@@ -1,0 +1,306 @@
+\documentclass[min10,12pt,english]{jsbook}
+\usepackage{pethesis}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+% \usepackage{mokuji}
+% \usepackage{natbib}
+% \setlength{\bibsep}{12pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%~PACKAGES~%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% MATH
+\usepackage{amsmath,amssymb,bm}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{arydshln}
+%
+%\usepackage{cite}
+%
+
+\usepackage{mediabb}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{float}
+%\usepackage{symbol}{footmisc}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{mdwlist}
+%\usepackage{subcaption}
+
+\graphicspath{{Figures/}}
+
+\DeclareGraphicsRule{.png}{eps}{.xbb}{}
+\DeclareGraphicsRule{.jpg}{eps}{.xbb}{}
+\usepackage{grfext}
+\AppendGraphicsExtensions*{.png,.jpg}
+\usepackage{tikz}
+\usetikzlibrary{shadows,shapes,arrows,fit,calc,patterns,decorations.pathmorphing,decorations.markings,positioning,backgrounds}
+\renewcommand{\rmdefault}{ptm}
+\tikzset{
+  basic box/.style = {
+    shape = rectangle,
+    align = center,
+    draw  = #1,
+    fill  = #1!25,
+    rounded corners},
+  header node/.style = {
+    Minimum Width = header nodes,
+    font          = \strut\Large\ttfamily,
+    text depth    = +0pt,
+    fill          = white,
+    draw},
+  header/.style = {%
+    inner ysep = +1.5em,
+    append after command = {
+      \pgfextra{\let\TikZlastnode\tikzlastnode}
+      node [header node] (header-\TikZlastnode) at (\TikZlastnode.north) {#1}
+      node [span = (\TikZlastnode)(header-\TikZlastnode)]
+        at (fit bounding box) (h-\TikZlastnode) {}
+    }
+  },
+  hv/.style = {to path = {-|(\tikztotarget)\tikztonodes}},
+  vh/.style = {to path = {|-(\tikztotarget)\tikztonodes}},
+  fat blue line/.style = {ultra thick, blue}
+}
+%
+\usepackage{pgfplots} 
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{patchplots}
+\pgfplotsset{
+	compat=1.14,
+	colormap={no data}{
+		color=(white)
+		%        color=(white)
+		color=(red)
+	},
+	colormap/bluered,
+	colormap={parula}{
+		rgb255=(53,42,135)
+		rgb255=(15,92,221)
+		rgb255=(18,125,216)
+		rgb255=(7,156,207)
+		rgb255=(21,177,180)
+		rgb255=(89,189,140)
+		rgb255=(165,190,107)
+		rgb255=(225,185,82)
+		rgb255=(252,206,46)
+		rgb255=(249,251,14)
+	},
+}
+% and optionally (as of Pgfplots 1.3): 
+\pgfplotsset{compat=newest} 
+\pgfplotsset{plot coordinates/math parser=false} 
+
+\usepackage{minitoc}
+\usepackage{hhline}
+\usepackage{slashbox}
+\usepackage{booktabs}
+%\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{otf}
+\usepackage{xcolor}
+
+%\usepackage[LGR,T1]{fontenc}
+%\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
+
+\usepackage{titletoc}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{makecell} % for change line inside a table cell (added by Jiang)
+\usepackage[nomath,nosf,notextcomp]{kpfonts}
+\usepackage{fourier}\selectfont
+\usepackage[bb=boondox,bbscaled=.95]{mathalfa}\selectfont
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+%
+\newcommand{\Lb}{\pazocal{H}}
+% modify the space of chapter name by Jiang
+% the values of the distance need to be improved to get better alignment
+\titlecontents{chapter}[2cm]{\addvspace{2pt}\bfseries}{\hspace*{2pt}\contentslabel[\thecontentslabel]{5.7em}}{\hspace*{-5.45em}} 
+{\titlerule*[4pt]{.}\contentspage}
+% for more info:
+% https://tex.stackexchange.com/questions/130670/separation-between-label-and-title
+% http://mirror.switch.ch/ftp/mirror/tex/macros/latex/contrib/titlesec/titlesec.pdf
+
+\titlecontents{section}[2.5em]{}
+  {\hspace{1em}\contentslabel{2.5em}}%change the argument to obtain the 
+                         %desired spacing
+  {\hspace*{-2.3em}}
+  {\titlerule*[4pt]{.}\contentspage}
+  
+\titlecontents{subsection}[2.5em]{}
+  {\hspace{3.5em}\contentslabel{2.5em}}%change the argument to obtain the 
+                         %desired spacing
+  {\hspace*{-2.3em}}
+  {\titlerule*[4pt]{.}\contentspage}
+
+\titlecontents{figure}[3.5em]{}
+  {\contentslabel{3.5em}}%change the argument to obtain the 
+                         %desired spacing
+  {\hspace*{-2.3em}}
+  {\titlerule*[4pt]{.}\contentspage}
+
+\titlecontents{table}[3.5em]{}
+  {\contentslabel{3.5em}}%change the argument to obtain the 
+                         %desired spacing
+  {\hspace*{-2.3em}}
+  {\titlerule*[4pt]{.}\contentspage}  
+  
+  
+%\renewcommand{\mtctitle}{}
+\setlength{\mtcindent}{6pt} % minitocのインデントを小さく
+\renewcommand{\mtcSfont}{\normalsize\rm} % minitocのsection用フォント
+\renewcommand{\mtcSSfont}{\normalsize\rm} % minitocのsubsection用フォント
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits} %argmax定義
+
+\allowdisplaybreaks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% My Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+
+% operators
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Span}{\text{span}}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator*{\argmin}{arg\,min}
+% bold letters
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\q}{\mathbf{q}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\xb}{\mathbf{x}}
+\newcommand{\ub}{\mathbf{u}}
+\newcommand{\yb}{\mathbf{y}}
+\newcommand{\Jb}{\mathbf{J}}
+\newcommand{\Rb}{\mathbf{R}}
+\newcommand{\Gb}{\mathbf{G}}
+% cal letters
+\newcommand{\Ha}{\pazocal{H}}
+\newcommand{\U}{\pazocal{U}}
+\newcommand{\Y}{\pazocal{Y}}
+\newcommand{\X}{\pazocal{X}}
+\newcommand{\La}{\pazocal{L}}
+\newcommand{\A}{\pazocal{A}}
+\newcommand{\C}{\pazocal{C}}
+\newcommand{\M}{\pazocal{M}}
+\newcommand{\V}{\pazocal{V}}
+\newcommand{\Q}{\pazocal{Q}}
+\newcommand{\K}{\pazocal{K}}
+\newcommand{\D}{\pazocal{D}}
+%\newcommand{\O}{\pazocal{O}}
+%
+\DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
+%
+\newcommand{\TODO}[1]{\par\noindent\colorbox{red}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\textbf{TO DO: {#1}}}}}}
+\newcommand{\mysubcaption}[1]{\begin{minipage}{\columnwidth}\begin{center}\small{#1}\end{center}\end{minipage}}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{axiom}[thm]{Axiom}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{hypo}[thm]{Hypothesis}
+\newtheorem{assum}[thm]{Assumption}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{crit}[thm]{Criterion}
+%\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{prin}[thm]{Principle}
+%\newtheorem{alg}{Algorithm}
+%\newtheorem{note}{Note}
+\newtheorem{summ}{Summary}
+\newtheorem{case}{Case}
+%
+\newtheorem{rmk}[thm]{Remark}
+
+% 図と図の間のスペース
+%\addtolength\floatsep{5truemm}
+% 本文と図の間のスペース
+\addtolength\textfloatsep{5truemm}
+% 本文中の図のスペース
+%\addtolength\intextsep{0pt}
+% 図とキャプションの間のスペース
+%\addtolength\abovecaptionskip{5truemm}
+%\usepackage[citecolor=blue]{hyperref}
+%
+% 論文の表紙の項目
+%
+\thesistype{平成31年度 修士論文}
+\title{Hybrid Port--Hamiltonian Systems:\\Application to Robotics}
+\etitle{ハイブリッド・ポート・ハミルトン系：ロボット応用}
+\affiliation{Department of Precision Engineering, Graduate School of Engineering\\ \vspace{5pt} The University of Tokyo}%{東京大学 工学系研究科 精密工学専攻}
+\supervisor{Professor Hajime Asama \\  一淺間教授}
+\studentid{37-175037}
+\author{Stefano Massaroli\\ マッサロリ　ステファノ}
+\begin{document}
+\dominitoc
+%表紙
+\maketitle
+%概要
+\thispagestyle{empty}
+% TITLE PAGE
+\frontmatter
+% ABSTRACT
+%\input{./Frontmatter/abst}
+%目次
+\tableofcontents
+%図目次
+\listoffigures
+%表目次
+\listoftables
+
+\input{./Frontmatter/symbols_notations}
+
+%\clearpage
+%\begin{center}
+%    \textgreek{L'aje bi'wsas}
+%\end{center}
+%Epicurus
+
+\mainmatter
+
+%
+\input{./Chapters/1introduction}
+\input{./Chapters/2preliminaries_Empty}
+\input{./Chapters/3hybridporthamiltonian_Empty}
+\input{./Chapters/4balldribbling_Empty}
+\input{./Chapters/5multistable_Empty}
+\input{./Chapters/6hybrididentification_Empty}
+\input{./Chapters/7conclusionandfuturework}
+
+%
+%謝辞
+%\input{./Backmatter/Thank}
+%
+%参考文献
+%\input{./Backmatter/Ref}
+%\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{MasterThesis}
+
+%研究業績
+\input{./Backmatter/Achieve}
+%
+%付録
+\appendix
+\input{./Backmatter/appendix}
+\cleardoublepage
+%
+% 論文の最後
+%
+\end{document}

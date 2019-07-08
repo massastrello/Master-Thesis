@@ -1,0 +1,69 @@
+\chapter*{Notations, symbols and acronyms}
+\label{symbols_notations}
+
+Matrices are capitalized and in bold font, vectors are in bold font and scalars are in italic font; unless specifically noted.
+\mbox{}\\
+\mbox{}\\
+\begin{tabular}{p{2.5cm}p{10cm}}
+\textbf{Notations} 			& \textbf{Meaning}\\
+$\vv^T$					& The transpose of vector $\vv$.\\
+$|\vv|$					& Euclidian length of vector $\vv$, i.e., $(\sum_i{v_i^2})^{\frac{1}{2}}$.\\
+$|\M|$					& Determinant of matrix $\mathbf{M}$.\\
+$\M^{-1}$				& Inverse of matrix $\M$.\\
+
+$\propto$				& Proportional to.\\
+% Distributions
+$p(x)$					& Probability density function of random variable $x$.\\
+$p(x|y)$				& Conditional probability density of random variable $x$ given $y$.\\
+
+$\N(\mathbf{m},\mathbf{\Sigma)}$	& Multivariate Gaussian (normal) distribution with mean vector $\mathbf{m}$ and covariance matrix $\Sigma$. \\
+$\sim$					& Distributed/sampled according to; e.g., $x\sim\N(\mu,\sigma^2)$, if $x$ is a random variable, it means it is distributed according to a Gaussian of mean $\mu$ and varaiance $\sigma^2$; if $x$ is a sample, it means it is sampled from the before mentioned distribution.\\
+
+$\E[x]$					& Expectation of random variable $x$.\\
+$\var(x)$				& Variance of random variable $x$.\\
+$\erf(x)$				& Error function: $\erf(x) = 2/\sqrt{\pi}\int_{-\infty}^x{\exp(-t^2)dt}$.\\
+$Bel(x)$				& Belief of $x$, as defined by Bayesian filters.\\	
+
+% Gaussian Processes
+$k(\x,\x')$				& Kernel function evaluated at points $\x$ and $\x'$.\\
+\end{tabular}
+\mbox{}\\
+\begin{tabular}{p{2.5cm}p{10cm}}
+\textbf{Symbols} 			& \textbf{Meaning}\\
+% MCL
+$\p$					& Pose, comprised of the position in the cartesian $x-y$ Coordinates and robot's heading direction: $\p = (\x_x, \x_y, theta)$.\\
+$\ob$					& Robot observations, i.e. sensors' measurements.\\
+$\ac$					& Robot actuation.\\
+$q_t$					& MCL proposal distribution.\\
+$\bar{q}_t$				& The dual MCL proposal distribution.\\
+
+% Gaussian Processes
+$\x$					& Location: $\R^2$ vector with the cartesian x-y coordinates location.\\
+$\z$					& Sensors measurements: $\R^m$ vector of Received Signal Strength (RSS) $z_i$ of $i=\{1,...,m\}$ access points.\\
+$\X$					& Design matrix: $\R^{n\times2}$ matrix of locations $\x_i$ for $i=\{1,...,n\}$ training points.\\
+$\Z$					& Training measurements matrix: $\R^{n\times m}$ matrix of sensor measurements $\z_i$ for $i=\{1,...,n\}$ training points.\\
+
+$\K = cov(\X,\X)$			& Gram matrix: $\R^{n\times n}$ covariance matrix between all training points.\\
+$\mathbf{k}_*$ = $cov(\X,\x_*)$		& Covariance vector for test point $\x_*$: $\R^n$ covariance vector between training points $\X$ and test point $\x_*$.\\  
+$k_{**}$ = $cov(\x_*,\x_*)$		& Variance of test point.\\
+\end{tabular}
+\mbox{}\\
+\begin{tabular}{p{2.5cm}p{10cm}}
+\textbf{Acronyms} 			& \textbf{Meaning}\\
+% MCL
+CV					& Computer Vision.\\
+RGB-D					& Red-Green-Blue-Depth.\\
+GPS					& Global Positioning System.\\
+MCL					& Monte Carlo Localization.\\
+EKF					& Extended Kalman Filter.\\
+UKF					& Unsented Kalman Filter.\\
+PF					& Particle Filter.\\
+GP					& Gaussian Process.\\
+HMM					& Hidden Markov Model.\\
+DBN					& Dynamic Bayes Network.\\
+2TBN					& Two-Timeslice Bayesian Network.\\
+WLAN					& Wireless Local Area Network.\\
+WNIC					& Wireless Network Interface Controller.\\
+LOS					& Line of Sight.\\
+RSS					& Received Signal Strength.\\
+\end{tabular}

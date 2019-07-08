@@ -1,0 +1,18 @@
+\chapter*{Research publications}
+\addcontentsline{toc}{chapter}{Research publications}
+\lhead[Research publications]{}
+
+\thispagestyle{empty}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Peer reviewed conference papers}
+\begin{enumerate}[{[}1{]}]
+\item \textbf{Renato Miyagusuku}, Atsushi Yamashita, Hajime Asama: ``Distributed Algorithm for Robotic Network Self-deployment in Indoor Environments Using Wireless Signal Strength'', Proc. 13th Inteligent Conf. on Intelligent Autonomous Systems (IAS-13), Padua, Italy, July (2014).
+\end{enumerate}
+
+\section*{Oral presentations}
+\begin{enumerate}[{[}1{]}]
+\item \textbf{Renato Miyagusuku}, Atsushi Yamashita and Hajime Asama: ``Analysis of Two Approaches to Location Estimation Based on Wireless Signal Propagation and Gaussian Processes', Proc. of the Japanese Society of Mechanical Engineers, The Robotics and Mechatronics Conference 2015 (ROBOMECH2015), 2A2-L07, pp.1-4, Kyoto, May 2015.
+\item \textbf{Renato Miyagusuku}, Atsushi Yamashita and Hajime Asama: ``Distributed Algorithm for Robotic Network Self-deployment Using Wireless Signal Strength Measurements'', Proc. of the Japan Society for Precision Engineering, 2014 Spring Meeting, pp. 229-230, Tokyo, March 2014.
+\end{enumerate}

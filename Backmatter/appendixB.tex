@@ -1,0 +1,206 @@
+\chapter{Set Theory and Differential Geometry}
+%
+\section{Vector Spaces}\label{vectorspaces}
+%
+\begin{defn}[Dual Space]
+	Let $\V$ be a vector space, its dual space $\V^*$ is the set of linear maps from $\V$ to $\R$, i.e.,
+	\begin{align}
+	\V^* \triangleq \left\{f~:~\V\rightarrow\R:\forall v_1,v_2\in\V,~\forall\alpha_1,\alpha_2\in\R~~f(\alpha_1v_1+\alpha_2v_2) = f(\alpha_1v_1)+f(\alpha_2v_2)\right\}
+	\end{align}
+\end{defn}
+%
+Note that:
+%
+\begin{itemize}
+    \item $\V^*$ is a vector space;
+    \item $\dim(\V)<\infty\Rightarrow\dim(\V)= \dim(\V^*)$.
+\end{itemize}
+%
+Elements of $\V$ and $\V^*$ are said to be \textit{dual} one with respect to the other. The elements of $\V$ are called \textit{vectors} while the elements of $\V^*$ are called \textit{covectors}.
+%
+\begin{defn}[Duality Product]
+	Given $\V$ and $\V^*$, the \textit{duality product} is defined as
+	\begin{equation}
+	\langle\text{ },\text{ }\rangle:\V\times\V^*\rightarrow\R\qquad\langle v,v^*\rangle = v^*(v)
+	\end{equation}
+\end{defn}
+%
+The duality product is intrinsically defined for any vector space. In coordinates, vectors and covetors are represented as column are row vectors respectively and, therefore, the duality product is simply given by the dot product.
+%
+\begin{defn}[Direct Sum]
+	Given a vector space $\V$, we say that $\V$ is the direct sub of the subspaces $\mathcal{A}$ and $\mathcal{B}$ and we denote it as
+	%
+	\begin{equation*}
+	\V = \mathcal{A}\oplus\mathcal{B}
+	\end{equation*}
+	%
+	if and only if
+	%
+	\begin{equation*}
+	\mathcal{A}\cap\mathcal{B} = \O\text{ and } \forall v\in\V,\exists a\in\mathcal{A},b\in\mathcal{B}:v= a+b
+	\end{equation*}
+	%
+\end{defn}
+%
+\section{Differential Geometry}
+%
+%
+\begin{defn}[Vector Bundle]
+	A vector bundle is a topological construction that makes precise the idea of a family of vector spaces parameterized by another space X (e.g., a topological space, a manifold, or an algebraic variety): to every point x of the space X we associate (or "attach") a vector space V(x) in such a way that these vector spaces fit together to form another space of the same kind as X (e.g., a topological space, manifold, or algebraic variety), which is then called a vector bundle over X.
+\end{defn}
+%
+%
+\subsection{Manifolds}
+Loosely speaking, a manifold is defined as a set which is locally diffeomorphic to $\R^n$ around each of its points (e.g., a smooth surface in space).\\
+The first concept needed to be defined for a manifold is the one of a \textit{chart}. This concept comes from cartography, where people try to create an atlas by
+means of a collection of charts describing different parts of the earth. Some charts in the atlas must overlap to be useful. This overlap creates a kind of
+continuity in the description of the earth. 
+%
+\begin{defn}[Chart]
+	Given a set $\M$, a local chart on $\M$ is a bijection $\phi:U\subset\M\rightarrow P\subset\R^n$. We denote this chart with $(U,\phi)$
+\end{defn}
+%
+We can now define an atlas as a collection of charts which overlap in a smooth way in the sense which is hereafter explained. 
+%
+\begin{defn}[Atlas]
+	An atlas on a set $\M$ is a family of charts $(U_i,\phi_i)$, $i\in I$ where $I$ may be an indexing set, such that:
+	\begin{itemize}
+		\item[1.] Continuity: $\phi_i$ is a homeomorphism $\forall i$
+		\item[2.] Covering: $\M = \bigcup_{i\in I}U_i$
+		\item[3.] Compatibility: $\forall i,j\in I$ consider the charts $(U_i,\phi_i)$, $(U_j,\phi_j)$. If $U_c := U_i\cap U_j \neq \O$, then the function $(\phi_i\circ\phi_j^{-1}):\phi_j(U_c)\subset\R^n\rightarrow\phi_i(U_c)\subset\R^n$ should be smooth.	
+	\end{itemize}
+\end{defn}
+%
+The \textit{continuity} condition ensures that a manifold is a continuous entity, but does not ensure anything concerning differentiability. The \textit{covering} property ensures that for any part of the manifold there is at least a chart which can be used to study the manifold around that part. The \textit{compatibility} condition ensures differentiability and smoothness for differential calculus on the manifold. For intuition, a manifold can be defined as a curved smooth surface.\\
+%
+In the previous definitions, the charts map to $\R^n$. The integer $n$ is called the dimension of the manifold in a neighborhood of the point of the considered
+chart. 
+%
+\begin{defn}[Dimension]
+	For a manifold $\M$, the dimension of the manifold around a point $p\in U_i$ is the dimension of the real space which
+	is the codomain of the chart $(U_i, \phi_i)$. 
+\end{defn}
+%
+\subsection{Tangent Spaces}\label{tangentspaces}
+%
+Consider the functions which are defined on a manifold. Denote with $\mathcal{C}^{\infty}(\M)$ the set of infinitely differentiable functions defined on $\M$. In
+the same way, we indicate with $\mathcal{C}^{\infty}(p)$ the set of smooth functions defined on an open neighborhood of  $p\in \M$. Since we have smoothness properties for a manifold, in a certain point  $p\in \M$ of the manifold we can consider the vector space composed of all the tangent vectors to the manifold in the point $p$. This is a vector space because the manifold is locally bijective to $\R^n$.
+%
+\begin{defn}[Tangent space]
+	The tangent space $T_p\M$ to $\M$ at $p$ is defined as the linear space of mappings of the following form:
+	\begin{equation*}
+	X_p:\mathcal{C}^{\infty}(p)\rightarrow\R
+	\end{equation*} 
+	%
+	such that the following are satisfied
+	%
+	\begin{itemize}
+		\item[1.] Linearity: $X_p(\alpha f + \beta g) = X_p(\alpha f) + X_p(\beta g)$
+		\item[2.] Leibniz rule: $X_p(fg) = (X_p f)g(p) + f(p)(X_pg)$
+	\end{itemize}
+	%
+	for any $f,g\in\mathcal{C}^{\infty}$ and $\alpha,\beta\in\R$.
+\end{defn}
+%
+Note that if a chart $U,\phi$ around a point $p$ with coordinates $(x_1,..., x_n)$ is considered, a base of the vector space at $p$ is indicated with ${\partial/\partial x_i}$ such that 
+%
+\begin{equation*}
+X_p = X_1\frac{\partial}{\partial x_1} +\cdots + X_n \frac{\partial}{\partial x_n}
+\end{equation*}
+%
+where $(X_1,\dots, X_n)\in\R^n$ is a local representation of $X_p$ with the coordinates $(x_l,\dots,x_n)$.\\
+%
+The set of all the tangent spaces in any position of the manifold is called the tangent bundle of the manifold.
+%
+\begin{defn}[Tangent bundle]
+	The tangent bundle of a manifold $\M$ is defined as:
+	%
+	\begin{equation*}
+	T\M:=\bigcup\limits_{p\in\M} {T_p\M}
+	\end{equation*}
+	%
+\end{defn}
+%
+Notice that the dimension of a\textit{ tangent space} at a point $p$ of a constant dimensional manifold $\M$ of dimension $n$, is itself $n$. This can be understood since locally, around $p$, the manifold can be studied as being $\R^n$ itself. On the other hand, an element of the vector bundle has dimension $2n$ since the point $p$ (which it is considered to be on the manifold) it must be specified using $n$ coordinates and then $n$ other
+coordinates are needed to identify the vector belonging to $T_p\M$.
+%
+
+Since to each point $p$ there corresponds a vector space $T_p\M$, its
+dual may be considered. This dual space is called the \textit{cotangent space} at $p$ and indicated with $T_p^*\M$. The cotangent space at $p$ is therefore the set of
+linear operators from $T_p\M$ to $\R$. The set of all the cotangent spaces can
+be defined at each point in the same way as it has been defined the tangent bundle
+and it is called \textit{cotangent bundle} and indicated with $T^*\M$.\\
+%
+The vector space $T_p\M$ is often called the \textit{fiber} of the tangent bundle $T^*\M$ at $p$.
+%
+\begin{defn}[Fiber Projection]
+	Given an element $(p,v)\in T\M$, the fiber projection is defined as the map which applied to $(p,v)$ gives $v\in T_p\M$. It is denoted as
+	\begin{equation*}
+	\Pi(x,v) = v
+	\end{equation*}
+\end{defn}
+%
+\begin{defn}[Canonical Projection]
+	The canonical projection for the tangent manifold on $\M$ denotes the following mapping:
+	\begin{equation*}
+	\pi:T\M\rightarrow\M;\text{ }(x,v) \mapsto x
+	\end{equation*}
+\end{defn}
+%
+It follows that $(\pi(w),\Pi(w)) = w\quad\forall w\in T\M$.
+%
+\begin{defn}[Vector Fields]
+	A vector field is defined as a smooth mapping of the following form:
+	\begin{equation*}
+	X:\M\rightarrow T\M
+	\end{equation*} 
+	for which ($\pi \circ X$) = id.
+\end{defn}
+%
+To each point $p$ of the manifold a vector field associates an element of the tangent bundle which has to be in $p$ (a \textit{velocity vector} in \textit{p}).
+Therefore, given a vector field, the set of curves parameterized by a scalar \textit{t} such that the derivative respect to \textit{t} corresponds to the given vector field can be sought \footnote{i.e., the integration along paths of the vector field}.
+%
+\begin{defn}[Integration of Vector Fields]
+	Given a manifold $\M$ and a vector field $X$ defined on $\M$, a curve $\psi(p,\cdot):T\rightarrow\M$; $t\mapsto\psi(p,t)$ is said to be an integral curve of $X$, passing from \textit{p}, where \textit{T} is an interval of $\R$ containing 0 and $t_0$ if and only if
+	%
+	\begin{equation*}
+	\frac{d\psi(p,t)}{dt}{\bigg|}_{t = t_0} = X(\psi(p,t_0))\quad\text{and}\quad\psi(p,0) = p
+	\end{equation*}
+	%
+\end{defn}
+%
+The duals of vector fields are called \textit{covector fields}. 
+%
+\begin{defn}[Covector Fields]
+	A covector field is a smooth mapping of the following form:
+	\begin{equation*}
+	X^*:\M\rightarrow T^*\M
+	\end{equation*}
+	such that $(\pi^*\circ X^*) = id$, where $\pi^*$ is defined as $\pi$ but with domain $T^*\M$.
+\end{defn}
+%
+Covector fields are dual to vector fields, and it is therefore possible to consider the dual product of a covector field on a vector field, which would result in a function defined on the manifold.
+%
+\begin{defn}[Differential]
+	Given a smooth function $f\in\mathcal{C}^\infty(\M)$, a covector field denoted by $df$ and called "the differential of $f$" is defines as the unique covector field such that:
+	\begin{equation}
+	df(X)(p):=\langle df(p),X(p)\rangle = \frac{df(\psi(p,t))}{dt}{\bigg|}_{t = 0}
+	\end{equation}
+	for each vector field $X$ with integral $\psi$.
+\end{defn}
+%
+\subsection{Distributions}
+%
+A vector (covector) field assigns to each point $p\in\M$ of a manifold a vector belonging to $T_p\M$ ($T_p^*\M$). A \textit{distribution} assigns a subspace of $T_p\M$ to each point $p$.
+%
+\begin{defn}[Distributions]
+	A distribution on $\M$ is a smooth function which assigns to each point $p\in\M$ a subspace $\Delta(p)\subset T_p\M$. $\Delta$ is called a smooth distribution if and only if its subspaces in each point are spanned by a set of smooth vector fields, i.e.
+	%
+	\begin{equation}
+	\exists X_i,\text{ }i\in I : \Delta(p) = \Span\{X_i(p);\text{ }i\in I\}
+	\end{equation}
+	%
+	A distribution is called constant dimensional if and only if for each $p\in\M$, $\Delta(p)$ has the same dimension.
+\end{defn}
+%
+A co-distribution is defined analogously with the difference that it associates to each point $p\in\M$ a subspace of the cotangent space $T_p^*\M$. 

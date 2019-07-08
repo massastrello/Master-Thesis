@@ -1,0 +1,247 @@
+%\the\textwidth = 379.37pt
+
+\chapter{Preliminaries}
+%Related research
+\label{chap:preliminaries}
+\minitoc
+
+\thispagestyle{empty}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction\label{sec:2_intro}}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Port--Hamiltonian Systems\label{sec:PH_systems}}
+%
+Port--Hamiltonian systems has been introduced in ...
+%
+\subsection{Input--State--Output Model}
+%
+The input--state--output representation of a port-Hamiltonian system is
+%
+\begin{equation}
+	\left\{
+	    \begin{matrix*}[l]
+	        \dot{\xb} = \left[\mathbf{J}(\xb) - \mathbf{R}(\xb)\right]\bm{\nabla}\Ha(\xb) + \mathbf{G}(\xb)\mathbf{u}\\
+	        \mathbf{y} = \mathbf{G}^\top(\xb)\bm{\nabla}\Ha(\xb) 
+	    \end{matrix*}
+	\right.
+\end{equation}
+%
+where $\xb\in\R^n$ is the state of the system, $\ub\in\U\subset\R^m$ is the input and $\yb\in\Y\subset\R^m$ is the output.
+Furthermore, the scalar function $\Ha:\R^n\rightarrow\R$ is the Hamiltonian of the system (i.e. its energy), the skew symmetric matrix $\mathbf{J}(\xb) = -\mathbf{J}^\top(\xb)$, $\mathbf{J}\in\R^{n\times n}$ is the interconnection matrix representing power--preserving interconnections related to a Dirac structure. The positive semidefinite matrix $\mathbf{R}(\xb) = \mathbf{R}^\top(\xb)\succeq 0$, $\mathbf{R}\in\R^{n\times n}$ represents dissipative effects in the system while the matrix $\mathbf{G}\in\R^{n\times m}$ ($\rank~ \mathbf{G}(\xb) = m$) represents the power ports.
+
+It is immediate to show that Port--Hamiltonian systems are passive. In fact,
+%
+\begin{align}
+    \dot{\Ha} &= \bm{\nabla}^\top\Ha(\x)\dot{\x} = \\
+              &= \bm{\nabla}^\top\Ha(\x)\left[\mathbf{J}(\xb) - \mathbf{R}(\xb)\right]\bm{\nabla}\Ha(\xb) + \bm{\nabla}^\top\Ha(\x)\mathbf{G}(\xb)\mathbf{u} = \\
+              &= -\bm{\nabla}^\top\Ha(\x)\mathbf{R}(\xb)\bm{\nabla}\Ha(\xb) + \yb^\top\ub = \\
+              &\leq \yb^\top\ub
+\end{align}
+%
+Note that the term $\bm{\nabla}^\top\Ha(\x)\mathbf{R}(\xb)\bm{\nabla}\Ha(\xb)$ is given by the natural (internal) dissipation effects of the system, e.g. friction in mechanical systems.
+%
+\textcolor{red}{
+\\Remark:
+\begin{itemize}
+	\item [1.] The PH description of a physical system underlines the energetic properties of the system: the amount of energy stored, (state energy variables), the energy dissipation (dissipative elements), the interfaces with the external world (power ports) and the interconnection structure log which the parts of the system exchange energy.
+	\item [2.] Recently, the concepts of Dirac structure and power port have boon extended to distributed parameters systems, see \cite{MASCHKE200027,maschke2001hamiltonian,rodriguez2001stabilization,macchelli2003port,macchelli2004modeling,macchelli2004port,macchelli2004port2}
+\end{itemize}}
+%
+Two examples of port-Hamiltonian modeling are hereafter reported.  
+%
+\begin{exmp}[fully--actuated mechanical system]
+    Consider an $n$--degrees--of--freedom fully--actuated mechanical system with Lagrange generalized coordinates $\q\in\Q\subset\R^n$, inertia matrix $\mathbf{M}(\q)$, kinetic energy $\K(\dot{\q})\triangleq\frac{1}{2}\dot{\q}^\top \mathbf{M}(\q)\dot{\q}$ and potential $\V(\q)$. The Lagrangian of the system $\La:\R^n\times\R^n\rightarrow\R$ is
+    %
+    \begin{equation}
+        \La(\q,\dot{\q}) \triangleq  \K(\dot{\q}) - \V(\q)
+    \end{equation}
+    %
+    By defining the generalized momenta conjugated to $\q$ as
+    %
+    \begin{equation}
+        \p \triangleq \frac{\partial \La}{\partial \dot{\q}} = \mathbf{M}(\q)\dot{\q}\in T^*\Q    
+    \end{equation}
+    %
+    an explicit port--Hamiltonian representation of the system can be obtained by defining:
+	%
+	\begin{align}
+	    \x &\triangleq (\q,\p)\in\R^{2n}\\
+	    \Ha(\q,\p) &\triangleq\frac{1}{2}\p^\top\mathbf{M}^{-1}(\q)\p + \V(\q)
+	\end{align}
+	%
+	and, at last,
+	%
+	\begin{align*}
+	    %
+	    \Jb = \begin{bmatrix}
+	        \mathbf{O}_n&\mathbf{I}_n\\
+	        -\mathbb{I}_n&\mathbf{O}_n
+	    \end{bmatrix}\in\R^{2n\times 2n},~~ &
+	    %
+	    \Rb(\q,\p) = \begin{bmatrix}
+	        \mathbf{O}_n&\mathbf{O}_n\\\mathbf{O}_n&\mathbf{D}(\q,\p)
+	    \end{bmatrix}\in\R^{2n\times 2n}, &
+	    %
+	    \mathbf{G}(\q)=\begin{bmatrix}
+	        \mathbb{O}_{n}\\\mathbf{B}(\q)
+	    \end{bmatrix}\in\R^{2n\times n} &
+	    %
+	\end{align*}
+	%
+	with $\mathbf{D}(\q,\p) = \mathbf{D}^\top(\q,\p)\succeq 0$, which takes into account the dissipation effects (friction). Moreover, since the system is fully actuated, $\ub\in\R^n$, $\mathbf{G}\in\R^{2n\times n}$ and $\rank(\mathbf{G}) = n$.
+	
+	Physically, inputs represent external forces (torques) and the outputs are joint velocities. The resulting model is the following:
+	%
+	\begin{equation}\label{eq:nDOF}
+	    %
+	    \left\{
+	        \begin{matrix*}[l]
+	        %
+	        \begin{bmatrix}	\dot{\q}\\\dot{\p}\end{bmatrix} 
+        	=
+	        %
+	        \begin{bmatrix}\mathbf{O}_n&\mathbf{I}_n\\-\mathbf{I}_n&-\mathbf{D}(\q,\p)\end{bmatrix}
+	        %
+	        \begin{bmatrix}\bm{\nabla}_{\q}\Ha\\\bm{\nabla}_{\p}\Ha\end{bmatrix}
+	        +
+	        \begin{bmatrix}\mathbf{O}_n\\\mathbf{B}(\q)\end{bmatrix}\ub\\\\
+	        %
+	        \yb = \begin{bmatrix}\mathbf{O}_n&\mathbf{B}^\top(\q)\end{bmatrix}\begin{bmatrix}\bm{\nabla}_{\q}\Ha\\\bm{\nabla}_{\p}\Ha\end{bmatrix}
+	    \end{matrix*}
+	    \right.
+	    %
+	\end{equation}
+	%
+	Note that, as expected the natural dissipation of the system (given by friction) becomes
+	%
+	\begin{align}
+	    d(t) &= -\bm{\nabla}_\p^\top\Ha\mathbf{D}(\q,\p)\bm{\nabla}_\p^\top\Ha =\\ &=\p^\top\mathbf{M}^{-1}(\q)\mathbf{D}(\q,\p)\mathbf{M}^{-1}(\q)\p =\\
+	    &= \dot{\q}^\top\mathbf{D}(\q,\p)\dot{\q}
+	\end{align}
+	%% figure
+	\begin{figure}
+	    \centering
+	    \input{Drawings/MECHscheme.tex}
+	    \caption{Block diagram of the port-Hamiltonian model of a fully--actuated $n$--degrees of freedom mechanical systems. The diagram can be easily obtained from equation (\ref{eq:nDOF}) recognizing that $\bm{\nabla}_\q\Ha = \bm{\nabla}_\q\V(\q)$ and $\bm{\nabla}_\p\Ha = \mathbf{M}^{-1}(\q)\p$.}
+	    \label{fig:MECHscheme}
+	\end{figure}
+	%
+\end{exmp}
+%
+\begin{exmp}[Lotka--Volterra equations]
+    The classical formulation of the LV model is the following autonomous dynamical system:
+    %
+    \begin{equation}\label{eq:lv}
+        \left\{ 
+            \begin{matrix*}[l]
+                \dot{\xi} = a\xi - b\xi\eta\\
+                \dot{\eta} = -c\eta + d\xi\eta
+            \end{matrix*}\right.
+    \end{equation}
+    %
+    where $\xi(t)$, $\eta(t)\in\R$ represent the time evolution of the populations of prey and predators, respectively. The positive parameters $a$, $b$, $c$, and $d$ have the following meaning:
+    %
+    \begin{itemize}
+        \item [$a$:] Natural growth rate of the prey in absence of predators;
+        \item [$b$:] effect of predation on the prey
+        \item [$c$:] natural death rate of the predators in absence of prey
+        \item [$d$:] efficiency and propagation rate of the predators in the presence of prey.
+    \end{itemize}
+    %
+    The Lotka--Volterra model has the structure of a canonical Hamiltonian system \cite{vulpiani2010chaos}. 
+    Let us divide the two equations in (\ref{eq:lv}) by $\xi$ and $\eta$, respectively, and $(q,p)\triangleq(\ln(\xi),\ln(\eta))$. This leads to
+	%
+	\begin{equation*}
+	    \left\{ 
+	        \begin{matrix*}[l]
+	            \dfrac{\dot{\xi}}{\xi} = a - b\eta\\
+	            \dfrac{\dot{\eta}}{\eta} = -c + d\xi
+	        \end{matrix*}\right.
+    \Leftrightarrow
+    \left\{ 
+	\begin{matrix*}[l]
+	\dot{q} = -c + de^p = \dfrac{\partial}{\partial p}(-cp+de^p + \gamma(q))\\
+	\dot{p} = a - be^q = -\dfrac{\partial}{\partial q}(-aq+be^q + \mu(p))
+	\end{matrix*}\right.
+	\end{equation*}
+	%
+	\text{for any scalar functions $\gamma(q)$ and $\mu(p)$}. Selecting 
+	\begin{equation}
+	    \gamma(q) = aq-be^q,~~ \mu(p) = -cp+de^p   
+	\end{equation}
+	%
+	yields
+	%
+	\begin{equation*}
+	\left\{ 
+	\begin{matrix*}[l]
+	\dot{q}  = \dfrac{\partial}{\partial p}(-cp + de^p - aq +be^q) =  {\nabla}_{p}\Ha\\
+	\dot{p}  = -\dfrac{\partial}{\partial q}(-cp + de^p - aq +be^q) =  -{\nabla}_{q}\Ha
+	\end{matrix*}\right.
+	\end{equation*}
+	%
+	and, consequently, the Hamiltonian function results in
+	%
+	\begin{equation}
+	\Ha(q,p) = -aq + be^q - cp +de^p.
+	\end{equation}
+	%
+	The final port--Hamiltonian model is
+	\begin{equation}\label{eq:LVph}
+	\left\{
+	\begin{matrix*}[l]
+	%%
+	\begin{bmatrix}	\dot{q}\\\dot{p}\end{bmatrix} 
+	=
+	%
+	\begin{bmatrix}0&1\\-1&0\end{bmatrix}
+	%
+	\begin{bmatrix}{\nabla}_{q}\Ha\\{\nabla}_{p}\Ha\end{bmatrix}
+	+
+	\mathbf{G}(q,p)\ub\\
+	%%
+	\yb = \mathbf{G}^\top(q,p)\begin{bmatrix}{\nabla}_{q}\Ha\\{\nabla}_{p}\Ha\end{bmatrix}
+	\end{matrix*}
+	\right.
+	\end{equation}
+	%
+In the case of classical mechanics, the Hamiltonian function physically represents the total energy of the system. In this case, it simply reflects the ``conserved quantity''. Moreover, it is not clear by first principles what inputs and outputs should be. In practice, they would depend on how it is possible to influence the biological system; 
+\end{exmp}
+%
+\begin{figure}[t]
+    \centering
+    \input{Drawings/LVscheme.tex}
+    \caption{Block diagram representation of the Lotka--Volterra equations in port--Hamiltonian form. The diagram is obtained from equation (\ref{eq:LVph}).}
+    \label{fig:LVscheme}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Passivity--Based Control}
+%
+Energy plays a central role in control of physical systems as the shape of the energy is related with the stability properties of the system. In fact, every configuration (state) characterized by a (local) minimum of the energy leads to a (locally) stable behavior of the system. Besides, from a control point of view, it is unlikely that the configurations corresponding to energy minima are the desired set points of the system. Note that the contents of this section are almost entirely covered in\cite{van2014port,secchi2007control,macchelli2003port}. \\
+A possible control strategy is to consider the controller as a device that exchanges energy with the plant in such a way that the physical structure of the controlled system is preserved and its energy function presents a minimum in the desired configuration. This technique is called \textit{energy shaping} control.\\
+An example of this approach is found in Robotics with the PD control plus gravity compensation, introduced by {\cite{arimoto1984stability}}.
+%
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hybrid Dynamical Systems\label{sec:HD_systems}}
+%
+
+%
+\subsection{Hybrid Inclusions}
+
+%
+
+\subsection{Stability}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+

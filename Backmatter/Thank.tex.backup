@@ -1,0 +1,43 @@
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\lhead[Acknowledgements]{}
+
+\thispagestyle{empty}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As this thesis concludes, I would like to acknowledge and thank the guidance, cooperation and support of all the people who have helped my throughout the completion of my master's work.
+
+I would like to start by expressing my utmost gratitude towards my supervisor, professor Hajime Asama, for giving me the chance to be part of his research group. I also want to thank him for his constant guidance and support on all aspects of academic research. Specially for the many insightful comments and suggestions that I have received during our regular meetings. All of which has shaped not only this thesis but my approach towards research in general. 
+
+I am also thankful to the members of my thesis committee, professor Akio Yamamoto and professor Jun Ota, for the time spent reading this thesis and their precise and accurate comments, and  keen suggestions into how to improve it.
+
+Special thanks to professor Atsushi Yamashita, who together with professor Hajime Asama, have always guided me since my arrival to Japan. My utmost thanks for always sparing some time to guide me and for all the the sharp comments regarding my work. Thanks in particular for always checking not only this thesis, but all the articles I have written during these two years.
+
+I would like to also thank assistant professor Qi An, who has always helped me in several ways since my arrival to Japan. Also many thanks to Dr. Hiroshi Yamakawa for helping me in all hardware related requirements I have had.
+
+I would like to extend my thanks to my all my seniors, specially Mr. Hiromitsu Fujii, who always had the answer to any question I have had regarding the operation of equipment, lab related procedures and research in general. Special thanks also to Mr. Yonghoon Ji, on whose extensive knowledge in SLAM and related areas I have always relied on. Also, thanks to Mr. Hanwool Woo for all his comments and suggestion on my work, and special thanks for all the time invested in reviewing this thesis.  
+
+I would also like to thank everyone else from the robotic's related group at Asama-Yamashita Lab, specially to Mr. Seungchul Kwak and Mr. Yusuke Tanaka, for all the insightful comments and suggestions on my work. Many thanks for all the time spent reviewing this thesis.
+
+I would also like to extend my thanks to everyone at the Asama-Yamashita lab, specially to Mr. Younes Louhi for proof reading my thesis and Mr. Sarthak Pathak for all research and non-research related discussions. 
+
+Thanks to Ms. Rika Kojima, Ms. Megumi Nakamura, Ms. Megumi Watanabe and special thanks to Ms. Hisae Narushima for always helping me, and everyone at the laboratory, in all administrative matters. Their guidance and prompt replies have been a great help all these years. 
+
+I also want to extend my thanks to the Japanese government for awarding me with the Monbukagakusho Scholarship. Without their help, the development of this thesis truly would not have been possible.
+
+Finally I would like to thank my friends (those in my home country Peru, as well as those I have made in Tokyo), and most importantly my family, for their continuous and relentless support, which has made my live far from home much easier.
+
+To all, thank you very much.
+
+\begin{flushright}
+year 2015 \enspace Renato Miyagusuku Rios
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:

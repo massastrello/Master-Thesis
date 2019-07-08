@@ -1,0 +1,389 @@
+\chapter{Stability, Invariance and Passivity of Dynamical Systems}
+%
+\section{Stability of Autonomous Systems}
+%
+Consider an autonomous time--invariant nonlinear dynamical system
+%
+\begin{equation}\label{eq:nlsys}
+    \dot{\xb} = \mathbf{f}(\xb)
+\end{equation}
+%
+where $\mathbf{f}:\R^n\supseteq\X\rightarrow\R^n$ is assumed smooth enough such that solutions are forward complete for all initial conditions $\xb_0\in\X$. Let $\xb^*$ be a fixed point of (\ref{eq:nlsys}).
+%
+\begin{defn}[Lyapunov Stability\cite{khalil2002nonlinear}]
+    The equilibrium point $\xb^*$ of (\ref{eq:nlsys}) is 
+    \begin{itemize}
+        \item stable if
+            \begin{equation}
+                \forall \varepsilon>0 ~~  \exists \delta_\varepsilon>0~:~\|\xb_0 - \xb^*\|_2 <\delta_\varepsilon \Rightarrow \|\xb(t) - \xb^*\|_2<\varepsilon.
+            \end{equation}
+            \item asymptotically stable if
+            \begin{equation}
+                \exists \delta>0~:~\|\xb_0 - \xb^*\|_2<\delta\Rightarrow\lim_{t\rightarrow\infty}\xb(t) =  \xb^*.
+            \end{equation}
+        \item unstable if it is not stable.
+    \end{itemize}
+\end{defn}
+%
+Stability in the sense of Lyapunov of a system in the form (\ref{eq:nlsys}) can be addressed using Lyapunov's Second theorem.
+%
+\begin{thm}[Lyapunov's Second Theorem \cite{khalil2002nonlinear}]
+    Let $\xb^*$ be a fixed point for (\ref{eq:nlsys}) and $\xb^*\in\A\subset\R^n$. Let $V:\A\rightarrow\R$, $V\in\C_1^n$ such that
+    %
+    \begin{align}
+        & \forall \xb\in\A\setminus\xb^* ~~~ V(\xb)>0~~\text{and}~~V(\xb^*) = 0\\
+        & \forall \xb\in\A ~~~~~~~~~~~ \dot{V}(\xb)\leq 0
+    \end{align}
+    %
+    Then $\xb^*$ is stable. Furthermore, if
+    %
+    \begin{align}
+        \forall \xb\in\A \setminus\xb^* ~~~ \dot{V}(\xb)< 0 {\color{white}~~\text{and}~~V(\xb^*) = 0}
+    \end{align}
+    %
+    Then $\xb^*$ is asymptotically stable.
+\end{thm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Invariance}
+\begin{defn}[Positive Limit Point]
+	Let $\xb(t)$ be a solution $\dot{\xb}=\mathbf{f}(\xb)$. A point $\mathbf{p}$ is said to be \textit{positive limit point} of $\xb(t)$ if
+	\begin{equation}
+	    \exists
+	\end{equation}
+	there exists a sequence $t_n$ , with $\lim\limits_{n\rightarrow\infty}t_n=\infty$, such that $x(t_n)\rightarrow p$ as $n\rightarrow\infty$.
+\end{defn}
+% 
+\begin{defn}[Positive Limit Set]
+	The set of all positive limit points of $x(t)$ is called the \textit{positive limit set} of $x(t)$ and it is denoted by $\gamma$.
+\end{defn}
+%
+The positive limit set it is also called $\omega$-limit set\footnote{A common convention defines an $\omega$\textit{-limit set} as a set that your system approaches infinitely as time goes to positive infinity while it defines analogously an $\alpha$\textit{-limit set} but as time goes to negative infinity}
+Note that if $x(t)$ approaches an asymptotically stable equilibrium configuration $x^*$, then $x^*$ is the positive limit point point of $x(t)$ and $\gamma=x^*$.
+E.g., a stable limit cycle is the positive limit set of every solution starting sufficiently close to the limit cycle.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Passivity}
+Consider the following dynamical system described by the following (nonlinear) differential algebraic equations:
+%
+\begin{equation}\label{eq:dinsys}
+\left\{
+\begin{matrix*}[l]
+\dot{x}=f(x)+g(x)u\\
+y= h(x)
+\end{matrix*}
+\right.
+\end{equation}
+%
+where $x\in\X\subset\R^n$ is the state variable, $u\in\mathcal{U}\subset\R^m$ is the input, $y\in\mathcal{Y}\subset\R^m$ is the output. Denote with $\mathcal{U}_f$ the set of all admissible input functions, i.e., the set of all $u:\R\rightarrow\mathcal{U}$ piecewise and continuous. Furthermore, let $f$, $g$ be smooth vector fields and \textit{h} a smooth mapping. Assume that $f$ has at least one equilibrium configuration $x^*$, e.g., without loss of generality assume $x^*=0$ and $f(0)=0$, $h(0)=0$. Being $t=0$ the initial instant of time, $x_0 = x(t=0)$ the initial state and given the input $u$, let $\Phi(t,x_0,u)$ denote the state trajectory at time $t\geq0$. It follows that $y(t)=\Phi(t,x_0,u)$
+%
+\begin{defn}[Supply Rate]
+	The real valued map $w$ defined on $\mathcal{U}\times\mathcal{Y}$, i.e.,
+	%
+	\begin{equation*}
+	w:\mathcal{U}\times\mathcal{Y}\rightarrow\R
+	\end{equation*}
+	%
+	is called supply rate
+\end{defn}
+%
+\begin{defn}[Dissipative System]
+	A system of the form (\ref{eq:dinsys}) is said to be dissipative with respect to the supply rate $w$ if there exists a continuous function $V:\X\rightarrow\R$, called storage function, such that
+	%
+	\begin{align}
+	&\forall u\in\mathcal{U},\text{ }x\in\X,\text{ }t\geq 0\nonumber\\\label{eq:dissipative}
+	\Rightarrow& V(x(t))-V(x_0)\leq\int_{0}^{t}w(\tau)d\tau
+	\end{align}
+	%
+	The latter relation is called dissipation inequality.
+	%
+\end{defn}
+%
+\begin{defn}[Available Storage]
+	The available storage $V_a$ of a system with supply rate $w$ is the function $V_a:\X\Rightarrow\R$ defined as:
+	%
+	\begin{equation*}
+	V_a=\sup\limits_{x_0=x,u\in\mathcal{U},t\geq 0}\left\{-\int_{0}^{t}w(\tau)d\tau\right\}
+	\end{equation*}
+	%
+\end{defn}
+%
+Note that $V_a\geq 0$ since it is the supremum over a set containing the zero element\footnote{$t=0\Rightarrow\int_{0}^{t}w(\tau)d\tau=0$}.\\
+The available storage can be used to check if a system is dissipative or not.
+%
+\begin{prop}[Willems]
+	If a system is dissipative with respect to a supply rate $w$, the available storage $V_a(x)$ is finite $\forall x \in\X$ and any possible storage function $V(x)$ satisfies
+	%
+	\begin{equation*}
+	0\leq V_a(x)\leq V(x)\quad\forall x\in\X.
+	\end{equation*}
+	Therefore, if $V_a$ is continuous, it is itself a storage function.\\
+	Conversely, if $V_a(x)$ is finite $\forall x\in\X$ and it is continuous, then the system is dissipative. 
+	%
+\end{prop}
+%
+\begin{rem}
+	The energetic interpretation of dissipative systems is the following:
+	\begin{itemize}
+		\item [1.]  The supply rate $w$ and the storage function $V$ can be thought as generalized power and generalized energy respectively;
+		\item [2.] The dissipation inequality states that a system is dissipative if and only if the stored generalized energy at any time $t$, i.e. $V(x(t))$, is at most equal to the sum of the initially stored energy $V(x_0)$ and the total generalized externally supplied energy in the interva $[0,t]$, i.e. $\int_{0}^{t}w(u(\tau),y(\tau)d\tau$;
+		\item [3.] As a consequence, no internal production of generalized energy is possible, only dissipation is;
+		\item [4.] The pair $(u,y)$ represent (through $w$) the medium by which the system can exchange generalized energy;
+		\item [5.] Since the storage function is nonnegative, from (\ref{eq:dissipative}) it holds:
+		%
+		\begin{equation*}
+		-\int_{0}^{t}w(u(\tau),y(\tau)d\tau\leq V(x_0)\leq\infty
+		\end{equation*}
+		%
+		Thus, the total amount of energy that can be extracted from a dissipative system is bounded by the amount that is initially stored.
+		%
+	\end{itemize}
+\end{rem}
+% 
+For an important class of dissipative systems the generalized power and generalized energy coincide with the power and energy respectively and the energy exchange medium of the system is indeed a power port. In this case $\mathcal{U}$ and $\mathcal{Y}$ are dual spaces and the supply rate $w$ is chosen such that
+%
+\begin{equation*}
+w(u(t),y(t))=\langle u(t),y(t)\rangle\quad u\in\mathcal{U}, \text{ }y\in\mathcal{Y}=\mathcal{U}^*
+\end{equation*}
+%
+Therefore the supply rate represents a power flow, $u$ and $y$ a flow and an effort pair and $\left(\mathcal{U},\times\mathcal{Y},uw\right)$ a power port. The storage function $V$ represents the energy stored into the system.
+%
+Note that $\mathcal{U},\mathcal{Y}=U^*\subset\R^m$, then $u,y\in\R^m$　and  the intrinsically duality product between $\mathcal{U}$ and $\mathcal{Y}$ is simply
+%
+\begin{equation*}
+\langle u,y\rangle=y^Tu
+\end{equation*}
+%
+\begin{defn}[Passive System]
+	A system is passive if it is dissipative with respect to the supply rate $w(u,y)=y^Tu$.
+\end{defn}
+%
+\begin{rem}{\color{white}a}
+	\begin{itemize}
+		\item[1.] An equivalent formulation of passivity can be given as follows: a system is passive if it is possible to find a $\mathcal{C}^0$ nonnegative function $V:\X\rightarrow\R$ such that
+		\begin{equation}\label{eq:passivity}
+		V(x(t))-V(x_0)\leq\int_{0}^{t}y^T(\tau)u(\tau)d\tau \quad\forall t>0
+		\end{equation}
+		%
+		$\forall x_0\in\X$, $u\in \U_f$;
+		\item[2.] If the autonomous system is considered, i.e. $u=0$, it holds
+		%
+		\begin{equation*}
+			\dot{V}(x(t))=\frac{\partial V}{\partial x}\dot{x}\leq 0\quad\forall t>0,\text{ }x_0\in\X
+		\end{equation*}
+		% 
+		which means that the storage function decreases along any trajectory. Thus, for any passive systems with a positive definite storage function, the equilibrium point $x^*=0$ is stable in the sense of Lyapunov;
+		\item[3.] From (\ref{eq:passivity}) it follows that any strict minimum $x_m$ of the storage function is Lyapunov stable by considering as Lyapunov function $V(x)-V(x_m)$.
+	
+\end{itemize}
+\end{rem}
+%
+\begin{defn}[Lossless System]
+	A passive system with storage function $V$ is lossless if $\forall u\in\U$, $x_0\in\X$, $t\geq 0$
+	%
+	\begin{equation*}
+	V(x(t))-V(x_0)=\int_{0}^{t}y(\tau)^Tu(\tau)d\tau
+	\end{equation*}
+	%
+\end{defn}
+%
+\begin{defn}[Strictly Passive System]
+	A passive system with storage function $V$ is strictly passive if
+	%
+	\begin{align*}
+	&\exists S:\X\rightarrow\R^+\quad:\quad\forall u\in\U, x_0\in\X, t\geq 0\nonumber\\
+	&V(x(t))-V(x_0)=\int_{0}^{t}y(\tau)^Tu(\tau)d\tau-\int_{0}^{t}S(x(\tau))d\tau
+	\end{align*}
+	%
+\end{defn}
+%
+\begin{rem}{\color{white}aaaaaa}
+	\begin{itemize}
+		\item [1.] A lossless system stores all the energy provided through the power ports;
+		\item [2.] A strictly passive system dissipates part of it, i.e., $\int_{0}^{t}S(x(\tau))d\tau$.
+	\end{itemize}
+\end{rem}
+%
+A classical result providing a characterization of the passivity properties of the nonlinear system affine in the input (\ref{eq:dinsys}) is represented by the well-known Kalman-Yacubovitch-Popov (KYP) lemma. This lemma introduces a couple of necessary and sufficient conditions for a nonlinear system to be passive. Before stating the lemma, the following property for passive systems is introduced.
+%
+\begin{defn}[KYP\footnote{Kalman-Yakubovitch-Popov} Property]
+	A nonlinear system described by (\ref{eq:dinsys}) enjoys the KYP property if there exits a nonnegative $\mathcal{C}^1$ function $V:\X\rightarrow\R^+$ with $V(0)=0$ such that, for all $x\in\X$:
+	%
+	\begin{align}
+	&L_fV(x)\leq 0\label{eq:KYP1}\\
+	&L_gV(x)=h^T(x)\label{eq:KYP2}
+	\end{align}
+	%
+\end{defn}
+%
+\begin{prop}[Byrnes]
+	A system enjoys the KYP property if and only if it is passive.
+\end{prop}
+%
+\begin{proof}
+	If the system enjoys the KYP property, it holds
+	%
+	\begin{align*}
+	\frac{dV}{dt}=&\\
+	=&\frac{\partial V}{\partial x}\dot{x}=&\\
+	=&\frac{\partial V}{\partial x}f(x(t))+\frac{\partial V}{\partial x}g(x(t))u(t)=&\\
+	=&L_fV(x(t))+ L_gV(x(t))u(t)\leq&\\
+	\leq&L_gV(x(t))u(t)=y^T(t)u(t)
+	\end{align*}
+	%
+	Therefore the system is passive with $V(x)$ as storage function.
+	On the other hand, if a system is passive with a $\mathcal{C^1}$ storage function $V(x)$, it holds:
+	%
+	\begin{equation*}
+	\frac{dV}{dt}=\frac{\partial V}{\partial x}f(x)+\frac{\partial V}{\partial x}g(x)u\leq y^T(t)u(t)
+	\end{equation*}
+	%
+	This inequality leads indeed to (\ref{eq:KYP1}) and (\ref{eq:KYP2}).\\
+	%
+\end{proof}
+%
+The KYP property for nonlinear systems can be also specified in order to deal with lossless and strictly passive systems. In particular (\ref{eq:dinsys}) is lossless if and only if it is possible to find a nonnegative function $V:\X\rightarrow\R$ such that
+%
+\begin{align*}
+&L_fV(x)=0\\
+&L_gV(x)=h^T(x)
+\end{align*}
+%
+Similarly, a system is strictly passive if and only if there exists a nonnegative function $V:\X\rightarrow\R$ such that
+%
+\begin{align*}
+&L_fV(x(t)) = -S(x(t))\\
+&L_gV(x)=h^T(x)
+\end{align*}
+%
+\begin{rem}{\color{white}aqq}
+	\begin{itemize}
+		\item [1.] It turns out that a strictly passive system with a positive definite storage function around $x^* = 0$,　$x^*$ is Lyapunov stable;
+		\item [2.] $L_fV(x(t))$ represents the dissipation present in the system and $L_gV(x)u(t)=y^T(t)u(t)$ represents the power flowing through the power ports.
+	\end{itemize}	
+\end{rem}
+%
+\begin{defn}
+	A system is passive if the power supplied is either stored or dissipated, i.e.:
+	%
+	\begin{equation}\label{eq:pass2}
+	P=\frac{dV}{dt}+P_{diss}
+	\end{equation}
+	%
+	where
+	\begin{itemize}
+		\item[$V(x)$] is the storage function
+		\item[$P=$]$L_gV(x(t))u(t)=y^T(t)u^(t)$ dis the supplied power 
+		\item [$P_{diss}$]$=-L_fV(x(t))$ is the power dissipated by the system
+	\end{itemize}
+\end{defn}
+%
+\newpage
+\begin{rem}{\color{white}aaaa}
+	\begin{itemize}
+		\item [1.] For lossless system all the power supplied is stored
+		\item [2.] For strictly dissipative systems a portion of the supplied power is dissipated while the rest is stored 
+		\item [3.] If $P_{diss}<0$ and (\ref{eq:pass2}) holds, the system is not passive (negative dissipation represents extra power injection)
+	\end{itemize}
+\end{rem}
+%
+\subsection{Output Feedback Stabilization of Passive Systems}
+%
+\begin{defn}[Observability]
+	A system is locally zero state observable if there exists a neighborhood $U\subset\X$ such that
+	% 
+	\begin{equation*}
+	\forall x\in U\quad h(\Phi(t,x,0))=0\quad\forall t\geq 0 \quad\Rightarrow\quad x=0
+	\end{equation*}
+	%
+	If $U\equiv\X$ the system is said zero state observable.
+\end{defn}
+A less restrictive requirement can be expressed in terms of the following definition.
+\begin{defn}[Detectability]
+	A system (\ref{eq:dinsys}) is locally zero state detectable if there exists a neighborhood $U\subset\X$ of $0$ such that,
+	% 
+	\begin{equation*}
+	\forall x\in U\quad h(\Phi(t,x,0))=0\quad\forall t\geq 0 \quad\Rightarrow\quad\lim\limits_{t\rightarrow\infty}\Phi(t,x,0)=0
+	\end{equation*}
+	%
+	If $U\equiv\X$ the system is said zero state detectable.
+\end{defn}
+%
+%
+\begin{defn}[Proper Function]
+	A nonnegative function $V:\X\rightarrow\R$ is a proper function\footnote{\textit{Proper functions} are sometimes called \textit{radially unbounded functions}} if, $\forall a > 0$, the set
+	%
+	\begin{equation*}
+	V^{-1}([0,a]) = \left\{x\in\X|0\leq V(x)\leq a \right\}
+	\end{equation*}
+	%
+	is compact.
+\end{defn}
+%
+A basic stabilization property of passive system is summarized by the following theorem, whose proof is closely related to the La Salle's invariance principle. 
+\begin{thm}[Output Feedback Asymptotic Stabilization \cite{byrnes1991passivity}]
+	Consider a system described by (\ref{eq:dinsys}) that is passive with a positive definite storage function $V$, that is locally zero state detectable and admits $x^*=0$ as equilibrium configuration. Let $\varphi:\Y\rightarrow\U$ be a smooth function such that $\varphi(0)=0$ and $y^T\varphi(y)>0$ $\forall y\neq 0$. The control law:
+	%
+	\begin{equation}\label{eq:ofs}
+	u=-\varphi(y)
+	\end{equation}
+	%
+	asymptotically stabilizes the equilibrium point. If the system is zero state detectable and $V$ is proper, then the control law (\ref{eq:ofs}) globally stabilized the system
+	%
+\end{thm}
+%
+\begin{proof}
+	Since the system is passive the dissipation inequality holds and, therefore, considering $u=-\phi(y)$:
+	%
+	\begin{equation*}
+	V(x(t))-V(x_0)\leq-\int_{0}^{t}y^T(\tau)\varphi(y(\tau))\leq 0
+	\end{equation*}
+	%
+	Thus, the storage function is non-increasing along the trajectories of the closed loop system. Since $V$ is positive definite, $x^*=0$ is stable in the sense of Lyapunov and, given $a>0$ sufficiently small, the set $V^{-1}([0,a])$ is compact. The asymptotic stability can be proven as follows.\\
+	Consider an initial condition $x_0$ sufficiently close to $x=0$, denote with $x_0(t)$ the corresponding trajectory of the closed loop system and with $\gamma_0$ its $\omega$-limit set (nonempty, compact and invariant). Since $\lim\limits_{t\rightarrow\infty}V(x(t))=a_0\geq 0$, then $V(x)=a_0$ $\forall x\in\gamma_0$. Given a point $\bar{x}\in\gamma_0$ and the corresponding trajectory $\bar{x}(t)$, $V(\bar{x}(t))=a_0$ and, consequently:
+	%
+	\begin{equation*}
+		0=V(\bar{x}(t))-V(\bar{x})\leq\int_{0}^{t}y^T(\tau)\varphi(y(\tau))d\tau\leq 0
+	\end{equation*} 
+	%
+	Therefore, $y(t)=0$ $\forall t\geq 0$. By detectability, $\lim\limits_{t\rightarrow\infty}\bar{x}(t)=0$ which　implies $a_0=0$. Thus, $\lim\limits_{t\rightarrow\infty}V(x_0(t))$ which means $\lim\limits_{t\rightarrow\infty}x_0(t)=0$ and, consequently, $x=0$ is locally asymptotically stable. The global asymptotic stability of $x=0$ follows from the further hypothesis of $V$ being proper.
+	%	
+\end{proof}
+%
+\begin{note}
+	Applying a change of coordinates, it can be shown that any strict minimum of the storage function can be (locally) asymptotically stabilized by static output feedback.
+\end{note}
+%
+\begin{note}[\cite{macchelli2003port}]
+	Any zero-state detectable passive system with positive definite storage function can be asymptotically stabilized by means of a pure gain output feedback.
+	It is possible to show that an analogous result holds without assuming explicitly the zero-state detectability of the nonlinear system.\\
+	In particular, if (\ref{eq:dinsys}) is passive with positive definite storage function $V$, the control law $\ref{eq:ofs}$ makes $x=0$ a (locally) asymptotically stable point if, given a neighborhood $\mathcal{B}_0$ of $x=0$, the largest invariant set contained in
+	%
+	\begin{equation*}
+		\left\{x\in\X\cap\mathcal{B}_0\text{ }|\text{ }y(x)=0\right\}
+	\end{equation*}
+	%
+	equals $\{0\}$
+\end{note}
+%
+\begin{cor}\label{th:ofgs}
+	Suppose that a system which admits $x=0$ as an equilibrium configuration, is lossless with at least one $\mathcal{C}^1$ proper positive definite storage function $V$. If the system is zero state observable then, $\forall k>0$, the control law $u=-ky$ globally asymptotically stabilizes the equilibrium point $x=0$.
+\end{cor}
+%
+\begin{note}[\cite{JURDJEVIC1978381}]
+	Consider a passive system (\ref{eq:dinsys}). If there exists a positive definite storage function $V$ with only one minimum point in $x=0$ and such that 
+	%
+	\begin{equation*}
+		L_fV(x(t))=0
+	\end{equation*}
+	%
+	then the control law
+	%
+	\begin{equation*}
+		u = -\left[L_gV(x(t))\right]^T
+	\end{equation*}
+	%
+	globally asymptotically stabilizes the equilibrium point. 
+\end{note}
+%
+This means that if a system is lossless with storage function $V$ it is possible to apply Corollary \ref{th:ofgs} with $k=1$ to stabilize $x=0$.
+%

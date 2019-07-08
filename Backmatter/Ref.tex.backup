@@ -1,0 +1,466 @@
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\lhead[Bibliography]{}
+\thispagestyle{empty}
+\newpage
+
+\begin{thebibliography}{}
+
+\bibitem[Achtelik 2009]{achtelik2009stereo}
+\leavevmode \\
+Markus Achtelik, Abraham Bachrach, Ruijie He, Samuel Prentice, and Nicholas  Roy:
+\newblock Stereo vision and laser odometry for autonomous helicopters in  {GPS}-denied indoor environments.
+\newblock In \emph{SPIE Defense, Security, and Sensing}, pages 733219--733219.  International Society for Optics and Photonics, 2009.
+\\ 
+ 
+\bibitem[Anderson 2002]{anderson2002building}
+\leavevmode \\
+Christopher~R Anderson, Theodore~S Rappaport, Kyung Bae, Alex Verstak, Naren  Ramakrishnan, William~H Tranter, Clifford Shaffer, Layne~T Watson, et~al:
+\newblock In-building wideband multipath characteristics at 2.5 and 60 ghz.
+\newblock In \emph{Vehicular Technology Conference, 2002. Proceedings. VTC  2002-Fall. 2002 IEEE 56th}, volume~1, pages 97--101. IEEE, 2002.
+\\ 
+ 
+\bibitem[Astr{\"o}m 2010]{astrom2010feedback}
+\leavevmode \\
+Karl~Johan Astr{\"o}m and Richard~M Murray:
+\newblock \emph{Feedback systems: an introduction for scientists and  engineers}.
+\newblock Princeton university press, 2010.
+\\ 
+ 
+\bibitem[Ayache 1988]{ayache1988building}
+\leavevmode \\
+Nicholas Ayache and Olivier~D Faugeras:
+\newblock Building, registrating, and fusing noisy visual maps.
+\newblock \emph{The International Journal of Robotics Research}, 7\penalty0  (6):\penalty0 45--65, 1988.
+\\ 
+ 
+\bibitem[Bahl 2000]{bahl2000radar}
+\leavevmode \\
+Paramvir Bahl and Venkata~N Padmanabhan:
+\newblock {RADAR}: An in-building {RF}-based user location and tracking system.
+\newblock In \emph{INFOCOM 2000. Nineteenth Annual Joint Conference of the IEEE  Computer and Communications Societies. Proceedings. IEEE}, volume~2, pages  775--784. Ieee, 2000.
+\\ 
+ 
+\bibitem[Benki{\v{c}} 2008]{benkivc2008using}
+\leavevmode \\
+Karl Benki{\v{c}}, Marko Malajner, Peter Planin{\v{s}}i{\v{c}}, and {\v{Z}}arko  {\v{C}}u{\v{c}}ej:
+\newblock Using {RSSI} value for distance estimation in wireless sensor  networks based on {ZigBee}.
+\newblock In \emph{Systems, signals and image processing, 2008. IWSSIP 2008.  15th international conference on}, pages 303--306. IEEE, 2008.
+\\ 
+ 
+\bibitem[Bishop 2006]{bishop2006pattern}
+\leavevmode \\
+Christopher~M Bishop:
+\newblock \emph{Pattern recognition and machine learning}.
+\newblock springer, 2006.
+\\ 
+
+\begin{minipage}{\linewidth} 
+  \bibitem[Biswas 2014]{biswas2014multi}
+  \leavevmode \\
+  Joydeep Biswas and Manuela Veloso:
+  \newblock Multi-sensor mobile robot localization for diverse environments.
+  \newblock In \emph{RoboCup 2013: Robot World Cup XVII}, pages 468--479.  Springer, 2014.
+  \\ 
+\end{minipage}
+ 
+\bibitem[Blight 1975]{blight1975bayesian}
+\leavevmode \\
+BJN Blight and L~Ott:
+\newblock A bayesian approach to model inadequacy for polynomial regression.
+\newblock \emph{Biometrika}, 62\penalty0 (1):\penalty0 79--88, 1975.
+\\ 
+ 
+\bibitem[Borenstein 1997]{borenstein1997mobile}
+\leavevmode \\
+Johann Borenstein, Hobart~R Everett, Liqiang Feng, and David Wehe:
+\newblock Mobile robot positioning-sensors and techniques.
+\newblock Technical report, DTIC Document, 1997.
+\\ 
+ 
+\bibitem[Bosse 2003]{bosse2003vanishing}
+\leavevmode \\
+Michael Bosse, Richard Rikoski, John Leonard, and Seth Teller:
+\newblock Vanishing points and three-dimensional lines from omni-directional  video.
+\newblock \emph{The Visual Computer}, 19\penalty0 (6):\penalty0 417--430, 2003.
+\\ 
+ 
+\bibitem[Burgard 1998]{burgard1998integrating}
+\leavevmode \\
+Wolfram Burgard, Andreas Derr, Dieter Fox, and Armin~B Cremers:
+\newblock Integrating global position estimation and position tracking for  mobile robots: the {D}ynamic {M}arkov {L}ocalization approach.
+\newblock In \emph{Intelligent Robots and Systems, 1998. Proceedings., 1998  IEEE/RSJ International Conference on}, volume~2, pages 730--735. IEEE, 1998.
+\\ 
+ 
+\bibitem[Cox 1991]{cox1991blanche}
+\leavevmode \\
+Ingemar~J Cox:
+\newblock Blanche-an experiment in guidance and navigation of an autonomous  robot vehicle.
+\newblock \emph{Robotics and Automation, IEEE Transactions on}, 7\penalty0  (2):\penalty0 193--204, 1991.
+\\ 
+
+\bibitem[Damosso 1991]{damosso1991urban}
+\leavevmode \\
+E~Damosso and LM~Correia:
+\newblock Urban transmission loss models for mobile radio in the 900 and 1,800 mhz bands, 1991.
+\\
+
+\bibitem[Davison 2007]{davison2007monoslam}
+\leavevmode \\
+Andrew~J Davison, Ian~D Reid, Nicholas~D Molton, and Olivier Stasse:
+\newblock {MonoSLAM}: Real-time single camera {SLAM}.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions  on}, 29\penalty0 (6):\penalty0 1052--1067, 2007.
+\\ 
+ 
+\bibitem[De~Toledo 1992]{de1992propagation}
+\leavevmode \\
+AF~De~Toledo and AMD Turkmani:
+\newblock Propagation into and within buildings at 900, 1800 and 2300 mhz.
+\newblock In \emph{Vehicular Technology Conference, 1992, IEEE 42nd}, pages  633--636. IEEE, 1992.
+\\ 
+ 
+\bibitem[Dean 1988]{dean1988analysis}
+\leavevmode \\
+Thomas~L Dean and Mark~S Boddy:
+\newblock An analysis of time-dependent planning.
+\newblock In \emph{AAAI}, volume~88, pages 49--54, 1988.
+\\ 
+ 
+\bibitem[Doucet 1998]{doucet1998sequential}
+\leavevmode \\
+Arnaud Doucet:
+\newblock On sequential simulation-based methods for bayesian filtering.
+\newblock 1998.
+\\ 
+ 
+\bibitem[Duckett 1999]{duckett1999knowing}
+\leavevmode \\
+Tom Duckett and Ulrich Nehmzow:
+\newblock Knowing your place in real world environments.
+\newblock In \emph{Advanced Mobile Robots, 1999.(Eurobot'99) 1999 Third  European Workshop on}, pages 135--142. IEEE, 1999.
+\\ 
+ 
+\bibitem[Durgin 1998]{durgin1998partition}
+\leavevmode \\
+Gregory~D Durgin, Theodore~S Rappaport, and Hao Xu:
+\newblock Partition-based path loss analysis for in-home and residential areas  at 5.85 ghz.
+\newblock In \emph{Global Telecommunications Conference, 1998. GLOBECOM 1998.  The Bridge to Global Integration. IEEE}, volume~2, pages 904--909. IEEE,  1998.
+\\ 
+ 
+\bibitem[Elnahrawy 2004]{elnahrawy2004limits}
+\leavevmode \\
+Eiman Elnahrawy, Xiaoyan Li, and Richard~P Martin:
+\newblock The limits of localization using signal strength: A comparative  study.
+\newblock In \emph{Sensor and Ad Hoc Communications and Networks, 2004. IEEE  SECON 2004. 2004 First Annual IEEE Communications Society Conference on},  pages 406--414. IEEE, 2004.
+\\ 
+ 
+\bibitem[Ferris 2006]{ferris2006gaussian}
+\leavevmode \\
+Brian Ferris, Dirk Haehnel, and Dieter Fox:
+\newblock Gaussian processes for signal strength-based location estimation.
+\newblock In \emph{In proc. of robotics science and systems}. Citeseer, 2006.
+\\ 
+ 
+\bibitem[Ferris 2007]{ferris2007wifi}
+\leavevmode \\
+Brian Ferris, Dieter Fox, and Neil~D Lawrence:
+\newblock {WiFi-SLAM} {U}sing {G}aussian {P}rocess {L}atent {V}ariable  {M}odels.
+\newblock In \emph{IJCAI}, volume~7, pages 2480--2485, 2007.
+\\ 
+ 
+\bibitem[Fox 1999(a)]{fox1999monte}
+\leavevmode \\
+Dieter Fox, Wolfram Burgard, Frank Dellaert, and Sebastian Thrun:
+\newblock Monte carlo localization: Efficient position estimation for mobile  robots.
+\newblock \emph{AAAI/IAAI}, 1999:\penalty0 343--349, 1999(a).
+\\ 
+ 
+\bibitem[Fox 1999(b)]{fox1999markov}
+\leavevmode \\
+Dieter Fox, Wolfram Burgard, and Sebastian Thrun:
+\newblock Markov localization for mobile robots in dynamic environments.
+\newblock \emph{Journal of Artificial Intelligence Research}, pages 391--427,  1999(b).
+\\ 
+ 
+\bibitem[Fox 2001]{fox2001particle}
+\leavevmode \\
+Dieter Fox, Sebastian Thrun, Wolfram Burgard, and Frank Dellaert:
+\newblock Particle filters for mobile robot localization.
+\newblock In \emph{Sequential Monte Carlo methods in practice}, pages 401--428.  Springer, 2001.
+\\ 
+ 
+\bibitem[Goldberg 1997]{goldberg1997regression}
+\leavevmode \\
+Paul~W Goldberg, Christopher~KI Williams, and Christopher~M Bishop:
+\newblock Regression with input-dependent noise: {A} {G}aussian process  treatment.
+\newblock \emph{Advances in neural information processing systems},  10:\penalty0 493--499, 1997.
+\\ 
+
+\begin{minipage}{\linewidth}
+  \bibitem[Gutmann 2002]{gutmann2002experimental}
+  \leavevmode \\
+  Jens-Steffen Gutmann and Dieter Fox:
+  \newblock An experimental comparison of localization methods continued.
+  \newblock In \emph{Intelligent Robots and Systems, 2002. IEEE/RSJ International  Conference on}, volume~1, pages 454--459. IEEE, 2002.
+  \\ 
+\end{minipage}
+
+\bibitem[Gutmann 1998]{gutmann1998experimental}
+\leavevmode \\
+Jens-Steffen Gutmann, Wolfram Burgard, Dieter Fox, and Kurt Konolige:
+\newblock An experimental comparison of localization methods.
+\newblock In \emph{Intelligent Robots and Systems, 1998. Proceedings., 1998  IEEE/RSJ International Conference on}, volume~2, pages 736--743. IEEE, 1998.
+\\ 
+ 
+\bibitem[Harter 2002]{harter2002anatomy}
+\leavevmode \\
+Andy Harter, Andy Hopper, Pete Steggles, Andy Ward, and Paul Webster:
+\newblock The anatomy of a context-aware application.
+\newblock \emph{Wireless Networks}, 8\penalty0 (2/3):\penalty0 187--197, 2002.
+\\ 
+ 
+\bibitem[Hata 1980]{hata1980empirical}
+\leavevmode \\
+Masaharu Hata:
+\newblock Empirical formula for propagation loss in land mobile radio services.
+\newblock \emph{Vehicular Technology, IEEE Transactions on}, 29\penalty0  (3):\penalty0 317--325, 1980.
+\\ 
+ 
+\bibitem[Hightower 2001]{hightower2001location}
+\leavevmode \\
+Jeffrey Hightower and Gaetano Borriello:
+\newblock Location systems for ubiquitous computing.
+\newblock \emph{Computer}, \penalty0 (8):\penalty0 57--66, 2001.
+\\ 
+ 
+\bibitem[Ito 2014]{ito2014w}
+\leavevmode \\
+Satoshi Ito, Felix Endres, Markus Kuderer, Gian Diego~Tipaldi, Cyrill  Stachniss, and Wolfram Burgard:
+\newblock {W-RGB-D}: floor-plan-based indoor global localization using a depth  camera and wifi.
+\newblock In \emph{Robotics and Automation (ICRA), 2014 IEEE International  Conference on}, pages 417--422. IEEE, 2014.
+\\ 
+ 
+\bibitem[Ji 2015]{ji2015rgb}
+\leavevmode \\
+Yonghoon Ji, Atsushi Yamashita, and Hajime Asama:
+\newblock {RGB-D SLAM} using vanishing point and door plate information in  corridor environment.
+\newblock \emph{Intelligent Service Robotics}, 8\penalty0 (2):\penalty0  105--114, 2015.
+\\ 
+ 
+\bibitem[Koks 2007]{koks2007numerical}
+\leavevmode \\
+Don Koks:
+\newblock Numerical calculations for passive geolocation scenarios.
+\newblock Technical report, DTIC Document, 2007.
+\\ 
+ 
+\bibitem[Kontkanen 2004]{kontkanen2004topics}
+\leavevmode \\
+Petri Kontkanen, Petri Myllym{\"a}ki, Teemu Roos, Henry Tirri, Kimmo Valtonen,  and Hannes Wettig:
+\newblock Topics in probabilistic location estimation in wireless networks.
+\newblock In \emph{PIMRC}, pages 1052--1056. Citeseer, 2004.
+\\ 
+ 
+\bibitem[Kwon 2004]{kwon2004hybrid}
+\leavevmode \\
+Jaimyoung Kwon, Baris Dundar, and Pravin Varaiya:
+\newblock Hybrid algorithm for indoor positioning using wireless {LAN}.
+\newblock In \emph{Vehicular Technology Conference, 2004. VTC2004-Fall. 2004  IEEE 60th}, volume~7, pages 4625--4629. IEEE, 2004.
+\\ 
+ 
+\bibitem[Ladd 2005]{ladd2005robotics}
+\leavevmode \\
+Andrew~M Ladd, Kostas~E Bekris, Algis Rudys, Lydia~E Kavraki, and Dan~S  Wallach:
+\newblock Robotics-based location sensing using wireless ethernet.
+\newblock \emph{Wireless Networks}, 11\penalty0 (1-2):\penalty0 189--204, 2005.
+\\ 
+ 
+\bibitem[LaMarca 2005(a)]{lamarca2005place}
+\leavevmode \\
+Anthony LaMarca, Yatin Chawathe, Sunny Consolvo, Jeffrey Hightower, Ian Smith,  James Scott, Timothy Sohn, James Howard, Jeff Hughes, Fred Potter, et~al:
+\newblock Place lab: Device positioning using radio beacons in the wild.
+\newblock In \emph{Pervasive computing}, pages 116--133. Springer,  2005(a).
+\\ 
+ 
+\bibitem[LaMarca 2005(b)]{lamarca2005self}
+\leavevmode \\
+Anthony LaMarca, Jeff Hightower, Ian Smith, and Sunny Consolvo:
+\newblock Self-mapping in 802.11 location systems.
+\newblock In \emph{UbiComp 2005: Ubiquitous Computing}, pages 87--104.  Springer, 2005(b).
+\\ 
+ 
+\bibitem[Lawrence 2004]{lawrence2004gaussian}
+\leavevmode \\
+Neil~D Lawrence:
+\newblock Gaussian process latent variable models for visualisation of high  dimensional data.
+\newblock \emph{Advances in neural information processing systems}, 16\penalty0  (3):\penalty0 329--336, 2004.
+\\ 
+ 
+\bibitem[Lemaire 2005]{lemaire2005practical}
+\leavevmode \\
+Thomas Lemaire, Simon Lacroix, and Joan Sola:
+\newblock A practical {3D} bearing-only slam algorithm.
+\newblock In \emph{Intelligent Robots and Systems, 2005.(IROS 2005). 2005  IEEE/RSJ International Conference on}, pages 2449--2454. IEEE, 2005.
+\\ 
+ 
+\bibitem[Lenser 2000]{lenser2000sensor}
+\leavevmode \\
+Scott Lenser and Manuela Veloso:
+\newblock Sensor resetting localization for poorly modelled mobile robots.
+\newblock In \emph{Robotics and Automation (ICRA), 2000 IEEE International  Conference on}, volume~2, pages 1225--1232. IEEE, 2000.
+\\ 
+ 
+\bibitem[Letchner 2005]{letchner2005large}
+\leavevmode \\
+Julie Letchner, Dieter Fox, and Anthony LaMarca:
+\newblock Large-scale localization from wireless signal strength.
+\newblock In \emph{Proceedings of the national conference on artificial  intelligence}, volume~20, page~15. Menlo Park, CA; Cambridge, MA; London;  AAAI Press; MIT Press; 1999, 2005.
+\\ 
+ 
+\bibitem[Li 2005]{li2005hybrid}
+\leavevmode \\
+Binghao Li, Andrew Dempster, Chris Rizos, and Joel Barnes:
+\newblock Hybrid method for localization using {WLAN}.
+\newblock In \emph{Spatial Sciences Conference}, pages 341--350, 2005.
+\\ 
+ 
+\bibitem[Liu 2007]{liu2007survey}
+\leavevmode \\
+Hui Liu, Houshang Darabi, Pat Banerjee, and Jing Liu:
+\newblock Survey of wireless indoor positioning techniques and systems.
+\newblock \emph{Systems, Man, and Cybernetics, Part C: Applications and  Reviews, IEEE Transactions on}, 37\penalty0 (6):\penalty0 1067--1080, 2007.
+\\ 
+ 
+\bibitem[Liu 1998]{liu1998sequential}
+\leavevmode \\
+Jun~S Liu and Rong Chen:
+\newblock Sequential monte carlo methods for dynamic systems.
+\newblock \emph{Journal of the American statistical association}, 93\penalty0  (443):\penalty0 1032--1044, 1998.
+\\ 
+ 
+\bibitem[Mao 2007]{mao2007wireless}
+\leavevmode \\
+Guoqiang Mao, Bar{\i}{\c{s}} Fidan, and Brian~DO Anderson:
+\newblock Wireless sensor network localization techniques.
+\newblock \emph{Computer networks}, 51\penalty0 (10):\penalty0 2529--2553,  2007.
+\\ 
+ 
+\bibitem[Motley 1988]{motley1988personal}
+\leavevmode \\
+AJ~Motley and JMP Keenan:
+\newblock Personal communication radio coverage in buildings at 900 mhz and  1700 mhz.
+\newblock \emph{Electronics Letters}, 24\penalty0 (12):\penalty0 763--764,  1988.
+\\ 
+ 
+\bibitem[Ni 2004]{ni2004landmarc}
+\leavevmode \\
+Lionel~M Ni, Yunhao Liu, Yiu~Cho Lau, and Abhishek~P Patil:
+\newblock {LANDMARC}: indoor location sensing using active {RFID}.
+\newblock \emph{Wireless networks}, 10\penalty0 (6):\penalty0 701--710, 2004.
+\\ 
+ 
+\bibitem[Ogata 1970]{ogata1970modern}
+\leavevmode \\
+Katsuhiko Ogata and Yanjuan Yang:
+\newblock Modern control engineering.
+\newblock 1970.
+\\ 
+ 
+\bibitem[Okumura 1968]{okumura1968field}
+\leavevmode \\
+Yoshihisa Okumura, Eiji Ohmori, Tomihiko Kawano, and Kaneharu Fukuda:
+\newblock Field strength and its variability in vhf and uhf land-mobile radio  service.
+\newblock \emph{Rev. Elec. Commun. Lab}, 16\penalty0 (9):\penalty0 825--73,  1968.
+\\ 
+ 
+\bibitem[Orr 2000]{orr2000smart}
+\leavevmode \\
+Robert~J Orr and Gregory~D Abowd:
+\newblock The smart floor: a mechanism for natural user identification and  tracking.
+\newblock In \emph{CHI'00 extended abstracts on Human factors in computing  systems}, pages 275--276. ACM, 2000.
+\\ 
+ 
+\bibitem[Priyantha 2000]{priyantha2000cricket}
+\leavevmode \\
+Nissanka~B Priyantha, Anit Chakraborty, and Hari Balakrishnan:
+\newblock The cricket location-support system.
+\newblock In \emph{Proceedings of the 6th annual international conference on  Mobile computing and networking}, pages 32--43. ACM, 2000.
+\\ 
+ 
+\bibitem[Schwaighofer 2003]{schwaighofer2003gpps}
+\leavevmode \\
+Anton Schwaighofer, Marian Grigoras, Volker Tresp, and Clemens Hoffmann:
+\newblock {GPPS}: A {G}aussian {P}rocess {P}ositioning {S}ystem for {C}ellular  {N}etworks.
+\newblock In \emph{NIPS}, 2003.
+\\ 
+ 
+\bibitem[Seidel 1992]{seidel1992914}
+\leavevmode \\
+Scott~Y Seidel and Theodore~S Rappaport:
+\newblock 914 mhz path loss prediction models for indoor wireless  communications in multifloored buildings.
+\newblock \emph{Antennas and Propagation, IEEE Transactions on}, 40\penalty0  (2):\penalty0 207--217, 1992.
+\\ 
+ 
+\bibitem[Siciliano 2008]{siciliano2008springer}
+\leavevmode \\
+Bruno Siciliano and Oussama Khatib:
+\newblock \emph{Springer handbook of robotics}.
+\newblock Springer Science \& Business Media, 2008.
+\\ 
+
+\bibitem[Smith (2006)]{smith2006real}
+\leavevmode \\
+Paul Smith, Ian~D Reid, and Andrew~J Davison:
+\newblock Real-time monocular {SLAM} with straight lines.
+\newblock In \emph{BMVC}, volume~6, pages 17--26, 2006.
+\\
+
+\bibitem[Tanner 1991]{tanner1991tools}
+\leavevmode \\
+Martin~A Tanner:
+\newblock \emph{Tools for statistical inference}, volume~3.
+\newblock Springer, 1991.
+\\
+
+\bibitem[Thrun 2000]{thrun2000monte}
+\leavevmode \\
+Sebastian Thrun, Dieter Fox, Wolfram Burgard, et~al:
+\newblock Monte carlo localization with mixture proposal distribution.
+\newblock In \emph{AAAI/IAAI}, pages 859--865, 2000.
+\\
+
+\bibitem[Thrun 2005]{thrun2005probabilistic}
+\leavevmode \\
+Sebastian Thrun, Wolfram Burgard, and Dieter Fox:
+\newblock \emph{Probabilistic robotics}.
+\newblock MIT press, 2005.
+\\
+
+\bibitem[Want 1992]{want1992active}
+\leavevmode \\
+Roy Want, Andy Hopper, Veronica Falcao, and Jonathan Gibbons:
+\newblock The active badge location system.
+\newblock \emph{ACM Transactions on Information Systems (TOIS)}, 10\penalty0 (1):\penalty0 91--102, 1992.
+\\
+
+\bibitem[Williams 2006]{williams2006gaussian}
+\leavevmode \\
+Christopher~KI Williams and Carl~Edward Rasmussen:
+\newblock \emph{Gaussian processes for machine learning}.
+\newblock the MIT Press, 2006.
+\\
+
+\bibitem[Youssef 2003]{youssef2003wlan}
+\leavevmode \\
+Moustafa~A Youssef, Ashok Agrawala, and A~Udaya~Shankar:
+\newblock {WLAN} location determination via clustering and probability distributions.
+\newblock In \emph{Pervasive Computing and Communications, 2003.(PerCom 2003). Proceedings of the First IEEE International Conference on}, pages 143--150. IEEE, 2003.
+\\
+
+\bibitem[Zilberstein 1995]{zilberstein1995approximate}
+\leavevmode \\
+Shlomo Zilberstein and Stuart Russell:
+\newblock Approximate reasoning using anytime algorithms.
+\newblock \emph{Kluwer Internatinal Series in Engineering and Computer Science}, pages 43--43, 1995.
+
+\end{thebibliography}

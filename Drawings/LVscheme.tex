@@ -1,0 +1,62 @@
+\tikzstyle{block} = [draw, fill=gray!20, rectangle, 
+minimum height=1em, minimum width=2em]
+\tikzstyle{sum} = [draw, fill=gray!50, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+\tikzset{container/.style={draw, rectangle, dashed, inner sep=1.7em }}
+	% The block diagram code is probably more verbose than necessary
+	\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+	% We start by placing the blocks
+	\node [input](input){};
+	\node [sum, right of=input, node distance= 60] (sum) {};
+	\node [block, right of=sum] (int) {$\int$};
+	\node [block,right of = int](log1){$e^{(\cdot)}$};
+    \node [output, right of=log1] (output) {};
+    
+    %
+    \node [block, name=G,below of = input,  node distance = 45] {\begin{tabular}{|l|}\hline
+        $\mathbf{G}_{11}~\cdots~\mathbf{G}_{1m}$ \\\hline
+        $\mathbf{G}_{21}~\cdots~\mathbf{G}_{2m}$ \\\hline
+    \end{tabular}};
+    \node [input,left of=G, node distance= 60,name=u]{};
+    %\node [block, name=G1,below of = input,  node distance = 29.5] {$\mathbf{G}_1(q,p)$};
+    %\node [block, name=G2,below of = G1,  node distance = 15.5] {$\mathbf{G}_2(q,p)$};
+    
+	\node [block, below of=int,node distance = 30] (dq) {$a-be^{(\cdot)}$};
+	\node [block, below of = dq, node distance = 30] (dp) {$-c+de^{(\cdot)}$};
+	%
+    
+    \node[block,below of=dp, node distance = 30](int2) {$\int$};
+	\node [sum, below of=sum, node distance = 90] (sum2) {};
+	\node [input, name=input2,below of = input,  node distance = 90] {};
+    \node [block,right of = int2](log2){$e^{(\cdot)}$};
+	\node [output, right of=log2] (output2) {};
+    
+	\node [output, right of=int2, node distance = 37.5] (y3) {};
+	\node [output, right of=int, node distance = 37.5] (y1) {};
+	\node [output, right of=sum2, node distance = 29.5] (y4) {};
+    
+	% Once the nodes are placed, connecting them is easy. 
+	\draw [draw,-latex] (u) -- node {$\mathbf{u}$} (G);
+	\draw [draw,-latex] (G.10) to[out = 0, in = 180] (sum);
+	\draw [draw,-latex] (G.350) to[out = 0, in = 180] (sum2);
+	
+	\draw [-latex] (sum) -- node {$\dot{q}$} (int);
+	\draw [-latex] (sum2) -- node {\vspace*{100mm} $\dot{p}$} (int2);
+	
+	\draw [-latex] (int) -- node [name=y] {$q$}(log1);
+	\draw [-latex] (int2) -- node [name=y2] {$p$}(log2);
+    \draw [-latex] (log1) -- node [name=y5] {\hspace{10mm} $\eta$}(output);
+	\draw [-latex] (log2) -- node [name=y6] {\hspace{10mm} $\xi$}(output2);
+    
+	\draw [-latex] (y1) |- (dq);
+	\draw [-latex] (y3) |- (dp);
+	%\draw [-latex] (dq.west) -- node[] {} 
+	%node [near end] {} (sum2);
+	\draw [-latex] (dq.west) to[out = 180, in = 45] (sum2);
+	\draw [-latex] (dp.west) to[out = 180, in = -45] (sum);
+    
+	\draw  node [below of = sum, node distance = 0] (p1) {$+$};
+	\draw  node [below of = sum2, node distance = 0] (p2) {$+$};
+\end{tikzpicture}

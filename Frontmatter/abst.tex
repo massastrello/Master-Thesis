@@ -1,0 +1,26 @@
+\chapter*{Abstract}
+\label{abst}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$$\dot{\mathbf{x}} = \left[\mathbf{J}-\mathbf{R}\right]\bm{\nabla}_\mathbf{x}\Lb(\mathbf{x})+\mathbf{G}(\mathbf{x})\mathbf{u}$$
+where 
+\[\mathbf{x}\in\mathbb{R}^n,~\bm{\nabla}\Lb\triangleq\frac{\partial \Lb}{\partial \mathbf{x}}\]
+\[\dot{\xb} = \bm{\Psi}(\xb,\mathbf{u})\bm{\alpha}\]
+%Accurate localization and mapping are very important for mobile robots working in indoor environments where human exists. In order to localize and map accurately, a rangefinder (LRF) is widely used because of it high accuracy in distance measuring. In modern indoor environments, glass is very common. However, glass is usually not shown on the map correctly when using LRF, because it cannot be detected by LRF from all angles, as other objects. The incorrect map brings the danger of crashing into the glass to the mobile robot when path planning. Furthermore, the limited ability of LRF in glass detection negatively influences the localization accuracy of the mobile robots. 
+%
+%To solve the problems mentioned above, this thesis proposes to build a glass confidence map which can show all objects on the map, glass included, and their probability of being glass. The purpose of this thesis is to build such a glass confidence map. The method proposed is to first classify glass and non-glass objects, and then process them differently in order to get a better map. 
+%
+%%The reason glass need to be processed differently is because in standard mapping stage, objects are assumed to be detectable from all incident angles, while glass does not match this assumption. 
+%
+%To classify the glass and non-glass objects, a neural network based classifier is proposed, with LRF's measured intensities, distances and incident angles as inputs, as well as glass probability as output. The classification method is based on the assumption proposed in this thesis, that the LRF's measured intensity is mainly influenced by material features, incident angle and distance, and therefore material features can be inferred by LRF intensity, distance and incident angle. To verified the assumption, experiments are performed, and the results show glass and non-glass panels have obviously different patterns and are separable in the feature space of intensity, distance and incident angle. The proposed neural network classifier has 2 hidden layers, 10 nodes in each hidden layer, and is trained and tested using experimental data. 
+%
+%Additionally, a novel map building method is proposed to build the targeted glass confidence map using the glass probability and information from standard Simultaneous Localization and Mapping (SLAM). First, the glass probability is registered to a temporary map, using a Gaussian Filter to reduce the influence of uncertainty in robot pose and LRF measurements. Second, to remove noise, the temporary map is filtered based on both occupancy probability and glass probability. Glass objects are applied to a lower occupancy threshold than non-glass objects, considering the fact glass cannot be detected consistently by the LRF.
+%
+%To verify the proposed method, two experiments in two different environments are performed. As a result, glass confidence maps are built, with more glass shown correctly than maps built by standard methods. Besides, quantitative analysis on the results shows that the neural network classifier classify glass and non-glass objects with high accuracy. In summary, the proposed method can build glass confidence maps successfully and accurately.
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:

@@ -1,0 +1,85 @@
+% \begin{tikzpicture}
+% \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+% \tikzstyle{damper}=[thick,decoration={markings,  
+% 	mark connection node=dmp,
+% 	mark=at position 0.5 with 
+% 	{
+% 		\node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+% 		\draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+% 		\draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+% 	}
+% }, decorate]
+% \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm,inner sep=0pt,outer sep=0pt]
+
+% %\node [style={draw,outer sep=0pt,thick}] (M) [minimum width=1.5cm, minimum height=1cm] {$m$};
+
+% %\node [circle] (M) [minimum width=1.5cm, minimum height=1cm] {$m$};
+% \node[style={draw=blue,thick,circle,inner sep=0pt}, minimum size=0.5cm, color=black](M){$m$};; 
+% \node (ground) [ground,anchor=north,yshift=-0.5cm,minimum width=5.6cm,xshift=-0.03cm] at (M.south) {};
+% \draw (ground.north east) -- (ground.north west);
+% \draw (ground.south east) -- (ground.south west);
+% \draw (ground.north east) -- (ground.south east);
+% \draw (ground.north west) -- (ground.south west);
+
+% \draw [spring] (-1.3,-1.27) -- (-1.3,0);
+% \node (k) at (-1.2,-1.27) [xshift = -.4cm,yshift = .8cm] {$a$};
+% %
+% \draw [damper] (1.3,-1.27) -- (1.3,0) ;
+% \node (b) at (1.2,-1.27) [xshift = .6cm,yshift = .8cm] {$b$};
+% %
+% \draw [thick] (-1.315,0)--(-.75,0);
+% \draw [thick] (1.315,0)--(.75,0);
+% %\draw [thick] (-2.5,1)--(-2.5,2);
+% %\draw [thick] (-0.8,1)--(-0.8,2);
+% %\draw [thick] (0,0.5)--(0,1.5);
+% %\draw [thick] (-0.8,1.5)--(0,1.5);
+
+% %\draw [-latex,ultra thick] (M.north) ++ (0cm,0cm) -- +(0cm,.7cm);
+
+% \node (x) at (-2.5,-.75) [xshift = -.2cm] {$x$};
+% \draw [-latex,thick] (-2.5,-1.27) ++ (0cm,0cm) -- +(0cm,2cm);
+% \draw [,thick,dashed] (-2.5,-.75) ++ (0cm,0cm) -- +(2.6cm,0cm);
+
+% \end{tikzpicture}
+
+\begin{tikzpicture}[scale=1.1, every node/.style={scale=1.3}]
+\tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+\tikzstyle{damper}=[thick,decoration={markings,  
+  mark connection node=dmp,
+  mark=at position 0.5 with 
+  {
+    \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+    \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+    \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+  }
+}, decorate]
+\tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm,inner sep=0pt,outer sep=0pt]
+
+\node [draw, outer sep=0pt, thick, fill = gray!25] (M) [minimum width=2cm, minimum height=1cm] {$m$};
+
+\node (ground) [ground,anchor=north,yshift=-0.2cm,minimum width=5cm,xshift=0.8cm] at (M.south) {};
+\draw (ground.north west) -- (ground.north east);
+\draw (ground.south east) -- (ground.south west);
+
+\node (fill) [ground,xshift=-0.15cm,minimum height = 0.3cm, minimum width = 0.3cm] at (ground.west) {};
+\draw (fill.north west) -- (fill.south west) -- (fill.south east);
+
+\draw [thick, fill = gray] (M.south west) ++(0.2cm,-0.125cm) circle (0.125cm)  (M.south east) ++(-0.2cm,-0.125cm) circle (0.125cm);
+
+\node (wall) [ground, rotate=-90, minimum width=2cm,anchor=south east] at (fill.north west) {};
+\draw (wall.north east) -- (wall.north west) -- (wall.south west) -- (wall.south east);
+
+\node (fill2) [ground,xshift=0.15cm,minimum height = 0.3cm, minimum width = 0.3cm] at (ground.east) {};
+\draw (fill2.north east) -- (fill2.south east) -- (fill2.south west);
+\node (wall2) [ground, rotate=-90, minimum width=1.2cm,anchor=south east] at (fill2.north west) {};
+\draw (wall2.north east) -- (wall2.north west) -- (wall2.south west) -- (wall2.south east);
+
+\draw [-,thick] (M.west) -- +(-0.4cm,0) node [name = t] {};
+\draw [-,ultra thick] (t.north) -- (t.south);
+\draw [spring] (M.15) -- node [xshift=0.3cm,yshift=0.175cm] {$a$} ++(2.75cm,0cm);
+\draw [damper] (M.345) -- node [xshift=0.3cm,yshift=-0.175cm] {$b$} ++(2.75cm,0cm);
+
+\draw [-latex,ultra thick] (wall.north west) ++(0cm, -0.05cm) -- +(5cm,0cm);
+\draw [dotted, thick] (t.north) -- node [yshift=0.85cm] (y1) {$q$} +(0cm,1.4cm);
+
+\end{tikzpicture} 

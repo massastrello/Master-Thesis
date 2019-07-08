@@ -1,0 +1,56 @@
+\definecolor{darkspringgreen}{rgb}{0.09, 0.45, 0.27}
+    \tikzstyle{container} = [rectangle, draw, semithick, rounded corners,
+                     text width=44mm, minimum height=11mm, align=center,
+                     fill=white, drop shadow, inner sep=0.6cm]
+    \begin{tikzpicture}[
+        node distance = 5mm and 4mm,
+        %every node/.style = {font=\bfseries\itshape},
+        chapter/.style = {rectangle, draw, semithick, rounded corners,
+                     text width=44mm, minimum height=9mm, align=center,
+                     fill=white, drop shadow},  
+                     ys/.style = {yshift=-5mm}         
+                    ]
+        \draw[thick] (0,0)  coordinate (A1)
+                    node[below right] {Preliminaries \& Background} 
+                    -- + (\textwidth,0)
+                    coordinate (B1);
+        \node (ch1) [chapter, below=of $(A1)!0.5!(B1)$]         {\textbf{Chapter 1}\\ \textit{Introduction}};
+        \node (ch2a) [chapter, below  left=1.5cm and -2cm of ch1] {Port--Hamiltonian Systems};
+        \node (ch2b) [chapter, below right=1.5cm and -2cm of ch1] {Hybrid Dynamical Systems};
+        \node [container,fit=(ch2a) (ch2b), yshift = 0.5cm] (c1) {\textbf{Chapter 2}\\ \textit{Preliminaries}\textcolor{white}{\\aa\\aa}};
+        \node (ch2a) [chapter, below  left=1.5cm and -2cm of ch1] {Port--Hamiltonian Systems};
+        \node (ch2b) [chapter, below right=1.5cm and -2cm of ch1] {Hybrid Dynamical Systems};
+        %
+        \draw[thick] ([ys] A1 |- ch2a.south)  coordinate (A2)
+                    node[below right] {Theoretical Results}
+                    -- + (\textwidth,0)
+                    coordinate (B2);
+        \node (ch3) [chapter, below=of $(A2)!0.5!(B2)$,text width=54mm, fill = gray!50]   {\textbf{Chapter 3}\\\textit{Hybrid Port--Hamiltonian Systems}};
+        %\node (ch3) [chapter, below  left=of $(A2)!0.5!(B2)$]   {State of the Art};
+        %\node (ch4) [chapter, below right=of $(A2)!0.5!(B2)$]   {Building of Theory};
+        \draw[thick] ([ys] A1 |- ch3.south)  coordinate (A3)
+                    node[below right] {Applications}
+                    -- + (\textwidth,0)
+                    coordinate (B3);
+        \node (ch4) [chapter, below=of $(A3)!0.5!(B3)$,text width=84mm, fill = gray!50] {\textbf{Chapter 4}\\\textit{Iterative Energy shaping of a Ball--dribbling Robot}};
+        \node (ch5) [chapter, below=of ch4,text width=84mm, fill = gray!50]                     {\textbf{Chapter 5}\\\textit{Multistable Energy Shaping with Hybrid Mode Selector}};
+        \node (ch6) [chapter, below=of ch5,text width=84mm, fill = gray!50]                     {\textbf{Chapter 6}\\\textit{Identification of a Class of Hybrid Systems}};
+        \draw[thick] ([ys] A1 |- ch6.south)  coordinate (A4)
+                    node[below right] {Conclusion}
+                    -- + (\textwidth,0)
+                    coordinate (B4);
+        \node (ch7) [chapter, below=of $(A4)!0.5!(B4)$]         {\textbf{Chapter 7}\\Discussion and conclusions};
+        \node (ap1) [chapter, below  left=of ch7]               {\textbf{Appendix A}};
+        \node (ap2) [chapter, below =of ch7]                    {\textbf{Appendix B}};
+        \node (ap3) [chapter, below right=of ch7]               {\textbf{Appendix C}};
+        %
+        \draw [-latex, ultra thick, blue] (ch1)--(c1);
+        \draw [-latex, ultra thick, blue] (ch2a.south) to[out=-45,in=90] (ch3.north);
+        \draw [-latex, ultra thick, blue] (ch2b.south) to[out=-135,in=90] (ch3.north);
+        \draw [-latex, ultra thick, blue] (ch3.south) to[out=-90, in=90] (ch4.north);
+        \draw [-latex, ultra thick, blue] (ch3.south) to[out=-155,in=130,distance=3.5cm] (ch5.west);
+        \draw [-latex, ultra thick, red] (ch2b.south) to[out=-45,in=30,distance=2.5cm] (ch6.east);
+        \draw [-latex, ultra thick, darkspringgreen] (ch6.south)--(ch7.north);
+        \draw [-latex, ultra thick, darkspringgreen] (ch5.west) to[out=200,in=180,distance=1.5cm] (ch7.west);
+        \draw [-latex, ultra thick, darkspringgreen] (ch4.west) to[out=200,in=180,distance=3cm] (ch7.west);
+    \end{tikzpicture}

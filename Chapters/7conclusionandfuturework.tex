@@ -1,0 +1,42 @@
+\chapter{Conclusion and Future Works}
+\label{chap:conclusion_future_work}
+\minitoc
+
+\thispagestyle{empty}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+%The aim of this thesis is to build a glass confidence map for mobile robots using a LRF. The glass confidence map is supposed to first show glass on the map as occupied grids, and then indicate all the objects' probabilities of being glass. The application of the glass confidence map is to solve the problem that glass can not be shown on the map properly using standard SLAM algorithm, and the problem that robots cannot localize accurately using LRFs in glass environments.
+%
+%The above-mentioned problems, glass mapping problems and robot localization problems, are both caused by LRF's glass detection failure. LRFs can detect normal objects from almost all incident angles, while can only detect glass in limited incident angles, because of its transparency and reflectiveness. However, when building maps of environments, standard SLAM algorithms treat all the objects same and assume them can be detected from all angles. Consequently, glass are usually missing on the occupancy grid map generated. Additionally, while localizing using LRF in glass environments, the robot's localization accuracy is negatively influenced by the before-mentioned LRF's glass detection failure, because it causes mis-match between the robot's sensor measurements and the environment map. 
+%
+%Several previous research tried to solve the glass mapping problem and show glass on occupancy grid map using a LRF, as introduced in Chapter 2. Current state of the art solutions include recording objects' visible angle range and only use LRF scans within the range to map the glass, using multi-echo LRFs to classify and remove "erroneous" LRF scans showing glass is free space, as well as detecting glass by intensity peak and mark it on map directly. However, these methods either cannot help to solve the localization problem, need a special and more expensive sensor, or import path restrictions of the robot. 
+%
+%Facing all of the above-mentioned problems, this thesis proposed a novel solution, building a glass confidence map of the environment, which not only shows glass on the map, but also shows all the objects' glass probability. This glass confidence map solves the glass mapping problem, and also can be helpful in improving robots' localization accuracy in glass environment. 
+%
+%In order to build the glass confidence map, a novel method was proposed: first classify glass and non-glass objects, and then process glass and non-glass differently when building the map. The proposed method can classify glass, and works standard LRFs, without importing extra moving path restrictions, therefore it does not suffer from the previous research's problems. Specifically, the main contributions of this thesis are:
+%
+%\begin{itemize}
+%	\item Proposing a new neural network based way to classify glass and non-glass objects using a LRF and calculate corresponding glass probability.
+%	\item Proposing a new mapping method to incorporate the glass probability, filter out noise using two different thresholds, and build the glass confidence map.
+%\end{itemize}
+%
+%The glass classifier, as introduced in Chapter 3, was built based on a neural network, with LRF's measured intensity, distance and incident angles as inputs, as well as glass probability as the output. The classifier was designed based on a proposed classification theory, that material features can be inferred by LRF intensity, distance and incident angle. This theory was analyzed theoretically and verified experimentally. While building the classifier, model-free machine learning method was chosen over model-based traditional statistical method, considering factors such as the insufficiency of the current theories as well as the unclearness of the LRF's signal processing mechanism. Among various machine learning methods, considering the problem complexity, neural network and SVM were chosen and compared using data collected from an office-like environment. As results, neural network was chosen to build the classifier, for the comparison results showed that it was comparably accurate and significantly faster than SVM. The neural network's structure was tuned to optimize in terms of speed and accuracy. At the end, a 2-layer the neural network, with 10 nodes on each layer was determined as the glass classifier used in this research. 
+%
+%In the proposed glass confidence map building method, as introduced in Chapter 4, two main processes are proposed to build the glass confidence map, using glass probability and other information from a standard SLAM algorithm. The first process is to register and update the glass probabilities onto a temporary map. Robot pose and LRF measurements' uncertainty were considered in the registration, and a Gaussian Filter was used to increase robustness. The second process is to filter out the noise of the temporal map and build the final glass confidence map. During this process, grids on the map were first classified into glass or non-glass, and then all the grids are filtered based on their occupancy probabilities, with applying a lower occupancy threshold to glass grids than to non-glass grids. Because glass has an inherent lower occupancy probability than non-glass objects, adopting two thresholds allows more glass to be shown correctly on the map.
+%
+%The whole glass confidence map building method was verified by experiments, as presented in Chapter 5. The proposed method was tested in two different office-like environments. The testing results showed that the proposed method can show more glass correctly on the map generated. In the dirty-glass environment, more glass, about 95.2\%, was shown correctly by the proposed method in the glass confidence map, while only 30.5\% of the glass was shown in the occupancy grid map by a standard SLAM algorithm. Besides, qualitative and quantitative analysis showed that the neural network classifier classified various types of glass and non-glass objects with high accuracy. Both the false positive and false negative error were less than 5\%. 
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Future Works}
+%First, test the proposed mapping system further in various types of environments. The neural network classifier's performance mainly depends on the variety and quality of training dataset. Currently, the proposed method is trained and tested in only office-like environments. In future work, more experiments in various types of environments, such as home, shopping malls, airports, should be performed to test the classifier's ability and robustness. 
+%
+%Second, systematically improve the training dataset of the neural network classifier. There is the possibility that some new types of material, for example polyplastic or wood, are found cannot be classified correctly by the neural network classifier trained in this thesis. Though the problem can be solved easily by adding new material's sample into the training dataset, this is not a permanent solution. Instead, systematically improvements on the training dataset is needed to ensure the classifier's robustness, which needs a further study on the surface features' influence on LRF measured intensity.
+%
+%Last, use the glass confidence map to improve robot's localization accuracy in glass environments. As mentioned before, robot localization accuracy is negatively influenced by the mis-match between the LRF's measurements and map, and this problem can be solved by take the existence of glass into consideration while localizing. The glass confidence map provides the glass probabilities of each objects on the map, but the glass probability cannot be used directly by current localization algorithm. Therefore, improvements of current localization algorithm are needed to actually make use of the glass confidence map to improve robot's localization accuracy. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

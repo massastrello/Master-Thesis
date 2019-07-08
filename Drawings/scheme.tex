@@ -1,0 +1,49 @@
+    %\input{blockdiag.tex}
+    \tikzstyle{block} = [draw, fill=gray!20, rectangle, 
+    minimum height= 1em, minimum width= 1em]
+\tikzstyle{sum} = [draw, fill=gray!50, circle, node distance=0.7cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+\tikzset{container/.style={draw, rectangle, dashed, inner sep=0.3em }}
+
+% The block diagram code is probably more verbose than necessary
+\begin{tikzpicture}[auto, node distance=1cm,>=latex']
+    % We start by placing the blocks
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, left of=sum] (B) {$B$};
+    \node [sum, left of=B] (sum2) {};
+    \node [input, left of = sum2,name=input2] {};
+    \node [block, right of=sum] (int) {$\int\cdot dt$};
+    \node [block,below of = int,node distance =1.75em](A){$A$};
+    \node [block,below of = A,node distance =1.8em](beta){$\beta(\cdot)$};%{$-B^+P^{-1}A^T(\partial\Ha_a)^T$};
+    \node [block, right of=int, node distance=1.5cm] (system) {$B^\top P$};
+    % We draw an edge between the controller and system block to 
+    % calculate the coordinate u. We need it to place the measurement block. 
+    \draw [-latex] (int) -- node[name=u] {$x$} (system);
+    \node [output, right of=system] (output) {};
+    \node [output, right of=output] (output2) {};
+    \node [block, above of=u, node distance = 1.75em] (outfb) {$-\kappa$};
+    %
+    \node [container , fit = (beta), fill = blue!100, fill opacity=0.1] (nlctrl) {};
+    \node at (nlctrl.east) [ right, node distance =2cm and -1cm, align = center] {\footnotesize{energy shaping control} $\newline$\\ {\footnotesize(nonlinear state feedback)}};
+    %
+    \node [container , fit = (outfb), fill = blue!100, fill opacity=0.1] (dampin) {};
+    \node at (dampin.west) [left, node distance =2.5cm and 1cm, align = center] {\footnotesize{damping injection control} $\newline$\\ {\footnotesize{\color{white}aaaaaa}(output feedback)}};
+    % Once the nodes are placed, connecting them is easy.
+    % 
+    \draw [draw,->] (input2) -- node {$\mathbb{0}_m$} (sum2);
+    \draw [->] (sum) -- node {$\dot{x}$} (int);
+    \draw [-] (system) -- node [name=y] {$y$}(output);
+    \draw [->] (output) -- (output2);
+    \draw [->] (output) |- (outfb);
+    \draw [->] (outfb) -| node[pos=0.99] {} 
+        node [near end] {$v$} (sum2);
+    \draw [->] (u) |- (A);
+    \draw [->] (A) -| (sum);
+    \draw [->] (u) |- (beta);
+    \draw [->] (beta) -| (sum2);
+    \draw [->] (sum2)--(B);
+    \draw [->] (B)--(sum);
+\end{tikzpicture}

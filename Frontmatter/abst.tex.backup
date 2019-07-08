@@ -1,0 +1,20 @@
+\chapter*{Abstract}
+\label{abst}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This thesis develops a new model for wireless signal strength propagation through space, by combining path loss models and Gaussian Processes. The main aim of this model is to be used in robust indoor robot localization.
+
+Robot localization or position estimation is the problem of determining a robot's pose relative to a given map of the environment - in this work the pose is understood as the position in a $x-y$  Cartesian coordinate system and the robot's heading direction. Robot localization has been labeled as ``the most fundamental problem to providing a mobile robot with autonomous capabilities'' \cite{cox1991blanche}, as robot's knowledge of its pose is essential for most non-trivial tasks. A robust localization system is understood as one that is resilient to big errors caused by noise in sensing or environmental factors. 
+
+In outdoor settings, GPS has been successfully used for most commercial applications that require localization. Indoor settings are, in general, considered to be GPS-denied settings, making indoor robot localization particularly challenging. As GPS cannot be used, other sensors for localization are needed. Within the possible sensors to be selected from, wireless signals have recently become very popular, being the most likely cause, the almost ubiquitous presence of wireless local area networks (WLANs) in most indoor environments. However, this is not the only motivation for using wireless signals. Wireless signals have low computational overhead, low material cost, and no data association problem. The data association is the problem of differentiating between confusable features, such as similar rooms, doors, etc; and is one of the biggest problems when designing robust localization systems. This alone makes it ideal for robust localization.
+
+Out of all the available techniques that can be used for designing wireless signals-based location systems; in this work it has been decided to use a hybrid technique that combines a lateration technique based on modeling wireless signal strengths using path loss models and a fingerprinting technique that uses Gaussian Processes. These techniques were carefully selected  for their compatibility with each other and for their mathematical rigor when generating wireless signal strength probabilistic models. The main work and contributions of this thesis are centered around this new hybrid technique proposed.
+
+For evaluation purposes, and as the main goal is to improve the state of the art in wireless-based robust indoor localization, a dual Monte Carlo Localization algorithm is developed and presented. This algorithm uses the models herein presented to compute its perceptual likelihood. The performance of such systems  in real scenarios is assessed and compared to state of the art wireless signal-based indoor localization. This comparison is performed by computed the error in the localization accuracy obtained by the dual Monte Carlo Localization algorithm when using the different models herein developed, with respect to using a state of the art model.
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:
