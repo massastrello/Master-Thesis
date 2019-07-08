@@ -6,23 +6,26 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Motivation}
+
+%\clearpage
+
+\section{Background}
+
 Modelling, analysis and control of mechanical systems with impacts is an interesting and open problem which attracts the attention of a wide range of researchers, from physicists and mechanical engineers to specialists in control and automation~\cite{brogliato1999nonsmooth,stronge2018impact}.
-The interaction between continuous and discrete-time dynamics arises, for instance, while considering the behavior of a mechanical system in presence of impacts, as its dynamics cannot be represented only by means of differential equations. The theory of~\textit{hybrid dynamical systems} (HDS) is the formalism used to accurately describe this peculiar phenomena. Overviews of this framework are given by~\cite{van2000introduction,haddad2006impulsive}. In particular, the most general modeling approach is the one of \textit{hybrid inclusions} developed in recent years \cite{goebel2009hybrid}.
-
-When dealing with modelling and control of physical systems, one of the most popular state--of--the--art approaches is the the \textit{port-Hamiltonian} (PH) theory \cite{secchi2007control,van2014port}. PH systems provide a framework which can be employed to model physical systems from an energetic point of view, explicitly capturing the phenomena of energy storage, energy dissipation and energy routing. 
-
-\section{Motivation}
-% %
-% \subsection{Nonprehensile Manipulation}
-% %
-%The main purpose of this thesis is to provide a novel general and unified framework to model and control highly dynamic robotic tasks from an energetic point of view. However, the generality of the developed framework allows to go bey 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The Manipulation Problem for Highly Dynamic Tasks}
-\subsection{The Role of Energy in Robot Control}
-In the last three decades, the fundamental concept of \textit{energy} experienced an impressive growth process in engineering practice and in particular in system theory. 
+The interaction between continuous and discrete-time dynamics arises, for instance, while considering the behavior of a mechanical system in presence of impacts, as its dynamics cannot be represented only by means of differential equations. The theory of~\textit{hybrid dynamical systems} (HDS) is the formalism used to accurately describe this peculiar phenomena. Overviews of this framework are given by~\cite{van2000introduction,haddad2006impulsive}. In particular, the most general modeling approach is the one of \textit{hybrid inclusions} developed in recent years \cite{goebel2009hybrid}. This field of Automatic Controls studies, in general, systems characterized by the interaction of continuous and discrete time dynamics as well as by multimodality \cite{Goebel2012}.
 %
 \newline
 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{The Manipulation Problem for Highly Dynamic Tasks}
+%\subsection{The Role of Energy in Robot Control}
+In the last three decades, the fundamental concept of \textit{energy} experienced an impressive growth process in engineering practice and in particular in system theory. 
+%
+%\newline
+%
 %
 The framework of \textit{passivity--based control} (PBC) is now a well--established branch in nonlinear control theory and aims at treating dynamical systems as devices able to exchange energy, rather than to process signals \cite{ortega2001putting}. 
 This is possible by equipping dynamical systems with additional structure (e.g. storage functions, supply rates, etc.) by means of which the concepts of energy and input/output characterisation of the system are connected in a unique framework \cite{sontag2008input}.
@@ -30,29 +33,29 @@ This is possible by equipping dynamical systems with additional structure (e.g. 
 \newline
 
 %
-The other fundamental aspect of this paradigm is \textit{interconnection} of systems by means of \textit{power ports} \cite{duindam2009modeling}, which led to the definition of \textit{port-Hamiltonian systems} \cite{ortega2001putting,MASCHKE1992359,van2014port}, the mathematical framework in which PBC developed naturally, merging geometry and network theory. Hence, the control problem reduces to the design of a dynamical system (the controller) and an interconnectionstructure that ``shapes'', in a desired way, the energy of the original system \cite{ortega2001putting,ortega2008control}.
+The other fundamental aspect of this paradigm is \textit{interconnection} of systems by means of \textit{power ports} \cite{duindam2009modeling}, which led to the definition of \textit{port-Hamiltonian systems} \cite{van2014port,ortega2001putting,MASCHKE1992359}, the mathematical framework in which PBC developed naturally, merging geometry and network theory. Hence, the control problem reduces to the design of a dynamical system (the controller) and an interconnectionstructure that ``shapes'', in a desired way, the energy of the original system \cite{ortega2001putting,ortega2008control}.
 %
-\newline
-
+%\newline
+%
 %
 This approach allows control engineers to pay particular attention to the performance of the control system and not only to stabilizability (as common in nonlinear control).
 %
-\newline
-
+%\newline
+%
 %
 In classic robot control, the theory of passivity lead to several successful approached, such as the \textit{gravity--compensation} \cite{arimoto1984stability} and \textit{impedance} controller. Other interesting application are robots with flexible links \cite{macchelli2009} and elastic joints \cite{zhang2016}.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energy as Common Factor Among Interactions}
+\subsection{Energy as Common Factor Among Interactions}\label{subsec:comm_fact}
 %
-Driven by a physical intuition, it is rather straightforward recognizing energy as the \textit{lingua franca} between different physical domains. This idea lead, in the early sixties, Paynter to start the field of \textit{port--based modeling} \cite{paynter1961analysis}.
+Driven by a physical intuition, it is rather straightforward recognizing energy as the \textit{lingua franca} between different physical domains. This idea lead, in the early sixties, H. Paynter to establish the field of \textit{port--based modeling} \cite{paynter1961analysis}.
 %
 \newline
 
 %
-A physical system, in fact, may exhibit a \textit{dynamical behavior} if and only if some energy exchange happen within its \textit{internal structure} (components) or with the external world. In any phisycal domain there exists pair of dual variables (see...) often called \textit{flows} and \textit{efforts} which intrinsically form \textit{power ports}, interfaces through which energy flows \cite{secchi2007control}. Table \ref{tab:ef} lists the effort and flow variables for several physical domains.
+A physical system, in fact, may exhibit a \textit{dynamical behavior} if and only if some energy exchange happen within its \textit{internal structure} (components) or with the external world. In any physical domain there exists pair of dual variables (see Appendix A) often called \textit{flows} and \textit{efforts} which intrinsically form \textit{power ports}, interfaces through which energy flows \cite{secchi2007control}. Table \ref{tab:ef} lists the effort and flow variables for several physical domains.
 %
-\begin{table}[b]
+\begin{table}[t]
 	\centering
 	\begin{tabular}{|c|cc|cc|} \hline
 			\rowcolor{gray!50}\textbf{Domain}&{\centering \textbf{Effort}}&&{\centering \textbf{Flow}}&\\\hline
@@ -60,7 +63,7 @@ A physical system, in fact, may exhibit a \textit{dynamical behavior} if and onl
 			\rowcolor{gray!15}Mechanics (rotational)&Torque &$\tau$&Angular Velocity &$\omega$\\\hline
 			Electric&Voltage &$v$&Current &$i$\\\hline
 			\rowcolor{gray!15}Hydraulic&Pressure& $p$&Volume Flow &$Q$\\\hline
-			Thermodynamical&Temperature &$T$&Entropy Flow &$\dot{E}$\\\hline
+			Thermodynamic&Temperature &$T$&Entropy Flow &$\dot{E}$\\\hline
 	\end{tabular}
 	\caption{Efforts and flows variables for various physical domains}
 	\label{tab:ef}
@@ -78,24 +81,46 @@ The theory of passivity--based control of port--Hamiltonian system has been alre
 \newline
 
 %
-Besides, when the robot tasks involve \textit{nonsmooth} phenomena such as mechanical impacts or dynamic friction \cite{brogliato1999nonsmooth}, the state--of--the--art passivity--based techniques cease to work due to the discontinuities in system's state along trajectories. 
-Therefore, it would be desirable to extend the theory to the hybrid case. In fact, if this can be achieved, a new general and unified framework to model and control robots highly dynamic tasks would be established.
+Besides, when the robot tasks involve \textit{nonsmooth} phenomena such as mechanical impacts or dynamic friction \cite{brogliato1999nonsmooth}, the classical passivity--based techniques cease to work due to the discontinuities in system's state along trajectories. 
+
+However it can noticed that energy is the undisputed protagonist also of this type on discrete (instantaneous) interactions. Thus, an energy--based reasoning might be carried out to overcome the challenges given by the the hybrid nature of these robot tasks.  
+
+From now on, we will refer to any robotic tasks which is hybrid in nature, i.e. it includes interacting continuous and discrete phenomena, as \textit{highly dynamic tasks}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Hybrid port--Hamiltonian System: a New Tool For Robotics}
+\subsection{Research Problem: Control Highly Dynamic Robotic Tasks}
+%
+As explained in the previous part, it would be desirable to extend the theory of passivity--based control of port--Hamiltonian systems to the hybrid case. In fact, if this can be achieved, a new general and unified framework to model and control robots highly dynamic tasks would be established.
 %
 \newline
 
+%
 Examples of these tasks in the manipulation context are:
-ball--juggling \cite{sanfelice2007hybrid, tian2013}, ball--dribbling \cite{Batz2010, haddadin2018exploiting}, \cite{ruggero2018}
+ball--juggling \cite{sanfelice2007hybrid, tian2013}, ball--dribbling \cite{Batz2010, haddadin2018exploiting} or even tossing/catching of a deformable object \cite{ruggero2018}. 
+Other hybrid tasks may be related to \textit{self manipulation}, e.g. dynamic walking \cite{spong2007,westervelt2018feedback} and control of powered exoskeletons \cite{harib2018feedback,lv2018design}.
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Hybrid port--Hamiltonian System: a New Tool For Robotics}
-%
+\newline
 
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+One of the most clear proofs of the necessity of an novel unified framework merging energy--based approaches to hybrid systems is given by all the above cited works: although they belong to the same class of robot control problems, each tasks is solved with \textit{ad--hoc} solutions, without any analysis of a bigger picture.  
+%
+\newline
+
+Furthermore, following the reasoning of Subsection \ref{subsec:comm_fact}, the span of validity of this new general framework could indeed be extended any physical domain, Opening to potential solutions in every branches of engineering.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beyond Robot Control}
-Up to this point we discussed the need of an hybrid framework in robotics due to the \textit{nonsmooth} nature of several crucial robot tasks.
-However, in many situations, it is the controller itself to be hybrid in nature. In example, the temperature regulator of a room or the motion controller of a soccer playing humanoid robot. 
-Therefore, the theory
+Up to this point, the need of an novel unified framework has been justified by the highly dynamic robotic tasks which, until our days, cannot be approach in a systematic a general way robotics due to the \textit{nonsmooth} nature of the robotic tasks.
+%
+\newline
+
+%
+However, reasoning in a more theoretical context, many control systems presents discontinuities and multimodality due to the control algorithm itself rather then physics. 
+In example, a system subjected to a \textit{sliding--mode controller} \cite{pisano2011sliding} is, technically speaking, an hybrid system. Moreover, the whole framework of \textit{switching control} belongs to field of hybrid dynamical systems.
+%
+\newline
+
+%
+Very simple practical example of how a controller give an hybrid nature to dynamical systems, are the temperature regulator of a room or the water--level control in tanks.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Identification problem}
@@ -118,15 +143,18 @@ The main objectives are:
     \item [1.] \textbf{to develop a novel control theoretical framework merging the theories of port--Hamiltonian systems and hybrid systems}.
     
     Driven by the aim of solving a robot control problem, the theory of \textit{hybrid port--Hamiltonian systems} is developed from the theory of port--Hamiltonian systems and \textit{hybrid inclusions}, one of the most general representations of hybrid dynamical systems.
+    \newline
     %
     \item [2.] \textbf{to apply the developed theory to a robot control task to prove its effective within the robotics framework}. 
     
     Considering the ball--dribbling robot problem, a novel controller, the \textit{iterative energy shaping} is systematically synthesized, proving the the capabilities of the proposed framework.
+    \newline
     %
     \item [3.] \textbf{to show how the developed theory goes beyond robotics and can be used to model a broad variety of control systems}. 
     
-    The problem of controlling a linear time--invariant system with countable set points is considered. At first, a nonlinear passive controller is used to stabilize simultaneously all the set points. Then, a hybrid optimal impulse controller is designed to switch the between the set points. Finally, it is shown how the controlled system can be modeled as hybrid port--Hamiltonian system, implicitly inheriting some useful properties to analyze its behaviour.
-    
+    A novel nonlinear hybrid controller for linear time--invariant system is derived from passivity--based techniques. Then, it will be shown how this purely control theoretical problem can be expressed via hybrid port--Hamiltonian systems.
+    \newline
+    %
     \item[4.] \textbf{to derive a new systematic identification procedure for a class of hybrid systems}.
     
     As most of hybrid control systems (including the proposed ones) require some knowledge of the physical parameters of the controlled plant, a new systematic procedure is presented to solve the estimation problem. It is shown how this method can be applied to a variety of hybrid port--Hamiltonian systems 
@@ -174,11 +202,12 @@ In the first half of the chapter, the input--state--output model of a port-Hamil
 \newline
 
 %
-\textbf{Chapter 5}  %
+\textbf{Chapter 5} considers the problem of controlling a linear time--invariant system with a finite number of set points. At first, a nonlinear passive controller is used to stabilize simultaneously all the desired set points. Then, a hybrid optimal impulse controller is designed to switch the between the set points. Numerical simulations are carried out for a mechanical system, proving the results. Alongside the theoretical relevance of the developed control technique, it is finally shown how the controlled system can be modeled as hybrid port--Hamiltonian system, implicitly inheriting some useful properties to analyze its behaviour.
+%
 \newline
 
 %
-\textbf{Chapter 6} introduces the first real application of the developed theory. Although sever physical example are provided in the previous chapters. %
+\textbf{Chapter 6} proposes a new systematic approach for the identification of a class of hybrid dynamical systems. The main challenge offered by the considered class of systems is the detection of state discontinuities from a time series of state measurements. The proposed solution is based on the analytical computation of an upper bound on the numerically computed time--derivative of the state, above which the system is considered to be ``jumping''. After implementing the jump detection function, the parameters of the system are estimated recursively. Simulations are performed on a mechanical systems to show the effectiveness of the proposed method.
 \newline
 
 %
