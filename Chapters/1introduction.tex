@@ -10,11 +10,11 @@
 %\section{Motivation}
 
 %\clearpage
-
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
 \section{Background}
 
-Modelling, analysis and control of mechanical systems with impacts is an interesting and open problem which attracts the attention of a wide range of researchers, from physicists and mechanical engineers to specialists in control and automation~\cite{brogliato1999nonsmooth,stronge2018impact}.
-The interaction between continuous and discrete-time dynamics arises, for instance, while considering the behavior of a mechanical system in presence of impacts, as its dynamics cannot be represented only by means of differential equations. The theory of~\textit{hybrid dynamical systems} (HDS) is the formalism used to accurately describe this peculiar phenomena. Overviews of this framework are given by~\cite{van2000introduction,haddad2006impulsive}. In particular, the most general modeling approach is the one of \textit{hybrid inclusions} developed in recent years \cite{goebel2009hybrid}. This field of Automatic Controls studies, in general, systems characterized by the interaction of continuous and discrete time dynamics as well as by multimodality \cite{Goebel2012}.
+\lettrine[lines=4]{\color{brickred}M}{odelling} , analysis and control of \textit{nonsmooth} systems is an interesting and open problem which attracts the attention of a wide range of researchers, from physicists and mechanical engineers to specialists in control and automation~\cite{brogliato1999nonsmooth,stronge2018impact}.
+The interaction between continuous and discrete-time dynamics arises, for instance, while considering the behavior of a mechanical system in presence of impacts: its dynamics cannot be represented only by means of differential equations. The theory of~\textit{hybrid dynamical systems} (HDS) is the formalism in which this type of models can be described. Overviews of this framework are given by~\cite{van2000introduction,haddad2006impulsive}. In particular, the most general modeling approach is the one of \textit{hybrid inclusions} developed in recent years \cite{goebel2009hybrid}. This field of Automatic Controls studies, in general, systems characterized by the interaction of continuous and discrete time dynamics as well as by multimodality \cite{Goebel2012}.
 %
 \newline
 
@@ -27,13 +27,13 @@ In the last three decades, the fundamental concept of \textit{energy} experience
 %\newline
 %
 %
-The framework of \textit{passivity--based control} (PBC) is now a well--established branch in nonlinear control theory and aims at treating dynamical systems as devices able to exchange energy, rather than to process signals \cite{ortega2001putting}. 
+The framework of \textit{passivity--based control} (PBC) is now a well--established branch of nonlinear control theory and aims at treating dynamical systems as devices able to exchange energy, rather than to process signals \cite{ortega2001putting}. 
 This is possible by equipping dynamical systems with additional structure (e.g. storage functions, supply rates, etc.) by means of which the concepts of energy and input/output characterisation of the system are connected in a unique framework \cite{sontag2008input}.
 %
 \newline
 
 %
-The other fundamental aspect of this paradigm is \textit{interconnection} of systems by means of \textit{power ports} \cite{duindam2009modeling}, which led to the definition of \textit{port-Hamiltonian systems} \cite{van2014port,ortega2001putting,MASCHKE1992359}, the mathematical framework in which PBC developed naturally, merging geometry and network theory. Hence, the control problem reduces to the design of a dynamical system (the controller) and an interconnectionstructure that ``shapes'', in a desired way, the energy of the original system \cite{ortega2001putting,ortega2008control}.
+The other fundamental aspect of this paradigm is \textit{interconnection} of systems by means of \textit{power ports} \cite{duindam2009modeling}, which led to the definition of \textit{port-Hamiltonian systems} \cite{ortega2001putting,van2014port,MASCHKE1992359}, the mathematical framework in which PBC developed naturally, merging geometry and network theory. Hence, the control problem reduces to the design of a dynamical system (the controller) and an interconnectionstructure that ``shapes'', in a desired way, the energy of the original system \cite{ortega2001putting,ortega2008control}.
 %
 %\newline
 %
@@ -43,7 +43,7 @@ This approach allows control engineers to pay particular attention to the perfor
 %\newline
 %
 %
-In classic robot control, the theory of passivity lead to several successful approached, such as the \textit{gravity--compensation} \cite{arimoto1984stability} and \textit{impedance} controller. Other interesting application are robots with flexible links \cite{macchelli2009} and elastic joints \cite{zhang2016}.
+In classic robot control, the theory of passivity lead to several successful approached, such as the \textit{gravity--compensation} \cite{arimoto1984stability} and \textit{impedance} controller \cite{secchi2007control}. Other interesting application are robots with flexible links \cite{macchelli2009} and elastic joints \cite{zhang2016}.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energy as Common Factor Among Interactions}\label{subsec:comm_fact}
@@ -136,7 +136,7 @@ Very simple practical example of how a controller give an hybrid nature to dynam
 
 %
 In the light of this considerations, it is legitimate pose the following questions: \newline
-\textit{Can these hybrid control systems be modeled from an energetic point of view in port--Hamiltonian fashion?}\newline
+\textit{Can hybrid control systems be modeled from an energetic point of view in port--Hamiltonian fashion?}\newline
 \textit{If yes, which theoretical advantages would this formulation give?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +169,7 @@ Besides, the identification of hybrid dynamical system in the form of \textit{hy
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{{Aims and Objective}}
+\section{{Aims and Objectives}}
 The aim of this thesis is to present a novel control theoretical framework for physical systems with nonsmooth and multimodal behaviors, with a special insight toward robot control tasks where the current--state--of--the--art approaches fail.
 
 The main objectives are:
@@ -205,10 +205,10 @@ The main objectives are:
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Thesis Contenent and Structure}
+\section{Thesis Content and Structure}
 \subsection{Thesis Outline}
 This thesis is structured in seven chapters as follows: this chapter serves as an introduction that describes the main motivations, purpose and approach of this study.
-These seven chapter can be logically clustered in four main parts: Introduction and backgroud, theoretical results, applications and conclusions  
+These seven chapter can be logically clustered in four main parts: Introduction and background, theoretical results, applications and conclusions  
 %
 \newline
 
@@ -253,7 +253,7 @@ In the first half of the chapter, the input--state--output model of a port-Hamil
 %
 %
 \subsection{Thesis Content}
-This thesis is developed a across three main broad fundamental fields: control theory, robotics and statistics. How the contents are distributed these field is clarified by the Venn diagram of Fig. \ref{fig:venn}. In particular, the first three chapters  remain constrained to the pure control theory as port--Hamiltonian systems and hybrid dynamical systems are firstly introduced in Chapter 2 and then merged in Chapter 3. Chapter 5 is also mostly related to theoretical aspects. However, in Chapter 4, the contents move inside the intersection of control theory and robotics with the ball--dribbling robot. As Chapter 6 treats the parameters estimation problem for a class of hybrid dynamical systems, the content shifted into a subclass of system identification, belonging to the intersection of control theory and statistics.
+This thesis is developed a across three main broad fundamental fields: control theory, robotics and statistics. The Venn diagram in Fig. \ref{fig:venn} is meant to clarify how the contents are distributed within the main research fields. In particular, the first three chapters  remain constrained to the pure control theory as port--Hamiltonian systems and hybrid dynamical systems are firstly introduced in Chapter 2 and then merged in Chapter 3. Chapter 5 is also mostly related to theoretical aspects. However, in Chapter 4, the contents move inside the intersection of control theory and robotics with the ball--dribbling robot. As Chapter 6 treats the parameters estimation problem for a class of hybrid dynamical systems, the content shifted into a subclass of system identification, belonging to the intersection of control theory and statistics.
 
 \begin{figure}
     \centering
