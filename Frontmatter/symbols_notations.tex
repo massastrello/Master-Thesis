@@ -14,6 +14,7 @@ Matrices are capitalized and in bold font, vectors are in bold font and scalars 
  $\mathbf{X}_{ij}$      &entry of $\mathbf{X}$ corresponding to the $i$-th row and $j$-th column\\
  $\succ,\prec,\succeq,\preceq$ & symbols used in matrix inequalities\\
  $(\mathbf{v},\mathbf{w})$ & given two vectors $\mathbf{v}$ and $\mathbf{w}$,  $(\mathbf{v},\mathbf{w})\triangleq \left[\mathbf{v}^\top,\mathbf{w}^\top\right]^\top$ \\
+ $\dot{x}$                   &time derivative of the variable $x$, $\dot{x}\triangleq\dfrac{dx}{dt}$\\
  $x^+$                  &next value of the quantity $x$ after a discrete--time event
 \end{tabularx}
 
@@ -32,7 +33,9 @@ Matrices are capitalized and in bold font, vectors are in bold font and scalars 
  $\langle \cdot,\cdot\rangle$ & {inner product of $\R^n$. $\langle \cdot,\cdot\rangle:\R^n\times\R^n\rightarrow\R$.\newline Let $\mathbf{v},~\mathbf{w}\in\R^n$, $\langle \mathbf{v},\mathbf{w}\rangle = \mathbf{v}^\top \mathbf{w}$} \\
  $\|\cdot\|_2$              & induced norm of $\R^n$. Let $\mathbf{v}\in\R^n$, $\|\cdot\|_2\triangleq\sqrt{\langle \mathbf{v},\mathbf{v}\rangle}$ \\
  $\|\cdot\|_\infty$         & infinity norm\\
- $\conv(\Lambda)$           & convex hull of a finite subset of $\R^n$ $\Lambda$ defined by the convex combinations of its elements. 
+ $\bm\nabla\Ha(\xb)$        & Given a scalar--valued function $\Ha:\R^n\supseteq\X\rightarrow\R$, $\bm\nabla\Ha(\xb)$ denotes its transposed gradient, i.e. $\bm\nabla\Ha(\xb):\X\rightarrow\R^n$ such that $\bm\nabla\Ha(\xb)\triangleq\left(\dfrac{\partial \Ha}{\partial\xb}\right)^\top$\\
+ $\bm\nabla^2\Ha(\xb)$      & Hessian matrix of $\Ha$, i.e. $\bm\nabla^2\Ha(\xb):\X\rightarrow\R^{n\times n}$ such that $\bm\nabla^2\Ha(\xb)\triangleq\dfrac{\partial}{\partial\xb}\dfrac{\partial\Ha}{\partial\x}$\\
+ $\conv(\Lambda)$           & convex hull of a finite subset $\Lambda\subset\R^n$ defined by the convex combinations of its elements. 
 \end{tabularx}
 
 \mbox{}\\

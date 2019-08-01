@@ -1,0 +1,103 @@
+\section{Hybrid Dynamical Systems\label{sec:HD_systems}}
+%
+The basic notions of hybrid dynamical system and their hybrid inclusions formulation will be now defined. Part of the content of this Section is inspired by \cite{goebel2009hybrid,Goebel2012}.
+
+Hybrid dynamical systems represent a wide class of systems in which continuous time and discrete time dynamics interacts. In recent years, there has been a growing interest in this field. One of the main reason is that these kind of systems provide a new and promising modeling perspective for systems presenting discontinuous behaviors as well as multimodality. The presence of both discrete and continuous dynamics makes this formalism appealing also for modeling physical phenomena in many different areas, from biology and medical applications to robotics, manufacturing, traffic management and bio-molecular networks~\citep{Aihara4893, Bortolussi2018}. 
+Overviews of this framework are given in ~\citep{van2000introduction, haddad2006impulsive,goebel2009hybrid,Goebel2012}.
+%
+\subsection{Hybrid Inclusions}
+%
+Hybrid Inclusions are the most general formulation in the hybrid systems framework. They are made up with a constrained differential inclusion and a constrained difference inclusion in the form:
+\begin{equation}\label{eq:hs}
+%
+\left\{ 
+\begin{matrix*}[l]\vspace{1pt}
+%
+\dot{\xb} \in \F(\xb,\ub_c) &&(\xb,\ub_c)\in\C\times\U_c\\
+\xb^+ \in \G(\xb,\ub_d)&&(\xb,\ub_d)\in\D\times\U_d
+%
+\end{matrix*}
+\right.
+%
+\end{equation}
+%
+with state $\xb\subseteq\R^n$, inputs $\ub_c\in\U_c\subseteq\R^{m_c}$, $\ub_d\in\U_d\subseteq\R^{m_d}$ acting during \textit{flows} and \textit{jumps} respectively. ${\F}:\R^n\times\R^{m_c}\rightrightarrows\R^n$, $\G:\R^n\times\R^{m_d}\rightrightarrows\R^n$ are set--valued mappings and $\C$, $\D$ are subsets of $\R^n$ with. Let us call $\C$ the \textit{flow set}, $\F$ the \textit{flow map}, $\D$ the \textit{jump set} and $\G $ the \textit{jump map}.
+%
+\newline
+
+%
+The trajectories resulting from this kind of systems are defined on a \textit{hybrid time domain}. In fact, given the dual nature of hybrid systems (continuous and discrete), to parametrize its solutions both a continuous time $t$ and an discrete time $k$ are needed.
+%
+\begin{defn}[Hybrid time domain]
+    Let $\E$ be a subset of $\R^+\times\mathbb{N}$, i.e. $\E\subset\R^+\times\mathbb{N}$. $\E$ is a compact hybrid time domain if 
+    %
+    \begin{equation}
+        \E\triangleq\bigcup_{k = 0}^{j-1}\left[t_k,t_{k+1}\right]\times {k} 
+    \end{equation}
+    %
+    such that
+    %
+    \begin{equation}
+        t_0 = 0~~\land~~\forall k\leq j~t_k\leq t_{k+1}~
+    \end{equation}
+    %
+    and one of the following hold:
+    \begin{itemize}
+        \item [i)] there are infinite intervals, i.e. $j = \infty$;
+        \item [ii)] $j<\infty$ and the last interval is of the form
+        \begin{equation}
+            \left[t_{j-1},t_f\right)\times \{j\}~~\text{with}~~t_f<\infty~\lor~t_f = \infty
+        \end{equation}
+    \end{itemize}
+    %
+\end{defn}
+%
+The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametrized by an hybrid time domain $\E$. The technical details of this formulation are discussed in Appendix \ref{chap:HSapp}. 
+%
+\begin{exmp}[Bouncing--ball]
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\begin{exmp}[Elbow prosthesis] 
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\begin{exmp}[Sliding mode controller]
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\subsection{Stability}
+%
+Lyapunov stability theorems has been indeed extended to the hybrid case. In the case of continuous--time dynamical systems, the stability of equilibrium points is usually discussed (see Appendix \ref{chap:stabapp}). However, in case of hybrid systems, it is rather convenient to analyze the stability of a set. Hereafter the very basic results on Lyapunov stability of hybrid systems will be introduced.
+%
+\begin{thm}[Lyapunov Stability for Hybrid Systems \citep{goebel2009hybrid}]\label{thm:hybrid_Lyap}
+	%
+	Let us consider an autonomous hybrid system $\left(\C,\F,\D,\G\right)$ and a compact set $\A\subset\R^n$ satisfying $\G\left(\D\cap\A\right)\subset\A$. If there exists a Lyapunov function candidate $V:\C\cup\D\rightarrow\R$ such that:
+	\begin{subequations}
+		\begin{align}
+		&V(\xb)>0&&\forall \xb\in \left(\C\cup\D\right)\setminus\A\label{eq:stabh_1}\\
+		&\langle\frac{\partial V}{\partial \xb},\mathbf{f}(\xb)\rangle\leq 0&&\forall \xb\in\C\setminus\A,\mathbf{f}\in\F\label{eq:stabh_2}\\
+		&V(\mathbf{g}(\xb)) - V(\xb)\leq 0 &&\forall \xb\in\D\setminus\A,\mathbf{g}\in\G\label{eq:stabh_3}
+		\end{align}
+	\end{subequations}
+	%
+	then the set $\A$ is stable.
+\end{thm}
+%
+\begin{cor}[\cite{goebel2009hybrid}]$\newline$
+	Let $\Gamma_\mu := \left\{x\in\C\cup\D:V(x) = \mu\right\}$. If there exists a compact neighborhood $\K$ of $\A$ such that, for all $\mu>0$, no solution of the system remains in $\Gamma_\mu\cap\K$, then the set $\A$ is pre-asymptotically stable. In this case the basin of pre-attraction contains every compact set contained in $\K$ that is forward invariant.
+\end{cor}
+%
+\begin{exmp}[Bouncing--ball]
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\begin{exmp}[Elbow prosthesis] 
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\begin{exmp}[Sliding mode controller]
+\textcolor{red}{to be completed...}
+\end{exmp}
+%
+\clearpage

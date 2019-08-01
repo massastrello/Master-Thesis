@@ -1,27 +1,14 @@
 \documentclass[min10,12pt,english]{jsbook}
 \usepackage{pethesis}
 \usepackage[T1]{fontenc}
-%\usepackage[utf8]{inputenc}
-% \usepackage{mokuji}
-% \usepackage{natbib}
-% \setlength{\bibsep}{12pt}
-%\input GoudyIn.fd
-%\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
-% \usepackage{libertine}
-% \usepackage{Typocaps}
-% \usepackage{lettrine}
+%\renewcommand{\baselinestretch}{1.5}
 
-%\usepackage[dvipsnames]{xcolor}
-% \renewcommand{\LettrineFontHook}{\color{BrickRed}\Typocapsfamily{}}
-% \setcounter{DefaultLines}{3}
 \usepackage{lettrine}
 \usepackage{Typocaps}
 % lettrine formatting
 \renewcommand{\LettrineFontHook}{\Typocapsfamily{}}
 \setlength{\DefaultNindent}{0em}
 \setcounter{DefaultLines}{3}
-%\input GoudyIn.fd
-%\newcommand*\initfamily{\usefont{U}{GoudyIn}{xl}{n}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%~PACKAGES~%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% MATH
@@ -30,6 +17,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{arydshln}
+
 %
 %\usepackage{cite}
 %
@@ -38,7 +26,6 @@
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{float}
-%\usepackage{symbol}{footmisc}
 \usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -120,8 +107,6 @@
 \usepackage{otf}
 \usepackage{xcolor}
 
-%\usepackage[LGR,T1]{fontenc}
-%\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
 
 \usepackage{titletoc}
 \usepackage{algorithm}
@@ -195,24 +180,36 @@
 \newcommand{\q}{\mathbf{q}}
 \newcommand{\p}{\mathbf{p}}
 \newcommand{\xb}{\mathbf{x}}
+\newcommand{\zb}{\mathbf{z}}
+\newcommand{\vb}{\mathbf{v}}
+\newcommand{\qb}{\mathbf{q}}
+\newcommand{\pb}{\mathbf{p}}
 \newcommand{\ub}{\mathbf{u}}
 \newcommand{\yb}{\mathbf{y}}
 \newcommand{\Jb}{\mathbf{J}}
 \newcommand{\Rb}{\mathbf{R}}
 \newcommand{\Gb}{\mathbf{G}}
 % cal letters
-\newcommand{\Ha}{\pazocal{H}}
-\newcommand{\U}{\pazocal{U}}
-\newcommand{\Y}{\pazocal{Y}}
-\newcommand{\X}{\pazocal{X}}
-\newcommand{\La}{\pazocal{L}}
+
 \newcommand{\A}{\pazocal{A}}
 \newcommand{\C}{\pazocal{C}}
-\newcommand{\M}{\pazocal{M}}
-\newcommand{\V}{\pazocal{V}}
-\newcommand{\Q}{\pazocal{Q}}
-\newcommand{\K}{\pazocal{K}}
 \newcommand{\D}{\pazocal{D}}
+\newcommand{\E}{\pazocal{E}}
+\newcommand{\F}{\pazocal{F}}
+\newcommand{\G}{\pazocal{G}}
+\newcommand{\Ha}{\pazocal{H}}
+\newcommand{\K}{\pazocal{K}}
+\newcommand{\La}{\pazocal{L}}
+\newcommand{\M}{\pazocal{M}}
+\newcommand{\Q}{\pazocal{Q}}
+\newcommand{\U}{\pazocal{U}}
+\newcommand{\V}{\pazocal{V}}
+\newcommand{\X}{\pazocal{X}}
+\newcommand{\Y}{\pazocal{Y}}
+
+
+
+
 %\newcommand{\O}{\pazocal{O}}
 %
 \DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
@@ -253,15 +250,16 @@
 %\addtolength\abovecaptionskip{5truemm}
 %\usepackage[citecolor=blue]{hyperref}
 %
+\usepackage{natbib}
 % 論文の表紙の項目
 %
-\thesistype{平成31年度 修士論文}
-\title{Hybrid Port--Hamiltonian Systems:\\Application to Robotics}
-\etitle{ハイブリッド・ポート・ハミルトン系：ロボット応用}
+\thesistype{令和元年 修士論文}
+\title{Hybrid Port--Hamiltonian Systems\\ and their Application to Robotics}
+\etitle{ハイブリッド・ポート・ハミルトン系のロボット応用}
 \affiliation{Department of Precision Engineering, Graduate School of Engineering\\ \vspace{5pt} The University of Tokyo}%{東京大学 工学系研究科 精密工学専攻}
 \supervisor{Professor Hajime Asama \\  淺間一教授}
 \studentid{37-175037}
-\author{Massaroli Stefano\\ マッサロリ　ステファノ}
+\author{Stefano Massaroli\\ マッサロリ　ステファノ}
 \begin{document}
 \dominitoc
 %表紙
@@ -291,12 +289,12 @@
 
 %
 \input{./Chapters/1introduction}
-\input{./Chapters/2preliminaries_Empty}
-\input{./Chapters/3hybridporthamiltonian_Empty}
-\input{./Chapters/4balldribbling_Empty}
-\input{./Chapters/5multistable_Empty}
-\input{./Chapters/6hybrididentification_Empty}
-\input{./Chapters/7conclusionandfuturework}
+%\input{./Chapters/2preliminaries}
+%\input{./Chapters/3hybridporthamiltonian_Empty}
+%\input{./Chapters/4balldribbling_Empty}
+%\input{./Chapters/5multistable_Empty}
+%\input{./Chapters/6hybrididentification_Empty}
+%\input{./Chapters/7conclusionandfuturework}
 
 %
 %謝辞
@@ -305,7 +303,12 @@
 %参考文献
 %\input{./Backmatter/Ref}
 %\nocite{*}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrt}
+%\bibliographystyle{plain}
+%\bibliographystyle{apalike} 
+%\bibliographystyle{alpha} 
+\bibliographystyle{engnatdin}
+
 \bibliography{MasterThesis}
 
 %研究業績
