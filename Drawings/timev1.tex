@@ -1,13 +1,10 @@
-% This file was created by matlab2tikz.
 %
-%The latest updates can be retrieved from
-%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
-%where you can also make suggestions and rate matlab2tikz.
+\definecolor{ocean}{rgb}{0.00000,0.44700,0.74100}
 %
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=7cm,
+width=11cm,
 height=2cm,
 at={(0.758in,1.9in)},
 scale only axis,
@@ -18,25 +15,25 @@ xlabel={$t$ [$s$]},
 ymin=-.8,
 ymax=0.75,
 ylabel style={font=\color{white!15!black}},
-ylabel={$\xi(t)~[m]$},
+ylabel={$q(t)$ [m]},
 axis background/.style={fill=white},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
-\addplot [color=green, dashed, line width=1.0pt,forget plot]
+\addplot [color=ocean, dashed, line width=1.0pt,forget plot]
   table[row sep=crcr]{%
 0	0.5\\
 17.103	0.5\\
 };
 %\addlegendentry{data1}
 
-\addplot [color=green, dashed, line width=1.0pt,forget plot]
+\addplot [color=ocean, dashed, line width=1.0pt,forget plot]
   table[row sep=crcr]{%
 0	-0.5\\
 17.103	-0.5\\
 };
 %\addlegendentry{data2}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 0	-0.8\\
 0.0201272951242755	-0.79951111951868\\
@@ -94,7 +91,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 };
 %\addlegendentry{data3}
 
-\addplot [color=blue, line width=1.5pt]
+\addplot [color=gray, line width=2pt]
   table[row sep=crcr]{%
 5	-0.500837469394745\\
 5.001	-0.49979049724748\\
@@ -1151,7 +1148,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 };
 %\addlegendentry{data4}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 6.051	0.49653429235932\\
 6.176	0.496926194960609\\
@@ -1198,7 +1195,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 
 %\addlegendentry{data5}
 
-\addplot [color=blue, line width=1.5pt]
+\addplot [color=gray, line width=2pt]
   table[row sep=crcr]{%
 11.051	0.499975988567965\\
 11.052	0.498930526268579\\
@@ -2256,7 +2253,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 };
 %\addlegendentry{data6}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 12.103	-0.495754812469683\\
 12.228	-0.495876798825259\\
@@ -2302,13 +2299,13 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 };
 %\addlegendentry{data7}
 
-\addplot [color=red, dashed, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+\addplot [color=black, dashed, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
   table[row sep=crcr]{%
 11.051	0.499975988567965\\
 };
 %\addlegendentry{data8}
 
-\addplot [color=red, dashed, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+\addplot [color=black, dashed, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
   table[row sep=crcr]{%
 5	-0.500837469394745\\
 };
@@ -2317,29 +2314,29 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 \end{axis}
 
 \begin{axis}[%
-width=7cm,
+width=11cm,
 height=2cm,
 at={(0.758in,0.887in)},
 scale only axis,
 xmin=0,
 xmax=17,
 xlabel style={font=\color{white!15!black}},
-xlabel={$t$ [$s$]},
+xlabel={$t$ [s]},
 ymin=-1.5,
 ymax=1.5,
 ylabel style={font=\color{white!15!black}},
-ylabel={$\dot{\xi}(t)$ [$ms^{-1}$]},
+ylabel={$p(t)$ [Kg $\cdot$ m/s]},
 axis background/.style={fill=white},
 legend style={legend cell align=left, align=left, draw=white!15!black,font = \tiny}
 ]
-\addplot [color=green, dashed, line width=1.0pt,forget plot]
+\addplot [color=ocean, dashed, line width=1.0pt,forget plot]
   table[row sep=crcr]{%
 0	0\\
 17.103	0\\
 };
 %\addlegendentry{data1}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 0	0\\
 0.0201272951242755	0.0477490023739828\\
@@ -2396,7 +2393,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 5	0.000841855322192339\\
 };
 \addlegendentry{$u = \beta(x)+v$}
-\addplot [color=blue, line width=1.5pt]
+\addplot [color=gray, line width=2pt]
   table[row sep=crcr]{%
 5	1.04598258627294\\
 5.001	1.04796067094012\\
@@ -3450,10 +3447,11 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 6.049	0.00829107822838578\\
 6.05	0.00580492221240261\\
 6.051	0.00331997994636712\\
+6.176	0.00297637104480823\\
 };
 %\addlegendentry{data3}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 6.051	0.00331997994636712\\
 6.176	0.00297637104480823\\
@@ -3500,7 +3498,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 \addlegendentry{$u = 0$}
 %\addlegendentry{data4}
 
-\addplot [color=blue, line width=1.5pt]
+\addplot [color=gray, line width=2pt]
   table[row sep=crcr]{%
 11.051	-1.04447451352478\\
 11.052	-1.0464490494849\\
@@ -4555,10 +4553,11 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 12.101	-0.00562209250158619\\
 12.102	-0.00314114710609787\\
 12.103	-0.000661426171438679\\
+12.228	-0.00206772838125354\\
 };
 %\addlegendentry{data5}
 
-\addplot [color=black, line width=1.5pt]
+\addplot [color=black, line width=2pt]
   table[row sep=crcr]{%
 12.103	-0.000661426171438679\\
 12.228	-0.00206772838125354\\
@@ -4602,21 +4601,30 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 16.978	-4.23155982736887e-05\\
 17.103	-3.73462378353196e-05\\
 };
-%\addlegendentry{data6}
-
-\addplot [color=red, dotted, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+%
+\addplot [color=red, dotted, line width=1pt]
   table[row sep=crcr]{%
 5	0.000841855322192339\\
 5	1.04598258627294\\
 };
-%\addlegendentry{data7}
-
-\addplot [color=red, dotted, line width=1pt, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+%
+\addplot [line width=1pt, draw = none, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+  table[row sep=crcr]{%
+5	0.000841855322192339\\
+5	1.04598258627294\\
+};
+%
+\addplot [color=red, dotted, line width=1pt]
   table[row sep=crcr]{%
 11.051	2.40078525089691e-05\\
 11.051	-1.04447451352478\\
 };
-%\addlegendentry{data8}
+%
+\addplot [line width=1pt, draw = none, mark size=2pt, mark=*, mark options={solid, fill=gray, black}]
+  table[row sep=crcr]{%
+11.051	2.40078525089691e-05\\
+11.051	-1.04447451352478\\
+};
 
 \end{axis}
 \end{tikzpicture}%

@@ -1,0 +1,38 @@
+    %\input{blockdiag.tex}
+    \tikzstyle{block} = [draw, fill=gray!20, rectangle, 
+    minimum height= 1em, minimum width= 1em]
+\tikzstyle{sum} = [draw, fill=gray!50, circle, node distance=0.7cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+\tikzset{container/.style={draw, rectangle, dashed, inner sep=0.3em }}
+
+% The block diagram code is probably more verbose than necessary
+\begin{tikzpicture}[auto, node distance=1.4cm,>=latex']
+    % We start by placing the blocks
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (PID) {PID};
+    \node [block, right of=PID] (B) {$\Bb$};
+    \node [sum, right of=B] (sum2) {};
+    \node [block, right of=sum2] (int) {$\int$};
+    \node [block,below of = int,node distance =1.75em](A){$\Ab$};
+    \node [block, right of=int, node distance=1.5cm] (system) {$\Bb^\top \Pb$};
+    %
+    \node [output, right of=system] (output) {};
+    \node [output, right of=output, node distance = 0.5 cm] (output2) {};
+    % 
+    \draw [draw,->] (input) -- node {$\mathbf{r}(t)$} (sum);
+    \draw [->] (sum) -- node {$\mathbf{e}(t)$} (PID);
+    \draw [->] (PID)-- node {$\mathbf{u}(t)$} (B);
+    \draw [->] (B)--(sum2);
+    \draw [->] (sum2) -- node {$\dot{\xb}$} (int);
+    \draw [-latex] (int) -- node[name=u] {$\xb$} (system); 
+    \draw [-] (system) -- node [name=y] {$\yb$}(output);
+    \draw [->] (output) -- (output2); 
+    % 
+    \draw [->] (u) |- (A);
+    \draw [->] (A) -| (sum2);
+    %\connect{output}{sum};
+    \draw[->] (output) |- node[below right,pos=0.2]{} ++(-1,-1.2) -| (sum);     
+\end{tikzpicture}

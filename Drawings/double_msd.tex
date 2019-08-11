@@ -1,0 +1,63 @@
+\definecolor{ocean}{rgb}{0.00000,0.44700,0.74100}
+%
+\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+        \tikzstyle{damper}=[thick,decoration={markings,  
+            mark connection node=dmp,
+            mark=at position 0.5 with 
+            {
+                \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+            }
+        }, decorate]
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm,inner sep=0pt,outer sep=0pt]
+
+        \node [draw, outer sep=0pt, thick] (M) [minimum width=2cm, minimum height=1cm] {$m_1$};
+        \node [draw, outer sep=0pt, thick] (M2) [minimum width=2cm, minimum height=1cm, yshift =-2cm] {$m_2$};
+
+        \node (ground) [ground,anchor=north,yshift=1.2cm,minimum width=4cm,xshift=0cm] at (M.north) {};
+        \draw (ground.north east) -- (ground.north west);
+        \draw (ground.south east) -- (ground.south west);
+        \draw (ground.north east) -- (ground.south east);
+        \draw (ground.north west) -- (ground.south west);
+
+        \draw [spring] (ground.194) -- ($(M.north west)!(ground.194)!(M.north east)$);
+        \draw [damper] (ground.346) -- ($(M.north west)!(ground.346)!(M.north east)$);
+        \draw [damper] (M.220) -- ($(M2.north west)!(M.220)!(M2.north east)$);
+        \draw [spring] (M.320) -- ($(M2.north west)!(M.320)!(M2.north east)$);
+
+        \draw [-latex,thick,ocean] (M2.south) ++ (0cm,0cm) -- +(0cm,-.65cm);
+        \node (ft) at (M2.south) [yshift = -.8cm] {$u(t)$};
+        
+        \node (b2) at (M2.north) [xshift = -1.2cm, yshift = 0.5cm] {$b_2$};
+        \node (k1) at (M.north) [xshift = -1.2cm, yshift = 0.5cm] {$k_1$};
+        \node (k2) at (M2.north) [xshift = 1.2cm, yshift = 0.5cm] {$k_2$};
+        \node (b1) at (M.north) [xshift = 1.2cm, yshift = 0.5cm] {$b_1$};
+        
+        \node (ground2) [ground,anchor=north,yshift=-1.2cm,minimum width=4cm,xshift=0cm] at (M2.south) {};
+        \draw (ground2.north east) -- (ground2.north west);
+        \draw (ground2.south east) -- (ground2.south west);
+        \draw (ground2.north east) -- (ground2.south east);
+        \draw (ground2.north west) -- (ground2.south west);
+        
+        \draw [-,thick] (M2.east) ++ (0cm,0cm) -- +(0.5cm,0cm);
+        \draw [-latex,thick] (M2.east) ++ (0.5cm,0cm) -- +(0cm,-.5cm);
+        \node (x2) at (M2.east) [xshift = .75cm, yshift = -.45cm] {$q_2$};
+        
+        \draw [-,thick] (M.east) ++ (0cm,0cm) -- +(0.5cm,0cm);
+        \draw [-latex,thick] (M.east) ++ (0.5cm,0cm) -- +(0cm,-.5cm);
+        \node (x1) at (M.east) [xshift = .75cm, yshift = -.45cm] {$q_1$};
+        
+        \draw [-,thick] (M.west) ++ (0cm,0cm) -- +(-0.75cm,0cm);
+        \draw [-,thick] (M.west) ++ (-0.75cm,0cm) -- +(0cm,-0.85cm);
+        \draw [-,thick] (M.west) ++ (-0.95cm,-0.85cm) -- +(0.4cm,0cm);
+        
+        \draw [-,thick] (M2.west) ++ (0cm,0cm) -- +(-0.75cm,0cm);
+        \draw [-,thick] (M2.west) ++ (-0.75cm,0cm) -- +(0cm,-1.35cm);
+        \draw [-,thick] (M2.west) ++ (-0.95cm,-1.35cm) -- +(0.4cm,0cm);
+        
+        \draw [-,thick] (M2.west) ++ (0cm,0cm) -- +(-0.75cm,0cm);
+        \draw [-,thick] (M2.west) ++ (-0.75cm,0cm) -- +(0cm,0.85cm);
+        \draw [-,thick] (M2.west) ++ (-0.95cm,0.85cm) -- +(0.4cm,0cm);
+\end{tikzpicture}

@@ -1,0 +1,81 @@
+\definecolor{ocean}{rgb}{0.00000,0.44700,0.74100}
+%
+\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+        \tikzstyle{damper}=[thick,decoration={markings,  
+            mark connection node=dmp,
+            mark=at position 0.5 with 
+            {
+                \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+            }
+        }, decorate]
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm,inner sep=0pt,outer sep=0pt]
+
+        \node [draw, outer sep=0pt,thick,fill = gray!50] (M) [minimum width=2cm, minimum height=.3cm] {$m_1$};
+        %
+        \node [draw, outer sep=0pt,thick,fill = gray!50] (M2) [minimum width=2cm, minimum height=.3cm, yshift =-2cm] {$m_2$};
+        %
+        \node [draw, outer sep=0pt, thick,fill = gray] (M3) [minimum width=2cm, minimum height=0.1cm, yshift =-3.5cm] {};
+        
+        \draw [damper] (M.200) -- ($(M2.north west)!(M.200)!(M2.north east)$);
+        \draw [spring] (M.340) -- ($(M2.north west)!(M.340)!(M2.north east)$);
+        \draw [-,thick] (M.270) -- ($(M2.north west)!(M.270)!(M2.north east)$);
+        \draw[draw=black,fill=ocean!50,thick] (0,-1cm) circle (0.25cm);
+        
+        \node (b) at (M2.north) [xshift = -1.2cm, yshift = 0.75cm] {$b$};
+        \node (k) at (M2.north) [xshift = 1.2cm, yshift = 0.75cm] {$k$};
+        \node (u) at (M2.north) [xshift = 0cm, yshift = 0.75cm] {$u$};
+        
+        \node (ground2) [ground,anchor=north,yshift=-2.25cm,minimum width=4cm,xshift=0cm] at (M2.south) {};
+        \draw (ground2.north east) -- (ground2.north west);
+        \draw (ground2.south east) -- (ground2.south west);
+        \draw (ground2.north east) -- (ground2.south east);
+        \draw (ground2.north west) -- (ground2.south west);
+        
+        \draw [spring] (ground2.20) -- ($(M3.south west)!(ground2.20)!(M3.south east)$);
+        \draw [damper] (ground2.160) -- ($(M3.south west)!(ground2.160)!(M3.south east)$);
+        
+        \node (b) at (M3.south) [xshift = -1cm, yshift = -0.5cm] {$b_g$};
+        \node (k) at (M3.south) [xshift = 1cm, yshift = -0.5cm] {$k_g$};
+        %
+        \draw[->, very thick] (ground2.west) -- (-2,1);
+        \draw[-, dotted] (M.south west) -- +(-1,0cm);
+        \draw[-, dotted] (M2.south west) -- +(-1,0cm);
+        \draw[-, dotted] (M3.north west) -- +(-1,0cm);
+        \node (q1) at (M.south west) [xshift = -1.3cm] {$q_1$};
+        \node (q2) at (M2.south west) [xshift = -1.3cm] {$q_2$};
+        \node (q3) at (M3.north west) [xshift = -1.6cm] {$q_3\equiv 0$};
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \node [draw, outer sep=0pt,thick,fill = gray!50] (M) [minimum width=2cm, minimum height=.3cm,xshift = 5cm,yshift =-1.2cm] {$m_1$};
+        %
+        \node [draw, outer sep=0pt,thick,fill = gray!50] (M2) [minimum width=2cm, minimum height=.3cm, xshift = 5cm, yshift =-3.2cm] {$m_2$};
+        %
+        \node [draw, outer sep=0pt, thick,fill = gray] (M3) [minimum width=2cm, minimum height=0.1cm, xshift = 5cm, yshift =-3.5cm] {};
+        
+        \draw [damper] (M.200) -- ($(M2.north west)!(M.200)!(M2.north east)$);
+        \draw [spring] (M.340) -- ($(M2.north west)!(M.340)!(M2.north east)$);
+        \draw [-,thick] (M.270) -- ($(M2.north west)!(M.270)!(M2.north east)$);
+        \draw[draw=black,fill=ocean!50,thick] (5cm,-2.2cm) circle (0.25cm);
+        
+        \node (b) at (M2.north) [xshift = -1.2cm, yshift = 0.75cm] {$b$};
+        \node (k) at (M2.north) [xshift = 1.2cm, yshift = 0.75cm] {$k$};
+        \node (u) at (M2.north) [xshift = 0cm, yshift = 0.75cm] {$u$};
+        
+        \node (ground2) [ground,anchor=north,yshift=-1.05cm,minimum width=4cm,xshift=0cm] at (M2.south) {};
+        \draw (ground2.north east) -- (ground2.north west);
+        \draw (ground2.south east) -- (ground2.south west);
+        \draw (ground2.north east) -- (ground2.south east);
+        \draw (ground2.north west) -- (ground2.south west);
+        
+        \draw [spring] (ground2.20) -- ($(M3.south west)!(ground2.20)!(M3.south east)$);
+        \draw [damper] (ground2.160) -- ($(M3.south west)!(ground2.160)!(M3.south east)$);
+        
+        \node (b) at (M3.south) [xshift = -1cm, yshift = -0.5cm] {$b_g$};
+        \node (k) at (M3.south) [xshift = 1cm, yshift = -0.5cm] {$k_g$};
+        
+        \node (fly) at (0,0) [xshift = 0cm, yshift = 1cm] {\textbf{Non--Contact Mode}};
+        \node (fly) at (5cm,0) [xshift = 0cm, yshift = 1cm] {\textbf{Contact Mode}};
+        
+\end{tikzpicture}

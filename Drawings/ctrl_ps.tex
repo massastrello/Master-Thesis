@@ -1,15 +1,4 @@
-%\begin{tikzpicture}
-%\begin{axis}[view={0}{90},colorbar as legend,colormap/blackwhite,]
-%    \addplot3[
-%        contour filled={
-%           levels={0.5,0.6,...,1.5},
-%        },
-%        patch type=bilinear,
-%        mesh/cols=20,mesh/ordering=y varies,
-%    ]
-%    table {H.dat};
-%\end{axis}
-%\end{tikzpicture}
+\definecolor{ocean}{rgb}{0.00000,0.44700,0.74100}
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -27,21 +16,23 @@ colorbar horizontal,
 %	ylabel style={},
 %	xticklabel pos=lower
 %},
+colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (black)},
 colorbar style = {at = {(0,-0.25)}},
 xmin=-1,
 xmax=1,
 xlabel style={font=\color{white!15!black},at = {(0.75in,-0.1in)}},
-xlabel={$\xi(t)~[m]$},
+xlabel={$q(t)~[m]$},
 ymin=-1,
 ymax=1,
 ylabel style={font=\color{white!15!black},at = {(-0.1in,0.75in)}},
-ylabel={$\dot{\xi}(t)~[ms^{-1}]$},
+ylabel={$p(t)~[ms^{-1}]$},
+title = {uncontrolled},
 axis background/.style={fill=white},
 ]
 \addplot3[contour filled={number = 25,labels={false}},mesh/rows=50,mesh/cols=50,mesh/check=false,forget plot
 ] table {H.dat};
 %
-\addplot [color=black, line width=1.5pt]
+\addplot [color=ocean, line width=1.5pt]
 table[row sep=crcr]{%
 	-0.9	0\\
 	-0.899985991795746	0.00501674269174762\\
@@ -217,20 +208,22 @@ view={0}{90},
 %point meta min=0,
 colorbar horizontal,
 colorbar style = {at = {(0,-0.25)}},
+colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (black)},
 xmin=-1,
 xmax=1,
 xlabel style={font=\color{white!15!black},at = {(.75in,-0.1in)}},
-xlabel={$\xi(t)~[m]$},
+xlabel={$q(t)~[m]$},
 ymin=-1,
 ymax=1,
 ylabel style={font=\color{white!15!black},at = {(-0.1in,0.75in)}},
-ylabel={$\dot{\xi}(t)~[ms^{-1}]$},
+ylabel={$p(t)~[ms^{-1}]$},
+title = {controlled},
 axis background/.style={fill=white},
 ]
 \addplot3[contour filled={number = 25,labels={false}},mesh/rows=50,mesh/cols=50,mesh/check=false,forget plot
 ] table {Hs.dat};
 %
-\addplot [color=black, line width=1.5pt]
+\addplot [color=ocean, line width=1.5pt]
 table[row sep=crcr]{%
 	-0.9	0\\
 	-0.899996870908082	0.00502218565295018\\

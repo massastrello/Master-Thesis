@@ -12,34 +12,34 @@
     % We start by placing the blocks
     \node [input, name=input] {};
     \node [sum, right of=input] (sum) {};
-    \node [block, left of=sum] (B) {$B$};
+    \node [block, left of=sum] (B) {$\Bb$};
     \node [sum, left of=B] (sum2) {};
     \node [input, left of = sum2,name=input2] {};
-    \node [block, right of=sum] (int) {$\int\cdot dt$};
-    \node [block,below of = int,node distance =1.75em](A){$A$};
-    \node [block,below of = A,node distance =1.8em](beta){$\beta(\cdot)$};%{$-B^+P^{-1}A^T(\partial\Ha_a)^T$};
-    \node [block, right of=int, node distance=1.5cm] (system) {$B^\top P$};
+    \node [block, right of=sum] (int) {$\int$};
+    \node [block,below of = int,node distance =1.75em](A){$\Ab$};
+    \node [block,below of = A,node distance =2em](beta){$\bm\beta(\cdot)$};
+    \node [block, right of=int, node distance=1.5cm] (system) {$\Bb^\top \Pb$};
     % We draw an edge between the controller and system block to 
     % calculate the coordinate u. We need it to place the measurement block. 
-    \draw [-latex] (int) -- node[name=u] {$x$} (system);
+    \draw [-latex] (int) -- node[name=u] {$\xb$} (system);
     \node [output, right of=system] (output) {};
     \node [output, right of=output] (output2) {};
-    \node [block, above of=u, node distance = 1.75em] (outfb) {$-\kappa$};
+    \node [block, above of=u, node distance = 2em] (outfb) {$-\mathbf{K}_d$};
     %
     \node [container , fit = (beta), fill = blue!100, fill opacity=0.1] (nlctrl) {};
-    \node at (nlctrl.east) [ right, node distance =2cm and -1cm, align = center] {\footnotesize{energy shaping control} $\newline$\\ {\footnotesize(nonlinear state feedback)}};
+    \node at (nlctrl.south) [below, node distance =0cm and 0cm, align = center] {{energy shaping control} $\newline$\\ {(nonlinear state feedback)}};
     %
     \node [container , fit = (outfb), fill = blue!100, fill opacity=0.1] (dampin) {};
-    \node at (dampin.west) [left, node distance =2.5cm and 1cm, align = center] {\footnotesize{damping injection control} $\newline$\\ {\footnotesize{\color{white}aaaaaa}(output feedback)}};
+    \node at (dampin.north) [above, node distance =0cm and 0cm, align = center] {{damping injection control} $\newline$\\ {(output feedback)}};
     % Once the nodes are placed, connecting them is easy.
     % 
-    \draw [draw,->] (input2) -- node {$\mathbb{0}_m$} (sum2);
-    \draw [->] (sum) -- node {$\dot{x}$} (int);
-    \draw [-] (system) -- node [name=y] {$y$}(output);
+    \draw [draw,->] (input2) -- node {$\mymathbb{0}_m$} (sum2);
+    \draw [->] (sum) -- node {$\dot{\xb}$} (int);
+    \draw [-] (system) -- node [name=y] {$\yb$}(output);
     \draw [->] (output) -- (output2);
     \draw [->] (output) |- (outfb);
     \draw [->] (outfb) -| node[pos=0.99] {} 
-        node [near end] {$v$} (sum2);
+        node [near end] {$\vb$} (sum2);
     \draw [->] (u) |- (A);
     \draw [->] (A) -| (sum);
     \draw [->] (u) |- (beta);

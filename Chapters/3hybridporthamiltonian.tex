@@ -1,5 +1,4 @@
 %\the\textwidth = 379.37pt
-
 \chapter{Hybrid Port--Hamiltonian Systems}
 
 \label{chap:HPH_systems}
@@ -9,17 +8,552 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Definition and Basic Assumptions}
-
+\section{Introduction}
+\lettrine[lines=4]{\color{brickred}H}{ereafter}, the framework of hybrid port--Hamiltonian systems will be introduced. Starting from the results discussed in Chapter \ref{chap:preliminaries}, the theories of port--Hamiltonian systems and hybrid inclusions will be merged. First, the class of \textit{impulsive} systems will be characterized in a port--Hamiltonian fashion. Then, the general hybrid port--Hamiltonian system will be defined. Following,
 \clearpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Definitions and Basic Assumptions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Impulsive Port--Hamiltonian Systems}
+%
+Consider the single--flow specialization of the hybrid inclusion (\ref{eq:hs}):
+%
+\begin{equation}\label{eq:hs_singleflow}
+    %
+    \left\{ 
+        \begin{matrix*}[l]\vspace{1pt}
+            %
+            \dot{\xb} = \mathbf{f}(\xb,\ub) && (\xb,\ub)\in\C\times\U\\
+            \xb^+ \in \G(\xb)&&\quad~~\xb\in\D\\
+            \yb = \mathbf{h}(\xb)
+            %
+        \end{matrix*}
+    \right.
+    %
+\end{equation}
+%    
+with $\mathbf{f}:\R^n\times\R^m\rightarrow\R^n$.
+Here it is assumed that inputs enter into the dynamics only during flows and not during jumps. Therefore, 
+%
+\begin{equation}
+    \ub\triangleq\ub_c,~~\U\triangleq\U_c
+\end{equation}
+%
+This assumption has been made to simplify the model since in most physical systems, no impulsive forcing terms can be practically applied.
+%
+\begin{defn}[Impulsive port--Hamiltonian Systems]
+%
+An impulsive port--Hamiltonian system is a system in the form (\ref{eq:hs_singleflow})  with port--Hamiltonian flows and output, i.e.
+%
+\begin{equation}\label{eq:impulsive_ph}
+    %
+    \boxed{
+    \left\{ 
+        \begin{matrix*}[l]\vspace{1pt}
+            %
+            \dot{\xb} = \left[\Jb(\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb(\xb)\ub && (\xb,\ub)\in\C\times\U\\
+            \xb^+ \in \G(\xb)&&\quad~~ \xb\in\D\\
+            \yb = \Gb^\top(\xb)\dH(\xb)
+            %
+        \end{matrix*}
+    \right.
+    }
+    %
+\end{equation}
+%
+The state--space of the system is $\X\triangleq\C\cup\D$ and $\Ha:\X\rightarrow\R$.
+\end{defn}
+%
+An example of this type of systems is the \textit{ball--dribbling robot} of Fig. \ref{fig:1D}. Note that most mechanical systems exhibiting impacts admit a representation (\ref{eq:impulsive_ph}).
+%
+\begin{exmp}[Impact Pendulum]\label{ex:ipend}
+    Consider an impact pendulum of mass $m$ and length $\ell$ as in Fig. \ref{fig:ipend}.
+    %
+    \begin{figure}
+        \centering
+        \input{Drawings/ipend.tex}
+        \caption[Impact pendulum]{Impact pendulum of mass $m$ and length $\ell$. The systems has two impacts, one when the pendulum is at the resting position ($q=0$) and at $q = \pi/2$.}
+        \label{fig:ipend}
+    \end{figure}
+    %
+    Let $q$ be the pendulum angle and $p \triangleq m \ell^2 \dot{q}$ its angular momentum. The flows of the system are:
+    %
+    \begin{equation}
+        %
+        \dot{q} = \frac{1}{m\ell^2}p \quad
+        \dot{p} = -m\gamma\ell\sin(q)-\frac{\beta}{m\ell^2}p + u
+        %
+    \end{equation}
+    %
+    where $u$ is the input torque applied at the joint, $\gamma$ is the gravitational constant and $\beta$ is the viscous friction coefficient in the joint. The system admits an impulsive port--Hamiltonian form (\ref{eq:impulsive_ph}) with state $\xb\triangleq(q,p)$. In particular, the flows are described by the system matrices:
+    %
+    \begin{equation}
+        \Jb\triangleq\begin{bmatrix}0&1\\-1&0\end{bmatrix},~~\Rb\triangleq \begin{bmatrix}0&0\\0&\beta\end{bmatrix},~~\Gb\triangleq\begin{bmatrix}0\\1\end{bmatrix}.
+    \end{equation}
+    %
+    The Hamiltonian function is 
+    %
+    \begin{equation}
+        \Ha(q,p)\triangleq\frac{1}{2m\ell^2}p^2 + mg\ell(1-\cos(q))
+    \end{equation}
+    %
+    The systems has two impacts, one when the pendulum is at the resting position ($q=0$) and at $q = \pi/2$. Thus,
+    %
+    \begin{align}
+        &\xb^+ = \mathbf{g}_1(\xb) \triangleq \overbrace{\begin{bmatrix}1&0\\0&-c_l\end{bmatrix}}^{\mathbf{M}_1}\xb\quad\text{if}\quad\xb\in\D_1\triangleq\left\{\xb:q=0\land p\leq 0\right\} \\
+        %
+        &\xb^+ = \mathbf{g}_2(\xb) \triangleq \underbrace{\begin{bmatrix}1&0\\0&-c_u\end{bmatrix}}_{\mathbf{M}_2}\xb\quad\text{if}\quad\xb\in\D_2\triangleq\left\{\xb:q=\pi/2\land p\geq 0\right\}
+    \end{align}
+    %
+    and, therefore,
+    %
+    \begin{equation}
+        \G\triangleq\left\{\mathbf{g}_i:\xb\in\D_i\Rightarrow\xb^+ = \mathbf{g}_i(\xb),~i = 1,2\right\}
+    \end{equation}
+    %
+    \end{exmp}
+%
+\subsection{Hybrid port--Hamiltonian Systems}
+%
+
+In this thesis, the type of systems which are dealt with present a finite number of modes and that can be thus described through an \textit{hybrid automata} (see \cite{van2000introduction}). However, it is convenient to describe them as hybrid inclusions in the form (\ref{eq:hs}). In \citep{goebel2009hybrid} an hybrid inclusion formulation of hybrdid automata is given. However, the formulation of hybrid port--Hamiltonian systems will be derived starting from the notion of impulsive port--Hamiltonian system.
+
+Let us consider a dynamical systems which behavior is the collection of $r$ ``modes'' in the form (\ref{eq:impulsive_ph}), i.e.
+%
+\begin{equation}\label{eq:impulsive_ph}
+    %
+    \left\{ 
+        \begin{matrix*}[l]\vspace{1pt}
+            %
+            \dot{\xb} = \left[\Jb_s(\xb)-\Rb_s(\xb)\right]\dH_s(\xb) + \Gb_s(\xb)\ub && (\xb,\ub)\in\C_s\times\U\\
+            \xb^+ \in \G_s(\xb)&&\quad~~ \xb\in\D_s\\
+            \yb = \Gb_s^\top(\xb)\dH_(\xb)
+            %
+        \end{matrix*}\qquad s\in\M 
+    \right.
+    %
+\end{equation}
+%
+where $\M\triangleq\mathbb{N}^*_{\leq r}$. The transition between one mode and another may happen only during jumps. Therefore, a state extension might be performed to include the mode index in the state:
+%
+\begin{equation}
+    \zb \triangleq (\xb,s).
+\end{equation}
+%
+Let us now define the port--Hamiltonian flow set--valued mapping as
+%
+\begin{equation}\label{eq:hph_flowmap}
+    \F_{\tt PH}(\xb,\ub) \triangleq \F(\xb,\ub)\times\{0\}
+\end{equation}
+%
+where
+%
+\begin{equation}
+    \F\triangleq\left\{\mathbf{f}_i(\xb,\ub) = \left[\Jb_i(\xb)-\Rb_i(\xb)\right]\dH_i(\xb) + \Gb_i(\xb)\ub~:~(\xb,s)\in\C_i\times\{i\}\Rightarrow \dot{\xb} = \mathbf{f}_i(\xb,\ub)\right\}.
+\end{equation}
+%
+The flow set can be then defined as
+%
+\begin{equation}
+    \C\triangleq\bigcup_{s\in\M}\left(\C_s\times\{s\}\right).
+\end{equation}
+%
+Note that the jump set $\D_s$ and the jump map $\G_s(\xb)$ of each mode enjoy the following:
+%
+\begin{equation}
+    \D_s\triangleq \bigcup_{i\in\M}\D_{s\Arrow{0.1cm} i}~~\text{ and }~~\G_s(\xb)\triangleq \bigcup_{i\in\M}\mathbf{g}_{s\Arrow{0.1cm}i}(\xb)
+\end{equation}
+%
+such that 
+%
+\begin{equation}
+    %
+    \begin{bmatrix}
+        \xb^+\\
+        s^+    
+    \end{bmatrix}
+    %
+    =
+    %
+    \begin{bmatrix}
+        \mathbf{g}_{s\Arrow{0.1cm}i}(\xb)\\
+        i    
+    \end{bmatrix}
+    %
+    \qquad (\xb,s)\in\D_{s\Arrow{0.1cm}i}\times\{s\}.
+\end{equation}
+%
+The port--Hamiltonian jump set--valued mapping is then defined as
+%
+\begin{equation}\label{eq:hph_jumpmap}
+    \G_{\tt PH}(\x) \triangleq\bigcup_{s\in\M,~i\in\M}\left(\mathbf{g}_{s\Arrow{0.1cm}i}(\xb),~i\right),
+\end{equation}
+%
+while the jump set as
+%
+\begin{equation}\label{eq:hph_jumpset}
+    \D \triangleq \bigcup_{s\in\M}\left(\D_s\times\{s\}\right).
+\end{equation}
+%
+If the output set valued mapping is also defined as
+%
+\begin{equation}
+    \Oo_{\tt PH} \triangleq \left\{\mathbf{h}_i(\xb) = \mathbf{G}_i^\top(\xb)\dH(\xb)~:~(\xb,s) \in\C_s\times\{i\}\Rightarrow y=\mathbf{h}_i(\xb)\right\},
+\end{equation}
+%
+the formulation of \textit{hybrid port--Hamiltonian system} is the following:
+%
+\begin{equation}\label{eq:hph}
+    \boxed{
+    \left\{
+        %
+        \begin{matrix*}[l]
+            %
+            (\dot{\xb},\dot{s}) \in \F_{\tt PH} & (\xb,s)\in\C\\
+            %
+            (\xb^+,s^+) \in \G_{\tt PH} & (\xb,s)\in\D\\
+            %
+            y \in \Oo_{\tt PH}
+            %
+        \end{matrix*}
+        %
+    \right.
+    }
+\end{equation}
+%
+\begin{rem}
+	The output of both impulsive and  hybrid port--Hamiltonian system is defined only during flows for two main reasons. Firstly, jumps occurrences are assumed to happen in zero--measure time intervals. Moreover, it is also assumed that no inputs are applied during jumps and, hence, undefined outputs cannot broke duality.
+\end{rem}
+%
+\begin{exmp}[Hopping Robot on elastic ground.]\label{ex:hopping}
+    %
+    Consider the hopping robot on elastic ground represented in Fig. \ref{fig:hopping} and described by \cite{Ishikawa2003}.
+    %
+    \begin{figure}[h]
+        \centering
+        \input{Drawings/hopping.tex}
+        \caption[Hopping robot on elastic ground]{Hopping robot on elastic ground. }
+        \label{fig:hopping}
+    \end{figure}
+    %
+    The \textit{robot} is made up of two masses interconnected with a spring of stiffness $k$ and resting length $\ell$, a dashpot with damping coefficient $b$ and a linear actuator which exerts an axial force $u$ (input to the system). 
+    $q_1,~q_2$ are the absolute height of the masses.
+    
+    The plate where the robots ``hops'' is assumed to be massless and connected to the ground with a spring of stiffness $k_g$ and a dashpot of damping coefficient $b_g$.
+    $q_3$ is the position of the plate and assumed to be zero at rest.
+    
+    Finally, impacts are considered completely inelastic and that takeoff from ground always happens at $q_2 = q_3 = 0$.
+    
+    Following \citep{Ishikawa2003}, the system has two modes ``Contact'' and ``Non--contact''. The flows in contact/non--contact modes are, respectively:
+    %
+    \begin{align}
+        %
+        \text{non--contact}\quad
+        %
+        &\left\{
+            \begin{matrix*}[l]
+            %
+            m_1\ddot{q}_1 = -m_1\gamma -k\left(q_1-q_2-\ell\right) -b\left(\dot{q}_1-\dot{q}_2\right) + u\\
+            %
+            m_2\ddot{q}_2 = -m_2\gamma +k\left(q_1-q_2-\ell\right) +b\left(\dot{q}_1-\dot{q}_2\right) - u\\
+            %
+            \ddot{q}_3 = 0
+            \end{matrix*}
+        \right.\\
+        %%
+        \text{contact}\quad
+        %
+        &\left\{
+            \begin{matrix*}[l]
+            %
+            m_1\ddot{q}_1 = -m_1\gamma -k\left(q_1-q_2-\ell\right) -b\left(\dot{q}_1-\dot{q}_2\right) + u\\
+            %
+            m_2\ddot{q}_2 = -m_2\gamma +k\left(q_1-q_2-\ell\right) +b\left(\dot{q}_1-\dot{q}_2\right) - k_gq_3-b_g\dot{q}_3 - u\\
+            %
+            \ddot{q}_3 = \dot{q}_2
+            \end{matrix*}
+        \right.
+        %
+    \end{align}
+    %
+    Let $s$ be the mode index and let $s=1$ in ``non--contact'' while $s=2$ in contact modes. Moreover, let $\qb \triangleq (q_1,q_2,q_3)$, $\pb\triangleq (m_1q_1,m_2q_2)$ and $\xb\triangleq(\qb,\pb)$. The flows of the two system modes can be then transformed in port--Hamiltonian form with the following system matrices:
+    %
+    \begin{equation}
+        %
+        \Jb_1\triangleq
+        \begin{bmatrix}
+            %
+            0&0&0&1&0\\
+            0&0&0&0&1\\
+            0&0&0&0&0\\
+            -1&0&0&0&0\\
+            0&-1&0&0&0\\
+            %
+        \end{bmatrix},~~
+        %
+        \Rb_1\triangleq
+        \begin{bmatrix}
+            %
+            0&0&0&0&0\\
+            0&0&0&0&0\\
+            0&0&0&0&0\\
+            0&0&0&b&-b\\
+            0&0&0&-b&b\\
+            %
+        \end{bmatrix},~~
+        %
+        \Gb_1\triangleq
+        \begin{bmatrix}
+            %
+            0\\0\\0\\1\\-1
+            %
+        \end{bmatrix},
+        %
+    \end{equation}
+    %%
+    \begin{equation}
+        %
+        \Jb_2\triangleq
+        \begin{bmatrix}
+            %
+            0&0&0&1&0\\
+            0&0&0&0&1\\
+            0&0&0&0&1\\
+            -1&0&0&0&0\\
+            0&-1&-1&0&0\\
+            %
+        \end{bmatrix},~~
+        %
+        \Rb_2\triangleq
+        \begin{bmatrix}
+            %
+            0&0&0&0&0\\
+            0&0&0&0&0\\
+            0&0&0&0&0\\
+            0&0&0&b&-b\\
+            0&0&0&-b&b+b_g\\
+            %
+        \end{bmatrix},~~
+        %
+        \Gb_2\triangleq
+        \begin{bmatrix}
+            %
+            0\\0\\0\\1\\-1
+            %
+        \end{bmatrix}
+        %
+    \end{equation}
+    %
+    and Hamiltonian functions
+    %
+    \begin{align}
+        &\Ha_1(\xb) \frac{1}{2}\triangleq \pb^\top\begin{bmatrix}m_1&0\\0&m_2\end{bmatrix}^{-1}\pb + \frac{1}{2}k\left(q_1-q_2-\ell\right)^2 + \gamma[m_1,m_2]\qb \\
+        %
+        &\Ha_2(\xb) \frac{1}{2}\triangleq \pb^\top\begin{bmatrix}m_1&0\\0&m_2\end{bmatrix}^{-1}\pb + \frac{1}{2}k\left(q_1-q_2-\ell\right)^2 + \frac{1}{2}k_g q_3^2+ \gamma[m_1,m_2]\qb.
+    \end{align}
+    %
+    The port--Hamiltonian flow set--valued mapping can be then defined as in (\ref{eq:hph_flowmap}). Transitions between the two modes happen as follows:
+    %
+    \begin{align}
+        &\begin{bmatrix}\xb^+\\s^+\end{bmatrix} = \begin{bmatrix}\xb\\2\end{bmatrix}\quad\text{if}\quad(\xb,s)\in\D_1\times\{1\}\triangleq\{\xb:q_2\leq 0\}\times\{1\}\\
+        %
+        &\begin{bmatrix}\xb^+\\s^+\end{bmatrix} = \begin{bmatrix}\xb\\1\end{bmatrix}\quad\text{if}\quad(\xb,s)\in\D_2\times\{2\}\triangleq\{\xb:q_2> 0\}\times\{2\}.
+    \end{align}
+    Thus, the jump set and the jump set--valued mapping can be derives as in (\ref{eq:hph_jumpset}), (\ref{eq:hph_jumpmap}).
+    
+    Finally, it can be noticed that the output is the same for each mode:
+    %
+    \begin{equation}
+        y = \Oo_{\tt PH}\triangleq\Gb_1^\top\dH_1(\xb) = \Gb_2^\top\dH_2(\xb) = \dot{q}_1 - \dot{q}_2  
+    \end{equation}
+    %
+\end{exmp}
+%
+%
+The concept of passivity, fundamental for the
+theory port-Hamiltonian systems, can be extended to
+the hybrid case in the following section.
+%
+\clearpage
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Passivity}
+%
+The concept and characterization of passivity for hybrid systems has been recently explored by \cite{naldi2013passivity}.
+%
+\begin{defn}[Passive impulsive port--Hamiltonian system]\label{def:impulsive_passivity}
+    %
+    A system in the form (\ref{eq:impulsive_ph}) is passive if and only if it satisfies the following dissipation inequality
+    %
+    \begin{equation}
+        \forall\xb\in\D,~\mathbf{g}\in\G \quad \Ha(\mathbf{g}(\xb))-\Ha(\xb)\leq 0
+    \end{equation}
+    %
+\end{defn}
+%
+Hereafter, necessary and sufficient condition for the passivity for systems of type (\ref{eq:impulsive_ph}), is given. First, let us start with a basic definition.
+%
+\begin{defn}[Evenly $\bm\psi$--diverging function]
+	Let $\bm\psi:\R^n\supseteq\dom(\bm\psi)\rightarrow\R^n$. A map $\Ha:\R^n\supseteq\dom(\Ha)\rightarrow\R$ is evenly diverging with respect to $\bm\psi$ if
+	%
+	\begin{equation}
+	    \forall\bm\xi\in\dom(\bm\psi)~~\Ha(\bm\psi(\bm\xi))-\Ha(\bm\xi)\leq 0 \Leftrightarrow \|\bm\psi(\bm\xi)\|_2-\|\bm\xi\|_2\leq {0}
+	\end{equation}
+	%
+\end{defn}
+%
+\begin{prop}\label{prop:pass_impulsive}
+	%
+	Without any loss of generality, let us assume $\mymathbb{0}$ to be a minimum of $\Ha(\xb)$:
+	%
+	\begin{equation}
+	    \mymathbb{0}_n = \min_{\x\in\X}\Ha(\xb).
+	\end{equation}
+	%
+	A system (\ref{eq:impulsive_ph}) such that $\Ha(\xb)$ is positive in $\X\setminus\{\mymathbb{0}_n\}$, $\Ha(\mymathbb{0}_n)=0$ and $\Ha$ is evenly diverging with respect to all $\mathbf{g}\in\G$, is passive if and only if 
+	%
+	\begin{equation}\label{eq:nl_pass}
+		\|\mathbf{g}\|_\infty\leq 1\quad\forall \mathbf{g}\in\G
+	\end{equation}
+	%
+\end{prop}
+%
+\begin{proof}
+	If $\Ha(\xb)$ is evenly diverging with respect to all the jump maps, it holds
+	%
+	\begin{align}
+	    \forall\mathbf{g}\in\G,~\xb\in\X\quad\Ha(\mathbf{g}(\xb))-\Ha(\xb)\leq 0 \Leftrightarrow \|\mathbf{g}(\xb)\|_2 \leq \|\xb\|_2.
+	\end{align}
+	%
+	Then,
+	%
+	\begin{align*}
+	\Ha(\mathbf{g}(\xb))-\Ha(\xb)\leq 0 \quad \Leftrightarrow \quad \sup\limits_{\xb\neq 0}\frac{\|\mathbf{g}(\xb)\|_2}{\|\xb\|_2} \triangleq \|\mathbf{g}\|_\infty\leq 1
+	\end{align*}
+    %
+\end{proof}
+%
+If $\mathbf{g}$ is a linear function, i.e., $\mathbf{g}(\xb) = \mathbf{M}\xb$ ($\mathbf{M}\in\R^{n\times n}$), the condition (\ref{eq:nl_pass}) corresponds in requiring that the maximum among the norms of the eigenvalues of $\mathbf{M}$ is less or equal than one:
+%
+\begin{equation}
+	\forall k \in\mathbb{N}^*_{\leq n} \qquad \max\limits_{k}\|\lambda_k\|_2\leq 1\quad\lambda_k:\mathbf{M}\mathbf{v}_k = \lambda_k\mathbf{v}_k
+\end{equation}
+%
+Note that this Proposition can be naturally extended to the case in which $\Ha$ has a unique minimum in $\xb^*$ by a change of coordinates $\zb\triangleq \xb-\xb^*$ and requiring $\Ha \circ~\zb:\X\rightarrow\R$ to be evenly diverging with respect to all $\gb\in\G$.
+%
+\newline
 
+%
+Here, passivity corresponds to the property of no internal energy generation during jumps. In fact, during flows, the (continuous time) passivity is guaranteed by the port--Hamiltonian structure.
+Note that Definition \ref{def:impulsive_passivity} is analogous to the one of \textit{flow-passivity} in \cite{naldi2013passivity} applied to single--flows hybrid inclusions with port--Hamiltonian flows. 
+%
+\begin{rem}
+    Recalling, example \ref{ex:ipend}, it can be concluded that the impact pendulum model is passive for Proposition \ref{prop:pass_impulsive} if and only if the restitution coefficients $c_l$, $c_u$ are all less then one.
+\end{rem}
+%
+Passivity can also be defined for hybrid port--Hamiltonian systems by extending Definition \ref{def:impulsive_passivity} as follows.
+%
+\begin{defn} [Passive hybrid port--Hamiltonian system]\label{def:hybrid_passivity}
+    %
+    A system in the form (\ref{eq:hph}) is passive if and only if it satisfies the following dissipation inequality
+    %
+    \begin{equation}
+        \forall s\in\M,~\xb\in\D_s,~\mathbf{g}\in\G_s \quad \Ha_s(\mathbf{g}(\xb))-\Ha_s(\xb)\leq 0
+    \end{equation}
+    %
+\end{defn}
+%
+Similarly, Proposition \ref{prop:pass_impulsive} can extended to hybrid case.
+%
+\begin{prop}\label{prop:pass_hybrid}
+    %
+	Let us assume
+	%
+	\begin{equation}
+	    \forall s\in\M\quad \mymathbb{0}_n = \min_{\x\in\X}\Ha_s(\xb).
+	\end{equation}
+	%
+	A system (\ref{eq:hph}) such that 
+	%
+	\begin{equation}
+	    \forall s\in\M~~\left(\xb\in\X\setminus\{\mymathbb{0}_n\}\Rightarrow\Ha_s(\xb)>0\right) \land\Ha_s(\mymathbb{0}_n)=0
+	\end{equation}
+	%
+	and, for all $s$, $\Ha_s$ is evenly diverging with respect to all $\mathbf{g}_s\in\G_s$, is passive if and only if 
+	%
+	\begin{equation}\label{eq:nl_pass}
+		\forall s\in\M,~\mathbf{g}_s\in\G\quad\|\mathbf{g}_s\|_\infty\leq 1.
+	\end{equation}
+	%
+\end{prop}
+%
+\begin{proof}
+    The proof follows naturally the one of Proposition \ref{prop:pass_impulsive}.
+\end{proof}
+%
+\begin{rem}
+The hopping robot of Example \ref{ex:hopping} is passive since the jump maps are simply the identity and, thus, there is no energy variation during jumps (jump--lossless). 
+\end{rem}
+%
+Lyapunov stability of both impulsive and hybrid port--Hamiltonian systems with be addressed in the next section.
+%
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Lyapunov Stability}
-
+\section{Lyapunov Stability of the Autonomous Systems}
+%
+The theorems for both Impulsive and hybrid port--Hamiltonian systems have been derived from Theorem \ref{thm:hybrid_Lyap}.
+%
+\begin{thm}[Lyapunov Stability of Impulsive port--Hamiltonian Systems]\label{thm:impulsive_lyap}
+    %
+    Consider an system (\ref{eq:impulsive_ph}) with $\ub = 0$	and a compact set $\A\subset\X$ satisfying $\G\left(\D\cap\A\right)\subset\A$. If
+	%
+	\begin{subequations}
+		\begin{align}
+		&\Ha(\xb)>0&&\forall x\in \left(\C\cup\D\right)\setminus\A\label{eq:stabhph_1}\\
+		&\Ha(\gb(\xb)) - \Ha(\xb)\leq 0 &&\forall \xb\in\D\setminus\A,\forall \gb\in\G\label{eq:stabhph_3}
+		\end{align}
+	\end{subequations}
+	%
+	then the set $\A$ is stable.
+	%
+\end{thm}
+%
+\begin{proof}
+    The proof is obtained directly from Theorem \ref{thm:hybrid_Lyap}. First, let us assume $\Ha$ to be the candidate Lyapunov function. Then, conditions (\ref{eq:stabh_1}) and (\ref{eq:stabh_3}) correspond, respectively to (\ref{eq:stabhph_1}), (\ref{eq:stabhph_3}). Finally, condition (\ref{eq:stabh_2}) is automatically satisfied due to the port--Hamiltonian structure of the flows, i.e.
+    %
+    \begin{equation}
+        \langle\dH(\xb),\dot{\xb}\rangle = \dH^\top(\xb)\Rb(\xb)\dH(\xb)\leq 0
+    \end{equation}
+    %
+    Thus, if the conditions of this Theorem are satisfied, the system is stable in the sense of Lyapunov according to Theorem \ref{thm:hybrid_Lyap}. 
+\end{proof}
+%
+Note that the condition (\ref{eq:stabhph_3}) is automatically satisfied if (\ref{eq:impulsive_ph}) is passive.
+%
+\begin{cor}\label{cor:impulsive_lyap}
+	Consider a system in the form (\ref{eq:impulsive_ph}) and assume it to be passive. If
+	%
+	\begin{equation*}
+	\exists \xb^*~:~\forall \xb\neq \xb^*~~\Ha(\xb)>0\text{ },\quad\Ha(\xb^*) = 0
+	\end{equation*}
+	% 
+	then, for any $\epsilon>0$ there exists a Lyapunov stable set
+	\[\A_\epsilon = \left\{\xb:\Ha(\xb)\leq\epsilon\right\}.\]
+\end{cor}
+%
+Thus, every neighborhood of any strict minimum of $\Ha$ is stable as long as (\ref{eq:hph}) is passive.
+%
+\begin{rem}
+    Regarding the impact pendulum of Example \ref{ex:ipend}, any neighborhood of the origin
+    %
+    \begin{equation}
+        \delta\xb\triangleq [\delta q,\delta p],\quad\delta q,\delta p\in\R^+
+    \end{equation}
+    %
+    can be easily proven to be a Lyapunov stable set according to Theorem \ref{thm:impulsive_lyap}. Moreoever, thanks to Corollary \ref{cor:impulsive_lyap}, it can be deduced that for all nonnegative $\epsilon$, $\A_\epsilon$ is Lyapunov stable.
+\end{rem}
+%
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

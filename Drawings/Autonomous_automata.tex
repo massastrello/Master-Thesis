@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+	%
+	\fill[gray!20, draw = black,thick] (0,0) ellipse (1.5cm and 1cm);
+	%	
+	\draw (0,0) node[align = center](flow)  {$\xb\in\C$\\$\dot{\xb} = \left[\Jb-\Rb\right]\dH$\\$y = \dot{q}_1$};
+	%
+	\draw [thick,->] plot [smooth, tension=2] coordinates { (1.3,0.498888) (2,0) (1.3,-0.498888)};
+	\draw [thick,->] plot [smooth, tension=2] coordinates { (-1.3,-0.498888) (-2,0) (-1.3,0.498888)};
+	%
+	\draw (1.8,0.7) node {$\xb\in\D_2$};
+	\draw (2,-0.8) node {$\xb^+ = {\gb}_2(\xb)$};
+	%
+	%
+	\draw (-1.8,-0.7) node {$\xb\in\D_1$};
+	\draw (-2,0.8) node {$\xb^+ = {\gb}_1(\xb)$};
+	%
+\end{tikzpicture}

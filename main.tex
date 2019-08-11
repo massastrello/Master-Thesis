@@ -39,7 +39,7 @@
 \usepackage{grfext}
 \AppendGraphicsExtensions*{.png,.jpg}
 \usepackage{tikz}
-\usetikzlibrary{shadows,shapes,arrows,fit,calc,patterns,decorations.pathmorphing,decorations.markings,positioning,backgrounds}
+\usetikzlibrary{shadows,shapes,arrows,fit,calc,patterns,decorations.pathmorphing,decorations.markings,positioning,backgrounds,angles,quotes}
 \renewcommand{\rmdefault}{ptm}
 \tikzset{
   basic box/.style = {
@@ -171,14 +171,21 @@
 % operators
 \newcommand{\rank}{\text{rank}}
 \newcommand{\Span}{\text{span}}
+\newcommand{\dom}{\text{dom}}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Null}{null}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\dH}{\bm\nabla\Ha}
+%
+\newcommand{\Arrow}[1]{%
+\parbox{#1}{\tikz{\draw[->](0,0)--(#1,0);}}
+}
 % bold letters
 \newcommand{\x}{\mathbf{x}}
 \newcommand{\q}{\mathbf{q}}
 \newcommand{\p}{\mathbf{p}}
+\newcommand{\gb}{\mathbf{g}}
 \newcommand{\xb}{\mathbf{x}}
 \newcommand{\zb}{\mathbf{z}}
 \newcommand{\vb}{\mathbf{v}}
@@ -186,12 +193,20 @@
 \newcommand{\pb}{\mathbf{p}}
 \newcommand{\ub}{\mathbf{u}}
 \newcommand{\yb}{\mathbf{y}}
-\newcommand{\Jb}{\mathbf{J}}
-\newcommand{\Rb}{\mathbf{R}}
+%
+\newcommand{\Ab}{\mathbf{A}}
+\newcommand{\Bb}{\mathbf{B}}
+\newcommand{\Cb}{\mathbf{C}}
 \newcommand{\Gb}{\mathbf{G}}
+\newcommand{\Jb}{\mathbf{J}}
+\newcommand{\Mb}{\mathbf{M}}
+\newcommand{\Pb}{\mathbf{P}}
+\newcommand{\Rb}{\mathbf{R}}
+
 % cal letters
 
 \newcommand{\A}{\pazocal{A}}
+\newcommand{\B}{\pazocal{B}}
 \newcommand{\C}{\pazocal{C}}
 \newcommand{\D}{\pazocal{D}}
 \newcommand{\E}{\pazocal{E}}
@@ -201,7 +216,10 @@
 \newcommand{\K}{\pazocal{K}}
 \newcommand{\La}{\pazocal{L}}
 \newcommand{\M}{\pazocal{M}}
+\newcommand{\N}{\pazocal{N}}
+\newcommand{\Oo}{\pazocal{O}}
 \newcommand{\Q}{\pazocal{Q}}
+\newcommand{\Sa}{\pazocal{S}}
 \newcommand{\U}{\pazocal{U}}
 \newcommand{\V}{\pazocal{V}}
 \newcommand{\X}{\pazocal{X}}
@@ -267,15 +285,15 @@
 %概要
 \thispagestyle{empty}
 % TITLE PAGE
-\frontmatter
+%\frontmatter
 % ABSTRACT
-\input{./Frontmatter/abst}
+%\input{./Frontmatter/abst}
 %目次
-\tableofcontents
+%\tableofcontents
 %図目次
-\listoffigures
+%\listoffigures
 %表目次
-\listoftables
+%\listoftables
 
 \input{./Frontmatter/symbols_notations}
 
@@ -288,12 +306,12 @@
 \mainmatter
 
 %
-\input{./Chapters/1introduction}
+%\input{./Chapters/1introduction}
 %\input{./Chapters/2preliminaries}
-%\input{./Chapters/3hybridporthamiltonian_Empty}
-%\input{./Chapters/4balldribbling_Empty}
-%\input{./Chapters/5multistable_Empty}
-%\input{./Chapters/6hybrididentification_Empty}
+%\input{./Chapters/3hybridporthamiltonian}
+\input{./Chapters/4balldribbling}
+%\input{./Chapters/5multistable}
+%input{./Chapters/6hybrididentification_Empty}
 %\input{./Chapters/7conclusionandfuturework}
 
 %
@@ -307,16 +325,16 @@
 %\bibliographystyle{plain}
 %\bibliographystyle{apalike} 
 %\bibliographystyle{alpha} 
-\bibliographystyle{engnatdin}
 
-\bibliography{MasterThesis}
+%\bibliographystyle{engnatdin}
+%\bibliography{MasterThesis}
 
 %研究業績
-\input{./Backmatter/Achieve}
+%\input{./Backmatter/Achieve}
 %
 %付録
-\appendix
-\input{./Backmatter/appendix}
+%\appendix
+%\input{./Backmatter/appendix}
 \cleardoublepage
 %
 % 論文の最後
