@@ -19,6 +19,7 @@ Picewise affine identification of submodels and the valid polyhedral partitions 
 The particular behaviour of each procedures is evaluated via experimental evaluation of the electronic components of a pick-and-place device. Even if experimental results shown the validity of the proposed solution, it requires strict assumptions on the working space and error bounds.
 A pick-and-place machine has also been used in~\citep{juloski2005bayesian} to evaluate a Bayesian scheme which model the unknown parameters as random variables described with probability distribution functions an implemented with particle filtering methodologies.
 %
+
 Researchers also tried to implement on-line identification of electronic components with fuzzy clustering~\citep{sepasi2008line} and machine learning techniques.
 Feed-forward neural networks have been used for identification of a class of hybrid systems by Messai et al. in~\citep{Messai,MESSAI2006217}. The networks, characterised by continuous inputs, continuous outputs and binary discrete inputs, use a black-box approach to track all the mode of the system. Results are promising but highly dependent on the input sequence.
 
@@ -585,8 +586,7 @@ It is clear that during the collision between ball and the floor ($x_1 = q =0$) 
 \end{equation}
 %
 \begin{rem}[Hybrid port--Hamiltonian formulation]
-    \textcolor{red}{NOTE: the formal definition of hybrid port--Hamiltonian systems will be provided in Chapter 3 in the next version of the Thesis.}
-    
+    The system indeed belongs to the class of impulsive port--Hamiltonian systems (\ref{eq:impulsive_ph}), defined in Chapter $\ref{chap:HPH_systems}$.
     Let $p\triangleq\dot{q}$. The hybrid port--Hamiltonian formulation of the impact mass--spring--damper system is
     %
     \begin{equation}

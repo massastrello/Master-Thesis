@@ -15,7 +15,7 @@ Thus, with standard linear control techniques, a continuous exogenous reference 
 %
 \begin{figure}[!h]
 	\centering
-	%\input{Drawings/error_control_scheme.tex}
+	\input{Drawings/error_control_scheme.tex}
 	%
 	\caption{A block representation of the controlled system.}
 	\label{fig:PID}
@@ -37,48 +37,8 @@ Moreover, it is shown that the controlled system falls in the framework of hybri
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In this section a nonlinear feedback law for a LTI system is designed to stabilise multiple fixed points. Passivity and the properties of passive LTI systems are briefly discussed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Passivity of LTI Systems}
-%
-Let us consider a controlled affine system:
-\begin{equation}\label{eq:nlaffine}
-    \left\{
-    \begin{matrix*}[l]
-        \dot{x} = f(x) + g(x)u\\
-        y = h(x)
-    \end{matrix*}
-    \right.
-\end{equation}
-where $x\in\X\subset\R^n$, $u\in\U\subset\R^m$, $y\in\Y\subset\R^m$. $f:\X\rightarrow\R^n$, $g:\X\rightarrow\R^{m\times n}$ ($\rank(g)= m\leq n$) and $h:\X\rightarrow\R^m$ are assumed smooth enough such that the solutions are forward--complete for all initial conditions $x_0\in\X$ and all inputs $u(t)\in\La2$. Let $\Phi(t,x_0,u)$ denote the state trajectory at time $t\geq0$.
-
-A \textit{supply rate} is a real valued function $\omega$ defined on $\Y\times\U$. The  system (\ref{eq:nlaffine}) is said to be \textit{dissipative} with respect to the supply rate $\omega$ if there exists a continuous function $\Ha:\X\rightarrow\R^+$, called \textit{storage function} such that, for all $u\in\U$, $x\in\X$ and $t\geq 0$, it holds
-%
-\begin{equation*}
-    \Ha(x(t))-\Ha(x(0)) \leq \int_0^tw(s)ds.
-\end{equation*}
-%
-Furthermore, the system is said to be \textit{passive} if it is dissipative with respect to the supply rate $\omega = \langle y,u \rangle$. The supply rate $\omega$ and the storage function $\Ha(x)$ can be thought as the generalized power and the generalized energy\footnote{Without any loss of generality, $\Ha(x)$ can be taken bounded from below rather than nonnegative, since the properties of storage functions hold regardless of an additive constant.}, respectively. In fact, the pair $(u,y)$ represents the medium by which the system can exchange generalized energy through $\omega$ (\cite{secchi2007control}).
-%
-%
-\begin{defn}(Kalman-Yakubovich-Popov (KYP) Property).
-%
-System (\ref{eq:nlaffine}) is said to enjoy the KYP property if there exists a storage function $\Ha:\mathcal{X}\rightarrow\R^+$, $\Ha(x)\in\mathcal{C}^1$, $\Ha(\mathbb{0}_n) = 0$ such that:
-\begin{equation*}
-    %\left\{
-    %\begin{matrix*}[l]
-        {\partial\Ha(x)}f(x)\leq 0\quad {\partial\Ha(x)}g(x)= h^\top(x)
-    %\end{matrix*}
-    %\right.
-\end{equation*}
-%
-for all $x\in\X$.
-%
-\end{defn}
-%
-\begin{prop}[\cite{byrnes91}]
-%
-System (\ref{eq:nlaffine}) is passive with storage function $\Ha(x)\in \mathcal{C}^1$ if and only if it enjoys the KYP property.
-%
-\end{prop}
 %
 Let us consider the stable LTI specialization of (\ref{eq:nlaffine}), i.e. the standard system with state space realization
 %

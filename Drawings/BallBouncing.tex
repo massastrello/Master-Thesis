@@ -1,0 +1,14 @@
+\definecolor{ocean}{rgb}{0.00000,0.44700,0.74100}
+\begin{tikzpicture}
+	% platform
+	\fill[ocean!50, draw = black,thick] (-.75,0) rectangle (.75,0.2);
+	% ball
+	\fill[gray!25, draw=black,thick] (0,1.5) circle (0.5);
+	% ground
+	\draw[pattern=north east lines] (-2,0) rectangle (2,-.3);
+	% labels	
+	\draw[thick,->] (0,1) -- (1,1) -- (1,1.5) node[anchor=west] {$q$};
+	\node at (-1,0.15) {$u$};
+	\node at (0,1.5) {$m$};
+	%
+\end{tikzpicture}

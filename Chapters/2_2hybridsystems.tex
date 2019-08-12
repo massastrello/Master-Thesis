@@ -52,14 +52,27 @@ The trajectories resulting from this kind of systems are defined on a \textit{hy
     %
 \end{defn}
 %
-The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametrized by an hybrid time domain $\E$. The technical details of this formulation are discussed in Appendix \ref{chap:HSapp}. 
+The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametrized by an hybrid time domain $\E$. The technical details of this formulation are discussed in \citep{Goebel2012}. 
 %
-\begin{exmp}[Bouncing--ball]
-\textcolor{red}{to be completed...}
-\end{exmp}
-%
-\begin{exmp}[Elbow prosthesis] 
-\textcolor{red}{to be completed...}
+\begin{exmp}[ball bouncing on actuated surface]
+    %
+    Consider a ball bouncing on an mechanically actuated surface which controls the speed of the ball after impacts. This example is inspired by \citep{naldi2013passivity}. A graphical representation of the system is show in Fig. \ref{fig:bb}.
+    %
+    \begin{figure}[h]
+        \centering
+        \input{Drawings/BallBouncing.tex}
+        \caption[Ball bouncing on an actuated surface]{Ball bouncing on an actuated surface.}
+        \label{fig:bb}
+    \end{figure}
+    %
+    Let $q$ be the height of the ball from the ground, $v\triangleq\dot{q}$ be its velocity and let $\xb\triangleq(q,v)$. While the ball is ``flying'', the dynamic of the systems are just the one of a falling rigid body if a fluid of viscosity $\beta$:
+    %
+    \begin{equation}
+        \left\{
+        
+        \right.
+    \end{equation}
+    %
 \end{exmp}
 %
 \begin{exmp}[Sliding mode controller]
@@ -68,7 +81,7 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
 %
 \subsection{Stability}
 %
-Lyapunov stability theorems has been indeed extended to the hybrid case. In the case of continuous--time dynamical systems, the stability of equilibrium points is usually discussed (see Appendix \ref{chap:stabapp}). However, in case of hybrid systems, it is rather convenient to analyze the stability of a set. Hereafter the very basic results on Lyapunov stability of hybrid systems will be introduced.
+Lyapunov stability theorems has been indeed extended to the hybrid case. In the case of continuous--time dynamical systems, the stability of equilibrium points is usually discussed. However, in case of hybrid systems, it is rather convenient to analyze the stability of a set. Hereafter the very basic results on Lyapunov stability of hybrid systems will be introduced.
 %
 \begin{thm}[Lyapunov Stability for Hybrid Systems \citep{goebel2009hybrid}]\label{thm:hybrid_Lyap}
 	%
