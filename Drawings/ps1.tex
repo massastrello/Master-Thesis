@@ -20,7 +20,7 @@ ymax=1.5,
 ylabel style={font=\color{white!15!black}},
 ylabel={$p(t)$ [Kg$\cdot$m/s]},
 axis background/.style={fill=white},
-legend style={legend cell align=left, align=left, draw=white!15!black,font = \tiny}
+legend style={legend cell align=left, align=left, draw=white!15!black, font = \footnotesize}
 ]
 \addplot [color=black, line width=2.0pt]
   table[row sep=crcr,]{%
@@ -81,7 +81,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 [postaction={decorate, decoration={markings,
         mark=between positions 0.6 and 1 step 1 with {\arrow[black,line width=1.5pt]{latex};}
       }}];
-\addlegendentry{$u = \beta(x)+v$}
+\addlegendentry{$u = \beta(\xb)+v$}
 
 \addplot [color=red, dotted, line width=2.0pt,forget plot]
   table[row sep=crcr]{%

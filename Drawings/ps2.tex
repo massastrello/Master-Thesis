@@ -7,24 +7,23 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=7cm,
-height=3cm,
+width=11cm,
+height=5cm,
 at={(0.858in,0.781in)},
 scale only axis,
 xmin=-0.8,
 xmax=0.7,
 xlabel style={font=\color{white!15!black}},
-xlabel={$\xi(t)~[m]$},
+xlabel={$q(t)~$[m]},
 ymin=-1.5,
 ymax=1.5,
 ylabel style={font=\color{white!15!black}},
-ylabel={$\dot{\xi}(t)~[ms^{-1}]$},
+ylabel={$p(t)$ [Kg$\cdot$m/s]},
 axis background/.style={fill=white},
 view={0}{90},
-legend style={legend cell align=left, align=left, draw=white!15!black,font = \tiny}
+legend style={legend cell align=left, align=left, font = \footnotesize}
 ]
-\addplot3[contour filled={number = 25,labels={false}},mesh/rows=50,mesh/cols=50,mesh/check=false,forget plot
-] table {H.dat};
+%
 \addplot [color=black, line width=2.0pt]
   table[row sep=crcr]{%
 -0.8	0\\
@@ -101,16 +100,16 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
          mark=between positions 0.7 and 1 step 1 with {\arrow[black,line width=1.5pt]{latex};}
        }}]
 ;
-\addlegendentry{$u = \beta(x)+v$}
+\addlegendentry{$u = \beta(\xb)+v$}
 
-\addplot [color=blue, dotted, line width=2.0pt, forget plot]
+\addplot [color=gray, dotted, line width=2.0pt, forget plot]
   table[row sep=crcr]{%
 -0.50083349533071	0.000837868594377482\\
 -0.50083349533071	0.000855510893233957\\
 };
 %\addlegendentry{data2}
 
-\addplot [color=blue, line width=2.0pt]
+\addplot [color=gray, line width=2.0pt]
   table[row sep=crcr]{%
 -0.50083349533071	0.000855510893233957\\
 -0.50083138815981	0.0033586205594724\\
@@ -1528,12 +1527,12 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 0.351713391520268	0.000853870123031927\\
 }
  [postaction={decorate, decoration={markings,
-         mark=between positions 0.5 and 1 step 1 with {\arrow[blue,line width=1.5pt]{latex};}
+         mark=between positions 0.5 and 1 step 1 with {\arrow[gray,line width=1.5pt]{latex};}
        }}]
 ;
 \addlegendentry{$u = 0$}
 
-\addplot [color=blue, dotted, line width=2.0pt]
+\addplot [color=gray, dotted, line width=2.0pt]
   table[row sep=crcr]{%
 0.351713391520268	0.000853870123031927\\
 0.351713391520268	0.000853870123031927\\
@@ -1610,14 +1609,14 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 ;
 %\addlegendentry{data5}
 
-\addplot [color=blue, dotted, line width=2.0pt]
+\addplot [color=gray, dotted, line width=2.0pt]
   table[row sep=crcr]{%
 0.497022788413045	0.00292482868251474\\
 0.497022788413045	0.002988519060116\\
 };
 %\addlegendentry{data6}
 
-\addplot [color=blue, line width=2.0pt]
+\addplot [color=gray, line width=2.0pt]
   table[row sep=crcr]{%
 0.497022788413045	0.002988519060116\\
 0.497024533833223	0.000502527008580935\\
@@ -3037,12 +3036,12 @@ legend style={legend cell align=left, align=left, draw=white!15!black,font = \ti
 -0.3490386637232	-5.12350762239489e-05\\
 }
 [postaction={decorate, decoration={markings,
-        mark=between positions 0.5 and 1 step 1 with {\arrow[blue,line width=1.5pt]{latex};}
+        mark=between positions 0.5 and 1 step 1 with {\arrow[gray,line width=1.5pt]{latex};}
       }}]
 ;
 %\addlegendentry{data7}
 
-\addplot [color=blue, dotted, line width=2.0pt]
+\addplot [color=gray, dotted, line width=2.0pt]
   table[row sep=crcr]{%
 -0.3490386637232	-5.12350762239489e-05\\
 -0.3490386637232	-5.12350762239489e-05\\

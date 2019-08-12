@@ -9,9 +9,24 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-\lettrine[lines=4]{\color{brickred}H}{ereafter}, the framework of hybrid port--Hamiltonian systems will be introduced. Starting from the results discussed in Chapter \ref{chap:preliminaries}, the theories of port--Hamiltonian systems and hybrid inclusions will be merged. First, the class of \textit{impulsive} systems will be characterized in a port--Hamiltonian fashion. Then, the general hybrid port--Hamiltonian system will be defined. Following,
-\clearpage
+\lettrine[lines=4]{\color{brickred}H}{ereafter}, the framework of hybrid port--Hamiltonian systems will be introduced. Starting from the results discussed in Chapter \ref{chap:preliminaries}, the theories of port--Hamiltonian systems and hybrid inclusions will be merged. 
+%
+\newline
 
+%
+First, the \textit{impulsive port--Hamiltonian systems} will be characterized. It is a generalization of single--flowed hybrid inclusions in a port--Hamiltonian fashion. This class of system is relevant to this study as most mechanical systems exhibiting (partially) elastic impacts, including robotics applications, belong to this framework. 
+%
+\newline
+
+%
+Then, the general \textit{hybrid port--Hamiltonian system} will be defined. Examples for both classes of proposed models will be provided.
+%
+\newline
+
+%
+Then, the concept of passivity will be extended to the hybrid case in the port--Hamiltonian context. Finally Lyapunov stability theorem is also extended from the one of hybrid inclusions. 
+%
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Definitions and Basic Assumptions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -65,7 +80,7 @@ An impulsive port--Hamiltonian system is a system in the form (\ref{eq:hs_single
 The state--space of the system is $\X\triangleq\C\cup\D$ and $\Ha:\X\rightarrow\R$.
 \end{defn}
 %
-An example of this type of systems is the \textit{ball--dribbling robot} of Fig. \ref{fig:1D}. Note that most mechanical systems exhibiting impacts admit a representation (\ref{eq:impulsive_ph}).
+An example of this type of systems is the \textit{ball--dribbling} and \textit{ball--juggling} robots of Fig. \ref{fig:1D}. Note that most mechanical systems exhibiting impacts admit a representation (\ref{eq:impulsive_ph}).
 %
 \begin{exmp}[Impact Pendulum]\label{ex:ipend}
     Consider an impact pendulum of mass $m$ and length $\ell$ as in Fig. \ref{fig:ipend}.
@@ -121,7 +136,7 @@ In this thesis, the type of systems which are dealt with present a finite number
 
 Let us consider a dynamical systems which behavior is the collection of $r$ ``modes'' in the form (\ref{eq:impulsive_ph}), i.e.
 %
-\begin{equation}\label{eq:impulsive_ph}
+\begin{equation}
     %
     \left\{ 
         \begin{matrix*}[l]\vspace{1pt}
@@ -392,7 +407,7 @@ The concept and characterization of passivity for hybrid systems has been recent
     %
 \end{defn}
 %
-Hereafter, necessary and sufficient condition for the passivity for systems of type (\ref{eq:impulsive_ph}), is given. First, let us start with a basic definition.
+Hereafter, necessary and sufficient condition for the passivity of a subclass systems of type (\ref{eq:impulsive_ph}), is given. First, let us start with a basic definition.
 %
 \begin{defn}[Evenly $\bm\psi$--diverging function]
 	Let $\bm\psi:\R^n\supseteq\dom(\bm\psi)\rightarrow\R^n$. A map $\Ha:\R^n\supseteq\dom(\Ha)\rightarrow\R$ is evenly diverging with respect to $\bm\psi$ if
@@ -403,7 +418,7 @@ Hereafter, necessary and sufficient condition for the passivity for systems of t
 	%
 \end{defn}
 %
-\begin{prop}\label{prop:pass_impulsive}
+\begin{prop}[Condition for passivity of impulsive port--Hamiltonian systems]\label{prop:pass_impulsive}
 	%
 	Without any loss of generality, let us assume $\mymathbb{0}$ to be a minimum of $\Ha(\xb)$:
 	%
@@ -466,7 +481,7 @@ Passivity can also be defined for hybrid port--Hamiltonian systems by extending 
 %
 Similarly, Proposition \ref{prop:pass_impulsive} can extended to hybrid case.
 %
-\begin{prop}\label{prop:pass_hybrid}
+\begin{prop}[Condition for passivity of hybrid port--Hamiltonian systems]\label{prop:pass_hybrid}
     %
 	Let us assume
 	%
@@ -482,7 +497,7 @@ Similarly, Proposition \ref{prop:pass_impulsive} can extended to hybrid case.
 	%
 	and, for all $s$, $\Ha_s$ is evenly diverging with respect to all $\mathbf{g}_s\in\G_s$, is passive if and only if 
 	%
-	\begin{equation}\label{eq:nl_pass}
+	\begin{equation}%\label{eq:nl_pass}
 		\forall s\in\M,~\mathbf{g}_s\in\G\quad\|\mathbf{g}_s\|_\infty\leq 1.
 	\end{equation}
 	%
@@ -545,21 +560,31 @@ Note that the condition (\ref{eq:stabhph_3}) is automatically satisfied if (\ref
 Thus, every neighborhood of any strict minimum of $\Ha$ is stable as long as (\ref{eq:hph}) is passive.
 %
 \begin{rem}
-    Regarding the impact pendulum of Example \ref{ex:ipend}, any neighborhood of the origin
+    Regarding the impact pendulum of Example \ref{ex:ipend}, any neighborhood $\B_{o^+}$ of the origin,
     %
     \begin{equation}
-        \delta\xb\triangleq [\delta q,\delta p],\quad\delta q,\delta p\in\R^+
+        \B_{0^+}\triangleq \left\{(q,p)~:~0\leq q\leq\delta q\in\R^+\land0\leq p\leq\delta p\in\R^+\right\}
     \end{equation}
     %
     can be easily proven to be a Lyapunov stable set according to Theorem \ref{thm:impulsive_lyap}. Moreoever, thanks to Corollary \ref{cor:impulsive_lyap}, it can be deduced that for all nonnegative $\epsilon$, $\A_\epsilon$ is Lyapunov stable.
 \end{rem}
 %
 \clearpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Some Extensions of Passivity--Based Control}
-
-\clearpage
+%\section{Some Extensions of Passivity--Based Control}
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Summary}
+%
+In this chapter, hybrid port--Hamiltonian systems have been defined. Both passivity and stability have also characterized.
+%
+\newline
+
+%
+As a final consideration, this chapter left opened the utility of this modeling framework for real applications, either in robotics or control theory.
+%
+\newline
+
+%
+Following, in the next chapters several applications are proposed, ranging from the control a ball--dribbling robot to the hybrid control of linear systems. Note that, in the latter case, explored in \ref{chap:multistable}, the ``hybrid'' nature is not given by the physics of the system but from the controller.
+%

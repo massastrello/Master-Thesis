@@ -176,7 +176,7 @@ It is also possible to show that an analogous result holds without explicitly as
 		\left\{\xb\in\X\cap\B_0~:~\yb(\xb)=\mymathbb{0}_m\right\}
 	\end{equation*}
 	%
-	is $\{\mymathbb{0}_n\}$
+	is $\{\mymathbb{0}_n\}$.
 \end{prop}
 %
 The final result recalled in this section will be one of the most useful in the sect Sections and Chapters.
@@ -324,9 +324,9 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	%
 	A graphical representation of the model is provided in Fig. \ref{fig:MECHscheme}.
 	%
-	\begin{figure}[!h]
+	\begin{figure}[!ht]
 	    \centering
-	    \input{Drawings/MECHscheme.tex}
+	    %\input{Drawings/MECHscheme.tex}
 	    \caption[Block diagram of the port-Hamiltonian model of a fully--actuated $n$--degrees of freedom mechanical systems.]{Block diagram of the port-Hamiltonian model of a fully--actuated $n$--degrees of freedom mechanical systems. The diagram can be easily obtained from equation (\ref{eq:nDOF}) recognizing that $\bm{\nabla}_\q\Ha = \bm{\nabla}_\q\V(\q)$ and $\bm{\nabla}_\p\Ha = \mathbf{M}^{-1}(\q)\p$.}
 	    \label{fig:MECHscheme}
 	\end{figure}
@@ -338,9 +338,9 @@ The linear specialization of the previous example will be now introduced in orde
 \begin{exmp}[Mass--spring--damper system]\label{ex:msd}
     Consider the mass--spring--damper system represented by Figure \ref{fig:msd} where $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. Moreover, let $m$ be the mass of the cart and $p = m\dot{q}$ its momentum. 
     %
-    \begin{figure}[!h]
+    \begin{figure}[!ht]
 	    \centering
-	    \input{Drawings/msd.tex}
+	    %\input{Drawings/msd.tex}
         \caption[Mass--spring--damper system.]{Mass--spring--damper system. $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. $u$ is an external forcing term , i.e. the control input.}
         \label{fig:msd}
     \end{figure}
@@ -387,19 +387,19 @@ The linear specialization of the previous example will be now introduced in orde
     %
     A numerical simulation of the autonomous system ($u = 0$) has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $[q_0,p_0] = [-0.9,0]$ and increasing values of $b$ ($b = \{0, 0.5, 4\}$). The state--space trajectories are shown in Figure \ref{fig:msd_ss} while the trend of the energy function $\Ha$ and its derivative are plotted in Figure \ref{fig:msd_en}. It can be noticed that when no dissipation is present, the state moves on a closed trajectory coinciding to the level set of $\Ha$ corresponding to the initial condition. On the other hand, when $b>0$, the trajectory moves on continuously decreasing isolines of $\Ha$, converging to the minimum of $\Ha$.
     %
-    \begin{figure}[!h]
+    \begin{figure}[!ht]
         %
         \centering
-        \input{Drawings/msd_ss.tex}
+        %\input{Drawings/msd_ss.tex}
         %
         \caption[State--space trajectory of the mass--spring damper system for different values of the damping coefficient.]{State--space trajectory of the mass--spring damper system for different values of the damping coefficient. The background is the filled contour of the energy function $\Ha$. When $b = 0$, the is no energy dissipation and motion happen on a periodic trajectory (closed curve), i.e. the level set of $\Ha$ corresponding to the initial conditions. When $b = 0.5, 4$, the state converges toward the minimum of the energy with or without oscillations. The convergence happens by converting elastic potential energy into kinetic energy which is partially dissipated by the dashpot before being reconverted to elastic potential. Higher values of the damping coefficient implies grater dissipation.}
         \label{fig:msd_ss}
     \end{figure}
     %
-    \begin{figure}[!h]
+    \begin{figure}[!ht]
         %
         \centering
-        \input{Drawings/msd_en.tex}
+        %\input{Drawings/msd_en.tex}
         \caption[Time evolution of the Energy of the mass--spring damper system.]{Time evolution of the Energy and its time derivative for the mass--spring damper system. When $b=0$, the energy is conserved. When $b\neq 0$, the energy is dissipated as the system's state reaches its minimum. By increasing the value of the damping coefficient, the energy dissipation rate becomes more uniform as $\dot{\Ha}$ has a less oscillations. Mote that the convergence time in the cases $b = 0.5$ and $b = 4$ is comparable.}
         \label{fig:msd_en}
         %
@@ -494,7 +494,7 @@ The linear specialization of the previous example will be now introduced in orde
 	In the case of classical mechanics, the Hamiltonian function physically represents the total energy of the system. In this case, it simply reflects the ``conserved quantity''. Moreover, it is not clear by first principles what inputs and outputs should be. In practice, they would depend on how it is possible to influence the biological system; 
 \end{exmp}
 %
-\begin{figure}[t]
+\begin{figure}[!ht]
     \centering
     %\input{Drawings/LVscheme.tex}
     \caption[Block diagram representation of the Lotka--Volterra equations in port--Hamiltonian form.]{Block diagram representation of the Lotka--Volterra equations in port--Hamiltonian form. The diagram is obtained from equation (\ref{eq:LVph}).}
@@ -600,7 +600,7 @@ and $\mathbf{G}(\xb)\mathbf{K}_{d}\mathbf{G}^\top(\xb)\succeq 0$.
     \end{equation}
 \end{rem}
 %
-Few practical examples of the EB-PBC will be given hereafter.
+Few practical examples of the EB--PBC will be given hereafter.
 %
 \begin{exmp}[Fully--actuated mechanical system]
     Consider the model (\ref{eq:nDOF}) discussed in Example \ref{ex:ndof} and let $\qb^*$ be a desired configuration of the system. A possible choice of $\bm\beta(\qb)$ which satisfies the conditions given by Proposition \ref{prop:ebpbc} is
@@ -654,9 +654,9 @@ The EB-PBC will then be applied to the mass--spring--damper of Example \ref{ex:m
     %
     A numerical simulation has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $b = 0.5\text{N}\cdot(\text{m}\cdot\text{s})^{-1}$, $k_p = 1$, $q^* = 0.5$, $k_d = 4$ and $[q_0,p_0] = [-0.9,0]$. The state--space trajectory is reported in Figure \ref{fig:ebpbc}. It can be noticed how the minimum of the energy function is shifted to $[q^*,0]^\top$ and how the damping injection allow a more ``direct'' convergence toward the minimum.
     %
-    \begin{figure}[h]
+    \begin{figure}[!ht]
         \centering
-        \input{Drawings/ebpbc_ps.tex}
+        %\input{Drawings/ebpbc_ps.tex}
         \caption[Phase--space trajectory of the mass--spring--damper system control via EB-PBC.]{Phase--space trajectory of the mass--spring--damper system control via EB-PBC. When the EB-PBC control input is applied, the location of the minimum of $\Ha$ is shifted to the desired set point which, in turns, becomes a Lyapunov stable equilibrium of the closed--loop system. Moreover, the dissipation properties are changed via \textit{damping injection}, removing the oscillations during the motion of the system.}
         \label{fig:ebpbc}
     \end{figure}

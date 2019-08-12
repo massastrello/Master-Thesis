@@ -65,19 +65,106 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
         \label{fig:bb}
     \end{figure}
     %
-    Let $q$ be the height of the ball from the ground, $v\triangleq\dot{q}$ be its velocity and let $\xb\triangleq(q,v)$. While the ball is ``flying'', the dynamic of the systems are just the one of a falling rigid body if a fluid of viscosity $\beta$:
+    Let $q$ be the height of the ball from the ground, $v\triangleq\dot{q}$ be its velocity and let $\xb\triangleq(q,v)$. While the ball is ``flying'', the dynamic of the systems are just the one of a falling rigid body in a fluid of viscosity $\beta>0$ due to gravity ($\gamma=9.81$):
     %
     \begin{equation}
         \left\{
-        
+            %
+            \begin{matrix*}[l]
+                %
+                \dot{q} = v\\
+                %
+                \dot{v} = -\gamma-\frac{\beta}{m}v
+                %
+            \end{matrix*}
+            %
         \right.
     \end{equation}
     %
+    and, thus
+    %
+    \begin{equation}
+        \dot{\xb} = \F(\xb)\triangleq
+        %
+        \begin{bmatrix}
+            0&1\\
+            0&-\beta/m
+        \end{bmatrix}\xb + 
+        %
+        \begin{bmatrix}
+            0\\
+            -\gamma
+        \end{bmatrix}
+        %
+        \quad \text{if}\quad \xb\in\C\triangleq\left\{\xb:q\geq 0\right\}\setminus\left\{\xb:q=0\land v\leq 0\right\}.
+        %
+    \end{equation}
+    %
+    When the ball hits the actuated surface, the impact is modeled as
+    %
+    %
+    \begin{equation}
+        \left\{
+            %
+            \begin{matrix*}[l]
+                %
+                q^+ = q\\
+                %
+                v^+ = (u-c)v
+                %
+            \end{matrix*}
+            %
+        \right.
+        %
+        \quad c\in(0,1)
+    \end{equation}
+    %
+    and, thus
+    %
+    \begin{equation}
+        \xb^+ = \G(\xb,u)\triangleq
+        %
+        \begin{bmatrix}
+            1&0\\
+            0&u-c
+        \end{bmatrix}\xb
+        %
+        \quad \text{if}\quad (\xb,u)\in\D\times\U_d\triangleq\left\{\xb:q=0\land v\leq 0\right\}\times\R.
+        %
+    \end{equation}
+    %
+    The final hybrid system is 
+    %
+    \begin{equation}
+            \left\{
+            %
+            \begin{matrix*}[l]
+                %
+                \dot{\xb} = \F(\xb) &\xb\in\C\\
+                %
+                \xb^+ = \G(\xb,u) &\xb\in\C\times\U_d
+                %
+            \end{matrix*}
+            %
+        \right.
+    \end{equation}
+    %
+    Note that the energy of the system is $\Ha(\xb) = \frac{m}{2}v^2 + m\gamma q$.
+    %
+    A numerical simulation of the autonomous system $u=0$ is given with $m=1$, $\beta = 0.1$, $c=0.9$ and $\xb=(1,0)$. The resulting trajectory is shown in Fig. \ref{fig:bb1}
+    %
+    \begin{figure}
+        \centering
+        %\includegraphics[width=\linewidth]{Figures/bb1.pdf}
+        \caption[Time evolution of the ball bouncing on the actuated platform (autonomous case)]{Time evolution of the ball bouncing on the actuated platform (autonomous case).}
+        \label{fig:bb1}
+    \end{figure}
+    %
 \end{exmp}
 %
-\begin{exmp}[Sliding mode controller]
-\textcolor{red}{to be completed...}
-\end{exmp}
+%\begin{exmp}[Sliding mode controller]
+%\textcolor{red}{to be completed...}
+%\end{exmp}
 %
 \subsection{Stability}
 %
@@ -101,16 +188,58 @@ Lyapunov stability theorems has been indeed extended to the hybrid case. In the 
 	Let $\Gamma_\mu := \left\{x\in\C\cup\D:V(x) = \mu\right\}$. If there exists a compact neighborhood $\K$ of $\A$ such that, for all $\mu>0$, no solution of the system remains in $\Gamma_\mu\cap\K$, then the set $\A$ is pre-asymptotically stable. In this case the basin of pre-attraction contains every compact set contained in $\K$ that is forward invariant.
 \end{cor}
 %
-\begin{exmp}[Bouncing--ball]
-\textcolor{red}{to be completed...}
+\begin{exmp}[Ball bouncing on actuated platform]
+Let consider the autonomous case (u=0) and let 
+%
+\begin{equation}
+    \A\triangleq \left\{(q,v)~:~q\leq\delta q\in\R^+\land |v|\leq\delta v\in\R^+\right\}.
+\end{equation}
+%
+Indeed it holds 
+%
+\begin{equation}
+    \A\cap\D = \left\{(0,v)~:~v\leq 0\land |v|\leq\delta v\in\R^+\right\}
+\end{equation}
+%
+and
+%
+\begin{equation}
+    \G\left(\A\cap\D\right) = \left\{(0,-cv)~:~v\leq 0\land |v|\leq\delta v\in\R^+\right\}\subset \A.
+\end{equation}
+%
+Let's examine the stability of $A$. By choosing as Lyapunov function the energy of the system: $V(\xb) = \Ha(\xb)$. It holds, $\Ha(\xb)>0~~\forall \xb\in\left(\C\cup\D\right)\setminus\A$ and
+%
+\begin{align}
+    \langle\frac{\partial\Ha}{\partial \xb},\F(\x)\rangle &= [m\gamma,mv]\begin{bmatrix}0&1\\0&-\beta/m\end{bmatrix}\begin{bmatrix}q\\v\end{bmatrix} + [m\gamma,mv] \begin{bmatrix}0\\-\gamma\end{bmatrix} \\
+    & = -\beta v^2 \leq 0\quad\forall v\in\R
+\end{align}
+%
+which indeed holds for all $\xb\in\C\setminus\A$.
+%
+Finally, stability of $\A$ is proving noticing that
+%
+\begin{align}
+    \Ha(\x^+) -\Ha(\xb) &= \frac{m}{2}(v^+)^2 + m\gamma q^+ - \frac{m}{2}v^2 + m\gamma q\\
+    &= \frac{m}{2}(c-1)v^2\leq 0 \quad\forall v\in\R,~\forall c\in(0,1)
+\end{align}
+%
+which holds also for any $\xb\in\D\setminus\A$. Note that in the case of the controlled system, $\A$ remains Lyapunov stable if and only if for all $t\geq 0$, $u(t)\leq c$. The descent of the energy during a trajectory of the system is represented in Fig. \ref{fig:bb2}
+%
+\begin{figure}[!h]
+    \centering
+    %\includegraphics{Figures/bb2.pdf}
+    \caption{Energy Descent during trajectory a trajectory of the autonomos system.}
+    \label{fig:bb2}
+\end{figure}
+%
 \end{exmp}
 %
-\begin{exmp}[Elbow prosthesis] 
-\textcolor{red}{to be completed...}
-\end{exmp}
-%
-\begin{exmp}[Sliding mode controller]
-\textcolor{red}{to be completed...}
-\end{exmp}
+% \begin{exmp}[Elbow prosthesis] 
+% \textcolor{red}{to be completed...}
+% \end{exmp}
+% %
+% \begin{exmp}[Sliding mode controller]
+% \textcolor{red}{to be completed...}
+% \end{exmp}
 %
 \clearpage

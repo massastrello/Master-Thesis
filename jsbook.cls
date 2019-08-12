@@ -782,7 +782,7 @@
 \newcommand{\Huge}{\jsc@setfontsize\Huge\@xxvpt{33}}
 \newcommand{\HUGE}{\jsc@setfontsize\HUGE{30}{40}}
 \everydisplay=\expandafter{\the\everydisplay \narrowbaselines}
-\newcommand{\headfont}{\gtfamily\sffamily}%{\bf}%
+\newcommand{\headfont}{\bf}%{\gtfamily\sffamily}%
 \setlength\columnsep{2zw}
 \setlength\columnseprule{\z@}
 \setlength\lineskip{1\jsc@mpt}
