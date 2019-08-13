@@ -288,11 +288,12 @@
 %表紙
 \maketitle
 %概要
+\pagenumbering{roman}
 \thispagestyle{empty}
 % TITLE PAGE
 %\frontmatter
 % ABSTRACT
-%\input{./Frontmatter/abst}
+\input{./Frontmatter/abst}
 %目次
 \tableofcontents
 %図目次
@@ -307,14 +308,14 @@
 %    \textgreek{L'aje bi'wsas}
 %\end{center}
 %Epicurus
-
+\pagenumbering{arabic}
 \mainmatter
 
 %
-%\input{./Chapters/1introduction}
-%\input{./Chapters/2preliminaries}
-%\input{./Chapters/3hybridporthamiltonian}
-%\input{./Chapters/4balldribbling}
+\input{./Chapters/1introduction}
+\input{./Chapters/2preliminaries}
+\input{./Chapters/3hybridporthamiltonian}
+\input{./Chapters/4balldribbling}
 \input{./Chapters/5multistable}
 %\input{./Chapters/6hybrididentification}
 %\input{./Chapters/7conclusionandfuturework}

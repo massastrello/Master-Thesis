@@ -326,7 +326,7 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	%
 	\begin{figure}[!ht]
 	    \centering
-	    %\input{Drawings/MECHscheme.tex}
+	    \input{Drawings/MECHscheme.tex}
 	    \caption[Block diagram of the port-Hamiltonian model of a fully--actuated $n$--degrees of freedom mechanical systems.]{Block diagram of the port-Hamiltonian model of a fully--actuated $n$--degrees of freedom mechanical systems. The diagram can be easily obtained from equation (\ref{eq:nDOF}) recognizing that $\bm{\nabla}_\q\Ha = \bm{\nabla}_\q\V(\q)$ and $\bm{\nabla}_\p\Ha = \mathbf{M}^{-1}(\q)\p$.}
 	    \label{fig:MECHscheme}
 	\end{figure}
@@ -340,7 +340,7 @@ The linear specialization of the previous example will be now introduced in orde
     %
     \begin{figure}[!ht]
 	    \centering
-	    %\input{Drawings/msd.tex}
+	    \input{Drawings/msd.tex}
         \caption[Mass--spring--damper system.]{Mass--spring--damper system. $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. $u$ is an external forcing term , i.e. the control input.}
         \label{fig:msd}
     \end{figure}
@@ -390,7 +390,7 @@ The linear specialization of the previous example will be now introduced in orde
     \begin{figure}[!ht]
         %
         \centering
-        %\input{Drawings/msd_ss.tex}
+        \input{Drawings/msd_ss.tex}
         %
         \caption[State--space trajectory of the mass--spring damper system for different values of the damping coefficient.]{State--space trajectory of the mass--spring damper system for different values of the damping coefficient. The background is the filled contour of the energy function $\Ha$. When $b = 0$, the is no energy dissipation and motion happen on a periodic trajectory (closed curve), i.e. the level set of $\Ha$ corresponding to the initial conditions. When $b = 0.5, 4$, the state converges toward the minimum of the energy with or without oscillations. The convergence happens by converting elastic potential energy into kinetic energy which is partially dissipated by the dashpot before being reconverted to elastic potential. Higher values of the damping coefficient implies grater dissipation.}
         \label{fig:msd_ss}
@@ -399,7 +399,7 @@ The linear specialization of the previous example will be now introduced in orde
     \begin{figure}[!ht]
         %
         \centering
-        %\input{Drawings/msd_en.tex}
+        \input{Drawings/msd_en.tex}
         \caption[Time evolution of the Energy of the mass--spring damper system.]{Time evolution of the Energy and its time derivative for the mass--spring damper system. When $b=0$, the energy is conserved. When $b\neq 0$, the energy is dissipated as the system's state reaches its minimum. By increasing the value of the damping coefficient, the energy dissipation rate becomes more uniform as $\dot{\Ha}$ has a less oscillations. Mote that the convergence time in the cases $b = 0.5$ and $b = 4$ is comparable.}
         \label{fig:msd_en}
         %
@@ -496,7 +496,7 @@ The linear specialization of the previous example will be now introduced in orde
 %
 \begin{figure}[!ht]
     \centering
-    %\input{Drawings/LVscheme.tex}
+    \input{Drawings/LVscheme.tex}
     \caption[Block diagram representation of the Lotka--Volterra equations in port--Hamiltonian form.]{Block diagram representation of the Lotka--Volterra equations in port--Hamiltonian form. The diagram is obtained from equation (\ref{eq:LVph}).}
     \label{fig:LVscheme}
 \end{figure}
@@ -656,7 +656,7 @@ The EB-PBC will then be applied to the mass--spring--damper of Example \ref{ex:m
     %
     \begin{figure}[!ht]
         \centering
-        %\input{Drawings/ebpbc_ps.tex}
+        \input{Drawings/ebpbc_ps.tex}
         \caption[Phase--space trajectory of the mass--spring--damper system control via EB-PBC.]{Phase--space trajectory of the mass--spring--damper system control via EB-PBC. When the EB-PBC control input is applied, the location of the minimum of $\Ha$ is shifted to the desired set point which, in turns, becomes a Lyapunov stable equilibrium of the closed--loop system. Moreover, the dissipation properties are changed via \textit{damping injection}, removing the oscillations during the motion of the system.}
         \label{fig:ebpbc}
     \end{figure}

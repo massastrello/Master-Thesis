@@ -243,7 +243,7 @@ the formulation of \textit{hybrid port--Hamiltonian system} is the following:
 %
 \begin{exmp}[Hopping Robot on elastic ground.]\label{ex:hopping}
     %
-    Consider the hopping robot on elastic ground represented in Fig. \ref{fig:hopping} and described by \cite{Ishikawa2003}.
+    Consider the hopping robot on elastic ground represented in Fig. \ref{fig:hopping} and inspired by \cite{Ishikawa2003}.
     %
     \begin{figure}[h]
         \centering
@@ -260,7 +260,7 @@ the formulation of \textit{hybrid port--Hamiltonian system} is the following:
     
     Finally, impacts are considered completely inelastic and that takeoff from ground always happens at $q_2 = q_3 = 0$.
     
-    Following \citep{Ishikawa2003}, the system has two modes ``Contact'' and ``Non--contact''. The flows in contact/non--contact modes are, respectively:
+    The system has two modes ``Contact'' and ``Non--contact''. The flows in contact/non--contact modes are, respectively:
     %
     \begin{align}
         %
@@ -368,7 +368,14 @@ the formulation of \textit{hybrid port--Hamiltonian system} is the following:
         &\Ha_2(\xb) \frac{1}{2}\triangleq \pb^\top\begin{bmatrix}m_1&0\\0&m_2\end{bmatrix}^{-1}\pb + \frac{1}{2}k\left(q_1-q_2-\ell\right)^2 + \frac{1}{2}k_g q_3^2+ \gamma[m_1,m_2]\qb.
     \end{align}
     %
-    The port--Hamiltonian flow set--valued mapping can be then defined as in (\ref{eq:hph_flowmap}). Transitions between the two modes happen as follows:
+    The port--Hamiltonian flow set--valued mapping can be then defined as in (\ref{eq:hph_flowmap}). The two flows happen, respectively if 
+    %
+    \begin{align}
+        &(\xb,s)\in\C_1\times\{1\}\triangleq\left\{\xb~:~\q_2>0\right\}\times\{1\}\\
+        &(\xb,s)\in\C_2\times\{2\}\triangleq\left\{\xb~:~\q_2\leq0\right\}\times\{2\}
+    \end{align}
+    %
+    Transitions between the two modes happen as follows:
     %
     \begin{align}
         &\begin{bmatrix}\xb^+\\s^+\end{bmatrix} = \begin{bmatrix}\xb\\2\end{bmatrix}\quad\text{if}\quad(\xb,s)\in\D_1\times\{1\}\triangleq\{\xb:q_2\leq 0\}\times\{1\}\\
