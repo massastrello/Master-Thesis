@@ -10,14 +10,14 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-\lettrine[lines=4]{\color{brickred}E}{xponentially} stable linear--time--invariant (LTI) systems admit a unique equilibrium point, while in many practical situations, they have to operate in a finite number of \textit{working modes} (fixed values of voltages, positions, etc.).
-Thus, with standard linear control techniques, a continuous exogenous reference signal must be constantly provided in order to achieve the desired behaviour, e.g. asymptotic stabilisation of a desired set points. The block diagram of classical PID Control scheme is reported in Fig. \ref{fig:PID}.
+\lettrine[lines=4]{\color{brickred}E}{xponentially} stable linear--time--invariant (LTI) systems admit an unique equilibrium point, while in many practical situations, they have to operate in a finite number of \textit{working modes} (fixed values of voltages, positions, etc.).
+Thus, with standard linear control techniques, a continuous exogenous reference signal must be constantly provided in order to achieve the desired behavior, e.g. asymptotic stabilisation of a desired set points. The block diagram of classical PID Control scheme is reported in Fig. \ref{fig:PID}.
 %
 \begin{figure}[!h]
 	\centering
 	\input{Drawings/error_control_scheme.tex}
 	%
-	\caption{A block representation of a classic feedback control system.}
+	\caption[A block representation of a classic feedback control system]{A block representation of a classic feedback control system. $\xb$ is the state of the system, $\mathbf{A},~\mathbf{B},~\mathbf{C}$ are the system's matrices, $\yb$ is the output, and $\mathbf{r}(t)$ is a desired reference signal. In classic linear control the tracking error $\mathbf{e}$ is obtained by comparing the reference and the output. The error is then processed by a PID controller which computes the control input.}
 	\label{fig:PID}
 \end{figure}
 %
@@ -32,7 +32,7 @@ In this chapter, considering that stable LTI system can be made passive through 
 \begin{figure}[!ht]
     \centering
     \includegraphics{Drawings/draw.pdf}
-    \caption{Graphical representation of a state-space trajectory of the controlled system.}
+    \caption[Graphical representation of a state-space trajectory of the controlled system]{Graphical representation of a state-space trajectory of the controlled system. The controlled system will have two logical states: a stabilization state (black lines) and a mode switching state (blue lines).}
     \label{fig:mesh_graph}
 \end{figure}
 %
@@ -60,7 +60,7 @@ Let us consider the stable LTI specialization of (\ref{eq:nlaffine}), i.e. the s
 \dot{\xb}(t) = \Ab\xb(t) + \Bb\ub(t)\\
 \yb(t) = \Cb\xb(t)
 \end{matrix*}
-\right.
+\right.~~,
 \end{equation}
 with system matrices $(\Ab,\Bb,\Cb)$ of appropriate dimensions and let $\Ab$ be Hurwitz.
 %
@@ -83,13 +83,14 @@ it enjoys the KPY property, i.e. it is passive, if and only if
     $(\Ab,\Bb,\Cb)$ is passive if and only if it is dissipative with respect to the supply rate $\langle \yb,\ub \rangle\triangleq \yb^\top \ub$, i.e.,  if and only if there exists $\Ha\in\C^1$,
     %
     \begin{equation}
-        \dot{\Ha}\leq \yb^\top \ub
+        \dot{\Ha}\leq \yb^\top \ub,
     \end{equation}
     %
+    
     Thus, it yields,
     %
     \begin{align}
-        \dot{\Ha} =  \frac{1}{2}\xb^\top \left(\Ab^\top \Pb + \Pb\Ab\right)\xb + \xb^\top \Pb\Bb\ub \leq \xb^\top \Cb^\top \ub
+        \dot{\Ha} =  \frac{1}{2}\xb^\top \left(\Ab^\top \Pb + \Pb\Ab\right)\xb + \xb^\top \Pb\Bb\ub \leq \xb^\top \Cb^\top \ub,
     \end{align}
     %
     which is true if and only if (\ref{eq:KYPLTI}) hold.
@@ -101,6 +102,7 @@ Furthermore, for system (\ref{eq:lsys}) with $\Ab$ stable and $\ub=\mymathbb{0}_
     \dot{\Ha}(\xb) =  \frac{1}{2}\xb^\top \left(\Ab^\top \Pb + \Pb\Ab\right)\xb\leq 0\quad\forall \xb\in\X.
 \end{equation}
 %
+
 This means that the \textit{natural} dissipation inferred by the choice of $\Pb$ of the autonomous system corresponds to $\frac{1}{2}\xb^\top \left(\Ab^\top \Pb + \Pb\Ab\right)\xb$ where $\Ab^\top\Pb+\Pb\Ab\preceq 0$. 
 }
 %
@@ -114,13 +116,14 @@ In order to present clearly the upcoming concepts, the following prototype linea
         \dot{\xb} = \underbrace{\begin{bmatrix}0&1\\-k&-b\end{bmatrix}}_{\Ab}\xb+ \underbrace{\begin{bmatrix}0\\1\end{bmatrix}}_{\Bb}u.
     \end{equation}
     %
+    
     The autonomous system is exponentially stable if $b>0$. Let $\Pb=\diag({k,1})$. Indeed $\Pb=\Pb^\top\succ0$ and $\Ab^\top\Pb+\Pb\Ab\prec0$. Thus, the system is passified (with storage function $\Ha = \frac{1}{2}\xb^\top \Pb\xb$) choosing the linear output as $\yb \triangleq \Bb^\top \Pb\xb = \dot{q}$, as also derived by first principles in Chapter \ref{chap:preliminaries}. Note that $\Ha$ is the total energy of the system. In general, any mechanical systems is passive with its total energy as storage function by choosing as input(s) the (generalised) forces and as output(s) the (generalised) momenta.
 \end{exmp}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Multistable Passivity--Based Control of LTI Systems}
 %
-Any passive LTI system (\ref{eq:lsys}) with storage function $\Ha(\xb) = \frac{1}{2}\xb^\top \Pb\xb$ such that $\Null(\Pb)$ $\subseteq$ $\Null(\Ab)$ admits a port-Hamiltonian representation\footnote{Since we choose $\Pb>0$, this condition does not represent a loss of generality, i.e. any system (\ref{eq:lsys}) can be written in PH form.}:
+Any passive LTI system (\ref{eq:lsys}) with storage function $\Ha(\xb) = \frac{1}{2}\xb^\top \Pb\xb$ such that $\Null(\Pb)$ $\subseteq$ $\Null(\Ab)$ admits a port-Hamiltonian representation\footnote{Since $\Pb>0$, this condition does not represent a loss of generality, i.e. any system (\ref{eq:lsys}) can be written in PH form.}:
 %
 \begin{equation}
     \left\{
@@ -128,26 +131,27 @@ Any passive LTI system (\ref{eq:lsys}) with storage function $\Ha(\xb) = \frac{1
     \dot{\xb} = \left[\Jb-\Rb\right]\Pb\xb + \Bb\ub\\
     \yb = \Bb^\top \Pb\xb
     \end{matrix*}
-    \right.
+    \right.~~,
 \end{equation}
 %
 where 
 %
 \begin{equation}
-    \Jb \triangleq \frac{1}{2}(\Ab\Pb^{-1}-\Pb^{-1}\Ab^\top),\quad\Rb \triangleq- \frac{1}{2}(\Ab\Pb^{-1}+\Pb^{-1}\Ab^\top).
+    \Jb \triangleq \frac{1}{2}(\Ab\Pb^{-1}-\Pb^{-1}\Ab^\top),\quad\Rb \triangleq- \frac{1}{2}(\Ab\Pb^{-1}+\Pb^{-1}\Ab^\top),
 \end{equation}
 % 
 are derived by the following relations:
 %
 \begin{align}
-    & \Ab = \left[\Jb-\Rb\right]\Pb\\
+    & \Ab = \left[\Jb-\Rb\right]\Pb,\\
     & \left(\Jb-\Rb\right)^\top + \left(\Jb-\Rb\right) = -2\Rb.
 \end{align}
 %
+
 Thus, for a LTI system, the energy balancing control law (\ref{eq:ebpbc}) becomes 
 %
 \begin{align}\label{eq:multiebpbc_lin}
-    \bm\beta(\xb) &= -\left(\Bb^\top\Bb\right)^{-1}\Bb^\top\Pb^{-1}\Ab^\top\bm\nabla\Ha_a
+    \bm\beta(\xb) &= -\left(\Bb^\top\Bb\right)^{-1}\Bb^\top\Pb^{-1}\Ab^\top\bm\nabla\Ha_a,
 \end{align}
 %
 with
@@ -174,6 +178,7 @@ and the matching conditions:
 	\bm\nabla\Ha^*\big|_{\xb = \xb^*_i} = \mymathbb{0}_n,~~~ \bm\nabla^2 \Ha^*\big|_{\xb = \xb^*_i}>0\quad\forall i = 1,\dots,p.
 	\end{equation}
 	%
+	
 	The EB--PBC control action (\ref{eq:multiebpbc_lin})
 	%
 	stabilises the desired equilibrium points $\xb^*_i$ if (\ref{eq:match_lin}) holds true for the chosen $\Ha^*$.
@@ -185,33 +190,34 @@ The proof follows similarly to \citep{ortega2008control}. Indeed, the minimum po
 \endproof
 %
 \begin{rem}
-	Deeper evaluations and considerations on Lyapunov functions for multistable nonlinear systems are reported in \cite{efimov2012global}. It has to be underlined that, in order to have an energy function with multiple minima, it is necessary to have the presence of local maxima, which however do not affect global behaviour of the system, since those are just unstable fixed points of the closed loop system.
+	Deeper evaluations and considerations on Lyapunov functions for multistable nonlinear systems are reported in \cite{efimov2012global}. It has to be underlined that, in order to have an energy function with multiple minima, it is necessary to have the presence of local maxima, which however do not affect global behavior of the system, since those are just unstable fixed points of the closed loop system.
 	
 \end{rem}
 %
 Furthermore, in the case of LTI systems, the damping injection takes the form
 \begin{equation}
-    \vb = \mathbf{K}_d\Bb^\top\Pb\xb
+    \vb = -\mathbf{K}_d\Bb^\top\Pb\xb.
 \end{equation}
+
 A block diagram  picturing the overall control scheme is represented in Fig. \ref{fig:block}.
 %
 \begin{figure}[!h]
 	\centering
 	\input{Drawings/scheme.tex}
 	%
-	\caption{A block representation of the controlled system.}
+	\caption{A block representation of the controlled system. Here, the energy shaping and damping injection control actions asymptotically stabilize all the desired working modes of the system, i.e. the minima of the new energy function.}
 	\label{fig:block}
 \end{figure}
 %
-\subsection{Application Example \ref{ex:msd_MES}}
+\subsection{Application Example}
 %
 Consider the system in Example \ref{ex:msd_MES} and let the desired energy function have two symmetrically distributed minima on the displacement axes, e.g.,
 %
 \begin{equation}
-    \Ha^*(q,p) = \lambda q^4-\mu q^2 + \frac{1}{2}p^2 + \frac{\mu^2}{4\lambda}\qquad\lambda,\mu>0
+    \Ha^*(q,p) = \lambda q^4-\mu q^2 + \frac{1}{2}p^2 + \frac{\mu^2}{4\lambda}\qquad\lambda,\mu>0,
 \end{equation}
 %
-which has two minima in $[\pm\sqrt{\mu/2\lambda},0]^\top$ and a local maximum in $[0,0]^\top$. The desired energy function is plotted in Figure \ref{fig:shaped_en}
+which has two minima in $[\pm\sqrt{\mu/2\lambda},0]^\top$ and a local maximum in $[0,0]^\top$. The desired energy function is plotted in Figure \ref{fig:shaped_en}. 
 %
 \begin{figure}
     \centering
@@ -233,6 +239,7 @@ and, therefore
     \bm\nabla\Ha_a = (4\lambda q^3-(2\mu + k)q,p).
 \end{equation}
 %
+
 It is easy to proof that the matching conditions (\ref{eq:match_lin}) of the EB--PBC are satisfied for $\Ha_a$. The energy shaping control law becomes
 %
 \begin{align}\label{eq:ex_ctrl}
@@ -240,6 +247,7 @@ It is easy to proof that the matching conditions (\ref{eq:match_lin}) of the EB-
              &= -4\lambda q^3+(2\mu + k)q.
 \end{align}
 %
+
 A numerical simulation of the proposed control scheme has been performed with $k = 1$, $b = 0.5$. The parameters $\lambda$ and $\mu$ have been set to $2$ and $1$ respectively, placing the minima of $\Ha^*$ in $[\pm0.5,0]^\top$. No damping injection actions has been added as the asymptotic stability is already guaranteed by the natural dissipation of the autonomous linear system. Starting in the initial position $\xb_0 \triangleq (-0.9,0)$ the system has been simulated for both the  autonomous and the multistable EB--PBC controlled system for $40s$. The resulting phase--space portraits are reported in Fig. \ref{fig:ctrl_ps}.
 %
 \begin{figure}[!ht]
@@ -250,73 +258,73 @@ A numerical simulation of the proposed control scheme has been performed with $k
     \label{fig:ctrl_ps}
 \end{figure}
 %
-\iffalse
-Note that the damping injection control action $v = -ky$ does not change the location of the fixed points of the system. 
-%{\color{red}
-\begin{prop}\label{prop:db_lin}
-Let $u = v$ ($\beta(x) = \mathbb{0}_m$), it holds:
+%\iffalse
+%Note that the damping injection control action $v = -k_dy$ does not change the location of the fixed points of the system. 
+%%{\color{red}
+%\begin{prop}\label{prop:db_lin}
+%Let $u = v$ ($\beta(x) = \mathbb{0}_m$), it holds:
+%%
+%\[\mymathbb{0}_n = Ax - k BB^\top Px = \left(A-kBB^\top P\right)x\]
+%if and only if $x = \mymathbb{0}_n$.
+%%
+%\end{prop}
+%%
+%%
+%\begin{proof}
+%Necessary and sufficient condition to have 
+%\[\mymathbb{0}_n = \left(A-kBB^\top P\right)x~\Leftrightarrow~x = \mathbb{0}_n\]
+%is the matrix $A-kBB^\top P$ to be full--rank. 
+%Let $S = kBB^\top P$ which is positive semi--definite for $k>0$ since $P>0$. In particular, $\rank(S) = m$ because $P$ is full--rank and $\rank(B) = m$. Since $A$ is full--rank, it holds:
+%\[\rank(A-S) + \dim[\Null(A-S)] = \rank(A)\]
+%Furthermore, 
+%\[\Null(A-S) = \Null(I_n - A^{-1}S)\]
+%Thus, $A-S$ is full--rank if and only if 
+%\[\det(I_n - A^{-1}S)\neq 0\]
+%Indeed, $A^{-1}S$ is negative semi--definite since $A<0$ and $S\geq 0$. Let $p(s)$ be characteristic polynomial of $A^{-1}S$, i,e,
+%\[p(s) = \det(A^{-1}S - sI_n) = \prod_{i = 1}^n(\alpha_i-s) = (-1)^n\prod_{i = 1}^n(s-\alpha_i)\]
+%where $\alpha_i$ ($i = 1,\dots,n$) are the eigenvalues of $A^{-1}S$.
+%Hence, by setting $s = 1$, yields
+%\[\det(I-A^{-1}S) = (-1)^n(-1)^n\prod_{i = 1}^n(1-\alpha_i) = \prod_{i = 1}^n(1-\alpha_i)\]
+%Since $\alpha_i\leq 0~\forall i = 1,\dots,n$, the product is strictly positive and this proves $\det(I_n - A^{-1}S)\neq 0$. Therefore, $\dim[\Null(A-S)] = 0$ and, eventually,
+%\[\rank(A-kBB^\top P) = \rank(A) = n\]
+%which proves the proposition.\\
+%$\blacksquare$
+%\end{proof}
+%%
+%A similar proposition can be proved in the case of the energy--shaping controlled linear system, i.e. $\beta(x) = B^+(J-R)\partial\Ha_a$, using the port--Hamiltonian form of the model.
+%\begin{prop}
+%Let the energy--shaping controlled system be:
+%\begin{align*}
+%    &\dot{x}=(J-R)\partial\Ha^* + Bv\\
+%    &y = B^\top\partial\Ha^* 
+%\end{align*}
+%The control law $v = -ky$ does not modify the fixed points of the system i.e.
+%\[\mathbb{0}_n=(J-R)\partial\Ha^*-kBB^\top\partial\Ha^*=\left[(J-R)-kBB^\top\right]\partial\Ha^*\]
+%if and only if $\partial\Ha^*=0$.
+%\end{prop}
+%\begin{proof}
+%As in Proposition \ref{prop:db_lin}, the necessary and sufficient condition so that the previous statement holds is equivalent to asking if the matrix $(J-R)-kBB^\top$ is full--rank.
+%Recalling that $J-R=AP^{-1}$, it holds:
+%\begin{align*}
+%    \rank(J-R-kBB^\top) &= \rank[(J-R-kBB^\top)P]\\
+%    &=\rank(A-kBB^\top P)\\
+%    &=\rank(A)=n
+%\end{align*}
+%thanks to Proposition \ref{prop:db_lin}.\\
+%$\blacksquare$
+%\end{proof}
+%\fi
 %
-\[\mymathbb{0}_n = Ax - k BB^\top Px = \left(A-kBB^\top P\right)x\]
-if and only if $x = \mymathbb{0}_n$.
-%
-\end{prop}
-%
-%
-\begin{proof}
-Necessary and sufficient condition to have 
-\[\mymathbb{0}_n = \left(A-kBB^\top P\right)x~\Leftrightarrow~x = \mathbb{0}_n\]
-is the matrix $A-kBB^\top P$ to be full--rank. 
-Let $S = kBB^\top P$ which is positive semi--definite for $k>0$ since $P>0$. In particular, $\rank(S) = m$ because $P$ is full--rank and $\rank(B) = m$. Since $A$ is full--rank, it holds:
-\[\rank(A-S) + \dim[\Null(A-S)] = \rank(A)\]
-Furthermore, 
-\[\Null(A-S) = \Null(I_n - A^{-1}S)\]
-Thus, $A-S$ is full--rank if and only if 
-\[\det(I_n - A^{-1}S)\neq 0\]
-Indeed, $A^{-1}S$ is negative semi--definite since $A<0$ and $S\geq 0$. Let $p(s)$ be characteristic polynomial of $A^{-1}S$, i,e,
-\[p(s) = \det(A^{-1}S - sI_n) = \prod_{i = 1}^n(\alpha_i-s) = (-1)^n\prod_{i = 1}^n(s-\alpha_i)\]
-where $\alpha_i$ ($i = 1,\dots,n$) are the eigenvalues of $A^{-1}S$.
-Hence, by setting $s = 1$, yields
-\[\det(I-A^{-1}S) = (-1)^n(-1)^n\prod_{i = 1}^n(1-\alpha_i) = \prod_{i = 1}^n(1-\alpha_i)\]
-Since $\alpha_i\leq 0~\forall i = 1,\dots,n$, the product is strictly positive and this proves $\det(I_n - A^{-1}S)\neq 0$. Therefore, $\dim[\Null(A-S)] = 0$ and, eventually,
-\[\rank(A-kBB^\top P) = \rank(A) = n\]
-which proves the proposition.\\
-$\blacksquare$
-\end{proof}
-%
-A similar proposition can be proved in the case of the energy--shaping controlled linear system, i.e. $\beta(x) = B^+(J-R)\partial\Ha_a$, using the port--Hamiltonian form of the model.
-\begin{prop}
-Let the energy--shaping controlled system be:
-\begin{align*}
-    &\dot{x}=(J-R)\partial\Ha^* + Bv\\
-    &y = B^\top\partial\Ha^* 
-\end{align*}
-The control law $v = -ky$ does not modify the fixed points of the system i.e.
-\[\mathbb{0}_n=(J-R)\partial\Ha^*-kBB^\top\partial\Ha^*=\left[(J-R)-kBB^\top\right]\partial\Ha^*\]
-if and only if $\partial\Ha^*=0$.
-\end{prop}
-\begin{proof}
-As in Proposition \ref{prop:db_lin}, the necessary and sufficient condition so that the previous statement holds is equivalent to asking if the matrix $(J-R)-kBB^\top$ is full--rank.
-Recalling that $J-R=AP^{-1}$, it holds:
-\begin{align*}
-    \rank(J-R-kBB^\top) &= \rank[(J-R-kBB^\top)P]\\
-    &=\rank(A-kBB^\top P)\\
-    &=\rank(A)=n
-\end{align*}
-thanks to Proposition \ref{prop:db_lin}.\\
-$\blacksquare$
-\end{proof}
-\fi
-%
-\subsection{Choice of the Dissipation Rate: Shaping the basins of attraction}
+\subsection{Choice of the Dissipation Rate: Shaping the Basins of Attraction}
 %
 In this section it is shown how, by tuning the dissipation rate $\mathbf{K_d}$, it is possible to shape the basins of attraction of the designed stable fixed points of the closed--loop system.
 %
 \begin{defn}
 The \textit{basin of attraction} $\B$ of a fixed point $\xb^*$ of a system (\ref{eq:nlaffine}) is the set of all initial conditions $\xb_0$ leading to long--time behavior that approaches that fixed point, i.e.
 %
-\begin{equation*}
-    \B \triangleq \left\{\xb_0\in\X|\lim \limits_{t\rightarrow\infty}\Phi(t,\xb_0,\ub)=\xb^*\right\}.
-\end{equation*}
+\begin{equation}
+    \B \triangleq \left\{\xb_0\in\X|\lim \limits_{t\rightarrow\infty}\bm\phi(t,\xb_0,\ub)=\xb^*\right\}.
+\end{equation}
 %
 \end{defn}
 %
@@ -324,15 +332,16 @@ The designed feedback control law (\ref{eq:ex_ctrl}) allows to fix multiple stab
 %
 Consider the system of Example \ref{ex:msd_MES} controlled by the energy shaping control law (\ref{eq:ex_ctrl}). The closed--loop system in the form (\ref{eq:nlaffine}) can be expressed as
 %
-\begin{equation*}
+\begin{equation}
 	\left\{
     \begin{matrix*}[l]
     \dot{\xb} = \begin{bmatrix}p\\-4\lambda q^3+2\mu q-bp\end{bmatrix} + \Bb v\\
     y = \Bb^\top \Pb\xb
     \end{matrix*}
-    \right. .
-\end{equation*}
+    \right.~~.
+\end{equation}
 %
+
 If $v= 0$ the system has two asymptotically stable fixed points in $[\pm\sqrt{\mu/2\lambda},0]^\top$.Let $\mathbf{K}_d \triangleq k_d$. The output feedback controller $v = -k_d y = -k_dp$ does not change the location of the fixed points. In facts, it only changes the overall friction of the system from $b$ to $b+k_d$, i.e. the natural dissipation of the closed--loop system from $bp^2$ to $(b+k_d)p^2$.
 %
 Besides, the respective basins of attraction strongly depend on the choice of the controller, i.e., on the value of $k_d$. In Fig. \ref{fig:basin} the basins of attraction of the two fixed points are shown for different values of $k_d$ in the region $[-1,1]\times [-1,1]$ of the state space with $b = 0$, $\lambda = 2$, $\mu = 1$. It is evident that the higher the dissipation rate is, the lower is the number of transitions between basins of attraction.
@@ -356,9 +365,17 @@ From now on, we will consider the topology on $\R^n$ to be the \textit{standard}
 Let $c$ be the initial energy, $c = \Ha^*(\xb_0)$. Let $\Lambda_c$ be the $c$--level set of $\Ha^*$, $L_c\Ha^* = \{\xb~:~\Ha^*(\xb)=c\}\subset\R^n$. If there exists a $\mathbf{K}_d = \mathbf{K}_d^\top\succeq 0$ such that $\xb_0\in\B_i$, then one of the following is necessarily satisfied:
 \begin{itemize}
     \item[$1.$] ${L}_c\Ha^*$ is connected and 
-    \[\exists \Gamma:\partial \Gamma = L_c\Ha^* ~\land~ \xb_i^*\in \bar{\Gamma}\]
+    %
+    \begin{equation}
+    	\exists \Gamma:\partial \Gamma = L_c\Ha^* ~\land~ \xb_i^*\in \bar{\Gamma}.
+    \end{equation}
+    %
     \item[$2.$] $L_c\Ha^*$ is not connected but it is the union of $r$ connected sets $L_c^1\Ha^*_c,\dots,L_c^r\Ha^*$ and
-    \[\exists {\Gamma}_j:\partial \Gamma_j = L_c^j\Ha^* ~\land~ \xb_0,\xb_i^*\in \Bar{\Gamma}_j\]
+    %
+    \begin{equation}
+    	\exists {\Gamma}_j:\partial \Gamma_j = L_c^j\Ha^* ~\land~ \xb_0,\xb_i^*\in \Bar{\Gamma}_j.
+    \end{equation}
+    %
 \end{itemize}
 \end{thm}
 %
@@ -366,35 +383,41 @@ Let $c$ be the initial energy, $c = \Ha^*(\xb_0)$. Let $\Lambda_c$ be the $c$--l
 Due to dissipativity of the controlled system, i.e.
 %
 \begin{equation}
-    \dot{\Ha}^*\leq \yb^\top\vb =-\xb\Pb\Bb\mathbf{K}_d\Bb^\top\Pb\xb\leq 0 \quad\forall \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0
+    \dot{\Ha}^*\leq \yb^\top\vb =-\xb\Pb\Bb\mathbf{K}_d\Bb^\top\Pb\xb\leq 0 \quad\forall \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0,
 \end{equation}
 %
 the any trajectory with initial condition will lie inside the closure of the set $\Gamma$ defined as 
 %
 \begin{equation}
-    \partial \Gamma \triangleq {L}_c\Ha^*
+    \partial \Gamma \triangleq {L}_c\Ha^*,
 \end{equation}
 %
 regardless on the choice of $\mathbf{K}_d$, i.e.,
 %
 \begin{equation}
-    \forall t,~\forall \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0\quad\bm\phi(t,\xb_0,\ub)\in \bar{\Gamma}
+    \forall t,~\forall \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0\quad\bm\phi(t,\xb_0,\ub)\in \bar{\Gamma}.
 \end{equation}
 %
+
 Therefore, if $\xb_i^*\not\in\bar{\Gamma}$, it is impossible to reach it, i.e.,
 %
 \begin{equation}
-    \xb_i^*\not\in\bar{\Gamma} \Rightarrow \nexists \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0~:~\xb_0\in\B_i 
+    \xb_i^*\not\in\bar{\Gamma} \Rightarrow \nexists \mathbf{K}_d=\mathbf{K}_d^\top\succeq 0~:~\xb_0\in\B_i.
 \end{equation}
 %
+
 If ${L}_c\Ha^*$ is connected also $\bar{\Gamma}$ is connected and $\xb_0\in\partial \Gamma\subset \bar{\Gamma}$, then the necessary condition for the existence of a $\mathbf{K}_d=\mathbf{K}_d^\top\succeq 0$ such that $\xb_0\in\B_i$ is simply: $\x_i^*\in\bar{\Gamma}$. On the other hand if ${L}_c\Ha^*$ is not connected but it is the union of connected sets, the trajectory will never leave the set $\bar{\Gamma}_j$ defined by 
 %
 \begin{equation}
-    \partial \Gamma_j \triangleq {L}_c^j\Ha^*
+    \partial \Gamma_j \triangleq {L}_c^j\Ha^*,
 \end{equation}
 %
 where
-\[{L}_c\Ha^* = \bigcup_{k = 1}^m{L}_c^k\Ha^*~~\text{and}~~\xb_0\in{L}_c^j\Ha^* \] 
+%
+\begin{equation}
+	{L}_c\Ha^* = \bigcup_{k = 1}^m{L}_c^k\Ha^*~~\text{and}~~\xb_0\in{L}_c^j\Ha^* 
+\end{equation}
+% 
 Thus, the necessary condition is that also $\xb_i^*$ belongs to $\bar{\Gamma}_j$.
 \end{proof}
 %
@@ -403,12 +426,12 @@ A graphical representation of this necessary condition is given in Fig. \ref{fig
 \begin{figure}
     \centering
     \includegraphics[scale = 0.5]{Drawings/draw3.pdf}
-    \caption{Graphical representation of the necessary condition given by \ref{thm:necessity}. Case (A): the condition is satisfied for all the stable fixed points $x_i^*,~x_j^*$ and $x_k^*$. Case (B): the condition is satisfied for $x_i^*,~x_j^*$ but not for $x_k^*$. Case (C): the condition is satisfied only for $x_i^*$.}
+    \caption[Graphical representation of the necessary condition given by Theorem \ref{thm:necessity}]{Graphical representation of the necessary condition given by Theorem \ref{thm:necessity}. Case (A): the condition is satisfied for all the stable fixed points $\xb_i^*,~\xb_j^*$ and $\xb_k^*$. Case (B): the condition is satisfied for $\xb_i^*,~\xb_j^*$ but not for $\xb_k^*$. Case (C): the condition is satisfied only for $\xb_i^*$.}
     \label{fig:nec}
 \end{figure}
 %
 
-In order to choose among the possibly infinite values of $\mathbf{K}_d$ such that  $\xb_0\in\B_i$, one could minimise both the approaching time and the damping injection control effort needed to bring $\xb(t)$ from $\xb_0$ to $\xb_i^*$, i.e.,
+In order to choose among the possibly infinite values of $\mathbf{K}_d$ such that  $\xb_0\in\B_i$, one could minimize both the approaching time and the damping injection control effort needed to bring $\xb(t)$ from $\xb_0$ to $\xb_i^*$, i.e.,
 %
 \begin{equation}
     \begin{aligned}
@@ -416,7 +439,7 @@ In order to choose among the possibly infinite values of $\mathbf{K}_d$ such tha
         & & \int_0^\infty\left( (\xb(s)-\xb_i^*)^\top\mathbf{Q}(\xb(s)-\xb_i^*) + \xb(s)\Pb\Bb\mathbf{K}_d\mathbf{S}\mathbf{K}_d\Bb^\top \Pb\xb(s)\right)ds \\
         & \text{subject to}
         & &\lim\limits_{t\rightarrow\infty}\bm\phi(t,\xb_0,\bm\beta(\xb)-\mathbf{K}_d\Bb^\top \Pb\xb)=\xb^*_i
-    \end{aligned}
+    \end{aligned}~~,
 \end{equation}
 %
 with $\mathbf{Q}=\mathbf{Q}^\top\succeq 0$, $\mathbf{S}=\mathbf{S}^\top\succeq 0$.
@@ -439,7 +462,7 @@ When the nonlinear controller $\ub=\bm\beta(\xb)+\vb$ is switched off, i.e. $\ub
 Without loss of generality, let $t = 0$ and let the LTI system be controllable. The response of the system to a weighted impulse input 
 %
 \begin{equation}
-\ub(t) = \bm\nu\delta(t)
+\ub(t) = \bm\nu\delta(t),
 \end{equation}
 %
 where $\bm\nu\in\R^m$ distributes the Dirac delta function $\delta(t)$ among the $m$ inputs,
@@ -452,41 +475,44 @@ is
     &= e^{t\Ab}\left(\xb_0 + \Bb\bm\nu\right) .
 \end{align}
 %
-Since the control objective is to move the system from $\xb_i^*$ to $\xb_j^*$ in a time $t^*$, it is tempting to impose the desired behaviour in (\ref{eq:impresp}) by requiring:
+
+Since the control objective is to move the system from $\xb_i^*$ to $\xb_j^*$ in a time $t^*$, it is tempting to impose the desired behavior in (\ref{eq:impresp}) by requiring:
 %
 \begin{equation}\label{eq:cond}
     \xb_j^* \triangleq \xb(t^*) = e^{t^*\Ab}\left(\xb_i^* + \Bb\bm\nu\right).
 \end{equation}
 %
+
 Therefore, $\bm\nu$ might be obtained as
 \begin{align}
     \bm\nu = \left(\Bb^\top\Bb\right)^{-1}\Bb^\top(e^{-t^*\Ab}\xb_j^*-\xb_i^*).
 \end{align}
 %
-However, unless $m = n$, (\ref{eq:cond}) is overdetermined, i.e. $n$ (scalar) equations with only $m$ unknowns (the components of $\bm\nu$). 
-To overcome this issue, the design of the impulse controller is achieved by solving the following optimisation problem: 
+
+However, unless $m = n$, (\ref{eq:cond}) is over--determined, i.e. $n$ (scalar) equations with only $m$ unknowns (the components of $\bm\nu$). 
+To overcome this issue, the design of the impulse controller is achieved by solving the following optimization problem: 
 find $t^*$, $\bm\nu$ such that 
 %
 \begin{equation}\label{eq:opti}
 \begin{aligned}
 & [t^*,\bm\nu] = \argmin\limits_{t^*,\bm\nu}\gamma\left\|\bm\nu \right\|^2_2+\rho\left\|\xb_j^* - e^{t^*\Ab}\left(\xb_i^*+\Bb\bm\nu\right)\right\|^2_2\\
-& \text{subject to} ~~\bm\varphi\left(t^*,\xb_i^*,\bm\nu\delta(t)\right)\in\B_j
-\end{aligned}
+& \text{subject to} ~~\bm\phi\left(t^*,\xb_i^*,\bm\nu\delta(t)\right)\in\B_j
+\end{aligned}~~,
 \end{equation}
 where $\gamma,~\rho\in \R^+$ are two arbitrary weights and  $\B_j$ is the basin of attraction of $\xb_j^*$. 
-The term $\gamma\|\bm\nu\|_2^2$ has been introduce for regularization since, in some cases, it might be convenient to simultaneously minimise also the squared norm of the impulse weights.
+The term $\gamma\|\bm\nu\|_2^2$ has been introduce for regularization since, in some cases, it might be convenient to simultaneously minimize also the squared norm of the impulse weights.
 %
 
 The solution of (\ref{eq:opti}), provides an impulsive input  $\ub = \bm\nu\delta$ which guarantee that the system will arrive in $\B_j$ in a time $t^*$.  
 For the sake of a latter numerical implementation, the constraint was defined as
 \begin{align}
-    \left\|\hat{\bm\varphi}\left(t_{\infty},e^{t^*\Ab}\left(\xb_i^*+\Bb\bm\nu\right),\bm\beta(\xb)-\mathbf{K}_d\Bb^\top \Pb\xb\right)-\xb^*_j\right\|_2\leq\varepsilon
+    \left\|\hat{\bm\phi}\left(t_{\infty},e^{t^*\Ab}\left(\xb_i^*+\Bb\bm\nu\right),\bm\beta(\xb)-\mathbf{K}_d\Bb^\top \Pb\xb\right)-\xb^*_j\right\|_2\leq\varepsilon,
 \end{align}
 %
-where $\hat{\bm\varphi}$ is the numerically integrated trajectory of the system, $t_\infty\gg 1$ is the integration time and $0\leq\varepsilon \ll 1$ is a chosen threshold.
+where $\hat{\bm\phi}$ is the numerically integrated trajectory of the system, $t_\infty\gg 1$ is the integration time and $0\leq\varepsilon \ll 1$ is a chosen threshold.
 %
 \begin{rem}
-	Assuming that the switch is performed only at steady--state, the optimisation of $\bm\nu$ and $t^*$ for each pair of fixed points $\xb_i$, $\xb_j$ can be performed off--line.
+	Assuming that the switch is performed only at steady--state, the optimization of $\bm\nu$ and $t^*$ for each pair of fixed points $\xb_i$, $\xb_j$ can be performed off--line.
 \end{rem}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -498,7 +524,8 @@ If an impulse is applied to the system at time $t$  in order to reach the desire
     \xb^+ = \xb(t) + \Bb\bm\nu.
 \end{equation}
 %
-Therefore, the controlled system can be described as an \textit{hybrid automata}, with two logic states $\Sa_1$ and $\Sa_2$. In $\Sa_1$ the system is controlled with the multistable EB--PBC and in $\Sa_2$ the system is completely uncontrolled. Thus, by introducing a timer $\tau$ and an external asynchronous signal $r$ (initialised to $0$), the transition from $\Sa_1$ to $\Sa_2$ will happen when $r$ changes from $0$ to the index of the desired fixed point, i.e., $r\in\{0,1,\dots,p\}$, with a state jump described by (\ref{eq:jump}) and resetting the timer $\tau$ to $0$. Then the system will remain uncontrolled (and thus linear) for a time $t^*$, i.e. $\tau = t^*$ after which the logic state will switch back from $\Sa_2$ to $\Sa_1$  and the timer and the external signal $r$ will be reset. A graphical representation of the designed hybrid automata is given in Fig. \ref{fig:automata}. 
+
+Therefore, the controlled system can be described as an \textit{hybrid automata}, with two logic states $S_1$ and $S_2$. In $S_1$ the system is controlled with the multistable EB--PBC and in $S_2$ the system is completely uncontrolled. Thus, by introducing a timer $\tau$ and an external asynchronous signal $r$ (initialized to $0$), the transition from $S_1$ to $S_2$ will happen when $r$ changes from $0$ to the index of the desired fixed point, i.e., $r\in\{0,1,\dots,p\}$, with a state jump described by (\ref{eq:jump}) and resetting the timer $\tau$ to $0$. Then the system will remain uncontrolled (and thus linear) for a time $t^*$, i.e. $\tau = t^*$ after which the logic state will switch back from $S_2$ to $S_1$  and the timer and the external signal $r$ will be reset. A graphical representation of the designed hybrid automata is given in Fig. \ref{fig:automata}. 
 %
 \begin{figure}[!ht]
 	\centering
@@ -511,6 +538,129 @@ Therefore, the controlled system can be described as an \textit{hybrid automata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hybrid Port--Hamiltonian Model and Stability}
 %
+A brief analysis of the overall hybrid model of the system controlled with the proposed \textit{multistable energy shaping} with {mode selector} leads to the following consideration: the system can be formalized as the interconnection (see \cite{sanfelice2011interconnections}) between a hybrid port Hamiltonian system and an auxiliary hybrid system as represented in Fig. \ref{fig:inter}.
+%
+\begin{figure}[!h]
+	\centering
+	\input{Drawings/interconnection.tex}
+	%
+	\caption[A block representation of interconnection of the hybrid systems]{A block representation of interconnection of the hybrid systems.}
+	\label{fig:inter}
+\end{figure}
+%
+The hybrid port--Hamiltonian model has two modes (similarly to the \textit{hopping robot} described in Chapter \ref{chap:HPH_systems}).
+Let $\Ha_1(\xb) \triangleq \Ha^*(\xb)$, $\Ha_2(\xb) = \Ha(\xb)$ and let $s\in\M\triangleq\{1,2\}$ be the indicates the current mode of the system. The flows of the systems are, respectively
+%
+\begin{align}
+	&\dot{\xb} = \Ab\Pb^{-1}\dH_1(\xb) - \Bb\mathbf{K}_d\Bb^\top\Pb\xb &\text{if}\quad(\xb,s)\in\C_1\times\{1\},\\
+	&\dot{\xb} = \Ab\Pb^{-1}\dH_2(\xb) &\text{if}\quad(\xb,s)\in\C_2\times\{2\},
+\end{align}
+%
+where $\C_1\equiv\C_2\triangleq\X$ and $\X$ is the state--space of the linear system (\ref{eq:lsys}). Thus,
+%
+\begin{equation}
+	\C = \bigcup_{i = 1}^2\C_i\times\{i\}.
+\end{equation}
+%
+
+Note that, in both modes, 
+%
+\begin{equation}
+	\yb = \Bb^\top\Pb\xb.
+\end{equation}
+%
+
+Let us also define an \textit{auxiliary output} $z\triangleq s$. The jumps of the systems happen as
+%
+\begin{align}
+	&\begin{bmatrix}
+	\xb^+\\s^+
+	\end{bmatrix} = \begin{bmatrix}
+	\xb+\Bb\bm\nu(\ub_e)\\2
+	\end{bmatrix} &&\text{if}\quad(\xb,s,\ub_e)\in\D_1\triangleq\X\times\{1\}\times\U_e^1,\\
+	%
+	&\begin{bmatrix}
+	\xb^+\\s^+
+	\end{bmatrix} = \begin{bmatrix}
+	\xb\\1
+	\end{bmatrix} &&\text{if}\quad(\xb,s,\ub_e)\in\D_2\triangleq\X\times\{2\}\times\U_e^2,
+\end{align}
+%
+where $\ub_e$ is the \textit{auxiliary input} and 
+%
+\begin{equation}
+	\U_e^1 \triangleq\R\times\mathbb{N}^*,\quad\U_e^2 \triangleq\{t^*(r)\}\times\mathbb{N}^*.
+\end{equation}
+%
+
+Let $\D\triangleq\D_1\cup\D_2$ and $\F_{\tt PH}$, $\G_{\tt PH}$ are defined as in (\ref{eq:hph_flowmap}), (\ref{eq:hph_jumpmap}).
+%
+
+To complete the model, let us define the \textit{auxiliary hybrid system} which formalize the behavior of $\tau$ and $r$:
+%
+\begin{equation}
+	\left\{
+	%
+	\begin{matrix*}[l]
+		%
+		\begin{bmatrix}\dot{\tau}\\\dot{r}\end{bmatrix} = \begin{bmatrix}1\\0\end{bmatrix} \quad(\tau,r)\times\R\times\mathbb{N}\\\\
+		%
+		\begin{bmatrix}\tau^+\\r^+\end{bmatrix} = 
+			\left\{
+				%
+				\begin{matrix*}[l]
+					%
+					\begin{bmatrix}\tau\\v_r\end{bmatrix} &\text{if}&&(\tau,r,v_r,v_e)\in\R\times\mathbb{N}\times\mathbb{N}^*\times\{1\}\\
+					%
+					\begin{bmatrix}0\\r\end{bmatrix} &\text{if}&&(\tau,r,v_r,v_e)\in\R\times\mathbb{N}^*\times\{0\}\times\{1\}\\
+					%
+					\mymathbb{0}_2 &\text{if}&&(\tau,r,v_r,v_e)\in\{t^*(r)\}\times\mathbb{N}^*\times\mathbb{N}\times\{2\}\\	
+					%
+				\end{matrix*}
+				%
+			\right.
+		%
+	\end{matrix*}
+	%
+	\right.~~,
+\end{equation}
+%
+where $v_r$ is the \textit{mode change} triggering signal which is supposed to take positive integer values corresponding to the index of the selected minima of $\Ha^*$ and to be active in zero--measure time intervals.
+The output of the auxiliary system is defined as $\mathbf{w}\triangleq (\tau,r)$.
+
+The final interconnected system is realized by imposing that the (auxiliary) output of the hybrid port--Hamiltonian system corresponds to the input $v_e$ of the auxiliary system and vice versa, i.e.
+%
+\begin{equation}
+	v_e\equiv z,~~\ub_e\equiv\mathbf{w}.
+\end{equation}
+%
+
+The hybrid port--Hamiltonian system defined above is not passive. In fact, there is no guarantees that
+%
+\begin{equation}
+	\forall (\xb,s,\ub_e)\in\D_1 \quad \Ha(\xb+\Bb\bm\nu(\ub_e))\leq\Ha^*(\xb)~~\text{and}~~ 	\forall(\xb,s,\ub_e)\in\D_2 \quad \Ha^*(\xb)\leq\Ha(\xb).
+\end{equation}
+% 
+
+Nevertheless, it is reasonable to assume $\|\bm\nu(r)\|_2$ bounded from above. In such case, it is possible to prove that the state--space of the controlled system is limited and does not ``explode''. 
+
+%In particular,
+%%
+%\begin{equation}
+%	\|\bm\nu(r)\|_2<\infty ~\Rightarrow~ \forall\xb\in\X\quad\exists \eta\in\R~:~\eta = \sup_{\bm\nu}\Ha(\xb+\Bb\bm\nu)
+%\end{equation}
+%%
+
+%
+%\begin{prop}
+%	Consider an LTI system subjected to MES--HMS control. It holds
+%	%
+%	\begin{equation}
+%		
+%	\end{equation}
+%	% 
+%\end{prop}
+%%
 % From the hybrid automata representation of Fig. \ref{fig:automata} the extended hybrid port--Hamiltonian model can be obtained. First, the system has two PH flows: one when the system is controlled via multistable EB-PBC
 % %
 % \begin{equation}
@@ -523,7 +673,7 @@ Therefore, the controlled system can be described as an \textit{hybrid automata}
 %     \dot{\xb} = \Ab\Pb^{-1}\bm\nabla\Ha_2(\xb)
 % \end{equation}
 % %
-% By introducing a dummy variable $s$, representing the logic state of the system, i.e. $s = i$ in $\Sa_i$, and performing a state extension:
+% By introducing a dummy variable $s$, representing the logic state of the system, i.e. $s = i$ in $S_i$, and performing a state extension:
 % %
 % \begin{equation}
 %     \zb \triangleq \left(\xb, \tau,r,s\right)
@@ -556,20 +706,21 @@ environment. The system introduced in Example \ref{ex:msd_MES} has been controll
 {%\color{red}
 To implement the asynchronous external control signal $r$, the two fixed points have been denoted with $\xb_1^* = [-0.5,0]^\top$ and $\xb_2^* = [0.5,0]^\top$.}
 The dissipation rate $k_d$ has been set to $4.5$. 
-The \textit{fmincon} solver of the \textit{global optimization toolbox} of \textsc{Matlab}\textsuperscript{\textregistered} has been employed to solve the optimisation problem (\ref{eq:opti}). The optimisation parameters have been chosen as $t_\infty=10^3$, $\varepsilon=10^{-5}$, considering an absolute tolerance of $10^{-6}$ for the numerical integration (ODE45).
+The \textit{fmincon} solver of the \textit{global optimization toolbox} of \textsc{Matlab}\textsuperscript{\textregistered} has been employed to solve the optimization problem (\ref{eq:opti}). The optimization parameters have been chosen as $t_\infty=10^3$, $\varepsilon=10^{-5}$, considering an absolute tolerance of $10^{-6}$ for the numerical integration (ODE45).
 Starting from the initial state $\xb_0 \triangleq [-0.8,0]^\top$, the system, controlled with the nonlinear state feedback and the damping injection, has been integrated until secured convergence to $\xb_1^*$ ($5s$). Then, $r$ has been set to 2 in order to trigger the change of working mode, i.e. to bring the state to $\xb_2^*$. After the jump, the system has been let flowing uncontrolled for a time $t^*$ and then the nonlinear controller has been turned on again. After other $5s$ the procedure has been repeated, by setting $r$ to 1 and bring the state back in $\xb_1^*$.
 This simulation has been performed twice, with different values of $\gamma$ for the impulse design process (performed off--line); $\rho$ has been set to 1 in both cases. 
 
-First, $\gamma$ has been set to $10^{-3}$ to emphasise the minimisation of the norm of the error 
+First, $\gamma$ has been set to $10^{-3}$ to emphasize the minimization of the norm of the error 
 %
 \begin{equation}
     \|\mathbf{e}\|_2^2=\left\|\xb_j^* - e^{t^*\Ab}\left(\xb_i^*+\Bb\bm\nu\right)\right\|^2_2.
 \end{equation}
 %
-Then, $\gamma$ has been set to 2, accentuating the minimisation of the squared norm $\|\bm\nu\|_2^2$ of the impulse weights vector (in this case $\nu\in\R$). The numerical results of the optimisation are reported in Table \ref{tab:opti} while the system trajectories are shown in Figs. \ref{fig:exp1} and \ref{fig:exp2}. 
+
+Then, $\gamma$ has been set to 2, accentuating the minimization of the squared norm $\|\bm\nu\|_2^2$ of the impulse weights vector (in this case $\nu\in\R$). The numerical results of the optimization are reported in Table \ref{tab:opti} while the system trajectories are shown in Figs. \ref{fig:exp1} and \ref{fig:exp2}. 
 %
 \begin{table}[!ht]
-    \caption{Hybrid controller optimisation results.}
+    \caption{Hybrid controller optimization results.}
 	\centering
 	\subtable[$1^{\text{st}}$ impulse ($x_1^*\rightarrow \B_2$)]{
 		\begin{tabular}{|c|c|c|c|}\hline
@@ -595,7 +746,7 @@ Then, $\gamma$ has been set to 2, accentuating the minimisation of the squared n
     %
     \subfigure[Phase--space portrait.]{\input{Drawings/ps1.tex}}
     %
-    \caption[Simulation experiment of the overall hybrid system with $\gamma = 10^{-3}$.]{Simulation experiment of the overall hybrid system carried out by settling $\gamma = 10^{-3}$. The system parameters where $k = 5$, $b = 0.5$, $\lambda = 2$, $\mu = 1$, $k_d = 4.5$ and $\x_0 = (-0.8,0)$. 
+    \caption[Simulation experiment of the overall hybrid system with $\gamma = 10^{-3}$]{Simulation experiment of the overall hybrid system carried out by settling $\gamma = 10^{-3}$. The system parameters where $k = 5$, $b = 0.5$, $\lambda = 2$, $\mu = 1$, $k_d = 4.5$ and $\x_0 = (-0.8,0)$. 
     Two switching signals have been given to the system in order to trigger the change of fixed point at $t = 5s$ and $t = 11.03s$. Black solid lines are parts of the system's trajectory with the nonlinear controller, red dashed lines indicates state discontinuities and the blue solid lines denote that the system was flowing uncontrolled. The dashed green lines are the the fixed points.
     }
     \label{fig:exp1}
@@ -613,7 +764,7 @@ Then, $\gamma$ has been set to 2, accentuating the minimisation of the squared n
 	\label{fig:exp2}
 \end{figure}
 %
-In the first case ($\gamma = 10^{-3}$), the transient from $\xb_1^*$ to $\xb_2^*$ (and vice versa) is very fast and without any oscillation in the displacement, due to the high dissipation rate and the minimised error norm: when the EB--PBC controller is switched--on again the state is very close to the desired energy minimum. However, the price of this performance is the impulse, i.e. state jump, that has to be generated. On the other hand, when $\gamma = 2$, no state discontinuity is needed to change working mode, but at the cost of a slower transient.
+In the first case ($\gamma = 10^{-3}$), the transient from $\xb_1^*$ to $\xb_2^*$ (and vice versa) is very fast and without any oscillation in the displacement, due to the high dissipation rate and the minimized error norm: when the EB--PBC controller is switched--on again the state is very close to the desired energy minimum. However, the price of this performance is the impulse, i.e. state jump, that has to be generated. On the other hand, when $\gamma = 2$, no state discontinuity is needed to change working mode, but at the cost of a slower transient.
 %
 \clearpage
 %
@@ -630,3 +781,4 @@ The theory of passivity--based control and port-Hamiltonian systems has been use
 %
 The final closed--loop system is hybrid in nature due to the applied control technique. Furthermore, it belongs to the class of hybrid port--Hamiltonian systems described in Chapter \ref{chap:HPH_systems}, with a model similar to the \textit{hopping robot} (see Fig. \ref{fig:hopping}).
 
+\clearpage

@@ -1,0 +1,15 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.1}Introduction}{\reset@font\mtcSfont 98}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.2}Problem Setting}{\reset@font\mtcSfont 99}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.3}Jump Detection}{\reset@font\mtcSfont 101}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.4}Identification Procedure}{\reset@font\mtcSfont 104}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.4.1}Approximation of the Smoothness Bound}{\reset@font\mtcSSfont 104}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.4.2}Parameters Estimation}{\reset@font\mtcSSfont 105}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.4.3}Reduced Order Identification}{\reset@font\mtcSSfont 106}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.4.4}Flow and Jump Sets Approximation}{\reset@font\mtcSSfont 108}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.5}Simulation Experiments}{\reset@font\mtcSfont 110}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.5.1}Case of Study: Impact Mass-Spring-Damper System}{\reset@font\mtcSSfont 110}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Model of the Flows}{\reset@font\mtcSSSfont 110}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Model of the Jumps}{\reset@font\mtcSSSfont 110}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Model Identification}{\reset@font\mtcSSSfont 111}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.5.2}Numerical Simulation}{\reset@font\mtcSSfont 112}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.6}Summary}{\reset@font\mtcSfont 118}}

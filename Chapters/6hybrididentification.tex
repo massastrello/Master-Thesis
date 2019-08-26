@@ -1,6 +1,6 @@
 %\the\textwidth = 379.37pt
-
-\chapter{Identification of a class of Hybrid Dynamical Systems}
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+\chapter{Identification of a Class of Hybrid Dynamical Systems}
 
 \label{chap:identification}
 \minitoc
@@ -10,27 +10,45 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
 \lettrine[lines=4]{\color{brickred}I}{n} this chapter, the identification problem for a class of hybrid dynamical systems is addressed.
 The majority of the literature on identification of HDS is related to classes of Piece Wise Affine systems (PWA), i.e. systems which are defined by subdividing the  space into polyhedral regions which have associated an affine state update equation.
+%
+\newline
+
+%
+\parshape=0
 It is possible to discern four main different identification procedures for PWA systems: Bayesian, algebraic, clustering-based and bounded-error approaches. Qualitative comparison between the performance of those methodologies is reported in~\citep{Juloski,Paoletti}.
 Identification of piecewise affine (PWARX), hinging hyperplanes (HHARX), and Wiener piecewise affine (WPWARX) autoregressive exogenous models of hybrid dynamical systems have been addressed in~\citep{Bemporad}. Although in this work global convergence is provided through a mixed-integer linear or quadratic programming, the performance of the proposed solution strictly depends on the choice of the input signal \textit{u}. 
 Picewise affine identification of submodels and the valid polyhedral partitions of the domain of hybrid systems are evaluated by combining clustering, classification and linear identification techniques in the work proposed in~\citep{Ferrari}. 
-The particular behaviour of each procedures is evaluated via experimental evaluation of the electronic components of a pick-and-place device. Even if experimental results shown the validity of the proposed solution, it requires strict assumptions on the working space and error bounds.
+The particular behavior of each procedures is assessed via experimental evaluation of the electronic components of a pick-and-place device. Even if experimental results shown the validity of the proposed solution, it requires strict assumptions on the working space and error bounds.
 A pick-and-place machine has also been used in~\citep{juloski2005bayesian} to evaluate a Bayesian scheme which model the unknown parameters as random variables described with probability distribution functions an implemented with particle filtering methodologies.
 %
+\newline
 
+%
 Researchers also tried to implement on-line identification of electronic components with fuzzy clustering~\citep{sepasi2008line} and machine learning techniques.
-Feed-forward neural networks have been used for identification of a class of hybrid systems by Messai et al. in~\citep{Messai,MESSAI2006217}. The networks, characterised by continuous inputs, continuous outputs and binary discrete inputs, use a black-box approach to track all the mode of the system. Results are promising but highly dependent on the input sequence.
+Feed-forward neural networks have been used for identification of a class of hybrid systems by \cite{Messai,MESSAI2006217}. The networks, characterized by continuous inputs, continuous outputs and binary discrete inputs, use a black-box approach to track all the mode of the system. Results are promising but highly dependent on the input sequence.
+%
+\newline
 
-Compared to previous works, in this Chapter the aim is to solve the identification problem for a class of HDS in the form of \textit{hybrid inclusions}. This is justified by the necessity of performing systematic identification of the physical parameters characterizing \textit{hybrid port Hamiltonian systems} in order to obtain reliable models from data and implement the developed control techniques.
+%
+Compared to previous works, here the aim is to solve the identification problem for a class of HDS in the form of \textit{hybrid inclusions}. This is justified by the necessity of performing systematic identification of the physical parameters characterizing \textit{hybrid port Hamiltonian systems} in order to obtain reliable models from data and implement the developed control techniques.
+%
+\newline
 
-In particular, we consider hybrid inclusions with one \textit{flow} and one \textit{jump}, i.e. one constrained differential equation for the continuous--time part and one constrained difference equation for the discrete--time part. This class of systems includes \textit{ball--juggling} mechanisms (see, e.g., \citealp{tian2013}), impact pendulums and other systems from the \textit{nonsmooth mechanics} framework \citep{brogliato1999nonsmooth}. Furthermore, with respect to previous works, we will treat the autonomous case, in which no input--output relations are defined, with the assumption of being able to collect measurements of the state during a trajectory and linearity of the flow and jump maps with respect to two distinct sets of unknown parameters. 
+%
+In particular,here hybrid inclusions with one \textit{flow} and one \textit{jump} are considered, i.e. one constrained differential equation for the continuous--time part and one constrained difference equation for the discrete--time part. This class of systems includes \textit{ball--juggling} mechanisms (see, e.g., \citealp{tian2013}), impact pendulums and other systems from the \textit{nonsmooth mechanics} framework \citep{brogliato1999nonsmooth}. Furthermore, with respect to previous works, the autonomous case is treated, in which no input--output relations are defined, with the assumption of being able to collect measurements of the state during a trajectory and linearity of the flow and jump maps with respect to two distinct sets of unknown parameters. 
+%
+\newline
 
+%
 The proposed method relies on the Lipschitz continuity assumption of the flow map to determine from observations whether the state undergoes to a discontinuity, acknowledging that a jump happened. 
 A linear recursive estimator is then used to estimate both the flow and jump parameters while the flow and jump sets are approximated by convex hulls.
+%
+\newline
 
-This chapter is organized as follow: Section~\ref{ProblemS} gives an overview of the problem and presents the basic assumptions. The procedure used for the detection of a jump is reported in Section~\ref{JumpD}. Section~\ref{Identification} describes the identification methodology. The simulation results are presented in Section~\ref{Experiments}. Conclusion and future work are drawn in Section~\ref{conc}.
+%
+%This chapter is organized as follow: Section~\ref{ProblemS} gives an overview of the problem and presents the basic assumptions. The procedure used for the detection of a jump is reported in Section~\ref{JumpD}. Section~\ref{Identification} describes the identification methodology. The simulation results are presented in Section~\ref{Experiments}. Conclusion and future work ain order to chre drawn in Section~\ref{conc}.
 %
 The majority of the content of this Chapter is inspired by [c6].
 %
@@ -46,16 +64,16 @@ Let us consider an autonomous hybrid dynamical system represented {by the follow
             \x^+ = \mathbf{g}(\x)&&\x\in\D
         %
         \end{matrix*}
-    \right.
+    \right.~~,
     %
 \end{equation}
 %
 where $\x\in\R^n$ is the state of the system, $\mathbf{\mathbf{f}}:\R^n\rightarrow\R^n$ and $\mathbf{g}:\R^n\rightarrow\R^n$ are vector fields, $\C$ and $\D$ are closed subsets of $\R^n$.
 %Let us call $\C$ the \textit{flow set}, $\mathbf{\mathbf{f}}$ the \textit{flow map}, $\D$ the \textit{jump set}, $\mathbf{g}$ the \textit{jump map}. The notation $\x^+$ indicates the next value of the state $\x$ after a jump. 
 The system can be also represented by means of the \textit{hybrid automata} in Fig. \ref{fig:HA}.      
-System (\ref{eq:HS}) is the single--\textit{flow} single--\textit{jump} specialization of the more general \textit{hybrid inclusions} whose framework is deeply explored in Chapters 2, 3 and Appendix \ref{chap:HSapp}.%\cite{goebel2009hybrid,Goebel2012}}.
+System (\ref{eq:HS}) is the single--\textit{flow} single--\textit{jump} specialization of the more general \textit{hybrid inclusions} whose framework is deeply explored in Chapters 2, 3.%\cite{goebel2009hybrid,Goebel2012}}.
 %
-\begin{figure}[!t]
+\begin{figure}[!h]
 	\centering
 	\begin{tikzpicture}
 	%
@@ -87,7 +105,7 @@ Firstly, as a very general hypothesis, both the flow and jump maps are assumed t
 Thanks to this assumption, it is possible to employ linear identification techniques to estimate the unknown parameters. 
 \begin{assum}[Linearity in the parameters]\label{ass:1}
 	The maps $f$ and $g$ are linear {with respect to constant} parameters collected in the vectors $\bm{\alpha}\in\R^{m_\mathbf{f}}$ and $\bm{\beta}\in\R^{m_j}$ respectively, i.e., there exist $\bm{\Phi}:\R^{n}\rightarrow\R^{n\times m_f}$ and $\bm{\Psi}:\R^{n}\rightarrow\R^{n\times m_j}$ such that
-	\begin{equation*}
+	\begin{equation}
 	%
 	\left\{ 
 	\begin{matrix*}[l]\vspace{1pt}
@@ -96,9 +114,9 @@ Thanks to this assumption, it is possible to employ linear identification techni
 	\x^+ = \mathbf{g}(\x)=\bm{\Psi}(\x)\bm{\beta}&&\x\in\D
 	%
 	\end{matrix*}
-	\right.
+	\right.~~,
 	%
-	\end{equation*}
+	\end{equation}
 	{%\color{red} Answer to reviewer \#2 (6)\\
 	The maps $\bm{\Phi}$, $\bm{\Psi}$ are assumed to be known a priori.
 	} 
@@ -109,7 +127,12 @@ The second assumption deals with the regularity of the flow map. %From now on, w
 The following properties hold for the flow map $\mathbf{\mathbf{f}}$:
 \begin{itemize}
 	\item[$i)$]  $\mathbf{\mathbf{f}}$ is globally Lipschitz continuous on $\C$, i.e., there exists a constant $k\geq 0$ such that
-	\[\forall\x_1,\x_2\in\C\quad\|\mathbf{\mathbf{f}}(\x_1)-\mathbf{\mathbf{f}}(\x_2)\|_2\leq k \|\x_1-\x_2\|_2~. \]
+	%
+	\begin{equation}
+		\forall\x_1,\x_2\in\C\quad\|\mathbf{\mathbf{f}}(\x_1)-\mathbf{\mathbf{f}}(\x_2)\|_2\leq k \|\x_1-\x_2\|_2. 
+	\end{equation}
+	%
+	
 	$k$ is referred as the \textit{Lipschitz constant};
 	\item[ii)] $\mathbf{\mathbf{f}}$ is differentiable almost everywhere in $\C$;
 	\item[iii)] $\mathbf{\mathbf{f}}$ admits a fixed point in the origin which is inside $\C$, i.e. $\mathbf{\mathbf{f}}(\mymathbb{0}_n)=\mymathbb{0}_n$, $\{\mymathbb{0}_n\}\in\C$.
@@ -122,12 +145,20 @@ The following properties hold for the flow map $\mathbf{\mathbf{f}}$:
 %
 \begin{defn}[Euler derivative norm]
 	Given the hybrid system $(\mathbf{\mathbf{f}},~\mathbf{g},~\C,~\D)$ and a time interval $\delta t>0$, the norm of the Euler derivative of the state is defined as
-	\[D_{\delta t}\x(t)= \frac{\|\x(t)-\x(t-\delta t)\|_2}{\delta t}\]
+	%
+	\begin{equation}
+		D_{\delta t}\x(t)= \frac{\|\x(t)-\x(t-\delta t)\|_2}{\delta t}.
+	\end{equation}
+	%
 \end{defn}
 %
 \begin{defn}[Bounded-norm Euler derivative]
 	The Euler derivative of a hybrid system $(\mathbf{\mathbf{f}},~\mathbf{g},~\C,~\D)$ has bounded--norm if there exists $\tau(t)\geq 0$ such that
-	\[\forall\delta t>0,t\in\R^+~\land~\forall \x\in\C\quad\quad D_{\delta t}\x(t)\leq\tau\]
+	%
+	\begin{equation}
+		\forall\delta t>0,t\in\R^+~\land~\forall \x\in\C\quad\quad D_{\delta t}\x(t)\leq\tau.
+	\end{equation}
+	%
 \end{defn}
 %
 
@@ -141,7 +172,7 @@ The following properties hold for the flow map $\mathbf{\mathbf{f}}$:
    	then the system has bounded--norm Euler derivative with upper bound
 	%
 	\begin{equation}\label{eq:bound}
-		\tau(t)=\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds
+		\tau(t)=\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds.
 	\end{equation}
 	%
 \end{thm}
@@ -155,42 +186,44 @@ The following properties hold for the flow map $\mathbf{\mathbf{f}}$:
     integrating both sides of the equation between $t-\delta t$ and $t$, yields
     %
     \begin{equation}
-        \x(t)-\x(t-\delta t) = \int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds
+        \x(t)-\x(t-\delta t) = \int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds.
     \end{equation}
     %
+    
     Therefore,
     %
     \begin{equation}%\label{eq:dtdb}
-	    D_{\delta t}\x(t)=\frac{1}{\delta t}\|\x(t)-\x(t-\delta t)\|_2 = \frac{1}{\delta t}\left\lVert\int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds~\right\rVert_2
+	    D_{\delta t}\x(t)=\frac{1}{\delta t}\|\x(t)-\x(t-\delta t)\|_2 = \frac{1}{\delta t}\left\lVert\int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds~\right\rVert_2.
     \end{equation}
     %
+    
     Considering the right hand side of the equation, it follows that
     %
     \begin{equation}
-        \frac{1}{\delta t}\left\lVert\int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds~\right\rVert_2\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}\|\mathbf{\mathbf{f}}(\x(s))\|_2ds
+        \frac{1}{\delta t}\left\lVert\int_{t-\delta t}^{t}\mathbf{\mathbf{f}}(\x(s))ds~\right\rVert_2\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}\|\mathbf{\mathbf{f}}(\x(s))\|_2ds.
     \end{equation}
     %
+    
     Since $f$ is globally Lipschitz in $\C$ and $\mathbf{\mathbf{f}}(\mymathbb{0}_n) = \mymathbb{0}_n$,
     %
     \begin{align}
 	    \frac{1}{\delta t}\int_{t-\delta t}^{t}\|\mathbf{\mathbf{f}}(\x(s))\|_2ds &= \frac{1}{\delta t}\int_{t-\delta t}^{t}\|\mathbf{\mathbf{f}}(\x(s))-\mathbf{\mathbf{f}}(\mymathbb{0}_n)\|_2ds\\
-	    &\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds<\infty
+	    &\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds<\infty,
     \end{align}
     %
     where $k$ is the Lipschitz constant. Thus, there exists a $\tau\geq 0$ such that, for all $t$, it holds
     %
     \begin{equation}
-        D_{\delta t}\x(t)\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds\triangleq\tau(t,\delta t)
+        D_{\delta t}\x(t)\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}k\|\x(s)\|_2ds\triangleq\tau(t,\delta t).
     \end{equation}
+    
     The above integral is always limited since, from global Lipschitz continuity of $\mathbf{\mathbf{f}}(\cdot)$, global existence of trajectories $\x(t)$ is assured in $\C$. It follows that on any compact time interval, $[t-\delta t,t]$, where the state does not leave the flow set, the quantity
     %
     \begin{equation}
-        \int_{t- \delta t}^{t}\|\x(s)\|_2ds
+        \int_{t- \delta t}^{t}\|\x(s)\|_2ds,
     \end{equation}
     %
-    is limited, providing the result.\\
-    %
-    $\blacksquare$
+    is limited, providing the result.
     %
 \endproof
 %
@@ -201,30 +234,33 @@ From now on let us refer to $\tau(t)$ as the \textit{smoothness bound}.
 	Consider an hybrid system with the flow described by 
 	%
 	\begin{equation}
-	    \dot{x}={{f}}(x)=\sin(x)\quad x\in\C
+	    \dot{x}={{f}}(x)=\sin(x)\quad x\in\C,
 	\end{equation}
 	%
 	where $\C\triangleq[0,2\pi]$. $f$ clearly satisfies Assumption \ref{ass:2} and its Lipschitz constant $k$ can be found as
 	%
 	\begin{equation}
-	    k=\sup\limits_{x\in\C}\left\|\frac{d {f}}{dx}\right\|_2=\sup\limits_{x\in\C}\|\cos(x)\|_2=1
+	    k=\sup\limits_{x\in\C}\left\|\frac{d {f}}{dx}\right\|_2=\sup\limits_{x\in\C}\|\cos(x)\|_2=1.
 	\end{equation}
 	%
+	
 	Furthermore, the solution of the ordinary differential equation with $x(0)=x_0$ is\
 	%
 	\begin{equation}
-	    x(t)= 2\tan^{-1}\left(e^{t-\ln(\cot(x_0/2))}\right)
+	    x(t)= 2\tan^{-1}\left(e^{t-\ln(\cot(x_0/2))}\right).
 	\end{equation}
 	%
+	
 	Since ${\mathbf{f}}(0)=0$ ($\{0\}\in\C$) Theorem \ref{thm:criteria} holds and, for any $\delta t>0$ yields
 	%
 	\begin{equation}\label{eq:exmp_sb}
-	    D_{\delta t}x(t)=\frac{1}{\delta t}\|x(t)-x(t-\delta t)\|\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}\|x(s)\|_2ds=\tau(t)
+	    D_{\delta t}x(t)=\frac{1}{\delta t}\|x(t)-x(t-\delta t)\|\leq\frac{1}{\delta t}\int_{t-\delta t}^{t}\|x(s)\|_2ds=\tau(t).
 	\end{equation}
 	%
+	
 	Figure \ref{fig:ex1} shows in a numerical example with $x_0=10^{-2}$ and $\delta t = 0.5$. 
 	%
-	\begin{figure}[!t]
+	\begin{figure}[!ht]
         \centering
         \input{Drawings/exLipsi.tex}
         \caption[Example \ref{ex:hsid1}: Time evolution of the state, Euler derivative norm and smoothness bound.]{Example \ref{ex:hsid1}. Time evolution of $x(t)$, $D_{\delta t}x(t)$, $\tau(t)$ for $x_0=10^{-2}$ and $\delta t=0.5$. This figure shows an application example of Theorem \ref{thm:criteria}. Notice that, as predicted by (\ref{eq:exmp_sb}), along the whole trajectory $D_{\delta t}x(t)$ is bounded from above by $\tau(t)$.}
@@ -281,7 +317,7 @@ Therefore, a \textit{jump detection function} can be defined as
             1&&\text{otherwise}
             %
         \end{matrix*}
-    \right.
+    \right.~~,
 \end{equation}
 %	
 which is zero during the flows of the system and assumes the value 1 during the jumps.
@@ -303,7 +339,7 @@ In order to estimate on-line the smoothness bound (\ref{eq:bound}), it is necess
 At any time instant $t$, the estimated flow map $\hat{\mathbf{f}}(\x,t)$ is defined as
 %
 \begin{equation}
-    \hat{\mathbf{f}}(\x,t)=\bm{\Phi}(\x)\hat{\bm{\alpha}}(t)
+    \hat{\mathbf{f}}(\x,t)=\bm{\Phi}(\x)\hat{\bm{\alpha}}(t),
 \end{equation}
 %
 where $\hat{\bm{\alpha}}(t)$ is the estimated vector of flow parameters at time $t$. Thanks to Assumption \ref{ass:2}, $\mathbf{f}(\x)$ is differentiable (and so is $\hat{\mathbf{f}}(\x,t)$) and globally Lipschitz on $\C$, the Lipschitz constant will bound from above the supremum of the norm of the Jacobian of $\mathbf{f}(\x)$ in the flow set $\C$:
@@ -312,12 +348,14 @@ where $\hat{\bm{\alpha}}(t)$ is the estimated vector of flow parameters at time 
     k\geq\sup\limits_{\x\in\C}\left\|\frac{\partial \mathbf{f}(\x)}{\partial\x}\right\|_2.
 \end{equation}
 %
-Since $\mathbf{f}(\x)$ is not known a priori ($\bm{\alpha}$ is unknown), the estimation of $k$ must be carried out employing the estimated flow map $\hat{\mathbf{f}}(\x,t)$. In this paper, as an estimate of the Lipschitz constant, the following quantity is considered:
+
+Since $\mathbf{f}(\x)$ is not known a priori ($\bm{\alpha}$ is unknown), the estimation of $k$ must be carried out employing the estimated flow map $\hat{\mathbf{f}}(\x,t)$. In this work, as an estimate of the Lipschitz constant, the following quantity is considered:
 %
 \begin{equation}
     \hat{k} = r\sup\limits_{\x\in\C}\left\|\frac{\partial \hat{\mathbf{f}}(\x,t)}{\partial\x}\right\|_2\quad r>1.
 \end{equation}
 %
+
 Therefore, the estimated smoothness bound $\hat{\tau}(t)$ is given by
 %
 \begin{align}
@@ -325,6 +363,7 @@ Therefore, the estimated smoothness bound $\hat{\tau}(t)$ is given by
                   &= \frac{r}{\delta t}\sup\limits_{\x\in\C}\left\|\frac{\partial \hat{\mathbf{f}}(\x,t)}{\partial\x}\right\|_2\int_{t-\delta t}^{t}\|\x(s)\|_2ds.
 \end{align}
 %
+
 Notice that the integral below must be computed numerically. A possible simple choice is to use the first order Newton-Cotes formula (trapezoidal rule). This would yield to the following approximation of $\hat{\tau}(t)$
 %
 \begin{align}
@@ -333,6 +372,7 @@ Notice that the integral below must be computed numerically. A possible simple c
                   &\approx\frac{r}{2}\sup\limits_{\x\in\C}\left\|\frac{\partial \hat{\mathbf{f}}(\x,t)}{\partial\x}\right\|_2\big(\|\x(t)\|_2+\|\x(t-\delta t)\|_2\big).
 \end{align}
 %
+
 It worths to be observed that with this numerical integration algorithm the estimated smoothness threshold does not explicitly depends on $\delta t$.
 Other empirical methods for computing the Lipschitz constant of multivariable functions are presented in \cite{mladineo1986algorithm,Wood1996}. Notice that we do not have any \textit{a priori} knowledge of $\C$ and thus, in equation (\ref{eq:htau}) an approximated flow set $\hat{\C}$  should be employed.
 %
@@ -353,30 +393,37 @@ Thus, the final \textit{jump detection function} becomes
             1&&\text{otherwise}
             %
         \end{matrix*}
-    \right.
+    \right.~~.
 \end{equation}
 %
 \subsection{Parameters Estimation}
 %{\color{red}DA FARE}\\
 Let us assume to observe the system and measure the state $\x$ with a sampling time $\delta t$. Suppose to collect $N_f$ samples during the flows of the system. %and its derivative $\dot{\x}$ 
 It holds:
+%
 \begin{equation}\label{eq:linflow}
 	\begin{bmatrix}\dot{\x}(t_1)\\\dot{\x}(t_2)\\\vdots\\\dot{\x}(t_{N_\mathbf{f}})\end{bmatrix}=
-	\begin{bmatrix}\bm{\Phi}(\x(t_1))\\\bm{\Phi}(\x(t_2))\\\vdots\\\bm{\Phi}(\x(t_{N_\mathbf{f}}))\end{bmatrix}\bm{\alpha}
+	\begin{bmatrix}\bm{\Phi}(\x(t_1))\\\bm{\Phi}(\x(t_2))\\\vdots\\\bm{\Phi}(\x(t_{N_\mathbf{f}}))\end{bmatrix}\bm{\alpha}.
 \end{equation}
+%
+
 Similarly, if $N_j$ samples of the states are collected during jumps, i.e., if $\gamma(t_i)=1$ for all $i = 1,\dots,N_j$, yields
+%
 \begin{equation}\label{eq:linjump}
 	\begin{bmatrix}{\x}(t_1)\\\x(t_2)\\\vdots\\{\x}(t_{N_j})\end{bmatrix}=
-	\begin{bmatrix}\bm{\Psi}(\x(t_1-\delta t))\\\bm{\Psi}(\x(t_2-\delta t))\\\vdots\\\bm{\Psi}(\x(t_{N_j}-\delta t))\end{bmatrix}\bm{\beta}
+	\begin{bmatrix}\bm{\Psi}(\x(t_1-\delta t))\\\bm{\Psi}(\x(t_2-\delta t))\\\vdots\\\bm{\Psi}(\x(t_{N_j}-\delta t))\end{bmatrix}\bm{\beta}.
 \end{equation}
-%Note that, in general, $\delta t$ might not be constant. 
+%
+
 However, in practice, measurements are always affected by noise and, thus, relations (\ref{eq:linflow}) and (\ref{eq:linjump}) do not hold.
 In particular, let's assume that an additive noise, $\tilde{\x}(t_i)$, with zero-mean affects the system, i.e., $\x(t_i)=\bar{\x}(t_i)+\tilde{\x}(t_i)$, where $\bar{\x}(t_i)$ is the true value of the state variable.
 
 Thanks to Assumption \ref{ass:1}, the parameters in $\bm{\alpha}$ and $\bm{\beta}$ can be estimated by linear identification techniques. In fact, both equations,  (\ref{eq:linflow}) and (\ref{eq:linjump}) belong to the error-in-variables (EIV) models:
+%
 \begin{equation}
-	\yb\approx \mathbf{Xa}
+	\yb\approx \mathbf{Xa},
 \end{equation}
+%
 where $\yb = \bar{\yb}+\tilde{\yb}$ is an output's measurements vector and $\mathbf{X} = \bar{\mathbf{X}}+\tilde{\mathbf{X}}$ is an observation matrix, both comprise of a noiseless part ($\bar{\yb}$, $\bar{\mathbf{X}}$), and  a noisy part ($\tilde{\yb}$, $\tilde{\mathbf{X}}$).
 %
 {%\color{red}\\Ansewer to Reviewer \#1 (2) [Part 1.]\\
@@ -394,9 +441,10 @@ This cumbersome calculation can be avoided by considering that the  linear relat
 	&\dot{\x}(t)=\bm{\Phi}(\x(t))\bm{\alpha}\\
 	\Leftrightarrow\quad&\underbrace{\x(t)-\x(t-\delta t)}_{\delta\x(t)} = 
 	\underbrace{\int_{t-\delta t}^{t}\bm{\Phi}(\x(s))ds}_{\bm{\bar{\Phi}}(t)}\bm{\alpha}\\\label{eq:intmod}
-	\Leftrightarrow\quad&\delta\x(t)={\bm{\bar{\Phi}}}(t)\bm{\alpha}
+	\Leftrightarrow\quad&\delta\x(t)={\bm{\bar{\Phi}}}(t)\bm{\alpha}.
 \end{align}
 % 
+
 This propriety has been exploit in the identification experiments by employing the model (\ref{eq:intmod}).
 An overview of the procedure used to update the parameters at time $t$ is presented in Algorithm \ref{alg:HID}.
 %
@@ -428,22 +476,24 @@ An overview of the procedure used to update the parameters at time $t$ is presen
 Suppose that some parameters in $\bm{\alpha}$ are known before the identification experiment. In particular, without loss of generality, let us assume that all the $m_l$ parameters of the first $l$ components of $\mathbf{f}$ are known. Thus,
 %
 \begin{equation}
-    \bm{\alpha} = \left(\bm{\alpha}_1,\bm{\alpha}_2\right)
+    \bm{\alpha} = \left(\bm{\alpha}_1,\bm{\alpha}_2\right),
 \end{equation}
 %
 where $\bm{\alpha}_1\in\R^{m_l}$ are the known parameters and $\bm{\alpha}_2\in\R^{m_f-m_l}$. In this case, $\bm{\Phi}(\x)$ can be partitioned as
 %
 \begin{equation}
-    \bm{\Phi}(\x) = \begin{bmatrix}\bm{\Phi}_1(\x)&\mathbb{O}_{l\times (m_f-m_l)}\\\mathbb{O}_{(n-l)\times m_l}&\bm{\Phi}_2(\x)\end{bmatrix}
+    \bm{\Phi}(\x) = \begin{bmatrix}\bm{\Phi}_1(\x)&\mathbb{O}_{l\times (m_f-m_l)}\\\mathbb{O}_{(n-l)\times m_l}&\bm{\Phi}_2(\x)\end{bmatrix},
 \end{equation}
 %
 with $\bm{\Phi}_1(\x)\in\R^{l\times m_l}$ and $\bm{\Phi}_2(\x)\in\R^{(n-l)\times (m_f-m_l)}$.
 Therefore, the identification experiment should be applied only to the subsystem
+%
 \begin{equation}\label{eq:redflow}
-\dot{\x}_2=\bm{\Phi}_2(\x)\bm{\alpha}_2
+\dot{\x}_2=\bm{\Phi}_2(\x)\bm{\alpha}_2.
 \end{equation}
-This is justified in many physical systems described by a set of second order differential equations (see Example \ref{ex:ex2}).
+%
 
+This is justified in many physical systems described by a set of second order differential equations (see Example \ref{ex:ex2}).
 Notice that the same situation might happen for a jump map. In this case, 
 %
 \begin{equation}
@@ -453,9 +503,10 @@ Notice that the same situation might happen for a jump map. In this case,
 and the model considered for the identification would be
 %
 \begin{equation}
-    \label{eq:redjump}{\x}^+_2=\bm{\Psi}_2(\x)\bm{\beta}_2
+    \label{eq:redjump}{\x}^+_2=\bm{\Psi}_2(\x)\bm{\beta}_2.
 \end{equation}
 %
+
 Similarly, if $\bm{\Phi}(\x)$ can be partitioned as
 %
 \begin{equation}
@@ -465,48 +516,61 @@ Similarly, if $\bm{\Phi}(\x)$ can be partitioned as
 and the first $m_l$ parameters are known, the identification problem can be set up as
 %
 \begin{equation}
-    \dot{\x}-\bm{\Phi}_1(\x)\bm{\alpha}_1=\bm{\Phi}_2(\x)\bm{\alpha}_2
+    \dot{\x}-\bm{\Phi}_1(\x)\bm{\alpha}_1=\bm{\Phi}_2(\x)\bm{\alpha}_2.
 \end{equation}
 %
+
 In the same way, for a jump, if 
 %
 \begin{equation}
-    \bm{\Psi}(\x) = \begin{bmatrix}\bm{\Psi}_1(\x)&\bm{\Psi}_2(\x)\end{bmatrix}
+    \bm{\Psi}(\x) = \begin{bmatrix}\bm{\Psi}_1(\x)&\bm{\Psi}_2(\x)\end{bmatrix},
 \end{equation}
 %
 the linear model for the identification experiment would result to be
 %
 \begin{equation}
-    {\x}^+-\bm{\Psi}_1(\x)\bm{\beta}_1=\bm{\Psi}_2(\x)\bm{\beta}_2
+    {\x}^+-\bm{\Psi}_1(\x)\bm{\beta}_1=\bm{\Psi}_2(\x)\bm{\beta}_2.
 \end{equation}
 %
+
 This approach is justified when, for some components of $\mathbf{f}$ or $\mathbf{g}$, the parameters vector is partially known (see Example \ref{ex:ex3}).
 %
 \begin{exmp}\label{ex:ex2}
 	Let the flow of the hybrid system be described by the following differential equation
 	%
 	\begin{equation}
-	    \ddot{z}=a\dot{z}+b\sin(z)
+	    \ddot{z}=a\dot{z}+b\sin(z).
 	\end{equation}
 	%
+	
 	Define $\x = [x_1,x_2]^\top=[z,\dot{z}]^\top$. The canonical first order state--space equation becomes
-	\[\dot{\x}=\begin{bmatrix}x_2\\ax_2+b\sin(x_1)\end{bmatrix}=\begin{bmatrix}x_2&0&0\\0&x_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}1\\a\\b\end{bmatrix}\]
+	%
+	\begin{equation}
+		\dot{\x}=\begin{bmatrix}x_2\\ax_2+b\sin(x_1)\end{bmatrix}=\begin{bmatrix}x_2&0&0\\0&x_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}1\\a\\b\end{bmatrix}.
+	\end{equation}
+	%
+	
 	It is clear that we are interested only in the parameters $a$ and $b$. Therefore it is convenient to consider only the subsystem
-	\[\dot{x}_2=\begin{bmatrix}x_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}\] 
+	%
+	\begin{equation}
+		\dot{x}_2=\begin{bmatrix}x_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix},
+	\end{equation}
+	% 
 	in the identification experiment.
 \end{exmp}
 %\iffalse 
 \begin{exmp}\label{ex:ex3}
-	Let $\x=[x_1,x_2]^\top$ and consider the following jump map
+	Let $\x=(x_1,x_2)$ and consider the following jump map
 	%
 	\begin{align}
 	    {\x}^+=\begin{bmatrix}x_1+cx_2^2\\a\|x_2\|_2+b\sin(x_1)\end{bmatrix}=
-	    =\begin{bmatrix}x_1&x_2^2&0&0\\0&0&\|x_2\|_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}1\\c\\a\\b\end{bmatrix}
+	    =\begin{bmatrix}x_1&x_2^2&0&0\\0&0&\|x_2\|_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}1\\c\\a\\b\end{bmatrix}.
 	\end{align}
+	
 	Then, during the Identification experiment it is worth considering only the linear relation
 	%
 	\begin{equation}
-	    {\x}^+-\begin{bmatrix}x_1\\0\end{bmatrix}=\begin{bmatrix}x_2^2&0&0\\0&\|x_2\|_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}c\\a\\b\end{bmatrix}
+	    {\x}^+-\begin{bmatrix}x_1\\0\end{bmatrix}=\begin{bmatrix}x_2^2&0&0\\0&\|x_2\|_2&\sin(x_1)\end{bmatrix}\begin{bmatrix}c\\a\\b\end{bmatrix}.
 	\end{equation}
 	%
 \end{exmp}
@@ -514,10 +578,10 @@ This approach is justified when, for some components of $\mathbf{f}$ or $\mathbf
 %
 %\vspace{-8mm}
 \subsection{Flow and Jump Sets Approximation}
-The method to approximate the flow and jump sets proposed in this paper is developed from the following idea. Since it is possible to determine the ``state" of the system, i.e.  whether the system is flowing or it has jumped, it is possible to subdivide the samples of the state in two different sets, a set $\Lambda$ containing the state's samples during flows and a set $\Gamma$ containing the state's samples corresponding to jumps. Then, the approximated flow set $\hat{\C}$ and jump set $\hat{\D}$ are obtained by computing the convex hull of $\Lambda$ and $\Gamma$ respectively. The detailed procedure is reported in Algorithm \ref{alg:m}.%\footnote{The expression $\conv(\cdot)$ refers to the convex hull of the points contained in the set $\cdot$.}. 
+The method to approximate the flow and jump sets proposed in this work is developed from the following idea. Since it is possible to determine the ``state" of the system, i.e.  whether the system is flowing or it has jumped, it is possible to subdivide the samples of the state in two different sets, a set $\Lambda$ containing the state's samples during flows and a set $\Gamma$ containing the state's samples corresponding to jumps. Then, the approximated flow set $\hat{\C}$ and jump set $\hat{\D}$ are obtained by computing the convex hull of $\Lambda$ and $\Gamma$ respectively. The detailed procedure is reported in Algorithm \ref{alg:m}.%\footnote{The expression $\conv(\cdot)$ refers to the convex hull of the points contained in the set $\cdot$.}. 
 {%\color{red}\\Answer to Reviewer \#1 (1)
 \begin{rem}
-In case $\C$ and $\D$ are assumed convex sets, the approximation results offer an accurate representations of them, consistent with the regions explored by the state of the system. Otherwise, $\hat{\C}$ and $\hat{\D}$ will be a redundant representation of the flow and jump sets. In this case, other techniques might be implemented for a better approximation, e.g. machine--learning--related methods. However, these further investigations fall out of the scope of this paper and will be treated in future work.
+In case $\C$ and $\D$ are assumed convex sets, the approximation results offer an accurate representations of them, consistent with the regions explored by the state of the system. Otherwise, $\hat{\C}$ and $\hat{\D}$ will be a redundant representation of the flow and jump sets. In this case, other techniques might be implemented for a better approximation, e.g. machine--learning--related methods. However, these further investigations fall out of the scope of this thesis and will be treated in future work.
 \end{rem}
 }
 %{\color{red} Forse la parte seguente e' meglio metterla nelle conclusioni...Notice that the main drawback of this method is the need of storing all the data points during the identification experiment, leading to memory problems.}%Once a new sample of the state is available and the function $\gamma(t)$ has been computed, the state sample is stored in a set $\Lambda$ if the system 
@@ -548,12 +612,12 @@ In case $\C$ and $\D$ are assumed convex sets, the approximation results offer a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Simulation Experiments}\label{Experiments}
 \subsection{Case of Study: Impact Mass-Spring-Damper System}
-Let us consider an impact mass-spring-damper system represented in Fig. \ref{fig:msd} and let $q$ be height from the ground of the mass. Assume the mass to be unitary and the rest position of the spring to be at the origin ($q=0$). The choice of this system is motivated by the fact that it admits a hybrid port--Hamiltonian representation. In fact, we want to show that the developed identification procedure can be applied to the class of systems with which this Thesis is dealing.
+Let us consider an impact mass-spring-damper system like the one represented in Fig. \ref{fig:imsd} and let $q$ be height from the ground of the mass. Assume the mass to be unitary and the rest position of the spring to be at the origin ($q=0$). The chosen system admits a hybrid port--Hamiltonian representation. In fact, we want to show that the developed identification procedure can be applied to the class of systems with which this Thesis is dealing.
 %
-\begin{figure}[!b]
+\begin{figure}[!ht]
 	\centering
 	\input{Drawings/imsd.tex}
-    \caption[Impact mass--spring--damper system.]{Impact mass--spring--damper system. $q$ is the distance of the cart from the wall, $m$ is the mass of the cart, $a$ is the spring stiffness and $b$ the damping coefficient of the dashpot.} 
+    \caption[Impact mass--spring--damper system.]{Impact mass--spring--damper system: $q$ is the distance of the cart from the wall, $m$ is the mass of the cart, $a$ is the spring stiffness and $b$ the damping coefficient of the dashpot.} 
     \label{fig:imsd}
 \end{figure}
 %
@@ -562,13 +626,13 @@ Let us consider an impact mass-spring-damper system represented in Fig. \ref{fig
 When the ball is not touching the floor, the system behaves as a simple damped linear oscillator. Let $\x = [x_1,x_2]^\top = [q,\dot{q}]^\top$. The flows of the system are described by 
 \begin{align}
 	\dot{\x}&=\begin{bmatrix}x_2\\-ax_1-bx_2\end{bmatrix}
-	=\begin{bmatrix}x_2&0&0\\0&-x_1&-x_2\end{bmatrix}\begin{bmatrix}1\\a\\b\end{bmatrix}
+	=\begin{bmatrix}x_2&0&0\\0&-x_1&-x_2\end{bmatrix}\begin{bmatrix}1\\a\\b\end{bmatrix},
 \end{align}
 %
 {where $a$ and $b$ are the spring stiffness and the damping coefficient, respectively}. The corresponding flow set flow set is
 %
 \begin{equation}
-    \C = \{\x:x_1\geq0\}\setminus\{\x:x_1=0,x_2<0\}
+    \C = \{\x:x_1\geq0\}\setminus\{\x:x_1=0,x_2<0\}.
 \end{equation}
 %
 \subsubsection{Model of the Jumps}
@@ -576,13 +640,13 @@ When the ball is not touching the floor, the system behaves as a simple damped l
 It is clear that during the collision between ball and the floor ($x_1 = q =0$) there is a discontinuity in the velocity. In this example, collisions are considered partially inelastic while the ball is modeled as a rigid body. The selected jump map to model the collisions is the following:
 %
 \begin{align}
-	\x^+=\begin{bmatrix}x_1\\-\lambda x_2+\mu\end{bmatrix} = \begin{bmatrix}x_1&0&0\\0&-x_2&1\end{bmatrix}\begin{bmatrix}1\\\lambda\\\mu\end{bmatrix}
+	\x^+=\begin{bmatrix}x_1\\-\lambda x_2+\mu\end{bmatrix} = \begin{bmatrix}x_1&0&0\\0&-x_2&1\end{bmatrix}\begin{bmatrix}1\\\lambda\\\mu\end{bmatrix},
 \end{align}
 %
 {where $\lambda$ is the restitution coefficient and $\mu$ is introduced to consider possible unmodeled impact dynamics}. The jump set is therefore,
 %
 \begin{equation}
-    \D=\{\x:x_1=0,x_2\leq 0\}
+    \D=\{\x:x_1=0,x_2\leq 0\}.
 \end{equation}
 %
 \begin{rem}[Hybrid port--Hamiltonian formulation]
@@ -596,15 +660,16 @@ It is clear that during the collision between ball and the floor ($x_1 = q =0$) 
                 \begin{bmatrix}q^+\\{p}^+\end{bmatrix} =\begin{bmatrix}q\\-\lambda p+\mu\end{bmatrix}  & (q,p)\in\D\\
                 y = p
             \end{matrix*}
-        \right.
+        \right.~~,
     \end{equation}
     %
     with 
     %
     \begin{equation}
-        \Ha(q,p) \triangleq \frac{1}{2}p^2 + \frac{a}{2}q^2
+        \Ha(q,p) \triangleq \frac{1}{2}p^2 + \frac{a}{2}q^2.
     \end{equation}
     %
+    
     Note that, if $\mu\leq 0$, the system is \textit{flow passive}.
 \end{rem}
 %
@@ -619,20 +684,22 @@ The reduced model for the flow is
 and the one for the jump is
 %
 \begin{equation}
-    \x_2^+ = \begin{bmatrix}-x_2&1\end{bmatrix}\begin{bmatrix}{\beta}_1\\{\beta}_2\end{bmatrix}
+    \x_2^+ = \begin{bmatrix}-x_2&1\end{bmatrix}\begin{bmatrix}{\beta}_1\\{\beta}_2\end{bmatrix}.
 \end{equation}
 %
+
 The approximation of the  smoothness bound can be derived by computing the supremum of the norm of the estimated flow map Jacobian. Hence, the estimated flow map in the reduced model will be
 %
 \begin{equation}
-    \hat{{f}}(\x,t)=-\hat{{\alpha}}_1(t)x_1(t)-\hat{{\alpha}}_2(t)x_2(t) = -\bm{\alpha}^\top\x
+    \hat{{f}}(\x,t)=-\hat{{\alpha}}_1(t)x_1(t)-\hat{{\alpha}}_2(t)x_2(t) = -\bm{\alpha}^\top\x.
 \end{equation}
 %
+
 Therefore,
-\begin{align*}
+\begin{align}
 	\frac{\partial \hat{{f}}(\x,t)}{\partial \x} = -\hat{\bm{\alpha}}(t)
-	\Rightarrow\sup\limits_{\x\in\hat{\C}}\left\|\frac{\partial \hat{{f}}(\x,t)}{\partial\x}\right\|_2 = \left\|\hat{\bm{\alpha}}(t)\right\|_2
-\end{align*}
+	\Rightarrow\sup\limits_{\x\in\hat{\C}}\left\|\frac{\partial \hat{{f}}(\x,t)}{\partial\x}\right\|_2 = \left\|\hat{\bm{\alpha}}(t)\right\|_2.
+\end{align}
 %
 \subsection{Numerical Simulation}
 To validate the proposed identification method, numerical simulations have been performed. The simulation experiments have been carried out using Hybrid Equations (HyEQ) Toolbox \cite{sanfelice2013toolbox} for the MATLAB environment. The parameters of the system have been chosen as $a = 5$, $b = 0.1$, $\lambda=0.99$, $\mu=0$. 
@@ -640,7 +707,7 @@ To validate the proposed identification method, numerical simulations have been 
 The initial condition and the time span of the simulation have been set to $\x(t_0)=[20,0]^\top$ and $20$ seconds, respectively. Furthermore, the sampling time $\delta t$ has been chosen to be $0.5\cdot 10^{-3}$ s, the multiplicative constant $r$ in the smoothness bound has been set to 220 and the estimated smoothness bound has been initialized to $10^5$.
 
 Here, as both the flow and jump maps result linear in the state, the chosen estimation scheme is the \textit{recursive least squares} (RLS) \cite{ljung1987system}. However, due to how noise would influence the system, i.e. it affects the observation matrix, alternative results might be achieved with a \textit{recursive generalized total least squares} \citep{RHODE20144637} or a \textit{recursive Frisch scheme} (see [c1,c2]). The resulting time evolution of the system is represented in Fig. \ref{fig:trj}. 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
 %	\includegraphics[trim={15 0 0 0},scale=.58]{trj}
     \input{Drawings/trj.tex}
@@ -657,7 +724,7 @@ Along the trajectory, the norm of the Euler time derivative $D_{\delta t}\x(t)$ 
 The trend of $D_{\delta t}\x(t)$ during the simulation, is shown in the upper part of Fig.~\ref{fig:dderrnom}. The figure also shows the comparison between the approximated $\hat{\tau}$ and the true smoothness bound $\tau$ (scaled by an arbitrary constant $r$). The approximation error of the smoothness bound, defined as $e_{\tau}(t)=\|\hat{\tau}(t)-r\cdot\tau(t)\|$, it is plotted in the lower part of Fig. \ref{fig:dderrnom}. 
 It can be noticed that after just few iterations the estimated smoothness bound $\hat{\tau}$ can accurately track the scaled nominal bound $\tau$. At the same time, as the estimation of the parameters becomes more accurate,  the tracking error decreases. 
 The performance of the system in the identification of the parameters has been evaluated by defining the absolute estimation errors
-$e_{\bm{\alpha}}(t)=\|\bm{\alpha}-\hat{\bm{\alpha}}(t)\|$ and $ e_{\bm{\beta}}(t)=\|\bm{\beta}-\hat{\bm{\beta}}(t)\|$.
+$e_{\bm{\alpha}}(t)=\|\bm{\alpha}-\hat{\bm{\alpha}}(t)\|$ and $e_{\bm{\beta}}(t)=\|\bm{\beta}-\hat{\bm{\beta}}(t)\|$.
 %
 The time evolution of the components of $\hat{\bm{\alpha}}$ and $\hat{\bm{\beta}}$, and the one of the estimation errors $e_{\bm{\alpha}}(t)$ and $e_{\bm{\beta}}(t)$, are plotted in Fig. \ref{fig:parnom}.
 %
@@ -672,10 +739,10 @@ The results are shown in Figs.~\ref{fig:dderrnos} and~\ref{fig:parnos}.
  }
  %
  {%\color{red}
- A major drawback of the proposed approach is that the erroneous classification of some of the states as \textit{flows} or \textit{jumps} inevitably introduce errors in the estimation process. This might be due to a poor choice of the scalar $r$ or, in the firsts iterations of the identification algorithm, to rough estimates of the flow parameters. 
+ A major drawback of the proposed approach is that the erroneous classification of some of the states as \textit{flows} or \textit{jumps} inevitably introduce errors in the estimation process. This might be due to a poor choice of the scalar $r$ or, in the first iterations of the identification algorithm, to rough estimates of the flow parameters. 
 However, the problem might be partially solved introducing a \textit{forgetting} term in the estimation scheme \cite{soderstrom2018errors} allowing a quick recover of the estimates together with a method to retroactively re--classify the wrong sample. These further investigations are left for future work.
  }
-\begin{figure}[t!]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[trim={-10 0 0 0},scale=.75]{dderrnom}
 	%\vspace*{-22mm}
@@ -685,7 +752,7 @@ However, the problem might be partially solved introducing a \textit{forgetting}
 \end{figure}
 %
 %
-\begin{figure}[t!]
+\begin{figure}[!ht]
 	%\vspace*{-18mm}
 	\centering
 	\includegraphics[trim={10 0 0 0},scale=.75]{parnom2}
@@ -695,7 +762,7 @@ However, the problem might be partially solved introducing a \textit{forgetting}
 	%\vspace{-7.5mm}
 \end{figure}
 %
-\begin{figure}[t!]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[trim={-10 0 0 0},scale=.75]{dderrnos2}
 	%\vspace*{-22mm}
@@ -705,7 +772,7 @@ However, the problem might be partially solved introducing a \textit{forgetting}
 \end{figure}
 %
 %
-\begin{figure}[t!]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[trim={10 0 0 0},scale=0.75]{parnos}
 	%\vspace*{-12mm}
@@ -717,7 +784,11 @@ However, the problem might be partially solved introducing a \textit{forgetting}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary}\label{conc}
-In this chapter, a new methodology for the identification of a class of hybrid dynamical systems, which evaluates the unknown parameters by employing a linear recursive estimator, has been proposed. The developed procedure is able to identify the state of the system and explicitly determine the flowing and jumping states. The method has been applied to a system falling in the category of hybrid port--Hamiltonian systems.
-Here we have derived a systematic approach for the identification of hybrid dynamical systems, that to the best of authors' knowledge, is the first application of system identification methodologies to hybrid dynamical systems which can be analytically represented by Equation~\ref{eq:HS}.
-Further development will include a more rigorous approach for the estimation of the smoothness bound without the need of any empirical coefficient, the exploration of alternative estimation schemes and a possible extension to the identification of \textit{hybrid inclusions}. Problems related to the non--convex approximation of the the flow and jump sets will also be regarded investigating new machine learning strategies.
+In this chapter, a new methodology for parameter identification of a class of hybrid dynamical systems, which evaluates the unknown parameters by employing a linear recursive estimator, has been proposed. 
+%
+\newline
+
+%
+The developed procedure is able to identify the state of the system and explicitly determine the flowing and jumping states. The method has been applied to a system falling in the category of hybrid port--Hamiltonian systems.
+%Further development will include a more rigorous approach for the estimation of the smoothness bound without the need of any empirical coefficient, the exploration of alternative estimation schemes and a possible extension to the identification of \textit{hybrid inclusions}. Problems related to the non--convex approximation of the flow and jump sets will also be regarded investigating new machine learning strategies.
 %

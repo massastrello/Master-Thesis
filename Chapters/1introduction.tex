@@ -97,7 +97,7 @@ The extension of passivity--based control of port--Hamiltonian systems to the hy
 %
 Examples of these tasks in the manipulation context are:
 ball--juggling \citep{sanfelice2007hybrid, tian2013}, ball--dribbling \citep{Batz2010, haddadin2018exploiting} or even tossing/catching of a deformable object \citep{ruggero2018}. 
-Other hybrid tasks may be related to \textit{self manipulation}, e.g. dynamic walking \citep{spong2007,westervelt2018feedback}, hopping robots \citep{Ishikawa2003} and control of powered exoskeletons \citep{harib2018feedback,lv2018design}. The one--dimensional version of the ball--juggling and ball--dribbling systems are represented in Fig. \ref{fig:1D}.
+Other hybrid tasks may be related to \textit{self--manipulation}, e.g. dynamic walking \citep{spong2007,westervelt2018feedback}, hopping robots \citep{Ishikawa2003} and control of powered exoskeletons \citep{harib2018feedback,lv2018design}. The one--dimensional version of the ball--juggling and ball--dribbling systems are represented in Fig. \ref{fig:1D}.
 %
 \newline
 
@@ -152,7 +152,7 @@ System identification techniques are the interface between real world applicatio
 \newline
 
 %
-Dealing with robotic systems, it is well known that inertial parameters must often be thoroughly estimated with well designed identification experiments. Moreover, if the robot experiences impacts or sudden state changes, it is intuitive to understand that further parameters given by the hybrid part of the system must also be estimated. 
+It is well known that, when dealing with robotic systems, the inertial parameters must often be thoroughly estimated with well designed identification experiments. Moreover, if the robot experiences impacts or unexpected state changes, it is intuitive to understand that further parameters given by the hybrid part of the system must also be estimated. 
 Thus, in order to implement any robot controllers for highly dynamic tasks, it is necessary to solve the identification problem first.
 %
 \newline
@@ -163,7 +163,7 @@ The majority of the literature on identification of hybrid systems is related to
 \newline
 
 %
-Besides, the identification of hybrid dynamical system in the form of \textit{hybrid inclusions} has to be explored yet. In fact, a systematic identification procedure for this class of systems currently is still missing. Note that, many of the robotics tasks discussed above can be modeled within this framework.
+Besides, the identification of hybrid dynamical system in the form of \textit{hybrid inclusions} has to be explored yet. In fact, a systematic identification procedure for this class of systems is currently still missing. Note that, many of the robotics tasks discussed above can be modeled within this framework.
 %
 \newline
 
@@ -179,22 +179,22 @@ The aim of this thesis is to present a novel control theoretical framework for p
 The main objectives are:
 %
 \begin{itemize}
-    \item [1.] \textbf{to develop a novel control theoretical framework by merging the theories of port--Hamiltonian systems and hybrid systems}.
+    \item [1.] \textbf{To develop a novel control theoretical framework by merging the theories of port--Hamiltonian systems and hybrid systems}.
     
     With the aim of solving a robot control problem, the theory of \textit{hybrid port--Hamiltonian systems} is developed combining the theories of port--Hamiltonian systems and \textit{hybrid inclusions}, one of the most general representations of hybrid dynamical systems.
     \newline
     %
-    \item [2.] \textbf{to apply the developed theory to a robot control task and prove its effective within the robotics framework}. 
+    \item [2.] \textbf{To apply the developed theory to a robot control task and prove its effective within the robotics framework}. 
     
     Considering the ball--dribbling robot problem, a novel controller, the \textit{iterative energy shaping} is systematically synthesized, proving the capabilities of the proposed framework.
     \newline
     %
-    \item [3.] \textbf{to demonstrate how the developed theory goes beyond robotics and can be used to model a broad variety of control systems}. 
+    \item [3.] \textbf{To demonstrate how the developed theory goes beyond robotics and can be used to model a broad variety of control systems}. 
     
     A novel nonlinear hybrid controller for linear time--invariant system is derived from passivity--based techniques, and then this purely control theoretical problem is expressed via hybrid port--Hamiltonian systems.
     \newline
     %
-    \item[4.] \textbf{to derive a new systematic identification procedure for a class of hybrid systems}.
+    \item[4.] \textbf{To derive a new systematic identification procedure for a class of hybrid systems}.
     
     As most of hybrid control systems (including the proposed ones) require some knowledge of the physical parameters of the controlled plant, a new systematic procedure is presented to solve the estimation problem. This method can be applied to a variety of hybrid port--Hamiltonian systems 
     
@@ -211,7 +211,7 @@ The main objectives are:
 
 \section{Thesis Content and Structure}
 \subsection{Thesis Outline}
-This thesis is structured in seven chapters which implement the aim described in \ref{sec:aim}. 
+This thesis is structured in seven chapters which implement the aim described in Section \ref{sec:aim}. 
 These seven chapter can be logically clustered in four main parts: Introduction and background, theoretical results, applications and conclusions. In line with the objectives, a detailed structure of this thesis is shown in Figure \ref{fig:ThesisStructure}.
 %
 \newline
@@ -223,13 +223,13 @@ These seven chapter can be logically clustered in four main parts: Introduction 
 
 %
 \textbf{Chapter 2} briefly introduces the fields of port--Hamiltonian systems and hybrid dynamical systems. Throughout the chapter, several illustrative examples related to robotics, mathematical biology and physics are provided to highlight the practical importance of the presented theoretical concepts. 
-
-In the first half of the chapter, the input--state--output model of a port-Hamiltonian system is derived and its most relevant properties are described. Moreover, the basic theory of the energy--balancing passivity--based control is also presented. In the second part of the chapter, the basic results on hybrid systems are introduced. In particular, it will be focused on the class of \textit{hybrid inclusions} and its stability/passivity theory.  The chapter concludes with a summary of the previous attempts to merge the two frameworks and their main limitations. 
+Firstly, general notions of stability and passivity of dynamical systems are provided.
+Then, the input--state--output model of a port--Hamiltonian system is derived and its most relevant properties are described. Moreover, the basic theory of the energy--balancing passivity--based control is also presented. In the latter part of the chapter, the basic results on hybrid systems are introduced. In particular, it focuses on the class of \textit{hybrid inclusions} and its stability/passivity theory. 
 %
 \newline
 
 %
-\textbf{Chapter 3} deals with the definition and characterization of hybrid-port Hamiltonian systems. Starting from the concepts revised in the previous chapter, the new framework is here consistently developed. First, the basic assumptions are stated and the hybrid port--Hamiltonian model is derived. The concept of passivity is subsequently extended to the new model. Necessary and sufficient conditions for passivity are also reported and proved. Then, Lyapunov stability is extended from the one for hybrid inclusions. Finally, all the previous results are used to transfer to the hybrid case some of the features of passivity--based control for port--Hamiltonian systems. As for Chapter 2, application examples will be provided throughout the chapter.
+\textbf{Chapter 3} deals with the definition and characterization of hybrid-port Hamiltonian systems. Starting from the concepts revised in the previous chapter, the new framework is here consistently developed. First, the basic assumptions are stated and the hybrid port--Hamiltonian model is derived. The concept of passivity is subsequently extended to the new model. Necessary and sufficient conditions for passivity are also reported and proved. Then, Lyapunov stability is extended from the one for hybrid inclusions. As for Chapter 2, application examples will be provided throughout the chapter.
 %
 \newline
 
@@ -239,7 +239,7 @@ In the first half of the chapter, the input--state--output model of a port-Hamil
 \newline
 
 %
-\textbf{Chapter 5} considers the problem of controlling a linear time--invariant system with a finite number of set points. At first, a nonlinear passive controller is used to stabilize simultaneously all the desired set points. Then, a hybrid optimal impulse controller is designed to switch the between the set points. Numerical simulations are carried out for a mechanical system, proving the results. Alongside the theoretical relevance of the developed control technique, it is finally shown how the controlled system can be modeled as hybrid port--Hamiltonian system, implicitly inheriting some useful properties to analyze its behaviour.
+\textbf{Chapter 5} considers the problem of controlling a linear time--invariant system with a finite number of set points. At first, a nonlinear passive controller is used to stabilize simultaneously all the desired set points. Then, a hybrid optimal impulse controller is designed to switch the between the set points. Numerical simulations are carried out for a mechanical system, proving the results. Alongside the theoretical relevance of the developed control technique, it is finally shown how the controlled system can be modeled as hybrid port--Hamiltonian system, implicitly inheriting some useful properties to analyze its behavior.
 %
 \newline
 
@@ -254,7 +254,7 @@ In the first half of the chapter, the input--state--output model of a port-Hamil
     \centering
     \input{Drawings/structure.tex}
     \vspace{5mm}
-    \caption[Thesis outline.]{Thesis outline. The coloured arrows indicate the logical flows of the contents throughout the thesis, highlighting, e.g., how the theory presented in the first chapters is employed in the various applications. Chapters in light gray blocks contain exclusively original content developed by the author,}
+    \caption[Thesis outline.]{Thesis outline. The colored arrows indicate the logical flows of the contents throughout the thesis, highlighting how the theory presented in the first chapters is employed in the various applications. Chapters in gray blocks contain exclusively original content developed by the author.}
     \label{fig:ThesisStructure}
 \end{figure}
 %

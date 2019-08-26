@@ -4,6 +4,8 @@
 
 %\setlength{\parindent}{4em}
 %\setlength{\parskip}{1em}
+
+
 %\renewcommand{\baselinestretch}{1.5}
 
 \usepackage{lettrine}
@@ -20,7 +22,6 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{arydshln}
-
 %
 %\usepackage{cite}
 %
@@ -317,12 +318,13 @@
 \input{./Chapters/3hybridporthamiltonian}
 \input{./Chapters/4balldribbling}
 \input{./Chapters/5multistable}
-%\input{./Chapters/6hybrididentification}
-%\input{./Chapters/7conclusionandfuturework}
+\input{./Chapters/6hybrididentification}
+\input{./Chapters/7conclusionandfuturework}
 
 %
 %謝辞
-%\input{./Backmatter/Thank}
+\input{./Backmatter/Thank}
+\clearpage
 %
 %参考文献
 %\input{./Backmatter/Ref}
@@ -331,12 +333,15 @@
 %\bibliographystyle{plain}
 %\bibliographystyle{apalike} 
 %\bibliographystyle{alpha} 
+%\chapter*{Bibliography}
+%\addcontentsline{toc}{chapter}{Bibliography}
+\lhead[Bibliography]{}
 
 \bibliographystyle{engnatdin}
 \bibliography{MasterThesis}
 
 %研究業績
-%\input{./Backmatter/Achieve}
+\input{./Backmatter/Achieve}
 %
 %付録
 %\appendix

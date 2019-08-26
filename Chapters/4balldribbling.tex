@@ -11,31 +11,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %
-\lettrine[lines=4]{\color{brickred}C}{hallenging} control problems are often the best and most direct way to prove the validity of a modeling framework. In this chapter we present a novel method for controlling a \textit{ball--dribbling} robot.
+\lettrine[lines=4]{\color{brickred}C}{hallenging} control problems are often the best and most direct way to prove the validity of a modeling framework. This chapter introduces a novel method for controlling a \textit{ball--dribbling} robot.
 A representation of the controlled system is given in Figure \ref{fig:bdcatchy}.
 %
 \begin{figure}[!ht]
     %
 	\centering
 	\input{Drawings/catchybb.tex}
-	\caption{One--dimensional ball--dribbling robotic system. The position of the robot (rectangle), is represented by the variable $q_1$ while $u$ is an input force applied to it. Moreover, the position of the ball (circle), of radius $r$, is represented by $q_2$. }
+	\caption[One--dimensional ball--dribbling robotic system.]{One--dimensional ball--dribbling robotic system. The position of the robot (rectangle), is represented by the variable $q_1$ while $u$ is an input force applied to it. Moreover, the position of the ball (circle), of radius $r$, is represented by $q_2$. }
 	\label{fig:bdcatchy}
 	%
 \end{figure}
 %
 
-This model belongs to the class of \textit{impulsive port--Hamiltonian} systems. The ball--dribbling problem has been considered by \cite{Batz2010}. In their work authors assumed the absence of any viscous friction effect, the exact knowledge of the ball's mass and the experimental estimation of the impacts' restitution coefficients. Moreover, they assumed the end--effector of the robot to be elastic and thus no instantaneous robot--ball contacts were possible. A similar consideration can be done for \citep{haddadin2018exploiting}, where the elastic potential energy stored in the robot end--effector was exploited to perform the dribbling task. While compared to the previous work, our method, relax all the assumption by considering the viscous friction and do not require the knowledge of any parameter characterizing the ball's dynamics.
+This model belongs to the class of \textit{impulsive port--Hamiltonian} systems. The ball--dribbling problem has been previously considered by \cite{Batz2010}. In their work authors assumed the absence of any viscous friction effect, the exact knowledge of the ball's mass and the experimental estimation of the impacts' restitution coefficients. Moreover, they assumed the end--effector of the robot to be elastic and thus no instantaneous robot--ball contacts were possible. A similar consideration can be done for the work presented in  \citep{haddadin2018exploiting}, where the elastic potential energy stored in the robot end--effector was exploited to perform the dribbling task. While compared to the previous work, our method, relax all the assumption by considering the viscous friction and do not require the knowledge of any parameter characterizing the ball's dynamics.
 
-The novel control technique proposed in this paper attempts at casting energy shaping in a learning context. By ``learning'' here it is intended that the control law is adjusted on the bases of previous iterations. In chain, the concept of iterations, or trials, arise naturally in this context since for, the class of systems that are considered, the discontinuous dynamics separating the flows can be used to implicitly recognize trials without introducing additional structure.
+The proposed novel control technique attempts at casting energy shaping in a learning context. By ``learning'' here it is intended that the control law is adjusted on the bases of previous iterations. In chain, the concept of iterations, or trials, arise naturally in this context since for, the class of systems that are considered, the discontinuous dynamics separating the flows, can be used to implicitly recognize trials without introducing additional structure.
 
 Numerical simulations, performed to steer the output of such a system along a periodic reference, successfully demonstrate the efficacy of the proposed approach. In particular, in the simulation experiments, the control task that is achieved is the periodic bouncing of the ball by means of impacts at a constant and prescribed height.
 %
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Model of the ball--dribbling robot}\label{sec:DBR}
+\section{Model of the Ball--Dribbling Robot}\label{sec:DBR}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Port-Hamiltonian Model of the Flows}
+\subsection{Port-Hamiltonian Model of Flows}
 Let $q_1$ be the position of the robot, $q_2$ the position of the ball and $p_1 \triangleq  m_1\dot{q}_1$, $p_2 \triangleq  m_2\dot{q}_2$ the momenta of the robot and the ball respectively.
 The state--space model of the system is:
 %
@@ -47,7 +47,7 @@ The state--space model of the system is:
             \dot{q}_2 = \dfrac{1}{m_2}p_2,~~&\dot{p}_2 = -m_2\gamma -\dfrac{\beta_2}{m_2}p_2
 
         \end{matrix*}
-    \right.
+    \right.~~,
     %
 \end{equation}
 %
@@ -55,7 +55,7 @@ being $\gamma$ the gravitational acceleration (i.e., $\gamma = 9.81{m}/{s^2}$), 
 The system can be expressed in the canonical port--Hamiltonian form defining the Hamiltonian function as the total energy, i.e.
 %
 \begin{equation}
-    \Ha(\qb,\pb) \triangleq \frac{1}{2}\pb^\top \Mb^{-1}\pb + \V(\qb)
+    \Ha(\qb,\pb) \triangleq \frac{1}{2}\pb^\top \Mb^{-1}\pb + \V(\qb),
 \end{equation}
 %
 where $\Mb = \diag(m_1,m_2)$ and $\V(\qb) = \gamma[m_1,m_2]\qb$. Then, the port--Hamiltonian dynamics are defined by the system matrices
@@ -91,21 +91,23 @@ where $\Mb = \diag(m_1,m_2)$ and $\V(\qb) = \gamma[m_1,m_2]\qb$. Then, the port-
     %
 \end{equation}
 %
+
 In this way, the natural pairing between input and output leads to
 %
 \begin{equation}
-    y = \Gb^\top\dH= \frac{1}{m_1}p_1=\dot{q}_1
+    y = \Gb^\top\dH= \frac{1}{m_1}p_1=\dot{q}_1.
 \end{equation}
 %
+
 Indeed, the flow set $\C$ is 
 %
 \begin{align}\label{eq:flowset}
-    \C \triangleq &\left\{\xb:~q_1\geq q_2\geq 0\right\}\setminus\left[\left\{\xb:~q_2 = 0\land p_2<0\right\}\right.\cup\\
-    &\left.\cup\{\xb:~q_1 = q_2\land (p_1p_2<0\lor m_2p_1< m_1p_2)\}\right]
+    \C \triangleq &\left\{\xb:~q_1\geq q_2\geq 0\right\}\setminus\left[\left\{\xb:~q_2 = 0\land p_2<0\right\}\right.\cup\nonumber\\
+    &\left.\cup\{\xb:~q_1 = q_2\land (p_1p_2<0\lor m_2p_1< m_1p_2)\}\right].
 \end{align}
 %
 \begin{rmk}
-    The system is under--actuated as an input force can be applied on to the robot. Furthermore, the behavior of the robot does not influence in any way the flow of the ball, as can also be derived by physical considerations. However, the dynamics of the overall hybrid system will be coupled during jumps: the robot can influence the ball's motion (and vice versa) trough impacts.
+    The system is under--actuated as an input force can be applied only to the robot. Furthermore, from physical considerations, it can be derived that the behavior of the robot does not influence in any way the flow of the ball. However, the dynamics of the overall hybrid system will be coupled during jumps: the robot can influence the ball's motion (and vice versa) trough impacts.
 \end{rmk}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,7 +121,7 @@ Considering the ball-dribbling robot, discontinuities of the system's state may 
 The collision of the ball with the ground will causes a sudden change of the ball's momentum:
 %
 \begin{equation}
-    p_2^+ = -c_gp_2
+    p_2^+ = -c_gp_2,
 \end{equation}
 %
 where $c_g\in(0,1)$ is the \textit{ball-ground restitution coefficient}. Therefore, the resulting jump map is 
@@ -133,15 +135,16 @@ where $c_g\in(0,1)$ is the \textit{ball-ground restitution coefficient}. Therefo
 	    0 & 0 & 1 & 0\\
 	    0 & 0 & 0 & -c_g 
 	\end{bmatrix}}_{\Mb_1}
-    \xb
+    \xb.
     %
 \end{equation}
 %
+
 The jump happens if $\xb\in\D_1$, where the jump set $\D_1$ is the following sub-manifold of the state space:
 %
 \begin{equation}
     \D_1 \triangleq \left\{\xb:~q_2 = 0\land p_2<0\right\}.
-    \end{equation}
+\end{equation}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Robot-Ball Collisions}$\newline$
@@ -149,13 +152,14 @@ During the collisions between the robot and the ball, both the robot and ball mo
 The conservation law of the total momentum yields:
 %
 \begin{equation}
-p_1^+ + p_2^+ = p_1 + p_2 
+p_1^+ + p_2^+ = p_1 + p_2.
 \end{equation}
 %
+
 Considering the partial inelasticity of the impacts:
 %
 \begin{equation}
-\frac{p_1^+}{m_1} - \frac{p_2^+}{m_2} = -c_i\left(\frac{p_1}{m_1} - \frac{p_2}{m_2}\right) 
+\frac{p_1^+}{m_1} - \frac{p_2^+}{m_2} = -c_i\left(\frac{p_1}{m_1} - \frac{p_2}{m_2}\right),
 \end{equation}
 %
 where $c_i\in(0,1)$ is the \textit{robot-ball restitution coefficient}. It follows that
@@ -167,9 +171,10 @@ p_1^+\\p_2^+
 \begin{bmatrix}
 p_1 -\mu(m_2p_1 - m_1p_2)\\
 p_2 +\mu(m_2p_1 - m_1p_2)
-\end{bmatrix},\quad \mu = \frac{c_i + 1}{m_1 + m_2}
+\end{bmatrix},\quad \mu = \frac{c_i + 1}{m_1 + m_2}.
 \end{equation}
 %
+
 Thus, the corresponding jump map is
 %
 \begin{equation}
@@ -180,15 +185,17 @@ Thus, the corresponding jump map is
 	0 & 1 & 0 & 0\\
 	0 & 0 & 1 - \mu m_2 & \mu m_1\\
 	0 & 0 & \mu m_2 & 1 - \mu m_1\\ 
-	\end{bmatrix}}_{\Mb_1}\xb
+	\end{bmatrix}}_{\Mb_1}\xb.
 \end{equation}
 %
+
 The robot-ball collision happens if $\xb\in\D_2$, where the jump set $\D_2$ is:
 %
 \begin{align}
     \D_2 \triangleq \{\xb:~q_1 = q_2\land (p_1p_2<0\lor m_2p_1< m_1p_2)\}.
 \end{align}
 %
+
 The overall jump set $\D$ is defined as
 %
 $\D \triangleq \D_1\cup\D_2$
@@ -199,6 +206,7 @@ and the resultant set--valued  mapping of the jumps is
     \G\triangleq \left\{{\gb}_i:\xb\in\D_i\Rightarrow \xb^+ = \gb_i(\xb),~ i = 1,2\right\}.
 \end{equation}
 %
+
 The final hybrid system can be then written in the form (\ref{eq:impulsive_ph}).
 %It is easy to verify, that the Hamiltonian function decreases during jumps, i.e. 
 %\[
@@ -213,14 +221,15 @@ Note that the state-space manifold $\X$ is:
 and that
 %
 \begin{align}
-    \forall \xb\in\X\setminus\{\mymathbb{0}_4\}~~~\Ha(\xb)>0~~\land~~\Ha(\mymathbb{0}_4)=0
+    \forall \xb\in\X\setminus\{\mymathbb{0}_4\}~~~\Ha(\xb)>0~~\land~~\Ha(\mymathbb{0}_4)=0.
 \end{align}
+
 In Fig. \ref{fig:uHPH} the \textit{hybrid automata} of the autonomous system ($u = 0$), is represented.
 %
 \begin{figure}[!ht]
 	\centering
 	\input{Drawings/Autonomous_automata.tex}
-	\caption{Hybrid automata of the autonomous system. It has a single mode for flows, described by an autonomous port-Hamiltonian system, and it has two jumps: $\gb_1$ resets the states during  \textit{ball--ground} collisions ($\xb\in\D_1$) while $\gb_2$ resets the states during  \textit{robot-ball} collisions ($\xb\in\D_2$).}
+	\caption[Hybrid automata of the autonomous system]{Hybrid automata of the autonomous system. It has a single mode for flows, described by an autonomous port-Hamiltonian system, and it has two jumps: $\gb_1$ resets the states during  \textit{ball--ground} collisions ($\xb\in\D_1$) while $\gb_2$ resets the states during  \textit{robot-ball} collisions ($\xb\in\D_2$).}
 	\label{fig:uHPH}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,54 +257,162 @@ In Fig. \ref{fig:uHPH} the \textit{hybrid automata} of the autonomous system ($u
 Moreover, it very straightforward to prove that in the case of the autonomous system (u = 0), any neighborhood of the origin $\mymathbb{0}_4$ is a Lyapunov stable set.
 %
 \subsection{Chaotic Trajectories}
-Let us consider the uncontrolled system and let set the physical parameters so that the system is conservative, i.e. $c_i = c_g = 1$, $\beta_1=\beta_2=0$. In this case, the Hamiltonian is constant in time,
+%Let us consider the uncontrolled system and let set the physical parameters so that the system is conservative, i.e. $c_i = c_g = 1$, $\beta_1=\beta_2=0$. In this case, the Hamiltonian is constant in time,
+%%
+%\begin{equation}
+%    \forall t\geq 0 \quad \dot{\Ha}(\xb(t)) = 0.
+%\end{equation}
+%%
 %
-\begin{equation}
-    \forall t\geq 0 \quad \dot{\Ha}(\xb(t)) = 0
-\end{equation}
+%Thus, trajectories lie on foliations of level sets Hamiltonian corresponding to possible initial conditions $\xb_0$:
+%%
+%\begin{equation}
+%    \forall t\geq 0 \quad \xb(t)\in\left\{\xb:\Ha(\xb) = \Ha(\x_0)\right\}
+%\end{equation}
+%%
+%and the Liuville theorem (in the form of Boltzmann equation) also guarantees conservation of the phase--space measure.
+%%
 %
-In this case, trajectories happen on isolines of the Hamiltonian functions depending on the initial condition $\xb_0$:
+%However, although the system is linear, chaos emerges due to the presence of impacts. The system is in fact characterized by an exceptional sensitivity to the initial condition: trajectories starting ``very close'' tend to diverge in time (with the limited phase--space).
+%%
 %
-\begin{equation}
-    \forall t\geq 0 \quad \xb(t)\in\left\{\xb:\Ha(\xb) = \Ha(\x_0)\right\}
-\end{equation}
+%With the aim of revealing the dawn of chaos, a numerical experiment has been performed in the modus operandi of a Monte Carlo simulation. The system has been integrated for 3000 different initial conditions $\xb_0^i$ sampled by a multivariate normal distribution centered in a nominal initial condition $\xb_0$ and with variance $\sigma = 10^{-6}$:
+%%
+%\begin{equation}
+%    \xb_0^i \sim \N(\xb_0,\sigma\mathbb{I}_n).
+%\end{equation}
+%%
 %
-and the volume of the phase--space is also conserved thanks to the Liuville theorem.
+%Choosing $\x_0\triangleq(2,1.5,0,0)$, $m_1 = 1\text{Kg}$ and $m_2 = 0.15\text{Kg}$, the nominal trajectory and the other 3000 ones have been integrated for $t = 20s$. The experiments have been carried out with the \textit{Hybrid Equations (HyEQ) Toolbox} \cite{sanfelice2013toolbox} for the \textsc{Matlab} environment. The time evolution of the system's state in all the trials is shown in Fig. \ref{fig:chaos1}. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all other trajectories of each Monte Carlo run. The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting indistinguishably close, diverge, densely covering the state--space.
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/chaos1.pdf}
+%    \caption[Time evolution of the autonomous system' state in the Monte Carlo simulation]{Time evolution of the autonomous system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
+%    \label{fig:chaos1}
+%\end{figure}
+%%
+%
+%This phenomenon is further emphasized by looking at the phase--space trajectories of the robot and the ball, respectively, represented in Fig. \ref{fig:chaos2}. 
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/chaos2.pdf}
+%    \caption[Phase--space trajectory of the autonomous system in the Monte Carlo simulation]{Phase--space trajectory of the autonomous system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
+%    \label{fig:chaos2}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/chaos3.pdf}
+%    \caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run. It can be noticed how, regardless the initial condition, energy is conserved in time.}
+%    \label{fig:chaos3}
+%\end{figure}
+%
+%The time evolution of the energy (Hamiltonian function) among the Monte Carlo runs is also shown in Fig. \ref{fig:chaos3}. As expected, the energy is conserved trough time.
+%%
+%
+%%
+%The experiment which has been done here numerically can be formalized as follows.
+%Instead of an initial condition $\x_0$, an initial (probability) density of the state in space
+%%
+%\begin{equation}
+%	\psi(\xb_0)=\N(\xb_0,\sigma\mathbb{I}_n)
+%\end{equation}
+%%
+%has been considered and we observed how this distribution evolved in time through the dynamics of the system, i.e. the solution of a distributed parameters system has been numerically approximated.
+%%partial differential equation of type
+%%%
+%%\begin{equation}
+%%    \partial_t\psi(\xb) = \Gamma(\psi(\xb)).
+%%\end{equation}
+%%%
+%%
+%
+%\clearpage
+%From the numerical experiment's results, the histograms of state density in space at each time instant have been built. 
+%The initial and final spatial density functions
+%%
+%\begin{equation}
+%	\psi_i\triangleq\psi(\x_0)= \N(\xb_0,\sigma\mathbb{I}_n),~~ \psi_f = \psi(\xb(t = 20s))
+%\end{equation}
+%%
+%displayed in Fig. \ref{fig:hist}.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width = 1\linewidth]{Figures/Hist.pdf}
+%	\caption[Histograms and reconstructed spatial (probability) density functions of the state]{Histograms and reconstructed spatial (probability) density functions of the state. Blue and orange histograms (lines) represent, respectively, initial and final spatial densities of each state.}
+%	\label{fig:hist}
+%\end{figure}
+%%
+%
+%Then, the time evolution of state probability distribution \footnote{i.e., the probability of finding the state of the system somewhere in the state--space.} have been plot (in a phasegram) for each state of the system. Results are reported in Figure \ref{fig:phasegram}. 
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = 1\linewidth, trim={5cm 5.75cm 3.9cm 5.5cm},clip]{Figures/PhaseGram.pdf}
+%    \caption[Phasegram of the state spatial density function]{Phasegram of the state spatial (probability) density function computed from the Monte Carlo experiment. At $t=0$ the state spatial density is just a spike across the initial condition. Throughout time, the density relaxes to a much larger variance function.}
+%    \label{fig:phasegram}
+%\end{figure}
+%%
+%
+%At $t=0$ the state probability is just a \textit{spike} across the nominal initial condition. Throughout time, however, the spatial (probability) of each state relaxes to a function with much larger variance.
+%The outcome of this experiment is the following: although all trajectories started very close one to the other, after a short period of time, the state could be almost everywhere in the state--space. Thus, the essence of the autonomous conservative ball--dribbling robot, resembles the one of a stochastic process although it is deterministic in nature.
+Let us consider the uncontrolled system and set the physical parameters so that the system is conservative, i.e. $c_i = c_g = 1$, $\beta_1=\beta_2=0$. In this case, the Hamiltonian is constant,
+%
+\begin{align}
+%
+&\forall t\geq 0,\xb\in\C &&\dot{\Ha}(\xb(t)) = 0,\\
+%
+&\forall t\geq 0,\xb\in\D,\gb\in\G && \Ha(\gb(\xb(t)))-\Ha(\xb(t))=0.
+%
+\end{align}
 %
 
-However, although the system is linear, it exhibits a chaotic behaviour due to its hybrid nature, with an exceptional sensitivity to the initial condition: trajectories starting ``very close'' tend to diverge in time (inside the limited phase--space).
-%
-
-This behaviour is shown by a numerical analysis performed through a Monte Carlo simulation integrating the system from 3000 initial conditions $\xb_0^i$ sampled by a multivariate normal distribution centered in a nominal initial condition $\xb_0$ and variance $\sigma = 10^{-6}$:
+Thus, trajectories lie on foliations of level sets Hamiltonian corresponding to possible initial conditions $\xb_0$:
 %
 \begin{equation}
-    \xb_0^i \sim \N(\xb_0,\sigma\mathbb{I}_n)
+\forall t\geq 0 \quad \xb(t)\in\left\{\xb:\Ha(\xb) = \Ha(\x_0)\right\}
 \end{equation}
 %
-Choosing $x_0\triangleq(2,1.5,0,0)$, $m_1 = 1\text{Kg}$, $m_2 = 0.15\text{Kg}$, the nominal trajectory (starting from $\xb_0$) and all the other 3000 ones have been integrated for $t = 20s$. The experiments have been carried out using Hybrid Equations (HyEQ) Toolbox \cite{sanfelice2013toolbox} for the MATLAB environment. The time evolution of the system's state in all the trials is shown in Fig. \ref{fig:chaos1}. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.
+and the Liouville theorem (a reference is necessary HERE) (in the form of Boltzmann equation) also guarantees conservation of the phase--space measure.
+%
+
+However, although the system is linear, chaos emerges due to the presence of impacts. The system is in fact characterized by an exceptional sensitivity to the initial condition: trajectories starting ``very close'' tend to diverge in time (within the limited phase--space).
+%
+
+With the aim of revealing the dawn of chaos, a numerical experiment has been performed in the modus operandi of a Monte Carlo simulation. The system has been integrated for 3000 different initial conditions $\xb_0^i$ sampled by a multivariate normal distribution centered in a nominal initial condition $\xb_0$ and with variance $\sigma = 10^{-6}$:
+%
+\begin{equation}
+\xb_0^i \sim \N(\xb_0,\sigma\mathbb{I}_n).
+\end{equation}
+%
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width = \linewidth]{Figures/chaos1.pdf}
+	\caption[Time evolution of the autonomous system' state in the Monte Carlo simulation]{Time evolution of the autonomous system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
+	\label{fig:chaos1}
+\end{figure}
+Choosing $\x_0\triangleq(2,1.5,0,0)$, $m_1 = 1\text{Kg}$ and $m_2 = 0.15\text{Kg}$, the nominal trajectory and the other 3000 ones have been integrated for $t = 20s$. The experiments have been carried out with the \textit{Hybrid Equations (HyEQ) Toolbox} \citep{sanfelice2013toolbox} for the \textsc{Matlab} environment. The time evolution of the system's state in all the trials is shown in Fig. \ref{fig:chaos1}. The black trajectory represents the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all other trajectories for each Monte Carlo run. The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting indistinguishably close, diverge, densely covering to the state--space.
+%
+
+%
+
+This phenomenon is further emphasized in Fig. \ref{fig:chaos2}, which shows the phase--space trajectories of the robot and the ball, respectively. 
 %
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/chaos1.pdf}
-    \caption[Time evolution of the autonomous system' state in the Monte Carlo simulation]{Time evolution of the autonomous system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
-    \label{fig:chaos1}
+	\centering
+	\includegraphics[width = \linewidth]{Figures/chaos2.pdf}
+	\caption[Phase--space trajectory of the autonomous system in the Monte Carlo simulation]{Phase--space trajectory of the autonomous system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
+	\label{fig:chaos2}
 \end{figure}
 %
-
-This phenomenon is further emphasized by looking at the phase--space trajectories of the robot and the ball, respectively, represented in Fig. \ref{fig:chaos2}. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). 
-%
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/chaos2.pdf}
-    \caption[Phase--space trajectory of the autonomous system in the Monte Carlo simulation]{Phase--space trajectory of the autonomous system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting very close, diverge, densely covering the state--space.}
-    \label{fig:chaos2}
-\end{figure}
-%
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/chaos3.pdf}
-    \caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run. It can be noticed how, regardless the initial condition, energy is conserved in time.}
-    \label{fig:chaos3}
+\begin{figure}[hb!]
+	\centering
+	\includegraphics[width = \linewidth]{Figures/chaos3.pdf}
+	\caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run. It can be noticed how, regardless the initial condition, energy is conserved in time.}
+	\label{fig:chaos3}
 \end{figure}
 
 The time evolution of the energy (Hamiltonian function) among the Monte Carlo runs is also shown in Fig. \ref{fig:chaos3}. As expected, the energy is conserved trough time.
@@ -303,39 +420,57 @@ The time evolution of the energy (Hamiltonian function) among the Monte Carlo ru
 
 %
 The experiment which has been done here numerically can be formalized as follows.
-Instead of an initial condition, we considered an initial distribution (probability density) of the state $\psi(\xb_0)$ and we observed how this distribution evolved in time through the dynamics of the system, i.e. we approximated a solution of a partial differential equation of type
+Instead of an initial condition $\x_0$, an initial (probability) density of the state in space
 %
 \begin{equation}
-    \partial_t\psi(\xb) = \Gamma(\psi(\xb)).
+\psi(\xb_0)=\N(\xb_0,\sigma\mathbb{I}_n)
 \end{equation}
 %
-From the numerical Monte Carlo simulation, we build the histogram of the state at each value of the time are we built a phasegram plot representing the time evolution of state probability\footnote{i.e., the probability of finding the state of the system somewhere in the state--space.}, for each state of the system. It is reported in Figure \ref{fig:phasegram}. 
+has been considered and the evolution in time of this distribution has been observed through the dynamics of the system, i.e. the solution of a distributed parameters system has been numerically approximated.
+%partial differential equation of type
+%%
+%\begin{equation}
+%    \partial_t\psi(\xb) = \Gamma(\psi(\xb)).
+%\end{equation}
+%%
 %
+
+From the numerical experiment's results, the histograms of state density in space at each time instant have been built. 
+The initial and final spatial density functions
+%
+\begin{equation}
+\psi_i\triangleq\psi(\x_0)= \N(\xb_0,\sigma\mathbb{I}_n),~~ \psi_f = \psi(\xb(t = 20s))
+\end{equation}
+%
+displayed in Fig. \ref{fig:hist}.
+
+The time evolution of state probability distribution \footnote{i.e. the probability of finding the state of the system somewhere in the state--space.} have been plotted (in a phase-gram) for each state of the system. Results are reported in Figure \ref{fig:phasegram}. 
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width = 1\linewidth]{Figures/Hist.pdf}
+	\caption[Histograms and reconstructed spatial (probability) density functions of the state]{Histograms and reconstructed spatial (probability) density functions of the state. Blue and orange histograms (lines) represent, respectively, initial and final spatial densities of each state.}
+	\label{fig:hist}
+\end{figure}
+
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[width = 1\linewidth, trim={5cm 5.75cm 3.9cm 5.5cm},clip]{Figures/PhaseGram.pdf}
-    \caption[Phasegram of the state probability function]{Phasegram of the state probability computed from the Monte Carlo Simulation. At $t=0$ the state probability is just a spike across the initial condition. Throughout time, the probability relaxes to with much larger variance.}
-    \label{fig:phasegram}
+	\centering
+	\includegraphics[width = 1\linewidth, trim={5cm 5.75cm 3.9cm 5.5cm},clip]{Figures/PhaseGram.pdf}
+	\caption[Phase--gram of the state spatial density function]{Phase--gram of the state spatial (probability) density function computed from the Monte Carlo experiment. At $t=0$ the state spatial density is just a spike across the initial condition. Throughout time, the density relaxes to a function with larger variance.}
+	\label{fig:phasegram}
 \end{figure}
 %
-At $t=0$ the state probability is just a spike across the initial condition, i.e. $\N(\xb_0,\sigma\mathbb{I}_n)$. Throughout time, however the probability relaxes to with much larger variance. It means that, although all trajectories started very close one to the other, after a short period of time, the state might be everywhere in the state--space. Thus, the properties of the autonomous conservative ball--dribbling robot system resembles the ones of some stochastic system where the system has no ``memory'' of its past.
-The same result is emphasized by looking the computed initial and final probability density functions $\psi_i$ and $\psi_f$ in Fig. \ref{fig:hist}.
-%
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = 1\linewidth]{Figures/Hist.pdf}
-    \caption{Histograms and reconstructed probability density functions of the state.}
-    \label{fig:hist}
-\end{figure}
-%
+
+At $t=0$ the state probability is just a \textit{spike} across the nominal initial condition. Throughout time, however, the spatial (probability) of each state relaxes to a function with much larger variance.
+This experiment demonstrated that, although all trajectories started very close one to each other, after a short period of time, the state can be almost everywhere in the state--space. Thus, the essence of the autonomous conservative ball--dribbling robot, resembles the one of a stochastic process, despite the fact that  it is deterministic in nature.
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dribbling Control}\label{sec:control}
 %
-Let us consider the control task of continuously hitting the ball such that it reaches, at every cycle, the same maximum height $q_{2,max}^*$. In order to address this control problem, it is possible to design an hybrid controller with two modes, i.e., a \textit{wait mode} ($\Sa_{w}$) and a \textit{hit mode} ($\Sa_{h}$). In the wait state, the robot must stay at a constant height above the ball, to overcome any interference between its motion and the one of the ball and, at the same time, stay close enough to the ball to hit it quickly at the right time.
+Let us consider the control task of continuously hitting the ball such that it reaches, at every cycle, the same maximum height $q_{2,max}^*$. In order to address this control problem, it is possible to design an hybrid controller with two modes, i.e., a \textit{wait mode} ($S_{w}$) and a \textit{hit mode} ($S_{h}$). In the wait state, the robot must stay at a constant height above the ball, to overcome any interference between its motion and the one of the ball and, at the same time, stay close enough to the ball to hit it quickly at the right time.
 Then, in the hit state, the controller must move the robot toward the ball so that the exchanged impulse during the impact would lead the ball to come back to the desired peak $q_{2,max}^*$. In particular, the system would enter in the hit state whenever the ball reaches the peak of its bounce and switch back to the wait mode immediately after the impact between the two bodies. 
 %
-In both modes, we would like to exploit the passivity--based control theory. Besides, the system is under--actuated and the flows are decoupled. Therefore, it is impossible to shape the total energy of system setting its minimum in a desired configuration different from the origin. Although it is not possible to modify the energy of the ball, it is however possible to partially shape the Hamiltonian, i.e. the part relative to the robot. If 
+In both modes, it is desirable to exploit the passivity--based control theory. Besides, the system is under--actuated and the flows are decoupled. Therefore, it is impossible to shape the total energy of system setting its minimum in a desired configuration different from the origin. Although it is not possible to modify the energy of the ball, it is however possible to partially shape the Hamiltonian, i.e. the part relative to the robot. If 
 %
 \begin{equation}
     \Ha(\xb) = \Ha_1(q_1,p_1) + \Ha_2(q_2,p_2),
@@ -344,17 +479,18 @@ In both modes, we would like to exploit the passivity--based control theory. Bes
 it is possible to obtained a desired-shape Hamiltonian
 %
 \begin{equation}
-     \Ha^*(\xb)  = \Ha_1^*(q_1,p_1) + \Ha_2(q_2,p_2)
+     \Ha^*(\xb)  = \Ha_1^*(q_1,p_1) + \Ha_2(q_2,p_2),
 \end{equation}
 %
 allowing to bring the robot in a desired configuration $q_1^*$. This might be achieved through an \textit{energy--balancing passivity--based controller}\footnote{In this case $q_1^*$ becomes a strict minimum of $\Ha_1^*$ and asymptotic stabilization must be achieved with $p_1 = 0$ at steady--state} \citep{ortega2001putting,ortega2008control,secchi2007control} described in Chapter \ref{chap:preliminaries}:
 %
-\begin{align*}
+\begin{align}
 u &= \beta(\xb) + v = \beta(\xb) - k_dy \\
 &= \frac{\partial V_1(q_1)}{\partial q_1} - k_p(q_1 -q_1^*) - k_d\dot{q}_1\\
-&= \gamma m_1q_1- k_p(q_1 -q_1^*) - k_d\dot{q}_1
-\end{align*}
+&= \gamma m_1q_1- k_p(q_1 -q_1^*) - k_d\dot{q}_1.
+\end{align}
 %
+
 As pointed out before, the controller has two separate modes and the control parameters $k_p$, $k_d$, $q_1^*$ should be changed during the state transitions.
 % 
 For this reason, let us collect the control parameters in a vector 
@@ -375,29 +511,36 @@ and consider it as part of the state vector. The augmented model of the controll
             %
             y = \Gb^\top{\dH^*(\xb)}
         \end{matrix*}
-    \right.
+    \right.~~,
     %
 \end{equation}
 %
 where $\Omega$ is the space of admissible parameters values and $\Lambda$ is the jump set--valued mapping of the control parameters. The shaped Hamiltonian $\Ha^*(\xb,\bm\omega)$, results to be
-\[\Ha^*(\xb,\bm\omega) = \frac{1}{2}\pb^\top \Mb^{-1}\pb + \frac{1}{2}k_p(q_1 - q_1^*)^2+ \gamma m_2q_2\]
+%
+\begin{equation}
+	\Ha^*(\xb,\bm\omega) = \frac{1}{2}\pb^\top \Mb^{-1}\pb + \frac{1}{2}k_p(q_1 - q_1^*)^2+ \gamma m_2q_2.
+\end{equation}
+%
+
 Notice that the choice of the control parameters influences both the closed-loop energy $\Ha^*$ (with $k_p$ and $q_1^*$) and the output feedback $v$ (with $k_d$).
 %
 Let us define a jump set $\D_3$ corresponding to the sub--manifold of the state--space where the ball reaches the peak $q_{2,max}$ of its bounce: $\D_3 = \left\{\xb:~p_2=0\right\}$.
-It is clear that during the time evolution of the system, the state will cyclically enter in $\D_3$ and therefore the controller will periodically switch to $\Sa_h$ where the robot moves toward the ball until they collide, i.e. $\xb\in\D_2$, when the controller switches back to $\Sa_w$ where the robot waits above the ball at a distance $\delta$. The jumps maps resetting the control parameters are the following:
+It is clear that during the time evolution of the system, the state will cyclically enter in $\D_3$ and therefore the controller will periodically switch to $S_h$ where the robot moves toward the ball until they collide, i.e. $\xb\in\D_2$, when the controller switches back to $S_w$ where the robot waits above the ball at a distance $\delta$. The jumps maps resetting the control parameters are the following:
 %
-\begin{align*}
-\bm\omega^+ = \bm\nu_{3}(\xb,\bm\omega) &=\begin{bmatrix}k_{p,h}&k_{d,h}&q_2\end{bmatrix}^\top &\quad&\xb\in\D_3\\
-\bm\omega^+ = \bm\nu_{2}(\xb,\bm\omega) &=\begin{bmatrix}k_{p,w}&k_{d,w}&q_2 + \delta\end{bmatrix}^\top &\quad&\xb\in\D_2\\
-\bm\omega^+ = \bm\nu_{1}(\xb,\bm\omega) &= \bm\omega &\quad&\xb\in\D_1
-\end{align*}
+\begin{align}
+\bm\omega^+ = \bm\nu_{3}(\xb,\bm\omega) &=\begin{bmatrix}k_{p,h}&k_{d,h}&q_2\end{bmatrix}^\top &\quad&\xb\in\D_3,\\
+\bm\omega^+ = \bm\nu_{2}(\xb,\bm\omega) &=\begin{bmatrix}k_{p,w}&k_{d,w}&q_2 + \delta\end{bmatrix}^\top &\quad&\xb\in\D_2,\\
+\bm\omega^+ = \bm\nu_{1}(\xb,\bm\omega) &= \bm\omega &\quad&\xb\in\D_1.
+\end{align}
 %
+
 Therefore,
 %
 \begin{equation}
     \Lambda \triangleq \left\{{\bm\nu}_i:\xb\in\D_i\Rightarrow \bm\omega^+ = \bm\nu_i(\bm\omega,\xb),~ i = 1,2,3\right\}.
 \end{equation}
 %
+
 Figure \ref{fig:ctrl} shows the finite--state machine representing the controller.
 When $\xb\in\D_3$, the state of the system does not jump, i.e. $\xb^+ = \gb_3(\xb)= \xb$ if $\xb\in\D_3$.
 The set-valued mapping $\G$ is redefined considering $\gb_3$.
@@ -423,7 +566,7 @@ The set-valued mapping $\G$ is redefined considering $\gb_3$.
 	\draw (-1.4,1) node {$\xb\in\D_3$};
 	%
 	\end{tikzpicture}
-	\caption{Finite state machine of the controller. It has an \textit{hit} state $\Sa_h$ in which it forces the robot to move toward the ball and a \textit{wait} state $\Sa_w$ in which it keeps the robot at a constant distance $\delta$ from the ball.The transitions happen as follows: $\Sa_h\rightarrow\Sa_w$ when the robot hits the ball, $\Sa_w\rightarrow\Sa_h$ when the ball reaches the peak of its bounce.}
+	\caption[Finite state machine of the controller]{Finite state machine of the controller. It has an \textit{hit} state $S_h$ in which it forces the robot to move toward the ball and a \textit{wait} state $S_w$ in which it keeps the robot at a constant distance $\delta$ from the ball.The transitions happen as follows: $S_h\rightarrow S_w$ when the robot hits the ball, $S_w\rightarrow S_h$ when the ball reaches the peak of its bounce.}
 	\label{fig:ctrl}
 \end{figure}
 %
@@ -439,16 +582,17 @@ The set-valued mapping $\G$ is redefined considering $\gb_3$.
 	    \bm\omega \triangleq (k_p,k_d,q_1^*,\xi).
 	\end{equation}
 	%
+	
 	The iterative energy shaping control law is defined by means of the following control parameters jump maps:
 	%
 	\begin{align}
-	&\bm\omega^+  \triangleq \bm\nu_{3}(\xb,\bm\omega)=\begin{bmatrix}k_0\varphi_\xi(e)&k_{d,h}&q_2&\xi+1\end{bmatrix}^\top &\xb\in\D_3\\
-	&\bm\omega^+  \triangleq \bm\nu_{2}(\xb,\bm\omega)=\begin{bmatrix}k_{p,w}&k_{d,w}&q_2 + \delta&\xi\end{bmatrix}^\top &\xb\in\D_2
+	&\bm\omega^+  \triangleq \bm\nu_{3}(\xb,\bm\omega)=\begin{bmatrix}k_0\varphi_\xi(e)&k_{d,h}&q_2&\xi+1\end{bmatrix}^\top &\xb\in\D_3,\\
+	&\bm\omega^+  \triangleq \bm\nu_{2}(\xb,\bm\omega)=\begin{bmatrix}k_{p,w}&k_{d,w}&q_2 + \delta&\xi\end{bmatrix}^\top &\xb\in\D_2,
 	\end{align}
 	%
 	where $\sigma>0$ is a constant scalar and $\varphi_\xi(e)$ is a scalar function of the error. When the controller is in the \textit{hit} state, the resulting shaped Hamiltonian assumes the following form:
 	\begin{equation}
-		\Ha^*(\xb,\bm\omega) = \frac{1}{2}\pb^\top \Mb^{-1}\pb + \frac{1}{2}k_0\varphi_\xi(e)(q_1 - q_1^*)^2+ \gamma m_2q_2
+		\Ha^*(\xb,\bm\omega) = \frac{1}{2}\pb^\top \Mb^{-1}\pb + \frac{1}{2}k_0\varphi_\xi(e)(q_1 - q_1^*)^2+ \gamma m_2q_2.
 	\end{equation}
 \end{defn}
 %
@@ -481,7 +625,7 @@ A representation of the \textit{hybrid automata} corresponding to the final cont
 		%
 		\end{tikzpicture}
 	}
-	\caption[!hybrid automata representing the controlled system]{Hybrid automata representing the controlled system. Although the \textit{iterative energy shaping} controller has two modes, the controlled system is still an impulsive port--Hamiltonian system}
+	\caption[Hybrid automata representing the controlled system]{Hybrid automata representing the controlled system. Although the \textit{iterative energy shaping} controller has two modes, the controlled system is still an impulsive port--Hamiltonian system}
 	\label{fig:cHPH}
 \end{figure}
 %
@@ -490,7 +634,7 @@ The main idea is to iteratively adjust the slope (steepness) of the energy of th
 A possible choice of $\varphi_\xi(e)$ is
 %
 \begin{equation}
-    \varphi_\xi(e)  \triangleq \varphi_0 + a\cdot e(\xi) + b\cdot\sum_{i = 1}^{\xi}e(i)
+    \varphi_\xi(e)  \triangleq \varphi_0 + a\cdot e(\xi) + b\cdot\sum_{i = 1}^{\xi}e(i),
 \end{equation}
 %
 which provides a proportional and integral action with a constant offset $\varphi_0$ in response to the error. The integral action should ensure zero steady state error.
@@ -499,50 +643,248 @@ which provides a proportional and integral action with a constant offset $\varph
 %
 To validate the proposed control scheme, numerical simulations have been performed. The physical parameters of the system have been chosen as $m_1 = 0.1\text{Kg}$, $m_2 = 0.05\text{Kg}$, $\beta_1 = 0.2\text{N}\cdot \text{s}/\text{m}$, $\beta_2 = 0.3\text{N}\cdot \text{s}/\text{m}$, $c_g = c_i = 0.8$. The initial conditions have been set to $q_1(0) = 2$m, $q_2(0) = 1.5$m, $p_1(0) = p_2(0) = 0\text{Kg}\cdot \text{m}/\text{s}$. Note that the mass of the ball $m_2$ has been chosen similar to the one of a standard golf ball ($\approx 46g$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Autonomous System}
+%%
+%Firstly, the behavior of the uncontrolled system has been simulated. The time evolution of the state variables are shown in Fig. \ref{fig:aut1}.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width = \linewidth]{Figures/aut1.pdf}
+%	\caption[Uncontrolled system: time evolution of the robot and ball position states]{Uncontrolled system: time evolution of the robot and ball position states (position and momentum). Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both the position and velocity goes asymptotically to zero.}
+%	\label{fig:aut1}
+%\end{figure}
+%%
+%The phase--space trajectory of the autonomous system is also represented in Fig. \ref{fig:aut2} over the energy of the system. 
+%%
+%\begin{figure}[!ht]
+%	\centering
+%    \input{Drawings/aut2.tex}
+%	\caption[Uncontrolled system: Phase--space trajectory over the energy function]{Uncontrolled system: Phase--space trajectory over the energy function. Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both the position and velocity goes asymptotically to zero.}
+%	\label{fig:aut2}
+%\end{figure}
+%%
+%Finally, the time evolution of the Hamiltonian function is shown in Fig. \ref{fig:aut3} while Fig. \ref{fig:aut4} shows how the energy is distributed within the system during its time evolution.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/aut3.pdf}
+%	\caption[Uncontrolled system: time evolution of the Hamiltonian function]{Uncontrolled system: time evolution of the Hamiltonian function. Due to system's passivity, the energy monotonically decreases to zero both during flow and jumps.}
+%	\label{fig:aut3}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/aut4.pdf}
+%	\caption[Uncontrolled system: Energy distribution within the system]{Uncontrolled system: Energy distribution within the system. Trajectories happen on decreasing level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts.}
+%	\label{fig:aut4}
+%\end{figure}
+%%
+%%
+%It can be noticed that $\Ha$ presents a monotonically decreasing trend, in both flows (due to the viscous friction terms) and jumps (since the restitution coefficients are less than one). In fact, trajectories happen on decreasing level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts. Moreover, from the figures it is easily to verify the asymptotic stability and attractivity of the origin ($x = \mymathbb{0}_4$) and the \textit{Zeno behavior} of the autonomous system (see \cite{goebel2009hybrid}).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Controlled System}\label{sec:controlled_bd}
+%%
+%Simulations of the system controlled via iterative energy shaping have also been performed. The control parameters have been chosen as: $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.05$m, $k_0 = 10$, $k_{d,h} = 0$, $\varphi_\xi(e) = 10e + 100\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 0.1$m. The time evolution of the state variables are shown in Figs. \ref{fig:ctrl1} and \ref{fig:ctrl1_det}.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl1.pdf}
+%	\caption[Iterative energy shaping control: time evolution of the robot and ball states]{Iterative energy shaping control: time evolution of the robot and ball states (position and momentum). Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that the ball states converge on a periodic trajectory reaching at each bounce the desired peak $q^*_{2,max}$ (dotted green line).}
+%	\label{fig:ctrl1}
+%\end{figure}
+%%
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl1_det.pdf}
+%	\caption[Iterative energy shaping control: detailed view of the time evolution of the ball and robot positions at steady state]{Iterative energy shaping control: detailed view of the time evolution of the ball and robot positions at steady state.}
+%	\label{fig:ctrl1_det}
+%\end{figure}
+%%
+%%
+%Notice that the trajectory of the ball becomes periodic (asymptotically), reaching at each bounce the desired peak $q_{2,max}^*$, proving the effectiveness of the proposed control scheme. Furthermore, the time evolution of the energy function is shown in Figs. \ref{fig:ctrl3} and \ref{fig:ctrl3_det} while Figs. \ref{fig:ctrl4} and \ref{fig:ctrl4_det} show how the energy flows across the system during each period. 
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl3.pdf}
+%	\caption[Iterative energy shaping control: the time evolution of the Hamiltonian function]{Iterative energy shaping control: the time evolution of the Hamiltonian function. After a short transient also the system's energy becomes periodic.}
+%	\label{fig:ctrl3}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl3_det.pdf}
+%	\caption[Iterative energy shaping control: detailed view of the the Hamiltonian at steady--state]{Iterative energy shaping control: detailed view of the time evolution of the Hamiltonian function at steady--state to highlight its (asymptotic) periodicity.}
+%	\label{fig:ctrl3_det}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl4.pdf}
+%	\caption[Iterative energy shaping control: Distribution of the energy across the system's components and time]{Iterative energy shaping control: Distribution of the energy across the system's components and time. After a short transient also the system's energy becomes periodic.}
+%	\label{fig:ctrl4}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl4_det.pdf}
+%	\caption[Iterative energy shaping control: detailed view of the energy distribution across the system's components and time]{Iterative energy shaping control: detailed view of the energy distribution across the system's components and time. at steady state to highlight its (asymptotic) periodicity.}
+%	\label{fig:ctrl4_det}
+%\end{figure}
+%%
+%As expected also the energy becomes periodic. In fact, the energy at the beginning and at the end of each cycle (bounce) become exactly the same. Moreover, we can see that, at steady state, during the ball--robot impact, the robot transfers to the ball the exact amount of energy necessary to reach the desired bounce peak. Finally, as shown in Fig. \ref{fig:ctrl5} the error goes to zero with the number of cycles.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl5.pdf}
+%	\caption[Iterative energy shaping control: (discrete) time evolution of the tracking error $e$ and of the energy shaping gain $\varphi_\xi(e)$]{Iterative energy shaping control: (discrete) time evolution of the tracking error $e$ and of the energy shaping gain $\varphi_\xi(e)$. As the number of cycles $\xi$ increases, the tracking error $e$, i.e. the difference between the desired and ball's bounce peak, goes asymptotically to zero. Instead, the energy shaping gain converges, increasing monotonically, to a constant value.}
+%	\label{fig:ctrl5}
+%\end{figure}
+%%
+%On the other hand, the function $\varphi_\xi(e)$ converges exponentially to a positive constant value. 
+%%
+%A final consideration about the convergence of the system to the desired periodic trajectory can be made from the phase-space portrait of the system's trajectory (Fig. \ref{fig:ctrl2}). Being the time represented by the color transition, it can be noticed that the system approaches a limit cycle, an attractive asymptotically periodic trajectory, in which the tracking error is zero.
+%%
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{Figures/ctrl2.pdf}
+%	\caption[Iterative energy shaping control: phase--space trajectories]{Iterative energy shaping control: projections on the $q_1-p_1$ plane (above) and the $q_2-p_2$ plane (below) of the phase-space trajectory of the system. The system converges to a hybrid limit cycle in which $e=0$.}
+%	\label{fig:ctrl2}
+%\end{figure}
+%%
+%\clearpage
+%%
+%\subsection{Numerical Stability and Robustnes Analysis}
+%%
+%\subsubsection{Robustness to Initial Condition}
+%In order to prove numerically the stability and robustness of the proposed control scheme, a Monte Carlo experiment similar to the one in Section \ref{sec:analysis_aut}, has been performed. In particular, choosing as physical parameters $m_1=0.1\text{Kg}$, $m_2=0.15\text{Kg}$, $\beta_1=0.2$, $\beta_2=0.3$, $c_1=c_2=0.8$ and control parameters $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.5$, $\sigma = 10$, $k_{d,h} = 10^2$, $\varphi_\xi(e) = 3000 + 10e + 300\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 1$, a total of 3000 trajectories has been computed starting from initial conditions $\xb_0^i$ sampled by the normal distribution
+%%
+%\begin{equation}
+%    \N(\xb_0,\sigma\mathbb{I}_n),
+%\end{equation}
+%%
+%with $\xb_0\triangleq(2,1.5,0,0)$ and $\sigma=1$\footnote{The reason why we chose larger physical and control parameters with respect to the one used in the previous section is that we wanted to minimize the effects of numerical instabilities of the \textit{HyEq} solver}. The time evolution of the system's state in the nominal case ($\xb(t=0) = \xb_0$) and all the Monte Carlo trials are displayed in Fig. \ref{fig:reg1}.
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/reg1.pdf}
+%    \caption[Time evolution of the controlled system' state in the Monte Carlo simulation]{Time evolution of the controlled system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting far from each other, eventually converge to the nominal trajectory.}
+%    \label{fig:reg1}
+%\end{figure}
+%%
+%It can be noticed how trajectories, starting far from each other, are all asymptotically periodic and eventually converge to the nominal trajectory. This means that the controller generates an attractive \textit{limit cycle} in the closed--loop system. This is further highlighted in Fig. \ref{fig:reg2} where the phase--space trajectories are represented.
+%%
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/reg2.pdf}
+%    \caption[Phase--space trajectory of the controlled system in the Monte Carlo simulation]{Phase--space trajectory of the controlled system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting far from each other, eventually converge to the nominal trajectory.}
+%    \label{fig:reg2}
+%\end{figure}
+%%
+%\vspace{-5mm}
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width = \linewidth]{Figures/reg3.pdf}
+%    \caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run.}
+%    \label{fig:reg3}
+%\end{figure}
+%
+%The time evolution of the energy (Hamiltonian function) among the Monte Carlo runs is also shown in Fig. \ref{fig:reg3}.
+%
+%A final results to show stability and attractivity to the nominal trajectory of the iterative energy shaping controlled system is the convergence of the tracking error and energy shaping gain, reported in Fig. \ref{fig:reg4}.  It is worth to be notices that the mean the both the error and gain among the Monte Carlo runs is almost identical to the nominal one. Further investigations might be interesting to be carried out to discover the source os this phenomenon.
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width = \linewidth]{Figures/reg4.pdf}
+%	\caption[Convergence of the tracking error and controller gain in the Monte Carlo simulation]{Convergence of the tracking error and energy shaping gain (hit state) in the Monte Carlo simulation. The black line indicates the nominal case. The orange area bounds the minimum and maximum among the values of each Monte Carlo runs while the blue line is their average.}
+%	\label{fig:reg4}
+%\end{figure}
+%%
+%\subsubsection{Robustness to Change of Parameters}
+%%
+%To prove the robustness against sudden changes of physical parameters of the system, several simulations has been performed with the same model and control parameters as in Subsection \ref{sec:controlled_bd} changing at time $t = 2.5s$ some parameter of the model. First we tried to change the reference from $0.1$m to $0.05$m (-50\%). Then, the mass of the ball $m_2$ has been change from $0.05$Kg to $0.25$Kg (+400\%). Finally, the restitution coefficient of the ball--robot collision has been changed from $0.8$ to $0.99$ (+23.75\%). The resulting states trajectories, tracking error, learned gains and energy are reported in Figs. \ref{fig:roba}, \ref{fig:robb} and \ref{fig:robc}.
+%% 
+%\begin{figure}[!ht]
+%	\centering
+%	\subfigure[States time evolution]{\includegraphics[width=.8\linewidth]{Figures/rob1.pdf}}
+%	\subfigure[Tracking error and learned gain]{\includegraphics[width=.8\linewidth]{Figures/rob2l.pdf}}
+%	\subfigure[System's energy]{\includegraphics[width=.8\linewidth]{Figures/rob3.pdf}}
+%	\caption[Robustness to parameters variations: reference position]{Robustness to parameters variations: reference position.}
+%	\label{fig:roba}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\subfigure[States time evolution]{\includegraphics[width=.8\linewidth]{Figures/rob4.pdf}}
+%	\subfigure[Tracking error and learned gain]{\includegraphics[width=.8\linewidth]{Figures/rob5l.pdf}}
+%	\subfigure[System's energy]{\includegraphics[width=.8\linewidth]{Figures/rob6.pdf}}
+%	\caption[Robustness to parameters variations: ball's mass]{Robustness to parameters variations: ball's mass.}
+%	\label{fig:robb}
+%\end{figure}
+%%
+%\begin{figure}[!ht]
+%	\centering
+%	\subfigure[States time evolution]{\includegraphics[width=.8\linewidth]{Figures/rob7.pdf}}
+%	\subfigure[Tracking error and learned gain]{\includegraphics[width=.8\linewidth]{Figures/rob8l.pdf}}
+%	\subfigure[System's energy]{\includegraphics[width=.8\linewidth]{Figures/rob9.pdf}}
+%	\caption[Robustness to parameters variations: restitution coefficients]{Robustness to parameters variations: restitution coefficients.}
+%	\label{fig:robc}
+%\end{figure}
+%%
+%
+%The controller shows excellent robustness properties. In all three situations, the system recovers swiftly from the parameter change, adapting to the new value. 
+%
+%In particular, when the reference is changed from $0.1$m to $0.05$m, all the physical properties of the system are conserved, e.g. dissipation during flows and jumps. However the robot needs to transfer less momentum to the ball during their collision to stabilize the ball on the desired trajectory. The system thus adapts by decreasing the energy shaping gain in the hit state. 
+%
+%Instead, when the mass of the ball is increased from $0.05$Kg to $0.25$Kg, its momentum per unit of speed grows and thus, the conservation of momentum during the ball--robot collision implies that the robot needs more speed to transfer the same momentum to the ball. In turn, the acceleration of the robot during the hit mode is also controlled by the energy shaping gain. Consequently, it automatically adapts increasing towards the value of zero tracking error.
+%
+%Finally, when the the ball--robot collision's restitution coefficient is increased from 0.8 to 0.99, the percentage of momentum that the robot transfers to the ball, i.e elasticity of impact, increases. Consequently, the energy shaping gain lowers.    
+%%
+%Robustness to changes in the robot mass, friction coefficients and ball--ground restitution coefficients have also been tested, obtaining good results.
 \subsection{Autonomous System}
 %
-Firstly, the behavior of the uncontrolled system has been simulated. The time evolution of the state variables are shown in Fig. \ref{fig:aut1}.
+Firstly, the behavior of the uncontrolled system has been simulated. The time evolution of the state variables are shown in Fig.~\ref{fig:aut1}.
 %
-\begin{figure}[!ht]
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width = \linewidth]{Figures/aut1.pdf}
-	\caption[Uncontrolled system: time evolution of the robot and ball position states]{Uncontrolled system: time evolution of the robot and ball position states (position and momentum). Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both the position and velocity goes asymptotically to zero.}
+	\caption[Uncontrolled system: time evolution of the robot and ball position states]{Uncontrolled system: time evolution of the robot and ball position states (position and momentum). Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both the position and velocity go asymptotically to zero.}
 	\label{fig:aut1}
 \end{figure}
 %
-The phase--space trajectory of the autonomous system is also represented in Fig. \ref{fig:aut2} over the energy of the system. 
+The phase--space trajectory of the autonomous system over the energy of the system is represented in Fig.~\ref{fig:aut2}. 
 %
-\begin{figure}[!ht]
+\begin{figure}[hb!]
 	\centering
-    \input{Drawings/aut2.tex}
-	\caption[Uncontrolled system: Phase--space trajectory over the energy function]{Uncontrolled system: Phase--space trajectory over the energy function. Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both the position and velocity goes asymptotically to zero.}
+	\input{Drawings/aut2.tex}
+	\caption[Uncontrolled system: Phase--space trajectory over the energy function]{Uncontrolled system: Phase--space trajectory over the energy function. Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that both, the position and velocity go asymptotically to zero.}
 	\label{fig:aut2}
 \end{figure}
-%
-Finally, the time evolution of the Hamiltonian function is shown in Fig. \ref{fig:aut3} while Fig. \ref{fig:aut4} shows how the energy is distributed within the system during its time evolution.
-%
-\begin{figure}[!ht]
+
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/aut3.pdf}
-	\caption[Uncontrolled system: time evolution of the Hamiltonian function.]{Uncontrolled system: time evolution of the Hamiltonian function. Due to system's passivity, the energy monotonically decreases to zero both during flow and jumps.}
+	\caption[Uncontrolled system: time evolution of the Hamiltonian function]{Uncontrolled system: time evolution of the Hamiltonian function. Due to system's passivity, the energy monotonically decreases to zero both during flow and jumps.}
 	\label{fig:aut3}
 \end{figure}
 %
-\begin{figure}[!ht]
+\begin{figure}[hb!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/aut4.pdf}
-	\caption[Uncontrolled system: Energy distribution within the system.]{Uncontrolled system: Energy distribution within the system. Trajectories happen on decreasing level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts.}
+	\caption[Uncontrolled system: Energy distribution within the system]{Uncontrolled system: Energy distribution within the system. Trajectories decrease on  level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts.}
 	\label{fig:aut4}
 \end{figure}
-%
-%
-It can be noticed that $\Ha$ presents a monotonically decreasing trend, in both flows (due to the viscous friction terms) and jumps (since the restitution coefficients are less than one). In fact, trajectories happen on decreasing level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts. Moreover, from the figures it is easily to verify the asymptotic stability and attractivity of the origin ($x = \mymathbb{0}_4$) and the \textit{Zeno behavior} of the autonomous system (see \cite{goebel2009hybrid}).
+Fig.~\ref{fig:aut3} pictures  the time evolution of the Hamiltonian function while Fig.~\ref{fig:aut4} shows how the energy is distributed within the system during its time evolution.
+It can be noticed that $\Ha$ presents a monotonically decreasing trend, in both flows (due to the viscous friction terms) and jumps (since the restitution coefficients are less than one). In fact, trajectories decrease on level--sets of $\Ha$, even if $\Ha_1$ and $\Ha_2$ may locally increase after some ball--robot impacts. Moreover, from the figures it is easily to verify the asymptotic stability and attractivity of the origin ($x = \mathbb{0}_4$) and the \textit{Zeno behavior} of the autonomous system (see \cite{goebel2009hybrid}).
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Controlled System}
+\subsection{Controlled System}\label{sec:controlled_bd}
 %
-Simulations of the system controlled via iterative energy shaping have also been performed. The control parameters have been chosen as: $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.05$m, $k_0 = 10$, $k_{d,h} = 0$, $\varphi_\xi(e) = 10e + 100\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 0.1$m. The time evolution of the state variables are shown in Figs. \ref{fig:ctrl1} and \ref{fig:ctrl1_det}.
+Simulations of the system controlled via iterative energy shaping have also been performed. The control parameters have been chosen as: $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.05$m, $k_0 = 10$, $k_{d,h} = 0$, $\varphi_\xi(e) = 10e + 100\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 0.1$m. The time evolution of the state variables are shown in Fig.~\ref{fig:ctrl1} and Fig.~\ref{fig:ctrl1_det}.
 %
-\begin{figure}[!ht]
+\begin{figure}[hb!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl1.pdf}
 	\caption[Iterative energy shaping control: time evolution of the robot and ball states]{Iterative energy shaping control: time evolution of the robot and ball states (position and momentum). Red dots correspond to system's jumps while dashed blue lines highlight discontinuous state changes. Notice that the ball states converge on a periodic trajectory reaching at each bounce the desired peak $q^*_{2,max}$ (dotted green line).}
@@ -558,96 +900,141 @@ Simulations of the system controlled via iterative energy shaping have also been
 \end{figure}
 %
 %
-Notice that the trajectory of the ball becomes periodic (asymptotically), reaching at each bounce the desired peak $q_{2,max}^*$, proving the effectiveness of the proposed control scheme. Furthermore, the time evolution of the energy function is shown in Figs. \ref{fig:ctrl3} and \ref{fig:ctrl3_det} while Figs. \ref{fig:ctrl4} and \ref{fig:ctrl4_det} show how the energy flows across the system during each period. 
+Notice that the trajectory of the ball becomes periodic (asymptotically), reaching at each bounce the desired peak $q_{2,max}^*$, proving the effectiveness of the proposed control scheme. Furthermore, the time evolution of the energy function is shown in Fig.~\ref{fig:ctrl3} and Figs.~\ref{fig:ctrl3_det} while Fig.~\ref{fig:ctrl4} and Figs.~\ref{fig:ctrl4_det} show how the energy flows across the system during each period. 
 %
-\begin{figure}[!ht]
+\begin{figure}[!b]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl3.pdf}
-	\caption{Iterative energy shaping control: the time evolution of the Hamiltonian function. After a short transient also the system's energy becomes periodic.}
+	\caption[Iterative energy shaping control: the time evolution of the Hamiltonian function]{Iterative energy shaping control: the time evolution of the Hamiltonian function. After a short transient also the system's energy becomes periodic.}
 	\label{fig:ctrl3}
 \end{figure}
 %
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl3_det.pdf}
-	\caption{Iterative energy shaping control: detailed view of the time evolution of the Hamiltonian function at steady state to highlight its (asymptotic) periodicity.}
+	\caption[Iterative energy shaping control: detailed view of the the Hamiltonian at steady--state]{Iterative energy shaping control: detailed view of the time evolution of the Hamiltonian function at steady--state to highlight its (asymptotic) periodicity.}
 	\label{fig:ctrl3_det}
 \end{figure}
 %
-\begin{figure}[!ht]
+\begin{figure}[hb!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl4.pdf}
-	\caption{Iterative energy shaping control: the time evolution of the Hamiltonian function. After a short transient also the system's energy becomes periodic.}
+	\caption[Iterative energy shaping control: Distribution of the energy across the system's components and time]{Iterative energy shaping control: Distribution of the energy across the system's components and time. After a short transient also the system's energy becomes periodic.}
 	\label{fig:ctrl4}
 \end{figure}
 %
-\begin{figure}[!ht]
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl4_det.pdf}
-	\caption{Iterative energy shaping control: detailed view of the time evolution of the Hamiltonian function at steady state to highlight its (asymptotic) periodicity.}
+	\caption[Iterative energy shaping control: detailed view of the energy distribution across the system's components and time]{Iterative energy shaping control: detailed view of the energy distribution across the system's components and time. at steady state to highlight its (asymptotic) periodicity.}
 	\label{fig:ctrl4_det}
 \end{figure}
-%
-As expected also the energy becomes periodic. In fact, the energy at the beginning and at the end of each cycle (bounce) become exactly the same. Moreover, we can see that, at steady state, during the ball--robot impact, the robot transfers to the ball the exact amount of energy necessary to reach the desired bounce peak. Finally, as shown in Fig. \ref{fig:ctrl5} the error goes to zero with the number of cycles.
+As expected, also the energy becomes periodic. In fact, the energy at the beginning and at the end of each cycle (bounce) assumes exactly the same value. Moreover, it can be noticed that, at steady state, during the ball--robot impact, the robot transfers to the ball the exact amount of energy necessary to reach the desired bounce peak. Finally, as shown in Fig. \ref{fig:ctrl5} the error goes to zero with the number of cycles.
 %
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl5.pdf}
-	\caption{Iterative energy shaping control: (discrete) time evolution of the tracking error $e$ and of the energy shaping gain $\varphi_\xi(e)$. As the number of cycles $\xi$ increases, the tracking error $e$, i.e. the difference between the desired and ball's bounce peak, goes asymptotically to zero. Instead, the energy shaping gain converges, increasing monotonically, to a constant value.}
+	\caption[Iterative energy shaping control: (discrete) time evolution of the tracking error $e$ and of the energy shaping gain $\varphi_\xi(e)$]{Iterative energy shaping control: (discrete) time evolution of the tracking error $e$ and of the energy shaping gain $\varphi_\xi(e)$. As the number of cycles $\xi$ increases, the tracking error $e$, i.e. the difference between the desired and ball's bounce peak, goes asymptotically to zero. At the same time, the energy shaping gain converges, increasing monotonically, to a constant value.}
 	\label{fig:ctrl5}
 \end{figure}
 %
 On the other hand, the function $\varphi_\xi(e)$ converges exponentially to a positive constant value. 
 %
-A final consideration about the convergence of the system to the desired periodic trajectory can be made from the phase-space portrait of the system's trajectory (Fig. \ref{fig:ctrl2}). Being the time represented by the color transition, it can be noticed that the system approaches a limit cycle, an attractive asymptotically periodic trajectory, in which the tracking error is zero.
-%
-%
-\begin{figure}[!ht]
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\linewidth]{Figures/ctrl2.pdf}
-	\caption[Iterative energy shaping control: phase--space trajectories]{Iterative energy shaping control: projections on the $q_1-p_1$ plane (above) and the $q_2-p_2$ plane (below) of the phase-space trajectory of the system. The system converges to a hybrid limit cycle in which $e=0$.}
+	\caption[Iterative energy shaping control: phase--space trajectories]{Iterative energy shaping control: projections on the $q_1-p_1$ plane and the $q_2-p_2$ plane of the phase-space trajectory of the system. The system converges to a hybrid limit cycle in which $e=0$.}
 	\label{fig:ctrl2}
 \end{figure}
 %
-\clearpage
-%
+A final consideration about the convergence of the system to the desired periodic trajectory can be made from the phase-space portrait of the system's trajectory (Fig.~\ref{fig:ctrl2}). Being the time represented by the color transition, it can be noticed that the system approaches a limit cycle, an attractive asymptotically periodic trajectory, in which the tracking error is zero.
+
+
+
 \subsection{Numerical Stability and Robustnes Analysis}
 %
 \subsubsection{Robustness to Initial Condition}
-In order to prove the numerically the stability and robustness of the proposed control scheme, a Monte Carlo experiment similar to the one proposed in Section \ref{sec:analysis_aut}, has been performed. In particular, choosing as physical parameters $m_1=0.1\text{Kg}$, $m_2=0.15\text{Kg}$, $\beta_1=0.2$, $\beta_2=0.3$, $c_1=c_2=0.8$ and control parameters $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.5$, $\sigma = 10$, $k_{d,h} = 10^2$, $\varphi_\xi(e) = 3000 + 10e + 300\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 1$, 3000 trajectories has been computed starting from initial conditions $\xb_0^i$ sampled by the normal distribution
+In order to numerically prove the stability and robustness of the proposed control scheme, a Monte Carlo experiment similar to the one presented in Section~\ref{sec:analysis_aut}, has been performed. In particular, choosing as physical parameters $m_1=0.1\text{Kg}$, $m_2=0.15\text{Kg}$, $\beta_1=0.2$, $\beta_2=0.3$, $c_1=c_2=0.8$ and control parameters $k_{p,w} = 10^4$, $k_{d,w} = 10^3$, $\delta = 0.5$, $\sigma = 10$, $k_{d,h} = 10^2$, $\varphi_\xi(e) = 3000 + 10e + 300\sum_{i = 1}^{\xi}e(i)$, $q_{2,max}^* = 1$, a total of 3000 trajectories have been computed starting from initial conditions $\xb_0^i$ sampled by the normal distribution
 %
 \begin{equation}
-    \N(\xb_0,\sigma\mathbb{I}_n)
+\N(\xb_0,\sigma\mathbb{I}_n),
 \end{equation}
-%
-with $\xb_0\triangleq(2,1.5,0,0)$ and $\sigma=1$. The time evolution of the system's state in all the trials is shown in Fig. \ref{fig:reg1}.
-%
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/reg1.pdf}
-    \caption[Time evolution of the controlled system' state in the Monte Carlo simulation]{Time evolution of the controlled system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting far from each other, eventually converge to the nominal trajectory.}
-    \label{fig:reg1}
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width = \linewidth]{Figures/reg1.pdf}
+	\caption[Time evolution of the controlled system' state in the Monte Carlo simulation]{Time evolution of the controlled system' state in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting far from each other, converge to the nominal trajectory.}
+	\label{fig:reg1}
 \end{figure}
-%
-The black trajectory is the nominal one (starting from $\xb_0$), where red dots and dashed blue lines indicate discrete events (impacts) and the value of the state after the events, respectively. Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial conditions. It can be noticed how trajectories, starting far from each other, eventually converge to the nominal trajectory. This means that the controller generates an attractive limit cycle. This can be seen indeed also in Fig. \ref{fig:reg2} where the phase--space trajectories are represented.
-%
+with $\xb_0\triangleq(2,1.5,0,0)$ and $\sigma=1$\footnote{To minimize the effects of numerical instabilities of the \textit{HyEq} solver, larger physical and control parameters respect to the one used in the previous section have been chosen in this case.}. The time evolution of the system's state in the nominal case ($\xb(t=0) = \xb_0$) and all the Monte Carlo trials are displayed in Fig.~\ref{fig:reg1}.
+
+
+It can be noticed how even if the trajectories start far from each other, are all asymptotically periodic and converge to the nominal trajectory. This means that the controller generates an attractive \textit{limit cycle} in the closed--loop system. This is further highlighted in Fig.~\ref{fig:reg2} where the phase--space trajectories are represented.
+
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/reg2.pdf}
-    \caption[Phase--space trajectory of the controlled system in the Monte Carlo simulation]{Phase--space trajectory of the controlled system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting far from each other, eventually converge to the nominal trajectory.}
-    \label{fig:reg2}
-\end{figure}
-%
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = \linewidth]{Figures/reg3.pdf}
-    \caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run.}
-    \label{fig:reg3}
+	\centering
+	\includegraphics[width = \linewidth]{Figures/reg2.pdf}
+	\caption[Phase--space trajectory of the controlled system in the Monte Carlo simulation]{Phase--space trajectory of the controlled system in the Monte Carlo simulation. The dashed black line is the nominal one (starting from $\xb_0$). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at are the initial conditions. It can be noticed how trajectories, starting far from each other, converge to the nominal trajectory.}
+	\label{fig:reg2}
 \end{figure}
 
-The time evolution of the energy (Hamiltonian function) among the Monte Carlo runs is also shown in Fig. \ref{fig:reg3}.
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width = \linewidth]{Figures/reg3.pdf}
+	\caption[Time evolution of the energy in the Monte Carlo simulation]{Time evolution of the energy in the Monte Carlo simulation. The black trajectory is the nominal one (starting from $\xb_0$), where red dots indicate discrete events (impacts). Orange lines show the traces of all the other trajectories of the Monte Carlo runs (with initial condition sampled from $\N(\xb_0,\sigma\mathbb{I}_n)$). The blue dots at $t=0$ are the initial energies of each Monte Carlo run.}
+	\label{fig:reg3}
+\end{figure}
+
+The time evolution of the energy (Hamiltonian function) among the Monte Carlo runs is also shown in Fig.~\ref{fig:reg3}.
+
+The stability and attractivity to the nominal trajectory of the iterative energy shaping controlled system is shown in Fig.~\ref{fig:reg4}, which pictures the convergence of the tracking error and energy shaping gain. It is worth to underline that the mean of both, the error and gain among the Monte Carlo runs is almost identical to the nominal one. Further investigations might be interesting to be performed in order to analyse this phenomenon.
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width = \linewidth]{Figures/reg4.pdf}
+	\caption[Convergence of the tracking error and controller gain in the Monte Carlo simulation]{Convergence of the tracking error and energy shaping gain (hit state) in the Monte Carlo simulation. The black line indicates the nominal case. The orange area bounds the minimum and maximum among the values of each Monte Carlo runs while the blue line represents their average.}
+	\label{fig:reg4}
+\end{figure}
+
+\subsubsection{Robustness to Change of Parameters}
 %
-\subsubsection{Robustness to Change of Reference}
+To prove the robustness against sudden changes of physical parameters of the system, several simulations have been performed with the same model and control parameters used in Subsection~\ref{sec:controlled_bd} and, changing at time $t = 2.5s$ some parameter of the model. Firstly the reference have been setted from $0.1$m to $0.05$m (-50\%). Then, the mass of the ball $m_2$ has been changed from $0.05$Kg to $0.25$Kg (+400\%). Finally, the restitution coefficient of the ball--robot collision has been changed from $0.8$ to $0.99$ (+23.75\%). The resulting states trajectories, tracking error, learned gains and energy are reported in Figs.~\ref{fig:roba},~\ref{fig:robb} and~\ref{fig:robc}.
+% 
+\begin{figure}[!ht]
+	\centering
+	\subfigure[States time evolution]{\includegraphics[width= .85\linewidth]{Figures/rob1.pdf}}
+	\subfigure[Tracking error and learned gain]{\includegraphics[width= .85\linewidth]{Figures/rob2l.pdf}}
+	\subfigure[System's energy]{\includegraphics[width= .85\linewidth]{Figures/rob3.pdf}}
+	\caption[Robustness to parameters variations: reference position]{Robustness to parameters variations: change on the reference position.}
+	\label{fig:roba}
+\end{figure}
+%
+\begin{figure}[!ht]
+	\centering
+	\subfigure[States time evolution]{\includegraphics[width=.85\linewidth]{Figures/rob4.pdf}}
+	\subfigure[Tracking error and learned gain]{\includegraphics[width=.85\linewidth]{Figures/rob5l.pdf}}
+	\subfigure[System's energy]{\includegraphics[width=.85\linewidth]{Figures/rob6.pdf}}
+	\caption[Robustness to parameters variations: ball's mass]{Robustness to parameters variations: change on the ball's mass.}
+	\label{fig:robb}
+\end{figure}
+%
+\begin{figure}[!ht]
+	\centering
+	\subfigure[States time evolution]{\includegraphics[width=.85\linewidth]{Figures/rob7.pdf}}
+	\subfigure[Tracking error and learned gain]{\includegraphics[width=.85\linewidth]{Figures/rob8l.pdf}}
+	\subfigure[System's energy]{\includegraphics[width=.85\linewidth]{Figures/rob9.pdf}}
+	\caption[Robustness to parameters variations: restitution coefficients]{Robustness to parameters variations: change on the  restitution coefficients.}
+	\label{fig:robc}
+\end{figure}
+%
+
+Results demonstrated that the controller presents excellent robustness properties. In all three situations, the system recovers swiftly from the parameter change, adapting itself to the new value. 
+
+In particular, when the reference is changed from $0.1$m to $0.05$m, all the physical properties of the system are conserved, e.g. dissipation during flows and jumps. However, to stabilize the ball on the desired trajectory, the robot needs to transfer less momentum to the ball during their collision. The system thus adapts itself to those new conditions by decreasing the energy shaping gain in the hit state. 
+
+Instead, when the mass of the ball is increased from $0.05$Kg to $0.25$Kg, its momentum per unit of speed grows and thus, the conservation of momentum during the ball--robot collision requires an inresing of the robot's speed which will allow to transfer the same momentum to the ball. In turn, the acceleration of the robot during the hit mode is also controlled by the energy shaping gain. Consequently, it automatically increases and adpat itself towards the value of zero tracking error.
+
+Finally, when the the ball--robot collision's restitution coefficient is increased from 0.8 to 0.99, the percentage of momentum that the robot transfers to the ball, i.e elasticity of impact, increases. Consequently, the energy shaping gain became lower.    
+%
+Robustness to changes in the robot mass, friction coefficients and ball--ground restitution coefficients have also been tested. Results shown the effectiveness of the proposed solution.
 %
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -658,10 +1045,10 @@ In this chapter, inspired by the theory developed in Chapter \ref{chap:HPH_syste
 \newline
 
 %
-An accurate analysis of the autonomous model has been carried out, underlying its chaotic behaviour.
-Numerical simulations have been then performed to prove the effectiveness of the proposed control scheme.
-%
+Firstly, the hybrid port--Hamiltonian model of the ball--dribbling robot has been derived and characterized. Then, its passivity and autonomous stability have been confirmed. It has been shown how chaotic behaviors arise in the autonomous model.
+
+A new paradigm of energy--based control, the \textit{iterative energy shaping}, has been then introduced. Numerical simulations have been performed to prove the effectiveness of the proposed control scheme as well as its robustness to uncertain initial conditions and sodden changes to some physical parameters. 
 \newline
 
 %
-The aim of the next chapter is to give an idea of the ubiquity of the hybrid port--Hamiltonian framework is. First, a novel hybrid nonlinear controller is developed to solve a theoretical problem for linear system. Then, it is shown that the controlled system belongs to the class of hybrid port--Hamiltonian systems. 
+The aim of the next chapter is to give an idea of the ubiquity of the hybrid port--Hamiltonian framework is. A novel hybrid nonlinear controller is developed to solve a theoretical problem for linear system. Then, it is shown that the controlled system belongs to the class of hybrid port--Hamiltonian systems. 

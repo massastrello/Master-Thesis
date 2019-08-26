@@ -1,5 +1,19 @@
 \addvspace {10\jsc@mpt }
-\contentsline {xchapter}{Preliminaries}{1}
+\contentsline {xchapter}{{Introduction}}{1}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Efforts and flows variables for various physical domains.\relax }}{3}
 \addvspace {10\jsc@mpt }
-\contentsline {xchapter}{Hybrid Port--Hamiltonian Systems}{5}
+\contentsline {xchapter}{Preliminaries}{13}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{Hybrid Port--Hamiltonian Systems}{35}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{Iterative Energy Shaping of a Ball--Dribbling Robot}{47}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{Multistable Energy Shaping of Linear--Time--Invariant Systems}{77}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Hybrid controller optimization results.\relax }}{92}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {$1^{\text {st}}$ impulse ($x_1^*\rightarrow \pazocal {B}_2$)}}}{92}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {$2^{\text {nd}}$ impulse ($x_2^*\rightarrow \pazocal {B}_1$)}}}{92}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{Identification of a Class of Hybrid Dynamical Systems}{97}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{Conclusion and Future Work}{119}
 \contentsfinish 

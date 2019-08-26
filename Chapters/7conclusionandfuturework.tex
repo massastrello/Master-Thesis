@@ -7,12 +7,46 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-Future work will include an additional formalization of the framework of \textit{hybrid port--Hamiltonian} systems, e.g. well--posedness, Lyapunov theory etc., and the exploration of the stabilization properties of the {iterative energy shaping} controllers for general hybrid systems.
-%\clearpage
+This thesis proposed a novel framework to deal with the challenging problem of controlling robots in highly dynamic tasks. The proposed solution has been developed by fashioning the theory of \textit{port--Hamiltonian systems} in the context of \textit{hybrid inclusions}.
+The originality of the presented work consists in the derivation of operative tools embedding physical intuitions into the mathematical formalism of \textit{hybrid dynamical systems} and \textit{nonsmooth mechanics}. 
+%
+\newline
 
-Future work will include investigations of the theoretical aspects linked to the multistable controller, the shaping of the basins of attraction and the stability of the overall hybrid system. A real implementation of the control system will also be explored.
-
+%
+In particular, the achieved results can logically organized in four main parts according to four different research objectives:
+%
+%
+\begin{enumerate}
+	\item  First, at a theoretical level, the framework of \textit{hybrid port--Hamiltonian systems} has been developed from first principles and the existing results present in the literature. Basic definitions have been provided, highlighting different aspects of the proposed model like passivity and autonomous stability;\newline
+	\item Second, at a robotics level, the chaotic dynamics of the ubiquitous and challenging \textit{ball--dribbling robot} have been tamed by introducing of a novel energy--based hybrid controller: the \textit{iterative energy--shaping control}. The stabilization capabilities and robustness of the proposed method have been tested. Results showed the attractiveness and stability of the reference periodic orbit attractive in the closed--loop system;\newline
+	\item Third, at a control systems level, the broad application spectrum of the proposed modeling framework has been shown in a less practical example. A novel hybrid control system has been developed in the context of passivity theory. With respect to the previous applications, here the hybrid dynamics are given by the controller and not by the physics of the system. Nevertheless, the closed--loop system has been proven to belong to the \textit{hybrid port--Hamiltonian} framework;\newline
+	\item Last but not least, at implementation level, a brief insight has been provided regarding the parameter estimation for hybrid systems. System identification is certainly is one of the most overlook, yet fundamental and challenging practical problems. The identification of hybrid systems has been tackled by rigorous analytical methods with certain dose of heuristics and intuitions. To validate the proposed approach, simulations have been performed on an hybrid port--Hamiltonian model.    
+\end{enumerate}
+%
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Work}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The outcome of this thesis creates a base for further challenging researches. From a theoretical point of view, several issues, such as  well--posedness, stabilizability, passivity--based control etc., are still opened.
+However, once the framework of hybrid port--Hamiltonian systems is extended with further mathematical tools, it will may serve as an active substrate for a new generation of modeling and control technique for highly dynamic tasks in robotics applications. 
+%
+\newline
+
+%
+Nevertheless, the directions for future work are given, in practice, by the limitations present in the current status of this research. They can be summarized as follows:
+%
+\begin{enumerate}
+	\item Experimental tests with a physical system of both, the proposed controllers and
+	the identification scheme, haven't been addressed yet. Besides, this step is necessary to prove the real capabilities of the developed theory, in particular for the ball--dribbling robot;\\
+	%
+	\item Only one--dimensional motion of the ball--dribbling robot has been considered. For practical robotics application it will be necessary to scale the controller to deal with higher dimensions (3D). This problem will be tacked by geometric modeling of port--Hamiltonian systems rather then working in coordinates: in three physical dimensions the equation of motion becomes over--complicated losing physical insights necessary for robust and reliable robot control design;\\
+	%
+	\item The only control design application for hybrid port--Hamiltonian systems was the one of the ball--dribbling robot. Although it is a very good prototype example in this context, other robotics application will be explored such as the hopping robot or dynamic interaction tasks (including human--robot interactions);\\
+	%
+	\item On a theoretical level, several issues must still be addressed for hybrid port--Hamiltonian systems. Those will certainly be considered in the future together with more applications in the field on control theory as the example presented in Chapter \ref{chap:multistable}. Beyond control theory, a new promising application directions for hybrid port--Hamiltonian systems is optimization for deep learning (see [c4]).\\
+	%
+	\item The identification protocol developed in Chapter \ref{chap:identification}, is only designed to deal with a restricted class of hybrid systems. Machine learning techniques might be employed to extend the range of identifiable systems. For multi--modal (multiple jumps) hybrid systems deep learning methods can be used to classify state measurements and later perform a model--based identification.  
+
+\end{enumerate}
+%

@@ -3,30 +3,90 @@
 \chapterbegin 
 \chapterbegin 
 \chapterbegin 
-\contentsline {chapter}{\numberline {Chapter\nobreakspace {}1}Preliminaries}{1}
-\contentsline {section}{\numberline {1.1}Introduction}{2}
-\contentsline {section}{\numberline {1.2}Port--Hamiltonian Systems}{3}
-\contentsline {subsection}{\numberline {1.2.1}Input--State--Output Model}{3}
-\contentsline {subsection}{\numberline {1.2.2}Passivity--Based Control}{3}
-\contentsline {section}{\numberline {1.3}Hybrid Dynamical Systems}{4}
-\contentsline {subsection}{\numberline {1.3.1}Hybrid Inclusions}{4}
-\contentsline {subsection}{\numberline {1.3.2}Stability}{4}
-\contentsline {chapter}{\numberline {Chapter\nobreakspace {}2}Hybrid Port--Hamiltonian Systems}{5}
-\contentsline {section}{\numberline {2.1}Introduction and Preliminaries}{6}
-\contentsline {subsection}{\numberline {2.1.1}LRF Principles}{6}
-\contentsline {subsection}{\numberline {2.1.2}Related Physical Phenomena and Theories}{6}
-\contentsline {subsection}{\numberline {2.1.3}A Material Classification Method}{6}
-\contentsline {section}{\numberline {2.2}Proposed Classification Method}{7}
-\contentsline {subsection}{\numberline {2.2.1}Assumption}{7}
-\contentsline {subsection}{\numberline {2.2.2}Experimental verifications}{7}
-\contentsline {subsection}{\numberline {2.2.3}Outline of the Classification Method}{7}
-\contentsline {section}{\numberline {2.3}Neural Network based Classifier}{8}
-\contentsline {subsection}{\numberline {2.3.1}Motivation}{8}
-\contentsline {subsection}{\numberline {2.3.2}Training Data Preparation}{8}
-\contentsline {subsection}{\numberline {2.3.3}Training and Testing Performance}{8}
-\contentsline {section}{\numberline {2.4}Summary}{9}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}1}{Introduction}}{1}
+\contentsline {section}{\numberline {1.1}Background}{2}
+\contentsline {subsection}{\numberline {1.1.1}Energy as Common Factor Among Interactions}{2}
+\contentsline {subsection}{\numberline {1.1.2}Research Problem: Control Highly Dynamic Robotic Tasks}{3}
+\contentsline {subsection}{\numberline {1.1.3}Beyond Robot Control}{4}
+\contentsline {subsection}{\numberline {1.1.4}The Identification Problem}{5}
+\contentsline {section}{\numberline {1.2}{Aims and Objectives}}{7}
+\contentsline {section}{\numberline {1.3}Thesis Content and Structure}{8}
+\contentsline {subsection}{\numberline {1.3.1}Thesis Outline}{8}
+\contentsline {subsection}{\numberline {1.3.2}Thesis Content}{9}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}2}Preliminaries}{13}
+\contentsline {section}{\numberline {2.1}Introduction}{14}
+\contentsline {section}{\numberline {2.2}Stability and Passivity}{15}
+\contentsline {subsection}{\numberline {2.2.1}Stability of Autonomous Systems}{15}
+\contentsline {subsection}{\numberline {2.2.2}Passivity: Basic Definitions}{16}
+\contentsline {subsection}{\numberline {2.2.3}Output Feedback Stabilization of Passive Systems}{17}
+\contentsline {section}{\numberline {2.3}Port--Hamiltonian Systems}{19}
+\contentsline {subsection}{\numberline {2.3.1}Input--State--Output Model}{19}
+\contentsline {subsection}{\numberline {2.3.2}Passivity--Based Control}{25}
+\contentsline {section}{\numberline {2.4}Hybrid Dynamical Systems}{29}
+\contentsline {subsection}{\numberline {2.4.1}Hybrid Inclusions}{29}
+\contentsline {subsection}{\numberline {2.4.2}Stability}{31}
+\contentsline {section}{\numberline {2.5}Summary}{33}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}3}Hybrid Port--Hamiltonian Systems}{35}
+\contentsline {section}{\numberline {3.1}Introduction}{36}
+\contentsline {section}{\numberline {3.2}Definitions and Basic Assumptions}{37}
+\contentsline {subsection}{\numberline {3.2.1}Impulsive Port--Hamiltonian Systems}{37}
+\contentsline {subsection}{\numberline {3.2.2}Hybrid port--Hamiltonian Systems}{38}
+\contentsline {section}{\numberline {3.3}Passivity}{42}
+\contentsline {section}{\numberline {3.4}Lyapunov Stability of Autonomous Systems}{44}
+\contentsline {section}{\numberline {3.5}Summary}{46}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}4}Iterative Energy Shaping of a Ball--Dribbling Robot}{47}
+\contentsline {section}{\numberline {4.1}Introduction}{48}
+\contentsline {section}{\numberline {4.2}Model of the Ball--Dribbling Robot}{49}
+\contentsline {subsection}{\numberline {4.2.1}Port-Hamiltonian Model of Flows}{49}
+\contentsline {subsection}{\numberline {4.2.2}Model of the Impacts}{49}
+\contentsline {subsubsection}{Ball-Floor Collisions}{50}
+\contentsline {subsubsection}{Robot-Ball Collisions}{50}
+\contentsline {section}{\numberline {4.3}Analysis of the Autonomous Model}{52}
+\contentsline {subsection}{\numberline {4.3.1}Passivity and Autonomous Stability}{52}
+\contentsline {subsection}{\numberline {4.3.2}Chaotic Trajectories}{52}
+\contentsline {section}{\numberline {4.4}Dribbling Control}{57}
+\contentsline {section}{\numberline {4.5}Numerical Simulations}{60}
+\contentsline {subsection}{\numberline {4.5.1}Autonomous System}{60}
+\contentsline {subsection}{\numberline {4.5.2}Controlled System}{60}
+\contentsline {subsection}{\numberline {4.5.3}Numerical Stability and Robustnes Analysis}{62}
+\contentsline {subsubsection}{Robustness to Initial Condition}{62}
+\contentsline {subsubsection}{Robustness to Change of Parameters}{64}
+\contentsline {section}{\numberline {4.6}Summary}{76}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}5}Multistable Energy Shaping of Linear--Time--Invariant Systems}{77}
+\contentsline {section}{\numberline {5.1}Introduction}{78}
+\contentsline {section}{\numberline {5.2}Multistable Energy Shaping of LTI Systems}{80}
+\contentsline {subsection}{\numberline {5.2.1}Passivity of LTI Systems}{80}
+\contentsline {subsection}{\numberline {5.2.2}Multistable Passivity--Based Control of LTI Systems}{81}
+\contentsline {subsection}{\numberline {5.2.3}Application Example}{83}
+\contentsline {subsection}{\numberline {5.2.4}Choice of the Dissipation Rate: Shaping the Basins of Attraction}{84}
+\contentsline {section}{\numberline {5.3}Hybrid Mode Selector}{88}
+\contentsline {subsection}{\numberline {5.3.1}Impulse generation}{88}
+\contentsline {subsection}{\numberline {5.3.2}Overall Hybrid System}{89}
+\contentsline {section}{\numberline {5.4}Hybrid Port--Hamiltonian Model and Stability}{90}
+\contentsline {section}{\numberline {5.5}Numerical Simulation}{92}
+\contentsline {section}{\numberline {5.6}Summary}{95}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}6}Identification of a Class of Hybrid Dynamical Systems}{97}
+\contentsline {section}{\numberline {6.1}Introduction}{98}
+\contentsline {section}{\numberline {6.2}Problem Setting}{99}
+\contentsline {section}{\numberline {6.3}Jump Detection}{101}
+\contentsline {section}{\numberline {6.4}Identification Procedure}{104}
+\contentsline {subsection}{\numberline {6.4.1}Approximation of the Smoothness Bound}{104}
+\contentsline {subsection}{\numberline {6.4.2}Parameters Estimation}{105}
+\contentsline {subsection}{\numberline {6.4.3}Reduced Order Identification}{106}
+\contentsline {subsection}{\numberline {6.4.4}Flow and Jump Sets Approximation}{108}
+\contentsline {section}{\numberline {6.5}Simulation Experiments}{110}
+\contentsline {subsection}{\numberline {6.5.1}Case of Study: Impact Mass-Spring-Damper System}{110}
+\contentsline {subsubsection}{Model of the Flows}{110}
+\contentsline {subsubsection}{Model of the Jumps}{110}
+\contentsline {subsubsection}{Model Identification}{111}
+\contentsline {subsection}{\numberline {6.5.2}Numerical Simulation}{112}
+\contentsline {section}{\numberline {6.6}Summary}{118}
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}7}Conclusion and Future Work}{119}
+\contentsline {section}{\numberline {7.1}Conclusion}{120}
+\contentsline {section}{\numberline {7.2}Future Work}{121}
 \chapterbegin 
-\contentsline {chapter}{Bibliography}{11}
+\contentsline {chapter}{Acknowledgements}{123}
 \chapterbegin 
-\contentsline {chapter}{Research Publications}{15}
+\chapterbegin 
+\contentsline {chapter}{Research Publications}{131}
 \contentsfinish 

@@ -2,34 +2,32 @@
 \label{abst}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Accurate and robust control of robots in highly dynamic tasks is arguably is one the hardest open problems in robotics. The incapability of robots to interact with their environment in a safe and reliable manner is what still refrain them from becoming ubiquitous in our society.
+Accurate and robust control of robots in highly dynamic tasks is arguably one of the hardest open problems in robotics. The incapability of robots to safely and reliably interact with their environment is what still refrain them from becoming ubiquitous in our society.
+%
+The main challenge is due to the \textit{nonsmooth} nature of such dynamic tasks, as they often involve impacts between parts of the robot and its environment. Examples are \textit{legged locomotion}, \textit{non--prehensile} manipulation or aerial robot landing.
 %
 \newline
 
 %
-{\color{red}
-This issue in robotics is a fundamental control challenge which attracts great interest among practitioners, since industry is seeking more autonomy of their robots.
-}
+This issue in robotics is a fundamental control challenge, extremely appealing for the research community, which is trying to fulfill the needs of industries who are seeking more autonomy for commercial robots.
+This interest expands swiftly to a theoretical level once the problem is formalized. Discontinuities of any sort used to be sworn enemies of most control theorists. However, in recent years, a new emerging field of control theory: the \textit{hybrid dynamical systems}, promises a complete set of mathematical tools to deal with tasks characterized by interacting continuous and discrete time dynamics. Besides, this framework is by no means close to solve the robotics problem. Control theorists often spend too much time on over--complicated math without foresight of its applications. 
+\newline
 
-Howbeit, this interest expands swiftly to a theoretical level once the
-problem is formalized. Discontinuities of any sort used to be sworn enemies of most control theorists. However, in recente
+%
+Nevertheless, the work presented in this thesis hinges on the most fundamental concept of classical and modern physics: \textit{energy}. Energy is the key to understand, and thus control, the behavior of dynamical system by physical insights. The most relevant mathematical tool in this context is the one of \textit{port--Hamiltonian systems}. The aim of this thesis is to provide a unified modeling framework merging the ones of port--Hamiltonian and hybrid systems through consistent and practically useful results.
+%
+\newline
+
+%
+The research work embraces four different objectives: 
+characterize a new unified modeling strategy to tackle highly dynamic robotic tasks; apply the theory to cope with the challenging \textit{ball--dribbling robot} problem; show the broad applications' spectrum of the developed framework by adopting it into to bear pure control theory problem; perform a first step towards real implementation of such control systems through system identification task.
+%
+\newline
+
+%
+The contribution of this thesis is primarily theoretical, however, all chapters are application--oriented displaying real examples with simulations.
 
 
-\par
- Mathematical tools coming from different fields can be used
-to provide an insight to the output regulation problem in different ways.
-An important control technique that is classically used to achieve periodic output regulation si called Repetitive Control (RC) and this thesis focuses on (but is not
-limited to) the development and the analysis with novel tools of RC schemes.
-Periodic output regulation for nonlinear dynamical systems is a challenging topic.
-This thesis, besides of providing consistent and practically useful results in the linear
-case, introduces promising tools dealing with the nonlinear periodic output regulation problem, whose solution is presented for particular classes of systems.
-The contribution of this research is mainly theoretical and relies on the use of
-mathematical tools like infinite-dimensional port-Hamiltonian systems and autonomous
-discrete-time systems to study stability and tracking properties in RC schemes and periodic regulation in general. Differently from the classical continuous-time formulation of RC, internal model arguments are not directly used is this work to study
-asymptotic tracking. In this way the linear case can be reinterpreted under a new
-light and novel strategies to consistently attack the nonlinear case are presented.
-Furthermore an application-oriented chapter with experimental results is present
-which describes the possibility of implementing a discrete-time RC scheme involving trajectory generation and non-minimum phase systems.
 %Accurate localization and mapping are very important for mobile robots working in indoor environments where human exists. In order to localize and map accurately, a rangefinder (LRF) is widely used because of it high accuracy in distance measuring. In modern indoor environments, glass is very common. However, glass is usually not shown on the map correctly when using LRF, because it cannot be detected by LRF from all angles, as other objects. The incorrect map brings the danger of crashing into the glass to the mobile robot when path planning. Furthermore, the limited ability of LRF in glass detection negatively influences the localization accuracy of the mobile robots. 
 %
 %To solve the problems mentioned above, this thesis proposes to build a glass confidence map which can show all objects on the map, glass included, and their probability of being glass. The purpose of this thesis is to build such a glass confidence map. The method proposed is to first classify glass and non-glass objects, and then process them differently in order to get a better map. 

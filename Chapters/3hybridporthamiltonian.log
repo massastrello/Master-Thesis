@@ -1,0 +1,2738 @@
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017/Debian) (preloaded format=platex 2018.10.12)  14 AUG 2019 11:36
+entering extended mode
+ restricted \write18 enabled.
+ Source specials enabled.
+ %&-line parsing enabled.
+**3hybridporthamiltonian.tex
+(./3hybridporthamiltonian.tex
+pLaTeX2e <2017/10/28>+4 (based on LaTeX2e <2017-04-15>)
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+! Undefined control sequence.
+l.2 \definecolor
+                {brickred}{rgb}{0.8, 0.25, 0.33}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \definecolor{b
+                  rickred}{rgb}{0.8, 0.25, 0.33}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.3 \chapter
+            {Hybrid Port--Hamiltonian Systems}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (85.63904pt too wide) in paragraph at lines 2--4
+[][]\OT1/cmr/m/n/10 brickredrgb0.8,
+ []
+
+
+Overfull \hbox (20.55562pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 0.25,
+ []
+
+
+Overfull \hbox (17.77783pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 0.33
+ []
+
+
+Overfull \hbox (16.11115pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 Hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (24.33339pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 Port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (18.11115pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 Sys-
+ []
+
+
+Overfull \hbox (20.61115pt too wide) in paragraph at lines 2--4
+\OT1/cmr/m/n/10 tems 
+ []
+
+! Undefined control sequence.
+l.6 \minitoc
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 \newpage
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
+! Undefined control sequence.
+<write> \newlabel{chap:HPH_systems}{{}{\thepage 
+                                                }}
+l.10 \newpage
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{chap:HPH_systems}{{}{}}
+]
+! Undefined control sequence.
+l.12 \section
+             {Introduction}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \section{I
+               ntroduction}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.13 \lettrine
+              [lines=4]{\color{brickred}H}{ereafter}, the framework of hybri...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.13 \lettrine[lines=4]{\color
+                              {brickred}H}{ereafter}, the framework of hybri...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 13.
+! Undefined control sequence.
+<write> ... `chap:preliminaries' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.13 ...cussed in Chapter \ref{chap:preliminaries}
+                                                  , the theories of port--Ha...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `chap:preliminaries' on page  undefined on input line 
+13.
+
+
+Overfull \hbox (74.75014pt too wide) in paragraph at lines 12--16
+[][]\OT1/cmr/m/n/10 Introduction
+ []
+
+
+Overfull \hbox (116.83356pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 [lines=4]brickredHereafter,
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (28.08339pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 frame-
+ []
+
+
+Overfull \hbox (21.13893pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 work
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (20.61115pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 tems
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 tro-
+ []
+
+
+Overfull \hbox (28.33339pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 duced.
+ []
+
+
+Overfull \hbox (25.58339pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 Start-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (20.30562pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 from
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (11.69444pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 re-
+ []
+
+
+Overfull \hbox (20.11115pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 sults
+ []
+
+
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 dis-
+ []
+
+
+Overfull \hbox (27.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 cussed
+ []
+
+
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 in
+ []
+
+
+Overfull \hbox (26.66672pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 Chap-
+ []
+
+
+Overfull \hbox (12.25002pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 ter
+ []
+
+
+Overfull \hbox (13.63884pt too wide) in paragraph at lines 12--16
+[]\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 the-
+ []
+
+
+Overfull \hbox (8.33334pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 o-
+ []
+
+
+Overfull \hbox (15.08334pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 ries
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (20.61115pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 tems
+ []
+
+
+Overfull \hbox (16.11116pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 and
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (16.11113pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 clu-
+ []
+
+
+Overfull \hbox (21.22226pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 sions
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (34.47229pt too wide) in paragraph at lines 12--16
+\OT1/cmr/m/n/10 merged. 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 F
+      irst, the \textit{impulsive port--Hamiltonian systems} will be charact...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
+(Font)              using `JT1/mc/m/n' instead on input line 18.
+
+
+LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
+(Font)              using `JY1/mc/m/n' instead on input line 18.
+
+
+Overfull \hbox (43.83339pt too wide) in paragraph at lines 18--21
+[][]\OT1/cmr/m/n/10 First,
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (14.82213pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 im-
+ []
+
+
+Overfull \hbox (16.61101pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 pul-
+ []
+
+
+Overfull \hbox (16.35544pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 sive
+ []
+
+
+Overfull \hbox (22.36095pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 port--
+ []
+
+
+Overfull \hbox (54.19969pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 Hamiltonian
+ []
+
+
+Overfull \hbox (16.611pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 sys-
+ []
+
+
+Overfull \hbox (20.18875pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/it/10 tems
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (21.97224pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 char-
+ []
+
+
+Overfull \hbox (12.77779pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ac-
+ []
+
+
+Overfull \hbox (15.58334pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ter-
+ []
+
+
+Overfull \hbox (20.00003pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ized.
+ []
+
+
+Overfull \hbox (7.50002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 It
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 a
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 gen-
+ []
+
+
+Overfull \hbox (11.69444pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 er-
+ []
+
+
+Overfull \hbox (11.11113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 al-
+ []
+
+
+Overfull \hbox (15.55557pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 iza-
+ []
+
+
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (29.50006pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 single--
+ []
+
+
+Overfull \hbox (27.22226pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 flowed
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (16.11113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 clu-
+ []
+
+
+Overfull \hbox (21.22226pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 sions
+ []
+
+
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 in
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 a
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (20.88893pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 fash-
+ []
+
+
+Overfull \hbox (16.11116pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ion.
+ []
+
+
+Overfull \hbox (19.50003pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 This
+ []
+
+
+Overfull \hbox (20.11113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 class
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (16.6667pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tem
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (14.47223pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 rel-
+ []
+
+
+Overfull \hbox (7.77777pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 e-
+ []
+
+
+Overfull \hbox (18.88895pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 vant
+ []
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 to
+ []
+
+
+Overfull \hbox (16.1667pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 this
+ []
+
+
+Overfull \hbox (24.22229pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 study
+ []
+
+
+Overfull \hbox (8.94446pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 as
+ []
+
+
+Overfull \hbox (21.16672pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 most
+ []
+
+
+Overfull \hbox (16.11113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 me-
+ []
+
+
+Overfull \hbox (23.61115pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 chan-
+ []
+
+
+Overfull \hbox (6.11111pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 i-
+ []
+
+
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 cal
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (20.61115pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tems
+ []
+
+
+Overfull \hbox (13.05557pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ex-
+ []
+
+
+Overfull \hbox (23.88895pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 hibit-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (21.69449pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 (par-
+ []
+
+
+Overfull \hbox (26.38898pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tially)
+ []
+
+
+Overfull \hbox (19.50002pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 elas-
+ []
+
+
+Overfull \hbox (11.11113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tic
+ []
+
+
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 im-
+ []
+
+
+Overfull \hbox (25.61116pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 pacts,
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (21.6667pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 clud-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (34.80563pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 robotics
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ap-
+ []
+
+
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 pli-
+ []
+
+
+Overfull \hbox (12.77779pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 ca-
+ []
+
+
+Overfull \hbox (23.9445pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 tions,
+ []
+
+
+Overfull \hbox (13.61113pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 be-
+ []
+
+
+Overfull \hbox (18.33339pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 long
+ []
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 to
+ []
+
+
+Overfull \hbox (16.1667pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 this
+ []
+
+
+Overfull \hbox (28.08339pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 frame-
+ []
+
+
+Overfull \hbox (23.91672pt too wide) in paragraph at lines 18--21
+\OT1/cmr/m/n/10 work. 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 T
+      hen, the general \textit{hybrid port--Hamiltonian system} will be defi...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (45.5556pt too wide) in paragraph at lines 23--26
+[][]\OT1/cmr/m/n/10 Then,
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 gen-
+ []
+
+
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 eral
+ []
+
+
+Overfull \hbox (13.54434pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 hy-
+ []
+
+
+Overfull \hbox (16.99432pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 brid
+ []
+
+
+Overfull \hbox (22.36095pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 port--
+ []
+
+
+Overfull \hbox (54.19969pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 Hamiltonian
+ []
+
+
+Overfull \hbox (16.611pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 sys-
+ []
+
+
+Overfull \hbox (16.09988pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/it/10 tem
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (13.33334pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 de-
+ []
+
+
+Overfull \hbox (23.88895pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 fined.
+ []
+
+
+Overfull \hbox (15.4167pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 Ex-
+ []
+
+
+Overfull \hbox (16.6667pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 am-
+ []
+
+
+Overfull \hbox (16.72224pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 ples
+ []
+
+
+Overfull \hbox (11.97226pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 for
+ []
+
+
+Overfull \hbox (20.27785pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 both
+ []
+
+
+Overfull \hbox (28.50002pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 classes
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (17.80559pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 pro-
+ []
+
+
+Overfull \hbox (24.77783pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 posed
+ []
+
+
+Overfull \hbox (22.50006pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 mod-
+ []
+
+
+Overfull \hbox (11.16667pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 els
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (17.80559pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 pro-
+ []
+
+
+Overfull \hbox (26.38896pt too wide) in paragraph at lines 23--26
+\OT1/cmr/m/n/10 vided. 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 T
+      hen, the concept of passivity will be extended to the hybrid case in t...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (45.5556pt too wide) in paragraph at lines 28--30
+[][]\OT1/cmr/m/n/10 Then,
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 con-
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 cept
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (17.83336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 pas-
+ []
+
+
+Overfull \hbox (15.33336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 siv-
+ []
+
+
+Overfull \hbox (11.6667pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 ity
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 will
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (13.05557pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 ex-
+ []
+
+
+Overfull \hbox (29.4445pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 tended
+ []
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 to
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (17.83334pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 case
+ []
+
+
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 in
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 con-
+ []
+
+
+Overfull \hbox (20.27783pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 text.
+ []
+
+
+Overfull \hbox (12.63892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 Fi-
+ []
+
+
+Overfull \hbox (21.38896pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 nally
+ []
+
+
+Overfull \hbox (19.58337pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 Lya-
+ []
+
+
+Overfull \hbox (26.66675pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 punov
+ []
+
+
+Overfull \hbox (16.16669pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 sta-
+ []
+
+
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 bil-
+ []
+
+
+Overfull \hbox (11.6667pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 ity
+ []
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 the-
+ []
+
+
+Overfull \hbox (8.33334pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 o-
+ []
+
+
+Overfull \hbox (16.69447pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 rem
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (16.72226pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 also
+ []
+
+
+Overfull \hbox (13.05557pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 ex-
+ []
+
+
+Overfull \hbox (29.4445pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 tended
+ []
+
+
+Overfull \hbox (20.30562pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 from
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 one
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (16.11113pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 clu-
+ []
+
+
+Overfull \hbox (24.00005pt too wide) in paragraph at lines 28--30
+\OT1/cmr/m/n/10 sions. 
+ []
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 \clearpage
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[2]
+! Undefined control sequence.
+l.32 \section
+             {Definitions and Basic Assumptions}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \section{D
+               efinitions and Basic Assumptions}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.34 \subsection
+                {Impulsive Port--Hamiltonian Systems}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ng: Reference `eq:hs' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.36 ...ation of the hybrid inclusion (\ref{eq:hs}
+                                                  ):
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `eq:hs' on page  undefined on input line 36.
+
+
+Overfull \hbox (67.13899pt too wide) in paragraph at lines 32--38
+[][]\OT1/cmr/m/n/10 Definitions
+ []
+
+
+Overfull \hbox (16.11116pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 and
+ []
+
+
+Overfull \hbox (15.4167pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Ba-
+ []
+
+
+Overfull \hbox (11.16667pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 sic
+ []
+
+
+Overfull \hbox (14.77779pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 As-
+ []
+
+
+Overfull \hbox (26.72227pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 sump-
+ []
+
+
+Overfull \hbox (21.16672pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 tions
+ []
+
+
+Overfull \hbox (15.2778pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Im-
+ []
+
+
+Overfull \hbox (17.22226pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 pul-
+ []
+
+
+Overfull \hbox (16.16669pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 sive
+ []
+
+
+Overfull \hbox (24.33339pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (18.11115pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Sys-
+ []
+
+
+Overfull \hbox (20.61115pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 tems
+ []
+
+
+Overfull \hbox (21.11115pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 Con-
+ []
+
+
+Overfull \hbox (20.63892pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 sider
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (29.50006pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 single--
+ []
+
+
+Overfull \hbox (17.50003pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 flow
+ []
+
+
+Overfull \hbox (17.55557pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 spe-
+ []
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 cial-
+ []
+
+
+Overfull \hbox (15.55557pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 iza-
+ []
+
+
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 hy-
+ []
+
+
+Overfull \hbox (17.8056pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 brid
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (16.11113pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 clu-
+ []
+
+
+Overfull \hbox (17.27782pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 sion
+ []
+
+
+Overfull \hbox (21.41664pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/10 ([]): 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 38.
+
+! LaTeX Error: Environment matrix* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41         \begin{matrix*}
+                            [l]\vspace{1pt}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.43             \dot{\xb
+                         } = \mathbf{f}(\xb,\ub) && (\xb,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.43             \dot{\xb} = \mathbf{f}(\xb
+                                           ,\ub) && (\xb,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.43             \dot{\xb} = \mathbf{f}(\xb,\ub
+                                               ) && (\xb,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.43             \dot{\xb} = \mathbf{f}(\xb,\ub) &
+                                                  & (\xb,\ub)\in\C\times\U\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.43 ...        \dot{\xb} = \mathbf{f}(\xb,\ub) &&
+                                                   (\xb,\ub)\in\C\times\U\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.43 ...   \dot{\xb} = \mathbf{f}(\xb,\ub) && (\xb
+                                                  ,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.43 ...dot{\xb} = \mathbf{f}(\xb,\ub) && (\xb,\ub
+                                                  )\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.43 ...b} = \mathbf{f}(\xb,\ub) && (\xb,\ub)\in\C
+                                                  \times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.43 ...thbf{f}(\xb,\ub) && (\xb,\ub)\in\C\times\U
+                                                  \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \xb 
+                    
+l.44             \xb
+                    ^+ \in \G(\xb)&&\quad~~\xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.44             \xb^+ \in \G
+                             (\xb)&&\quad~~\xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.44             \xb^+ \in \G(\xb
+                                 )&&\quad~~\xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.44             \xb^+ \in \G(\xb)&
+                                   &\quad~~\xb\in\D\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.44             \xb^+ \in \G(\xb)&&
+                                    \quad~~\xb\in\D\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.44             \xb^+ \in \G(\xb)&&\quad~~\xb
+                                              \in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.44 ...        \xb^+ \in \G(\xb)&&\quad~~\xb\in\D
+                                                  \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \yb 
+                    
+l.45             \yb
+                     = \mathbf{h}(\xb)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.45             \yb = \mathbf{h}(\xb
+                                     )
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{equation} on input line 38 ended by \end{matrix*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47         \end{matrix*}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (170.0675pt too wide) detected at line 50
+[][]  [] []\OML/cmm/m/it/10 ;
+ []
+
+! Undefined control sequence.
+l.52 with $\mathbf{f}:\R
+                        ^n\times\R^m\rightarrow\R^n$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.52 with $\mathbf{f}:\R^n\times\R
+                                  ^m\rightarrow\R^n$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.52 with $\mathbf{f}:\R^n\times\R^m\rightarrow\R
+                                                 ^n$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 50--55
+[]\OT1/cmr/m/n/10 with
+ []
+
+
+Overfull \hbox (15.60295pt too wide) in paragraph at lines 50--55
+\OT1/cmr/bx/n/10 f \OT1/cmr/m/n/10 :[]
+ []
+
+
+Overfull \hbox (36.37276pt too wide) in paragraph at lines 50--55
+\OMS/cmsy/m/n/10 ^^B[] ![]$\OT1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (20.30557pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 Here
+ []
+
+
+Overfull \hbox (6.66669pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 it
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (12.27779pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 as-
+ []
+
+
+Overfull \hbox (27.83339pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 sumed
+ []
+
+
+Overfull \hbox (18.33339pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 that
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (18.94449pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 puts
+ []
+
+
+Overfull \hbox (13.33334pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 en-
+ []
+
+
+Overfull \hbox (12.25002pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 ter
+ []
+
+
+Overfull \hbox (16.94449pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 into
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (14.1667pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 dy-
+ []
+
+
+Overfull \hbox (22.22227pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 nam-
+ []
+
+
+Overfull \hbox (11.16667pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 ics
+ []
+
+
+Overfull \hbox (18.61118pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 only
+ []
+
+
+Overfull \hbox (18.36115pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 dur-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (21.44447pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 flows
+ []
+
+
+Overfull \hbox (16.11116pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 and
+ []
+
+
+Overfull \hbox (14.44449pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 not
+ []
+
+
+Overfull \hbox (18.36115pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 dur-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (29.2223pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 jumps.
+ []
+
+
+Overfull \hbox (28.91669pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 There-
+ []
+
+
+Overfull \hbox (19.19449pt too wide) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 fore, 
+ []
+
+! Undefined control sequence.
+l.56     \ub
+            \triangleq\ub_c,~~\U\triangleq\U_c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \ub\triangleq
+                      \ub_c,~~\U\triangleq\U_c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \ub\triangleq\ub
+                         _c,~~\U\triangleq\U_c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \ub\triangleq\ub_c,~~\U
+                                \triangleq\U_c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \ub\triangleq\ub_c,~~\U\triangleq
+                                          \U_c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56     \ub\triangleq\ub_c,~~\U\triangleq\U
+                                            _c.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (19.81412pt too wide) detected at line 57
+[]\OML/cmm/m/it/10 ;  [] [][]:
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 T
+      his assumption has been made to simplify the model since in most physi...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment defn undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 \begin{defn}
+                 [Impulsive port--Hamiltonian Systems]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<write> ...ce `eq:hs_singleflow' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.64 ...system in the form (\ref{eq:hs_singleflow}
+                                                  )  with port--Hamiltonian ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `eq:hs_singleflow' on page  undefined on input line 64
+.
+
+
+Overfull \hbox (39.50003pt too wide) in paragraph at lines 60--66
+[][]\OT1/cmr/m/n/10 This
+ []
+
+
+Overfull \hbox (12.27779pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 as-
+ []
+
+
+Overfull \hbox (26.72227pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sump-
+ []
+
+
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Overfull \hbox (14.50003pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 has
+ []
+
+
+Overfull \hbox (20.27782pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 been
+ []
+
+
+Overfull \hbox (23.33339pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 made
+ []
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 to
+ []
+
+
+Overfull \hbox (18.38892pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sim-
+ []
+
+
+Overfull \hbox (19.44452pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 plify
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (26.38896pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 model
+ []
+
+
+Overfull \hbox (21.16669pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 since
+ []
+
+
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 in
+ []
+
+
+Overfull \hbox (21.16672pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 most
+ []
+
+
+Overfull \hbox (23.38893pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 phys-
+ []
+
+
+Overfull \hbox (6.11111pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 i-
+ []
+
+
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 cal
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (23.38893pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 tems,
+ []
+
+
+Overfull \hbox (10.55559pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 no
+ []
+
+
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 im-
+ []
+
+
+Overfull \hbox (17.22226pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 pul-
+ []
+
+
+Overfull \hbox (16.16669pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sive
+ []
+
+
+Overfull \hbox (19.75003pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 forc-
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 ing
+ []
+
+
+Overfull \hbox (24.52782pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 terms
+ []
+
+
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 can
+ []
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 be
+ []
+
+
+Overfull \hbox (22.25003pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 prac-
+ []
+
+
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 ti-
+ []
+
+
+Overfull \hbox (20.27783pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 cally
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 ap-
+ []
+
+
+Overfull \hbox (23.88895pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 plied.
+ []
+
+
+Overfull \hbox (18.05559pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 [Im-
+ []
+
+
+Overfull \hbox (17.22226pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 pul-
+ []
+
+
+Overfull \hbox (16.16669pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sive
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (18.11115pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 Sys-
+ []
+
+
+Overfull \hbox (23.38893pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 tems]
+ []
+
+
+Overfull \hbox (13.05559pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 An
+ []
+
+
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 im-
+ []
+
+
+Overfull \hbox (17.22226pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 pul-
+ []
+
+
+Overfull \hbox (16.16669pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sive
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (16.6667pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 tem
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 a
+ []
+
+
+Overfull \hbox (16.50002pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 sys-
+ []
+
+
+Overfull \hbox (16.6667pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 tem
+ []
+
+
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 in
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (20.30562pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 form
+ []
+
+
+Overfull \hbox (18.63885pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 ([])
+ []
+
+
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 with
+ []
+
+
+Overfull \hbox (23.63896pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 port--
+ []
+
+
+Overfull \hbox (54.16682pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 Hamiltonian
+ []
+
+
+Overfull \hbox (21.44447pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 flows
+ []
+
+
+Overfull \hbox (16.11116pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 and
+ []
+
+
+Overfull \hbox (17.77782pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 out-
+ []
+
+
+Overfull \hbox (17.77783pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 put,
+ []
+
+
+Overfull \hbox (12.7778pt too wide) in paragraph at lines 60--66
+\OT1/cmr/m/n/10 i.e. 
+ []
+
+! Undefined control sequence.
+l.68     \boxed
+               {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Environment matrix* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70         \begin{matrix*}
+                            [l]\vspace{1pt}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.72             \dot{\xb
+                         } = \left[\Jb(\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb(\x...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72             \dot{\xb} = \left[\Jb
+                                      (\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb(\x...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72             \dot{\xb} = \left[\Jb(\xb
+                                          )-\Rb(\xb)\right]\dH(\xb) + \Gb(\x...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72             \dot{\xb} = \left[\Jb(\xb)-\Rb
+                                               (\xb)\right]\dH(\xb) + \Gb(\x...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...        \dot{\xb} = \left[\Jb(\xb)-\Rb(\xb
+                                                  )\right]\dH(\xb) + \Gb(\xb...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...t{\xb} = \left[\Jb(\xb)-\Rb(\xb)\right]\dH
+                                                  (\xb) + \Gb(\xb)\ub && (\x...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...b} = \left[\Jb(\xb)-\Rb(\xb)\right]\dH(\xb
+                                                  ) + \Gb(\xb)\ub && (\xb,\u...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...eft[\Jb(\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb
+                                                  (\xb)\ub && (\xb,\ub)\in\C...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...\Jb(\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb(\xb
+                                                  )\ub && (\xb,\ub)\in\C\tim...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...\xb)-\Rb(\xb)\right]\dH(\xb) + \Gb(\xb)\ub
+                                                   && (\xb,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.72 ...b)-\Rb(\xb)\right]\dH(\xb) + \Gb(\xb)\ub &
+                                                  & (\xb,\ub)\in\C\times\U\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.72 ...)-\Rb(\xb)\right]\dH(\xb) + \Gb(\xb)\ub &&
+                                                   (\xb,\ub)\in\C\times\U\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.72 ...(\xb)\right]\dH(\xb) + \Gb(\xb)\ub && (\xb
+                                                  ,\ub)\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...)\right]\dH(\xb) + \Gb(\xb)\ub && (\xb,\ub
+                                                  )\in\C\times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...t]\dH(\xb) + \Gb(\xb)\ub && (\xb,\ub)\in\C
+                                                  \times\U\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.72 ...b) + \Gb(\xb)\ub && (\xb,\ub)\in\C\times\U
+                                                  \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \xb 
+                    
+l.73             \xb
+                    ^+ \in \G(\xb)&&\quad~~ \xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.73             \xb^+ \in \G
+                             (\xb)&&\quad~~ \xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.73             \xb^+ \in \G(\xb
+                                 )&&\quad~~ \xb\in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.73             \xb^+ \in \G(\xb)&
+                                   &\quad~~ \xb\in\D\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.73             \xb^+ \in \G(\xb)&&
+                                    \quad~~ \xb\in\D\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.73             \xb^+ \in \G(\xb)&&\quad~~ \xb
+                                               \in\D\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.73 ...       \xb^+ \in \G(\xb)&&\quad~~ \xb\in\D
+                                                  \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \yb 
+                    
+l.74             \yb
+                     = \Gb^\top(\xb)\dH(\xb)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.74             \yb = \Gb
+                          ^\top(\xb)\dH(\xb)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.74             \yb = \Gb^\top(\xb
+                                   )\dH(\xb)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.74             \yb = \Gb^\top(\xb)\dH
+                                       (\xb)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.74             \yb = \Gb^\top(\xb)\dH(\xb
+                                           )
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{equation} on input line 66 ended by \end{matrix*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76         \end{matrix*}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (226.38004pt too wide) detected at line 80
+[][]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 T
+      he state--space of the system is $\X\triangleq\C\cup\D$ and $\Ha:\X\ri...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \X 
+                   
+l.83 The state--space of the system is $\X
+                                          \triangleq\C\cup\D$ and $\Ha:\X\ri...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 ...tate--space of the system is $\X\triangleq
+                                                  \C\cup\D$ and $\Ha:\X\righ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 ...te--space of the system is $\X\triangleq\C
+                                                  \cup\D$ and $\Ha:\X\righta...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 ...ace of the system is $\X\triangleq\C\cup\D
+                                                  $ and $\Ha:\X\rightarrow\R$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \Ha 
+                    
+l.83 ... system is $\X\triangleq\C\cup\D$ and $\Ha
+                                                  :\X\rightarrow\R$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 ...stem is $\X\triangleq\C\cup\D$ and $\Ha:\X
+                                                  \rightarrow\R$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83 ...riangleq\C\cup\D$ and $\Ha:\X\rightarrow\R
+                                                  $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{defn}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 \end{defn}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<write> ...g: Reference `fig:1D' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.86 ...all--juggling} robots of Fig. \ref{fig:1D}
+                                                  . Note that most mechanica...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:1D' on page  undefined on input line 86.
+
+! Undefined control sequence.
+<write> ...nce `eq:impulsive_ph' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.86 ...it a representation (\ref{eq:impulsive_ph}
+                                                  ).
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `eq:impulsive_ph' on page  undefined on input line 86.
+
+
+
+! LaTeX Error: Environment exmp undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 \begin{exmp}
+                 [Impact Pendulum]\label{ex:ipend}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<write> ...Reference `fig:ipend' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.89 ...d length $\ell$ as in Fig. \ref{fig:ipend}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:ipend' on page  undefined on input line 89.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91     \begin{figure}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: File `Drawings/ipend.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.93         \input{Drawings/ipend.tex}
+                                       ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 38 strings out of 493640
+ 453 string characters out of 6150527
+ 62200 words of memory out of 5000000
+ 3730 multiletter control sequences out of 15000+600000
+ 8784 words of font info for 35 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 20i,4n,17p,387b,109s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on 3hybridporthamiltonian.dvi (2 pages, 2200 bytes).

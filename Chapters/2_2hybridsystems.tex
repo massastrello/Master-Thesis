@@ -1,13 +1,14 @@
 \section{Hybrid Dynamical Systems\label{sec:HD_systems}}
 %
-The basic notions of hybrid dynamical system and their hybrid inclusions formulation will be now defined. Part of the content of this Section is inspired by \cite{goebel2009hybrid,Goebel2012}.
+The basic notions of hybrid dynamical system and their hybrid inclusions formulation will be now defined. Part of the content of this Section is inspired by the work of \cite{goebel2009hybrid,Goebel2012}.
 
 Hybrid dynamical systems represent a wide class of systems in which continuous time and discrete time dynamics interacts. In recent years, there has been a growing interest in this field. One of the main reason is that these kind of systems provide a new and promising modeling perspective for systems presenting discontinuous behaviors as well as multimodality. The presence of both discrete and continuous dynamics makes this formalism appealing also for modeling physical phenomena in many different areas, from biology and medical applications to robotics, manufacturing, traffic management and bio-molecular networks~\citep{Aihara4893, Bortolussi2018}. 
 Overviews of this framework are given in ~\citep{van2000introduction, haddad2006impulsive,goebel2009hybrid,Goebel2012}.
 %
 \subsection{Hybrid Inclusions}
 %
-Hybrid Inclusions are the most general formulation in the hybrid systems framework. They are made up with a constrained differential inclusion and a constrained difference inclusion in the form:
+Hybrid Inclusions are the most general formulation within hybrid systems framework. They are compound with a constrained differential inclusion and a constrained difference inclusion in the form:
+%
 \begin{equation}\label{eq:hs}
 %
 \left\{ 
@@ -17,7 +18,7 @@ Hybrid Inclusions are the most general formulation in the hybrid systems framewo
 \xb^+ \in \G(\xb,\ub_d)&&(\xb,\ub_d)\in\D\times\U_d
 %
 \end{matrix*}
-\right.
+\right.~~,
 %
 \end{equation}
 %
@@ -32,13 +33,13 @@ The trajectories resulting from this kind of systems are defined on a \textit{hy
     Let $\E$ be a subset of $\R^+\times\mathbb{N}$, i.e. $\E\subset\R^+\times\mathbb{N}$. $\E$ is a compact hybrid time domain if 
     %
     \begin{equation}
-        \E\triangleq\bigcup_{k = 0}^{j-1}\left[t_k,t_{k+1}\right]\times {k} 
+        \E\triangleq\bigcup_{k = 0}^{j-1}\left[t_k,t_{k+1}\right]\times {k},
     \end{equation}
     %
     such that
     %
     \begin{equation}
-        t_0 = 0~~\land~~\forall k\leq j~t_k\leq t_{k+1}~
+        t_0 = 0~~\land~~\forall k\leq j~t_k\leq t_{k+1},
     \end{equation}
     %
     and one of the following hold:
@@ -46,7 +47,7 @@ The trajectories resulting from this kind of systems are defined on a \textit{hy
         \item [i)] there are infinite intervals, i.e. $j = \infty$;
         \item [ii)] $j<\infty$ and the last interval is of the form
         \begin{equation}
-            \left[t_{j-1},t_f\right)\times \{j\}~~\text{with}~~t_f<\infty~\lor~t_f = \infty
+            \left[t_{j-1},t_f\right)\times \{j\}~~\text{with}~~t_f<\infty~\lor~t_f = \infty.
         \end{equation}
     \end{itemize}
     %
@@ -100,6 +101,7 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
         %
     \end{equation}
     %
+    
     When the ball hits the actuated surface, the impact is modeled as
     %
     %
@@ -133,6 +135,7 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
         %
     \end{equation}
     %
+    
     The final hybrid system is 
     %
     \begin{equation}
@@ -146,7 +149,7 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
                 %
             \end{matrix*}
             %
-        \right.
+        \right.~~.
     \end{equation}
     %
     Note that the energy of the system is $\Ha(\xb) = \frac{m}{2}v^2 + m\gamma q$.
@@ -168,7 +171,7 @@ The solutions of (\ref{eq:hs}) are definite on \textit{hybrid arcs} and parametr
 %
 \subsection{Stability}
 %
-Lyapunov stability theorems has been indeed extended to the hybrid case. In the case of continuous--time dynamical systems, the stability of equilibrium points is usually discussed. However, in case of hybrid systems, it is rather convenient to analyze the stability of a set. Hereafter the very basic results on Lyapunov stability of hybrid systems will be introduced.
+Lyapunov stability theorems has been indeed extended to the hybrid case. In the case of continuous--time dynamical systems, the stability of equilibrium points is commonly discussed. However, in case of hybrid systems, it is rather convenient to analyze the stability of a set. Hereafter the very basic results on Lyapunov stability of hybrid systems will be introduced.
 %
 \begin{thm}[Lyapunov Stability for Hybrid Systems \citep{goebel2009hybrid}]\label{thm:hybrid_Lyap}
 	%
@@ -176,7 +179,7 @@ Lyapunov stability theorems has been indeed extended to the hybrid case. In the 
 	\begin{subequations}
 		\begin{align}
 		&V(\xb)>0&&\forall \xb\in \left(\C\cup\D\right)\setminus\A\label{eq:stabh_1}\\
-		&\langle\frac{\partial V}{\partial \xb},\mathbf{f}(\xb)\rangle\leq 0&&\forall \xb\in\C\setminus\A,\mathbf{f}\in\F\label{eq:stabh_2}\\
+		&\langle\frac{\partial V}{\partial \xb},\mathbf{f}(\xb)\rangle\leq 0&&\forall \xb\in\C\setminus\A,\mathbf{f}\in\F\label{eq:stabh_2}~~~,\\
 		&V(\mathbf{g}(\xb)) - V(\xb)\leq 0 &&\forall \xb\in\D\setminus\A,\mathbf{g}\in\G\label{eq:stabh_3}
 		\end{align}
 	\end{subequations}
@@ -195,6 +198,7 @@ Let consider the autonomous case (u=0) and let
     \A\triangleq \left\{(q,v)~:~q\leq\delta q\in\R^+\land |v|\leq\delta v\in\R^+\right\}.
 \end{equation}
 %
+
 Indeed it holds 
 %
 \begin{equation}
@@ -207,11 +211,12 @@ and
     \G\left(\A\cap\D\right) = \left\{(0,-cv)~:~v\leq 0\land |v|\leq\delta v\in\R^+\right\}\subset \A.
 \end{equation}
 %
+
 Let's examine the stability of $A$. By choosing as Lyapunov function the energy of the system: $V(\xb) = \Ha(\xb)$. It holds, $\Ha(\xb)>0~~\forall \xb\in\left(\C\cup\D\right)\setminus\A$ and
 %
 \begin{align}
     \langle\frac{\partial\Ha}{\partial \xb},\F(\x)\rangle &= [m\gamma,mv]\begin{bmatrix}0&1\\0&-\beta/m\end{bmatrix}\begin{bmatrix}q\\v\end{bmatrix} + [m\gamma,mv] \begin{bmatrix}0\\-\gamma\end{bmatrix} \\
-    & = -\beta v^2 \leq 0\quad\forall v\in\R
+    & = -\beta v^2 \leq 0\quad\forall v\in\R,
 \end{align}
 %
 which indeed holds for all $\xb\in\C\setminus\A$.
@@ -220,15 +225,15 @@ Finally, stability of $\A$ is proving noticing that
 %
 \begin{align}
     \Ha(\x^+) -\Ha(\xb) &= \frac{m}{2}(v^+)^2 + m\gamma q^+ - \frac{m}{2}v^2 + m\gamma q\\
-    &= \frac{m}{2}(c-1)v^2\leq 0 \quad\forall v\in\R,~\forall c\in(0,1)
+    &= \frac{m}{2}(c-1)v^2\leq 0 \quad\forall v\in\R,~\forall c\in(0,1),
 \end{align}
 %
-which holds also for any $\xb\in\D\setminus\A$. Note that in the case of the controlled system, $\A$ remains Lyapunov stable if and only if for all $t\geq 0$, $u(t)\leq c$. The descent of the energy during a trajectory of the system is represented in Fig. \ref{fig:bb2}
+which holds also for any $\xb\in\D\setminus\A$. Note that in the case of the controlled system, $\A$ remains Lyapunov stable if and only if for all $t\geq 0$, $u(t)\leq c$. The descent of the energy during a trajectory of the system is represented in Fig. \ref{fig:bb2}.
 %
 \begin{figure}[!h]
     \centering
     \includegraphics{Figures/bb2.pdf}
-    \caption{Energy Descent during trajectory a trajectory of the autonomos system.}
+    \caption{Energy descent during a trajectory of the autonomous system.}
     \label{fig:bb2}
 \end{figure}
 %

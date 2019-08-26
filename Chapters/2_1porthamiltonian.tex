@@ -5,7 +5,7 @@
 Consider an autonomous time--invariant nonlinear dynamical system
 %
 \begin{equation}\label{eq:nlsys}
-    \dot{\xb} = \mathbf{f}(\xb)
+    \dot{\xb} = \mathbf{f}(\xb),
 \end{equation}
 %
 where $\mathbf{f}:\R^n\supseteq\X\rightarrow\R^n$ is assumed smooth enough such that solutions are forward complete for all initial conditions $\xb_0\in\X$. Let $\xb^*$ be a fixed point of (\ref{eq:nlsys}).
@@ -55,7 +55,7 @@ Let us consider a controlled affine system:
         \dot{\xb} = \fb(\xb) + \gb(\xb)\ub\\
         \yb = \hb(\xb)
     \end{matrix*}
-    \right.
+    \right.~~,
 \end{equation}
 where $\xb\in\X\subset\R^n$, $\ub\in\U\subset\R^m$, $\yb\in\Y\subset\R^m$. $\fb:\X\rightarrow\R^n$, $\gb:\X\rightarrow\R^{m\times n}$ ($\rank(\gb)= m\leq n$) and $\hb:\X\rightarrow\R^m$ are assumed smooth enough such that the solutions are forward--complete for all initial conditions $\xb_0\in\X$ and all inputs $\ub(t)\in\mathcal{L}_2^m$. Let $\bm\phi(t,\xb_0,\ub)$ denote the state trajectory at time $t\geq0$.
 %
@@ -65,6 +65,7 @@ A \textit{supply rate} is a real valued function $w$ defined on $\Y\times\U$. Th
     \Ha(\xb(t))-\Ha(\xb(0)) \leq \int_0^tw(s)ds.
 \end{equation}
 %
+
 Furthermore, the system is said to be \textit{passive} if it is dissipative with respect to the supply rate $w = \langle \yb,\ub \rangle$. The supply rate $w$ and the storage function $\Ha(\xb)$ can be thought as the generalized power and the generalized energy\footnote{Without any loss of generality, $\Ha(\xb)$ can be taken bounded from below rather than nonnegative, since the properties of storage functions hold regardless of an additive constant.}, respectively. In fact, the pair $(\ub,\yb)$ represents the medium by which the system can exchange generalized energy through $w$ \citep{secchi2007control}.
 %
 \begin{defn}(Kalman-Yakubovich-Popov (KYP) Property).
@@ -76,14 +77,14 @@ Furthermore, the system is said to be \textit{passive} if it is dissipative with
             {\dH(\xb)}\fb(\xb)\leq 0\quad\\ 
             {\dH(\xb)}\gb(\xb)= \hb^\top(\xb)
         \end{matrix*}
-        \right.
+        \right.~~,
     \end{equation}
     %
     for all $\xb\in\X$.
     %
 \end{defn}
 %
-It is worth noticing that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the system while ${\dH(\xb)}\gb(\xb)\ub(t)=\yb^\top(t)\ub(t)$ is the instant power flow at time $t$.
+It is worth to notice that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the system while ${\dH(\xb)}\gb(\xb)\ub(t)=\yb^\top(t)\ub(t)$ is the instant power flow at time $t$.
 %
 \begin{prop}[\citealp{byrnes91}]
     %
@@ -94,7 +95,7 @@ It is worth noticing that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the
 \begin{rem}\textcolor{white}{a}
 \begin{itemize}
     \item[i)] Dissipative (and thus passive) systems have no internal production of generalized energy, only its dissipation is possible; 
-    \item[ii)] Moreover, the total amount of generalized energy that can be extracted from a dissipative system is bounded from above by the amount that is initially stored; 
+    \item[ii)] The total amount of generalized energy that can be extracted from a dissipative system is bounded from above by the amount that is initially stored; 
     \item[iii)] Strict minima of $\Ha$ corresponding to fixed points of (\ref{eq:nlaffine}) are Lyapunov stable, as it can be deduced comparing the KYP Property with Theorem \ref{thm:lyap_nl}.
 \end{itemize}
 \end{rem}
@@ -106,9 +107,10 @@ It is worth noticing that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the
 	A system (\ref{eq:nlaffine}) is locally zero state observable if there exists a neighborhood $\B\subset\X$ such that
 	% 
 	\begin{equation}
-	    \forall \xb\in \B,~\forall t\geq 0 \quad \hb(\bm\phi(t,\xb,\mymathbb{0}_m))=\mymathbb{0}_n~~\Rightarrow~~ \xb=\mymathbb{0}_n
+	    \forall \xb\in \B,~\forall t\geq 0 \quad \hb(\bm\phi(t,\xb,\mymathbb{0}_m))=\mymathbb{0}_n~~\Rightarrow~~ \xb=\mymathbb{0}_n.
 	\end{equation}
 	%
+	
 	If $\B\equiv\X$ the system is said zero state observable.
 \end{defn}
 
@@ -116,9 +118,10 @@ It is worth noticing that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the
 	A system (\ref{eq:nlsys}) is locally zero state detectable if there exists a neighborhood $\B\subset\X$ of $\mymathbb{0}_n$ such that,
 	% 
 	\begin{equation}
-	    \forall \xb\in \B,~\forall t\geq 0 \quad \hb(\bm\phi(t,\xb,\mymathbb{0}_m))=\mymathbb{0}_n~~\Rightarrow~~ \lim\limits_{t\rightarrow\infty}\bm\phi(t,\xb,\mymathbb{0}_m)=\mymathbb{0}_n
+	    \forall \xb\in \B,~\forall t\geq 0 \quad \hb(\bm\phi(t,\xb,\mymathbb{0}_m))=\mymathbb{0}_n~~\Rightarrow~~ \lim\limits_{t\rightarrow\infty}\bm\phi(t,\xb,\mymathbb{0}_m)=\mymathbb{0}_n.
     \end{equation}
 	%
+	
 	If $\B\equiv\X$ the system is said zero state detectable.
 \end{defn}
 %
@@ -126,7 +129,7 @@ It is worth noticing that ${\dH(\xb)}\fb(\xb)$ is the natural dissipation of the
 \begin{defn}[Radially Unbounded (Proper) Function]
 	A nonnegative function $\Ha:\X\rightarrow\R^+$ is a radially unbounded (proper) function if
 	\begin{equation}
-	\forall r\in\R^{*,+}\quad  \left\{\xb\in\X~:~0\leq \Ha(\xb)\leq r \right\}
+	\forall r\in\R^{*,+}\quad  \left\{\xb\in\X~:~0\leq \Ha(\xb)\leq r \right\},
 	\end{equation}
 	%
 	is compact.
@@ -149,10 +152,11 @@ A basic stabilization property of passive system is given by the following theor
 	    \bm\alpha(\mymathbb{0}_m)=\mymathbb{0}_m~~\land~~ \forall \yb\in\Y\setminus\{\mymathbb{0}_m\}~~~~\yb^\top\bm\alpha(\yb)>0.
 	\end{equation}
 	%
+	
 	The control law:
 	%
 	\begin{equation}\label{eq:ofs}
-	\ub=-\bm\alpha(\yb)
+	\ub=-\bm\alpha(\yb),
 	\end{equation}
 	%
 	asymptotically stabilizes the equilibrium point.
@@ -170,22 +174,22 @@ Applying a change of coordinates, it can be shown that any strict minimum of the
 %
 It is also possible to show that an analogous result holds without explicitly assuming the zero-state detectability of the nonlinear system.
 \begin{prop}[\citealp{macchelli2003port}]
-	If (\ref{eq:nlaffine}) is passive with positive definite storage function $\Ha$, the control law $\ref{eq:ofs}$ (locally) asymptotically stabilizes $\xb=\mymathbb{0}_n$, if, given a neighborhood $\B_0$ of $\x=\mymathbb{0}_n$, the largest invariant set contained in
+	If (\ref{eq:nlaffine}) is passive with positive definite storage function $\Ha$, the control law $\ref{eq:ofs}$ (locally) asymptotically stabilizes $\xb=\mymathbb{0}_n$, if given a neighborhood $\B_0$ of $\x=\mymathbb{0}_n$, the largest invariant set contained in
 	%
-	\begin{equation*}
-		\left\{\xb\in\X\cap\B_0~:~\yb(\xb)=\mymathbb{0}_m\right\}
-	\end{equation*}
+	\begin{equation}
+		\left\{\xb\in\X\cap\B_0~:~\yb(\xb)=\mymathbb{0}_m\right\},
+	\end{equation}
 	%
 	is $\{\mymathbb{0}_n\}$.
 \end{prop}
 %
-The final result recalled in this section will be one of the most useful in the sect Sections and Chapters.
+The final consideration recalled in this section will be one of the most useful in the sect Sections and Chapters.
 %
 \begin{cor}\label{th:ofgs}
-	Suppose that a system (\ref{eq:nlaffine}) with $\xb=\mymathbb{0}_n$ as afixed point, is passive with a $\mathcal{C}^1$ proper positive definite storage function $\Ha$. If the system is zero--state observable then, $\forall\mathbf{K}\succ 0$, the control law
+	Suppose that a system (\ref{eq:nlaffine}) with $\xb=\mymathbb{0}_n$ as fixed point, is passive with a $\mathcal{C}^1$ proper positive definite storage function $\Ha$. If the system is zero--state observable then, $\forall\mathbf{K}\succ 0$, the control law
 	%
 	\begin{equation}
-	    \ub=-\mathbf{K}\yb
+	    \ub=-\mathbf{K}\yb,
 	\end{equation}
 	%
 	globally asymptotically stabilizes the equilibrium point.
@@ -207,7 +211,7 @@ The input--state--output representation of a port-Hamiltonian system is
 	        \dot{\xb} = \left[\mathbf{J}(\xb) - \mathbf{R}(\xb)\right]\bm{\nabla}\Ha(\xb) + \mathbf{G}(\xb)\mathbf{u}\\
 	        \mathbf{y} = \mathbf{G}^\top(\xb)\bm{\nabla}\Ha(\xb) 
 	    \end{matrix*}
-	\right.
+	\right.~~,
 \end{equation}
 %
 where $\xb\in\R^n$ is the state of the system, $\ub\in\U\subset\R^m$ is the input and $\yb\in\Y\subset\R^m$ is the output.
@@ -230,13 +234,13 @@ It is immediate to show that Port--Hamiltonian systems are \textit{passive} by i
               &\leq \yb^\top\ub.
 \end{align}
 %
-Note that the term $\bm{\nabla}^\top\Ha(\x)\mathbf{R}(\xb)\bm{\nabla}\Ha(\xb)$ is given by the natural (internal) dissipation effects of the system, e.g. friction in mechanical systems, electrical resistance, etc. and it is often denoted as $d(t)$.
+Note that the term $\bm{\nabla}^\top\Ha(\x)\mathbf{R}(\xb)\bm{\nabla}\Ha(\xb)$ is given by the natural (internal) dissipation effects of the system as, for instance, friction in mechanical systems,or electrical resistance. and it is often denoted as $d(t)$.
 %
 
 %
 The first direct consequence is that any local minimum $\xb^*$ of $\Ha(\xb)$, i.e.
 \begin{equation}
-    \xb^*:~~\bm\nabla\Ha(\x^*) = \mymathbb{0}_n~\land~\bm\nabla^2\Ha(\x^*)\succeq 0
+    \xb^*:~~\bm\nabla\Ha(\x^*) = \mymathbb{0}_n~\land~\bm\nabla^2\Ha(\x^*)\succeq 0,
 \end{equation}
 is a Lyapunov stable equilibrium point of the system. Furthermore, $\xb^*$ can be asymptotically stabilized with a proper output feedback law (see Subsection \ref{sec:OutFeedStab}).
 %
@@ -256,20 +260,21 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	Consider an $n$--degrees--of--freedom fully--actuated mechanical system with Lagrange generalized coordinates $\q\in\Q\subset\R^n$, inertia matrix $\mathbf{M}(\q)$, kinetic energy $\K(\dot{\q})\triangleq\frac{1}{2}\dot{\q}^\top \mathbf{M}(\q)\dot{\q}$ and potential $\V(\q)$. The Lagrangian of the system $\La:\R^n\times\R^n\rightarrow\R$ is
     %
     \begin{equation}
-        \La(\q,\dot{\q}) \triangleq  \K(\dot{\q}) - \V(\q)
+        \La(\q,\dot{\q}) \triangleq  \K(\dot{\q}) - \V(\q).
     \end{equation}
     %
+    
     By defining the generalized momenta conjugated to $\q$ as
     %
     \begin{equation}
-        \p \triangleq \frac{\partial \La}{\partial \dot{\q}} = \mathbf{M}(\q)\dot{\q}\in T^*\Q    
+        \p \triangleq \frac{\partial \La}{\partial \dot{\q}} = \mathbf{M}(\q)\dot{\q},
     \end{equation}
     %
     an explicit port--Hamiltonian representation of the system can be obtained by defining:
 	%
 	\begin{align}
-	    \x &\triangleq (\q,\p)\in\R^{2n}\\
-	    \Ha(\q,\p) &\triangleq\frac{1}{2}\p^\top\mathbf{M}^{-1}(\q)\p + \V(\q)
+	    \x &\triangleq (\q,\p)\in\R^{2n},\\
+	    \Ha(\q,\p) &\triangleq\frac{1}{2}\p^\top\mathbf{M}^{-1}(\q)\p + \V(\q),
 	\end{align}
 	%
 	and, at last,
@@ -287,7 +292,7 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	    %
 	    \mathbf{G}(\q)=\begin{bmatrix}
 	        \mathbb{O}_{n}\\\mathbf{B}(\q)
-	    \end{bmatrix}\in\R^{2n\times n} &
+	    \end{bmatrix}\in\R^{2n\times n},
 	    %
 	\end{align*}
 	%
@@ -311,17 +316,19 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	        %
 	        \yb = \begin{bmatrix}\mathbb{O}_n&\mathbf{B}^\top(\q)\end{bmatrix}\begin{bmatrix}\bm{\nabla}_{\q}\Ha\\\bm{\nabla}_{\p}\Ha\end{bmatrix}
 	    \end{matrix*}
-	    \right.
+	    \right.~~.
 	    %
 	\end{equation}
 	%
+	
 	Note that, as expected the natural dissipation of the system (given by friction) becomes
 	%
 	\begin{align}
 	    d(t) &= -\bm{\nabla}_\p^\top\Ha\mathbf{D}(\q,\p)\bm{\nabla}_\p^\top\Ha =\\ &=\p^\top\mathbf{M}^{-1}(\q)\mathbf{D}(\q,\p)\mathbf{M}^{-1}(\q)\p =\\
-	    &= \dot{\q}^\top\mathbf{D}(\q,\p)\dot{\q}
+	    &= \dot{\q}^\top\mathbf{D}(\q,\p)\dot{\q}.
 	\end{align}
 	%
+	
 	A graphical representation of the model is provided in Fig. \ref{fig:MECHscheme}.
 	%
 	\begin{figure}[!ht]
@@ -333,15 +340,15 @@ Three examples of port-Hamiltonian modeling are hereafter reported.
 	%
 \end{exmp}
 %
-The linear specialization of the previous example will be now introduced in order to show some numerical simulations.
+With the aim of showing numerical simulations, the linear specialization of the previous example will be now introduced.
 %
 \begin{exmp}[Mass--spring--damper system]\label{ex:msd}
-    Consider the mass--spring--damper system represented by Figure \ref{fig:msd} where $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. Moreover, let $m$ be the mass of the cart and $p = m\dot{q}$ its momentum. 
+    Consider the mass--spring--damper system represented by Fig. \ref{fig:msd} where $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. Moreover, let $m$ be the mass of the cart and $p = m\dot{q}$ its momentum. 
     %
     \begin{figure}[!ht]
 	    \centering
 	    \input{Drawings/msd.tex}
-        \caption[Mass--spring--damper system.]{Mass--spring--damper system. $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot. $u$ is an external forcing term , i.e. the control input.}
+        \caption[Mass--spring--damper system.]{Mass--spring--damper system: $q$ indicates the absolute position of the mass, $k$ is the stiffness of the spring and $b$ is the damping coefficient of the dashpot; $u$ is an external forcing term , i.e. the control input.}
         \label{fig:msd}
     \end{figure}
     %
@@ -363,36 +370,38 @@ The linear specialization of the previous example will be now introduced in orde
 	        %
 	        y = \dot{q}
 	    \end{matrix*}
-	    \right.
+	    \right.~~,
 	    %
     \end{equation}
     %
     having $\Ha$ the following expression
     %
     \begin{equation}
-        \Ha(q,p) \triangleq \frac{1}{2}\left(\frac{1}{m}p^2 + kq^2\right)
+        \Ha(q,p) \triangleq \frac{1}{2}\left(\frac{1}{m}p^2 + kq^2\right).
     \end{equation}
     %
+    
     The natural dissipation of the system results to be
     %
     \begin{equation}
-        d(t) = \frac{b}{m}p^2(t)
+        d(t) = \frac{b}{m}p^2(t),
     \end{equation}
     %
     which means that, if no external inputs are applied (u = 0), the energy dissipated in a time interval $\Delta t$ is
     %
     \begin{equation}
-        \Ha(t+\Delta t) - \Ha(t) = -\int_t^{t+\Delta t}d(s)ds = -\frac{b}{m}\int_t^{t+\Delta t}p^2(s)ds
+        \Ha(t+\Delta t) - \Ha(t) = -\int_t^{t+\Delta t}d(s)ds = -\frac{b}{m}\int_t^{t+\Delta t}p^2(s)ds.
     \end{equation}
     %
-    A numerical simulation of the autonomous system ($u = 0$) has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $[q_0,p_0] = [-0.9,0]$ and increasing values of $b$ ($b = \{0, 0.5, 4\}$). The state--space trajectories are shown in Figure \ref{fig:msd_ss} while the trend of the energy function $\Ha$ and its derivative are plotted in Figure \ref{fig:msd_en}. It can be noticed that when no dissipation is present, the state moves on a closed trajectory coinciding to the level set of $\Ha$ corresponding to the initial condition. On the other hand, when $b>0$, the trajectory moves on continuously decreasing isolines of $\Ha$, converging to the minimum of $\Ha$.
+    
+    A numerical simulation of the autonomous system ($u = 0$) has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $[q_0,p_0] = [-0.9,0]$ and increasing values of $b$ ($b = \{0, 0.5, 4\}$). The state--space trajectories are shown in Fig. \ref{fig:msd_ss} while the trend of the energy function $\Ha$ and its derivative are plotted in Fig. \ref{fig:msd_en}. It can be noticed that when there is no dissipation, the state moves on a closed trajectory coinciding to the level set of $\Ha$ corresponding to the initial condition. On the other hand, when $b>0$, the trajectory moves on continuously decreasing isolines of $\Ha$, converging to the minimum of $\Ha$.
     %
     \begin{figure}[!ht]
         %
         \centering
         \input{Drawings/msd_ss.tex}
         %
-        \caption[State--space trajectory of the mass--spring damper system for different values of the damping coefficient.]{State--space trajectory of the mass--spring damper system for different values of the damping coefficient. The background is the filled contour of the energy function $\Ha$. When $b = 0$, the is no energy dissipation and motion happen on a periodic trajectory (closed curve), i.e. the level set of $\Ha$ corresponding to the initial conditions. When $b = 0.5, 4$, the state converges toward the minimum of the energy with or without oscillations. The convergence happens by converting elastic potential energy into kinetic energy which is partially dissipated by the dashpot before being reconverted to elastic potential. Higher values of the damping coefficient implies grater dissipation.}
+        \caption[State--space trajectory of the mass--spring damper system for different values of the damping coefficient.]{State--space trajectory of the mass--spring damper system for different values of the damping coefficient. The background is the filled contour of the energy function $\Ha$. When $b = 0$, there is no energy dissipation and the motion consists in a periodic trajectory (closed curve), i.e. the level set of $\Ha$ corresponding to the initial conditions. When $b = 0.5, 4$, the state converges toward the minimum of the energy with or without oscillations. The convergence happens by converting elastic potential energy into kinetic energy which is partially dissipated by the dashpot before being reconverted to elastic potential. Higher values of the damping coefficient implies grater dissipation.}
         \label{fig:msd_ss}
     \end{figure}
     %
@@ -400,7 +409,7 @@ The linear specialization of the previous example will be now introduced in orde
         %
         \centering
         \input{Drawings/msd_en.tex}
-        \caption[Time evolution of the Energy of the mass--spring damper system.]{Time evolution of the Energy and its time derivative for the mass--spring damper system. When $b=0$, the energy is conserved. When $b\neq 0$, the energy is dissipated as the system's state reaches its minimum. By increasing the value of the damping coefficient, the energy dissipation rate becomes more uniform as $\dot{\Ha}$ has a less oscillations. Mote that the convergence time in the cases $b = 0.5$ and $b = 4$ is comparable.}
+        \caption[Time evolution of the Energy of the mass--spring damper system.]{Time evolution of the Energy and its time derivative for the mass--spring damper system. When $b=0$, the energy is conserved. When $b\neq 0$, the energy is dissipated as the system's state reaches its minimum. By increasing the value of the damping coefficient, the energy dissipation rate becomes more uniform as $\dot{\Ha}$ has a less oscillations. Note that the convergence time in the cases $b = 0.5$ and $b = 4$ is comparable.}
         \label{fig:msd_en}
         %
     \end{figure}
@@ -409,6 +418,7 @@ The linear specialization of the previous example will be now introduced in orde
 %
 %
 \begin{exmp}[Lotka--Volterra equations]
+	This example is inspired by the content of [j2].
     The classical formulation of the LV model is the following autonomous dynamical system:
     %
     \begin{equation}\label{eq:lv}
@@ -416,15 +426,15 @@ The linear specialization of the previous example will be now introduced in orde
             \begin{matrix*}[l]
                 \dot{\xi} = a\xi - b\xi\eta\\
                 \dot{\eta} = -c\eta + d\xi\eta
-            \end{matrix*}\right.
+            \end{matrix*}\right.~~,
     \end{equation}
     %
     where $\xi(t)$, $\eta(t)\in\R$ represent the time evolution of the populations of prey and predators, respectively. The positive parameters $a$, $b$, $c$, and $d$ have the following meaning:
     %
     \begin{itemize}
         \item [$a$:] Natural growth rate of the prey in absence of predators;
-        \item [$b$:] effect of predation on the prey
-        \item [$c$:] natural death rate of the predators in absence of prey
+        \item [$b$:] effect of predation on the prey;
+        \item [$c$:] natural death rate of the predators in absence of prey;
         \item [$d$:] efficiency and propagation rate of the predators in the presence of prey.
     \end{itemize}
     %
@@ -442,12 +452,12 @@ The linear specialization of the previous example will be now introduced in orde
 	\begin{matrix*}[l]
 	\dot{q} = -c + de^p = \dfrac{\partial}{\partial p}(-cp+de^p + \gamma(q))\\
 	\dot{p} = a - be^q = -\dfrac{\partial}{\partial q}(-aq+be^q + \mu(p))
-	\end{matrix*}\right.
+	\end{matrix*}\right.~~,
 	\end{equation*}
 	%
 	\text{for any scalar functions $\gamma(q)$ and $\mu(p)$}. Selecting 
 	\begin{equation}
-	    \gamma(q) = aq-be^q,~~ \mu(p) = -cp+de^p   
+	    \gamma(q) = aq-be^q,~~ \mu(p) = -cp+de^p ,
 	\end{equation}
 	%
 	yields
@@ -457,7 +467,7 @@ The linear specialization of the previous example will be now introduced in orde
 	\begin{matrix*}[l]
 	\dot{q}  = \dfrac{\partial}{\partial p}(-cp + de^p - aq +be^q) =  {\nabla}_{p}\Ha\\
 	\dot{p}  = -\dfrac{\partial}{\partial q}(-cp + de^p - aq +be^q) =  -{\nabla}_{q}\Ha
-	\end{matrix*}\right.
+	\end{matrix*}\right.~~,
 	\end{equation*}
 	%
 	and, consequently, the Hamiltonian function results in
@@ -466,6 +476,7 @@ The linear specialization of the previous example will be now introduced in orde
 	\Ha(q,p) = -aq + be^q - cp +de^p.
 	\end{equation}
 	%
+	
 	The final port--Hamiltonian model is
 	\begin{equation}\label{eq:LVph}
 	\left\{
@@ -482,15 +493,17 @@ The linear specialization of the previous example will be now introduced in orde
 	%%
 	\yb = \mathbf{G}^\top(q,p)\begin{bmatrix}{\nabla}_{q}\Ha\\{\nabla}_{p}\Ha\end{bmatrix}
 	\end{matrix*}
-	\right.
+	\right.~~.
 	\end{equation}
 	%
+	
 	Note that the Lotka--Volterra system is lossless, i.e. the variation of $\Ha$ is solely due to the injected (extracted) power:
 	%
 	\begin{equation}
-	    \dot{\Ha}(\xb) = \yb^\top\ub
+	    \dot{\Ha}(\xb) = \yb^\top\ub.
 	\end{equation}
 	%
+	
 	In the case of classical mechanics, the Hamiltonian function physically represents the total energy of the system. In this case, it simply reflects the ``conserved quantity''. Moreover, it is not clear by first principles what inputs and outputs should be. In practice, they would depend on how it is possible to influence the biological system; 
 \end{exmp}
 %
@@ -501,20 +514,20 @@ The linear specialization of the previous example will be now introduced in orde
     \label{fig:LVscheme}
 \end{figure}
 %
-Up to this point, we have seen the generality of port--Hamiltonian systems showing how they can be used to model both physical systems (from first principles) and purely mathematical dynamics. In the following, the basic notions of passivity--based--control (PBC) and the \textit{energy--balancing} PBC technique will be discussed. 
+Up to this point, it has been showed the generality of port--Hamiltonian systems, underlying their use in modeling both physical systems (from first principles) and purely mathematical dynamics. In the following, the basic notions of passivity--based--control (PBC) and the \textit{energy--balancing} PBC technique will be discussed. 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Passivity--Based Control}
 %
-As pointed out in the previous part, any local minimum of the energy is a (locally) stable equilibrium point of the system. Thus, it is intuitive to understand how the \textit{shape} of the energy function is always related to stability properties. 
-In the framework passivity--based control of port--Hamiltonian systems, controllers are aimed at modify the closed--loop energy function of the plant by changing its \textit{shape} to obtain the desired stability property, e.g. shift the minimum of the energy into a desired set point. This approach is referred to as ``energy shaping control''. The energy shaping control problem is hereafter formally introduced.
+As pointed out in the previous Section, any local minimum of the energy is a (locally) stable equilibrium point of the system. Thus, it is intuitive to understand how the \textit{shape} of the energy function is always related to stability properties. 
+In the framework of passivity--based control of port--Hamiltonian systems, controllers are aimed at modify the closed--loop energy function of the plant by changing its \textit{shape} to obtain the desired stability property, e.g. shift the minimum of the energy into a desired set point. This approach is referred to as ``energy shaping control''. The energy shaping control problem is hereafter formally introduced.
 %
 \begin{prob}[Passivity--based control]
 Consider a PH system (\ref{eq:PHsys}). A control action $\ub = \bm\beta(\xb) + \mathbf{v}$ solves the PBC problem if the closed--loop system satisfies a desired power--balance equation
 %
 \begin{equation*}
 	\dot{\Ha}^*(\xb)
-	= \zb^\top \vb - d^*
+	= \zb^\top \vb - d^*,
 \end{equation*}
 where $\Ha^*(\xb)$ is the desired energy function, $d^*$ the desired dissipation function and $\zb\in\R^m$ the new power conjugated (passive) output.
 \end{prob}
@@ -531,18 +544,19 @@ and keeping the same output
     \zb \triangleq \yb.
 \end{equation}
 %
-Next proposition gives an operative insight of how to accomplish the EB--PBC control task
+
+The following proposition gives an operative insight of how to accomplish the EB--PBC control task
 %
 \begin{prop}[\citealp{secchi2007control}]\label{prop:ebpbc}
 If it is possible to find a function $\bm\beta(\xb)$ such that
 \begin{equation}
     \dot{\Ha}_a(\xb)
-    =-\yb^\top\bm\beta(\xb)
+    =-\yb^\top\bm\beta(\xb),
 \end{equation}
 then the control law $\ub = \bm\beta(\xb)+\vb$ is such that 
 \begin{equation}
     \dot{\Ha}^*(\xb)
-    = \yb^\top \vb -d^*
+    = \yb^\top \vb -d^*,
 \end{equation}
 is satisfied for $\Ha^*(\xb) \triangleq \Ha(\xb)+\Ha_a(\xb)$.
 \end{prop}
@@ -554,13 +568,13 @@ This implies that the state feedback $\bm\beta(\xb)$ is such that the \textit{ad
 In  \citep{ortega2008control} the closed-form solution of the EB--PBC controller is given by 
 %
 \begin{equation}\label{eq:ebpbc}
-    \bm\beta(\xb) = -\left(\mathbf{G}^{\top}(\xb)\mathbf{G}(\xb)\right)^{-1}\mathbf{G}^{\top}(\xb)\left[\mathbf{J}(\xb)-\mathbf{R}(\xb)\right]^\top\bm\nabla\Ha_a(\xb)
+    \bm\beta(\xb) = -\left(\mathbf{G}^{\top}(\xb)\mathbf{G}(\xb)\right)^{-1}\mathbf{G}^{\top}(\xb)\left[\mathbf{J}(\xb)-\mathbf{R}(\xb)\right]^\top\bm\nabla\Ha_a(\xb),
 \end{equation}
 %
 where $\Ha_a$ satisfies the following matching equations 
 %
 \begin{equation}
-    \begin{bmatrix}\mathbf{G}^{\perp}\left[\mathbf{J}-\mathbf{R}\right]^\top\\\mathbf{G}^\top\end{bmatrix}\bm\nabla\Ha_a(\xb) = \mymathbb{0}_{n+m}
+    \begin{bmatrix}\mathbf{G}^{\perp}\left[\mathbf{J}-\mathbf{R}\right]^\top\\\mathbf{G}^\top\end{bmatrix}\bm\nabla\Ha_a(\xb) = \mymathbb{0}_{n+m},
 \end{equation}
 %
 being $\mathbf{G}^{\perp}$ a left full--rank annihilator of $\mathbf{G}$.
@@ -578,9 +592,10 @@ The closed--loop system might still be rewritten in port--Hamiltonian form as
 	\right..
 \end{equation}
 %
-Furthermore, it is worth to be noticed that the control law 
+
+Furthermore, it is worth to be note that the control law 
 \begin{equation}\label{eq:damping}
-    \mathbf{v}\triangleq -\mathbf{K}_{d}\yb,~~~~(\mathbf{K}_d = \mathbf{K}_d^\top \succ 0)
+    \mathbf{v}\triangleq -\mathbf{K}_{d}\yb,~~~~(\mathbf{K}_d = \mathbf{K}_d^\top \succ 0),
 \end{equation}
 %
 asymptotically stabilizes the minima of $\Ha^*(\xb)$. This negative output feedback law is usually referred to as \textit{damping injection}. Reasoning in a physical manner, the control law (\ref{eq:damping}) behaves as an \textit{dissipative} element, contributing to the {energy dissipation} together to matrix $\mathbf{R}(\xb)$. In fact,
@@ -594,31 +609,33 @@ asymptotically stabilizes the minima of $\Ha^*(\xb)$. This negative output feedb
 and $\mathbf{G}(\xb)\mathbf{K}_{d}\mathbf{G}^\top(\xb)\succeq 0$.
 %
 \begin{rem}
-    Generally speaking, the design of an EB--PBC Controller might be nontrivial. In fact, it is needed to find such a $\bm\beta(\xb)$ which guarantees the solvability of the following partial differential equation
+    Generally speaking, the design of an EB--PBC might be nontrivial. In fact, it is needed to find such a $\bm\beta(\xb)$ which guarantees the solvability of the following partial differential equation
     \begin{equation}
-        \bm\nabla^\top \Ha_a(\xb)\left[\left[\mathbf{J}(\xb)-\mathbf{R}(\xb)\right]\bm\nabla\Ha(\xb) + \mathbf{G}(\xb)\bm\beta(\xb)\right] = -\mathbf{G}^\top(\xb)\bm\nabla\Ha_a(\xb)\bm\beta(\xb)
+        \bm\nabla^\top \Ha_a(\xb)\left[\left[\mathbf{J}(\xb)-\mathbf{R}(\xb)\right]\bm\nabla\Ha(\xb) + \mathbf{G}(\xb)\bm\beta(\xb)\right] = -\mathbf{G}^\top(\xb)\bm\nabla\Ha_a(\xb)\bm\beta(\xb).
     \end{equation}
 \end{rem}
 %
+
 Few practical examples of the EB--PBC will be given hereafter.
 %
 \begin{exmp}[Fully--actuated mechanical system]
     Consider the model (\ref{eq:nDOF}) discussed in Example \ref{ex:ndof} and let $\qb^*$ be a desired configuration of the system. A possible choice of $\bm\beta(\qb)$ which satisfies the conditions given by Proposition \ref{prop:ebpbc} is
     %
     \begin{equation}
-        \bm\beta(\xb) = \mathbf{B}^{-1}(\qb)\left[\bm\nabla_{\qb}\V(\q) - \bm\nabla_\qb\Ha_a(\qb,\pb)\right]
+        \bm\beta(\xb) = \mathbf{B}^{-1}(\qb)\left[\bm\nabla_{\qb}\V(\q) - \bm\nabla_\qb\Ha_a(\qb,\pb)\right],
     \end{equation}
     %
     with $\Ha_a(\qb,\pb)$ having a minimum is $\qb^*$. This control action ``cancels'' the potential $\V(\qb)$ and introduces a new potential $\Ha_a(\qb,\pb)$. A simple choice is a spring--like potential, i.e.
     %
     \begin{equation}
-        \Ha_a(\qb,\pb) = \left(\qb-\qb^*\right)^\top\mathbf{K}_p\left(\qb-\qb^*\right),~~~~\mathbf{K}_p = \mathbf{K}_p^\top\succ 0
+        \Ha_a(\qb,\pb) = \left(\qb-\qb^*\right)^\top\mathbf{K}_p\left(\qb-\qb^*\right),~~~~\mathbf{K}_p = \mathbf{K}_p^\top\succ 0.
     \end{equation}
     %
+    
     Thus, including the damping injection action $\vb = -\mathbf{K}_d\yb =-\mathbf{K}_d\mathbf{B}^\top\dot{\qb}$, the control law becomes:
     %
     \begin{equation}
-        \bm\beta(\xb) = \mathbf{B}^{-1}(\qb)\left[\bm\nabla_{\qb}\V(\q) - \mathbf{K}_p\left(\qb-\qb^*\right)\right] - \mathbf{K}_d\mathbf{B}^\top\dot{\qb}
+        \bm\beta(\xb) = \mathbf{B}^{-1}(\qb)\left[\bm\nabla_{\qb}\V(\q) - \mathbf{K}_p\left(\qb-\qb^*\right)\right] - \mathbf{K}_d\mathbf{B}^\top\dot{\qb}.
     \end{equation}
     %
     %
@@ -630,7 +647,7 @@ The EB-PBC will then be applied to the mass--spring--damper of Example \ref{ex:m
     Consider the mass--spring--damper model (\ref{eq:msd}) of Example \ref{ex:msd}. We want to apply the control law (\ref{eq:ebpbc}).  Let us set the desired energy function to 
     %
     \begin{equation}
-        \Ha^*(q,p)\triangleq \frac{1}{2}\left(\frac{1}{m}p + k_p\left(q-q^*\right)^2\right)
+        \Ha^*(q,p)\triangleq \frac{1}{2}\left(\frac{1}{m}p + k_p\left(q-q^*\right)^2\right),
     \end{equation}
     %
     where $q^*$ is a desired set point. It holds,
@@ -646,13 +663,15 @@ The EB-PBC will then be applied to the mass--spring--damper of Example \ref{ex:m
                  &= -k_p(q-q^*) + kq. 
     \end{align}
     %
+    
     By adding the damping injection term, the total control input becomes
     %
     \begin{equation}
-        u = -k_p(q-q^*) + kq - k_d\dot{q}
+        u = -k_p(q-q^*) + kq - k_d\dot{q}.
     \end{equation}
     %
-    A numerical simulation has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $b = 0.5\text{N}\cdot(\text{m}\cdot\text{s})^{-1}$, $k_p = 1$, $q^* = 0.5$, $k_d = 4$ and $[q_0,p_0] = [-0.9,0]$. The state--space trajectory is reported in Figure \ref{fig:ebpbc}. It can be noticed how the minimum of the energy function is shifted to $[q^*,0]^\top$ and how the damping injection allow a more ``direct'' convergence toward the minimum.
+    
+    A numerical simulation has been performed with $m = 1\text{Kg}$, $k = 1\text{N}\cdot\text{m}^{-1}$, $b = 0.5\text{N}\cdot(\text{m}\cdot\text{s})^{-1}$, $k_p = 1$, $q^* = 0.5$, $k_d = 4$ and $[q_0,p_0] = [-0.9,0]$. The state--space trajectory is reported in Fig. \ref{fig:ebpbc}. It can be noticed how the minimum of the energy function is shifted to $[q^*,0]^\top$ and how the damping injection allow a more ``direct'' convergence toward the minimum.
     %
     \begin{figure}[!ht]
         \centering

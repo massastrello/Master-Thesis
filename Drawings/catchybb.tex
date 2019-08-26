@@ -4,28 +4,39 @@
 \begin{tikzpicture}
 	% axes
 	\draw[thick] (0,0)--(3cm,0);
-	\draw[dotted] (0,0.6cm) node[anchor = east] {\color{black}$0$}--(3cm,0.6cm);
+	\draw[dotted] (-.5,0.6cm) node[anchor = east] {\color{black}$0$}--(3cm,0.6cm);
 	\draw[thick,dashed] (1.5cm,0) -- (1.5cm,3cm);
-	\draw (0cm,0cm) node[anchor = east] {$-2r$} -- (3cm,0) -- (3cm,3cm) -- (0cm,3cm) -- (0cm,0cm);
-	
+	\draw (0cm,0cm) -- (3cm,0) -- (3cm,3cm) -- (0cm,3cm) -- (0cm,0cm);
+	% yaxis
+	\draw[very thick,-latex] (-0.5,-.2) -- (-.5,3);  
 	% robot
 	\fill[ocean, draw = black,thick] (1,2.05) rectangle (2,2.65);
 	% ball
 	\fill[orange, draw=black,thick] (1.5,1.05) circle (0.3);
 	%	
-	\draw[thick,->] (2,2.05) -- (2.25,2.05) -- (2.25,2.4) node[anchor=west] {$q_1$};
-	\draw[thick,->] (1,2.05) -- (0.75,2.05) -- (0.75,2.4) node[anchor=east] {$u$};
-	\draw[thick,->] (1.5,1.35) -- (2.25,1.35) -- (2.25,1.7) node[anchor=west] {$q_2$};
+	%\draw[thick,->] (2,2.05) -- (2.25,2.05) -- (2.25,2.4) node[anchor=west] {$q_1$};
+	%\draw[thick,->] (1,2.05) -- (0.75,2.05) -- (0.75,2.4) node[anchor=east] {$u$};
+	%\draw[thick,->] (1.5,1.35) -- (2.25,1.35) -- (2.25,1.7) node[anchor=west] {$q_2$};
+	%\draw[thick,->] (2,2.05) -- (2.25,2.05) -- (2.25,2.4) node[anchor=west] {$q_1$};
+	%\draw[thick,->] (1,2.05) -- (0.75,2.05) -- (0.75,2.4) node[anchor=east] {$u$};
+	%\draw[thick,->] (1.5,1.35) -- (2.25,1.35) -- (2.25,1.7) node[anchor=west] {$q_2$};
 	%
 	\draw[dotted] (1.5,1.35) -- (1,1.35);
 	\draw[dotted] (1.5,0.75) -- (1,0.75);
 	\draw[<->] (1,0.75) -- (1,1.35)  node[anchor=north east] {$2r$};
 	%
-	\foreach \x in {0,0.25,0.5,0.75,1,1.25,1.5,1.75,2,2.25,2.5,2.75}
-	\draw[thick] (\x,-0.15) -- (\x+0.25,0);
+	%\foreach \x in {0,0.25,0.5,0.75,1,1.25,1.5,1.75,2,2.25,2.5,2.75}
+%	\draw[thick] (\x,-0.15) -- (\x+0.25,0);
 	%
-	\draw[dashed] (2.25,2.05)--(3.51cm,2.05);
-	\draw[dashed] (2.25,1.35)--(3.51cm,1.35);
+	\draw[pattern=north east lines] (0,-.2) rectangle (3,0);
+	%
+	\draw[dashed] (-.5,2.05)--(3.51cm,2.05);
+	\draw[dashed] (-.5,1.35)--(3.51cm,1.35);
+	\draw[-,dotted] (-.5, 0) -- (0, 0);
+	%
+	\node[] at (-.75, 2.05) {$q_1$};
+	\node[] at (-.75, 1.35) {$q_2$};
+	\node[] at (-.95, 0) {$-2r$};
 	\draw[color=black, dotted, line width=1.5pt] (0,1.8)--(3,1.8);
 	%%%%%%%%%%%%%%%%%%%%
 	\begin{axis}[%
@@ -70,7 +81,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 18.6535513561453	1.00424306199285\\
 18.6535975195032	1.00510738317179\\
 18.6536436828611	1.00603486803927\\
-18.6536898462189	1.00702238748127\\
+18.6536898462189	1.00702238748127\\0
 18.653740107328	1.0081623202621\\
 18.653790368437	1.00936616993692\\
 18.6538406295461	1.01063040399249\\
@@ -4605,6 +4616,12 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 20	1\\
 };
 %\addlegendentry{[1,1] vs [18,20]}
+\addplot [color=black, line width=1.0pt, draw=none, mark=*, mark options={solid, fill=red}]
+table[row sep=crcr]{%
+	18.7	0.625\\
+	18.7	1.2\\
+};
+%\addlegendentry{data26}
 
 \end{axis}
 	\end{tikzpicture}

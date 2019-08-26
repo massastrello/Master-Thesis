@@ -1,0 +1,17 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Introduction}{\reset@font\mtcSfont 48}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Model of the Ball--Dribbling Robot}{\reset@font\mtcSfont 49}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Port-Hamiltonian Model of Flows}{\reset@font\mtcSSfont 49}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Model of the Impacts}{\reset@font\mtcSSfont 49}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Ball-Floor Collisions}{\reset@font\mtcSSSfont 50}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Robot-Ball Collisions}{\reset@font\mtcSSSfont 50}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Analysis of the Autonomous Model}{\reset@font\mtcSfont 52}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Passivity and Autonomous Stability}{\reset@font\mtcSSfont 52}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Chaotic Trajectories}{\reset@font\mtcSSfont 52}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Dribbling Control}{\reset@font\mtcSfont 57}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Numerical Simulations}{\reset@font\mtcSfont 60}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Autonomous System}{\reset@font\mtcSSfont 60}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Controlled System}{\reset@font\mtcSSfont 60}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.3}Numerical Stability and Robustnes Analysis}{\reset@font\mtcSSfont 62}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Robustness to Initial Condition}{\reset@font\mtcSSSfont 62}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Robustness to Change of Parameters}{\reset@font\mtcSSSfont 64}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summary}{\reset@font\mtcSfont 76}}

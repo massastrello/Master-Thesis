@@ -1,7 +1,9 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.1}Introduction}{\reset@font\mtcSfont 2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.2}Port--Hamiltonian Systems}{\reset@font\mtcSfont 3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.2.1}Input--State--Output Model}{\reset@font\mtcSSfont 3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.2.2}Passivity--Based Control}{\reset@font\mtcSSfont 3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.3}Hybrid Dynamical Systems}{\reset@font\mtcSfont 4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.1}Hybrid Inclusions}{\reset@font\mtcSSfont 4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.2}Stability}{\reset@font\mtcSSfont 4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.1}Background}{\reset@font\mtcSfont 2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.1.1}Energy as Common Factor Among Interactions}{\reset@font\mtcSSfont 2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.1.2}Research Problem: Control Highly Dynamic Robotic Tasks}{\reset@font\mtcSSfont 3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.1.3}Beyond Robot Control}{\reset@font\mtcSSfont 4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.1.4}The Identification Problem}{\reset@font\mtcSSfont 5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.2}{Aims and Objectives}}{\reset@font\mtcSfont 7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.3}Thesis Content and Structure}{\reset@font\mtcSfont 8}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.1}Thesis Outline}{\reset@font\mtcSSfont 8}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.2}Thesis Content}{\reset@font\mtcSSfont 9}}
